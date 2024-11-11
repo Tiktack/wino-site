@@ -1,0 +1,99 @@
+/* ToggleSwitch.module.css */
+.switch {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.switch[data-disabled] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control {
+  display: inline-flex;
+  align-items: center;
+  height: 16px;
+  width: 38px;
+  border: 1px solid var(--control-stroke-default);
+  border-radius: 10px;
+  padding: 2px;
+  background-color: var(--control-fill-default);
+  transition: all var(--control-normal-duration) var(--control-fast-out-slow-in-easing);
+}
+
+.switch:hover .control {
+  background-color: var(--control-fill-secondary);
+}
+
+.switch[data-checked] .control {
+  background-color: var(--accent-default);
+  border-color: transparent;
+}
+
+.switch[data-checked]:hover .control {
+  background-color: var(--accent-secondary);
+}
+
+.error .control {
+  border-color: var(--system-critical);
+}
+
+.thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background-color: var(--text-primary);
+  transform: translateX(0);
+  transition: transform var(--control-normal-duration) var(--control-fast-out-slow-in-easing);
+}
+
+.switch[data-checked] .thumb {
+  background-color: var(--text-on-accent-primary);
+  transform: translateX(20px);
+}
+
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  color: var(--text-primary);
+  font-family: var(--font-family-text);
+  font-size: var(--body-font-size);
+  user-select: none;
+}
+
+.description {
+  color: var(--text-secondary);
+  font-family: var(--font-family-text);
+  font-size: var(--caption-font-size);
+  user-select: none;
+}
+
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus styles */
+.switch:focus-visible .control {
+  outline: none;
+  box-shadow: var(--focus-stroke);
+}
