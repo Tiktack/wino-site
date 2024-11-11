@@ -1,5 +1,6 @@
 import { Title } from "@solidjs/meta";
 import ListItem from "~/components/core/ListItem/ListItem";
+import { AlertIcon, MoreHorizontalIcon, OptionsIcon } from "solid-fluent-icons";
 
 export default function ListItems() {
 	return (
@@ -14,9 +15,18 @@ export default function ListItems() {
 				}}
 			>
 				<ListItem>Standard</ListItem>
-        <ListItem selected>Selected</ListItem>
-				<ListItem disabled>Disabled</ListItem>
-				<ListItem selected disabled>Selected Disabled</ListItem>
+				<ListItem selected>
+					<OptionsIcon />
+					Selected
+				</ListItem>
+				<ListItem disabled>
+					<MoreHorizontalIcon />
+					Disabled
+				</ListItem>
+				<ListItem selected>
+					<AlertIcon />
+					Selected Disabled
+				</ListItem>
 			</div>
 		</main>
 	);

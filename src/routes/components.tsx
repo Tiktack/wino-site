@@ -1,8 +1,37 @@
 import { Title } from "@solidjs/meta";
 import { useLocation, type RouteSectionProps } from "@solidjs/router";
-import { createMemo } from "solid-js";
+import { createMemo, For } from "solid-js";
 import ListItem from "~/components/core/ListItem/ListItem";
 import { TextBlock } from "~/components/core/TextBlock/TextBlock";
+import {
+	ControlButtonIcon,
+	ToggleLeftIcon,
+	TextBulletListTreeIcon,
+	TextCaseTitleIcon,
+} from "solid-fluent-icons";
+
+const routesConfig = [
+	{
+		name: "Button",
+		path: "/components/buttons",
+		icon: ControlButtonIcon,
+	},
+	{
+		name: "ToggleSwitch",
+		path: "/components/toggleswitches",
+		icon: ToggleLeftIcon,
+	},
+	{
+		name: "ListItem",
+		path: "/components/listitems",
+		icon: TextBulletListTreeIcon,
+	},
+	{
+		name: "TextBlock",
+		path: "/components/textblocks",
+		icon: TextCaseTitleIcon,
+	},
+];
 
 export default function Components(props: RouteSectionProps) {
 	const location = useLocation();
@@ -21,31 +50,17 @@ export default function Components(props: RouteSectionProps) {
 				<div
 					style={{ display: "flex", "flex-direction": "column", gap: "0.1rem" }}
 				>
-					<TextBlock variant="subtitle" style={{ "text-align": "left" }}>Components</TextBlock>
-					<ListItem
-						selected={pathname() === "/components/buttons"}
-						href="/components/buttons"
-					>
-						Button
-					</ListItem>
-					<ListItem
-						selected={pathname() === "/components/toggleswitches"}
-						href="/components/toggleswitches"
-					>
-						ToggleSwitch
-					</ListItem>
-					<ListItem
-						selected={pathname() === "/components/listitems"}
-						href="/components/listitems"
-					>
-						ListItem
-					</ListItem>
-					<ListItem
-						selected={pathname() === "/components/textblocks"}
-						href="/components/textblocks"
-					>
-						TextBlock
-					</ListItem>
+					<TextBlock variant="subtitle" style={{ "text-align": "left" }}>
+						Components
+					</TextBlock>
+					<For each={routesConfig}>
+						{(route) => (
+							<ListItem selected={pathname() === route.path} href={route.path}>
+								<route.icon />
+								{route.name}
+							</ListItem>
+						)}
+					</For>
 				</div>
 			</div>
 			<div style={{ width: "70%", padding: "1rem" }}>{props.children}</div>
