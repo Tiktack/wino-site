@@ -1,10 +1,9 @@
 import { Title } from "@solidjs/meta";
 import {
 	useLocation,
-	useParams,
 	type RouteSectionProps,
 } from "@solidjs/router";
-import { createEffect, createMemo } from "solid-js";
+import {  createMemo } from "solid-js";
 import ListItem from "~/components/core/ListItem/ListItem";
 
 export default function Components(props: RouteSectionProps) {
@@ -35,6 +34,12 @@ export default function Components(props: RouteSectionProps) {
 						href="/components/toggleswitches"
 					>
 						ToggleSwitch
+					</ListItem>
+					<ListItem
+						selected={pathname() === "/components/listitems"}
+						href="/components/listitems"
+					>
+						ListItem
 					</ListItem>
 				</div>
 			</div>
