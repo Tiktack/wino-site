@@ -42,10 +42,6 @@
   background-color: var(--accent-secondary);
 }
 
-.error .control {
-  border-color: var(--system-critical);
-}
-
 .thumb {
   height: 14px;
   width: 14px;

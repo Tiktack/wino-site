@@ -9,7 +9,6 @@ interface ToggleSwitchProps {
   checked?: boolean;
   defaultChecked?: boolean;
   disabled?: boolean;
-  error?: boolean;
   onChange?: (checked: boolean) => void;
 }
 
@@ -19,14 +18,13 @@ export function ToggleSwitch(props: ToggleSwitchProps) {
     "label",
     "description",
     "onChange",
-    "error",
     "defaultChecked",
 		"disabled",
 	]);
 
   return (
     <Switch.Root
-      class={`${styles.switch} ${local.error ? styles.error : ''}`}
+      class={`${styles.switch}`}
       checked={local.checked}
       defaultChecked={local.defaultChecked}
       disabled={local.disabled}
