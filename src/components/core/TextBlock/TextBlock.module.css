@@ -1,0 +1,59 @@
+.textBlock {
+  color: white;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.caption {
+  line-height: 16px;
+  font-size: var(--caption-font-size);
+  font-weight: 400;
+  font-family: var(--font-family-small);
+}
+
+.body,
+.bodyStrong,
+.bodyLarge {
+  line-height: 20px;
+  font-weight: 400;
+  font-size: var(--body-font-size);
+  font-family: var(--font-family-text);
+}
+
+.bodyStrong {
+  font-weight: 600;
+}
+
+.bodyLarge {
+  font-size: var(--body-large-font-size);
+  line-height: 24px;
+}
+
+.subtitle,
+.title,
+.titleLarge,
+.display {
+  font-family: var(--font-family-display);
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: var(--subtitle-font-size);
+  line-height: 28px;
+}
+
+.title {
+  font-size: var(--title-font-size);
+  line-height: 36px;
+}
+
+.titleLarge {
+  font-size: var(--title-large-font-size);
+  line-height: 52px;
+}
+
+.display {
+  font-size: var(--display-font-size);
+  line-height: 92px;
+}

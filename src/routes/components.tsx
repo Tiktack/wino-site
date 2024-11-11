@@ -1,10 +1,8 @@
 import { Title } from "@solidjs/meta";
-import {
-	useLocation,
-	type RouteSectionProps,
-} from "@solidjs/router";
-import {  createMemo } from "solid-js";
+import { useLocation, type RouteSectionProps } from "@solidjs/router";
+import { createMemo } from "solid-js";
 import ListItem from "~/components/core/ListItem/ListItem";
+import { TextBlock } from "~/components/core/TextBlock/TextBlock";
 
 export default function Components(props: RouteSectionProps) {
 	const location = useLocation();
@@ -23,6 +21,7 @@ export default function Components(props: RouteSectionProps) {
 				<div
 					style={{ display: "flex", "flex-direction": "column", gap: "0.1rem" }}
 				>
+					<TextBlock variant="subtitle" style={{ "text-align": "left" }}>Components</TextBlock>
 					<ListItem
 						selected={pathname() === "/components/buttons"}
 						href="/components/buttons"
@@ -40,6 +39,12 @@ export default function Components(props: RouteSectionProps) {
 						href="/components/listitems"
 					>
 						ListItem
+					</ListItem>
+					<ListItem
+						selected={pathname() === "/components/textblocks"}
+						href="/components/textblocks"
+					>
+						TextBlock
 					</ListItem>
 				</div>
 			</div>
