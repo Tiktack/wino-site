@@ -12,33 +12,33 @@ const buttonVariants = cva(styles.button, {
 		variant: {
 			standard: styles.standard,
 			accent: styles.accent,
-      hyperlink: styles.hyperlink,
+			hyperlink: styles.hyperlink,
 		},
-    disabled: {
-      true: styles.buttonDisabled,
-      false: ""
-    },
+		disabled: {
+			true: styles.buttonDisabled,
+			false: "",
+		},
 	},
-  compoundVariants: [
-    {
-      variant: ["standard"],
-      disabled: true,
-      class: styles.standardDisabled,
-    },
-    {
-      variant: ["accent"],
-      disabled: true,
-      class: styles.accentDisabled,
-    },
-    {
-      variant: ["hyperlink"],
-      disabled: true,
-      class: styles.hyperlinkDisabled,
-    },
-  ],
+	compoundVariants: [
+		{
+			variant: ["standard"],
+			disabled: true,
+			class: styles.standardDisabled,
+		},
+		{
+			variant: ["accent"],
+			disabled: true,
+			class: styles.accentDisabled,
+		},
+		{
+			variant: ["hyperlink"],
+			disabled: true,
+			class: styles.hyperlinkDisabled,
+		},
+	],
 	defaultVariants: {
 		variant: "standard",
-    disabled: false
+		disabled: false,
 	},
 });
 

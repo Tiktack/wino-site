@@ -1,89 +1,87 @@
-@import '../../theme.css';
-
 .button {
-  position: relative;
-  box-sizing: border-box;
-  padding-block: 4px 6px;
-  padding-inline: 11px;
-  text-decoration: none;
-  border: none;
-  outline: none;
-  cursor: default;
-  border-radius: var(--control-corner-radius);
-  transition: var(--control-faster-duration) ease background;
-}
+	position: relative;
+	box-sizing: border-box;
+	padding-block: 4px 6px;
+	padding-inline: 11px;
+	text-decoration: none;
+	border: none;
+	outline: none;
+	cursor: default;
+	border-radius: var(--control-corner-radius);
+	transition: var(--control-faster-duration) ease background;
 
-.button:focus-visible {
-  box-shadow: var(--focus-stroke);
-}
-
-.standard {
-  border: 1px solid;
-  border-color: var(--control-border-default);
-  background-color: var(--control-fill-default);
-  color: var(--text-primary);
-  background-clip: padding-box;
-}
-
-.standard:hover {
-  background-color: var(--control-fill-secondary);
-}
-
-.standard:active {
-  border-color: var(--control-stroke-default);
-  background-color: var(--control-fill-tertiary);
-  color: var(--text-secondary);
-}
-
-.standardDisabled {
-  border-color: var(--control-stroke-default);
-  background-color: var(--control-fill-disabled);
-  color: var(--text-disabled);
-}
-
-.accent {
-  border: 1px solid var(--control-stroke-on-accent-default);
-  border-bottom-color: var(--control-stroke-on-accent-secondary);
-  background-color: var(--accent-default);
-  color: var(--text-on-accent-primary);
-  transition: var(--control-faster-duration) ease border-color;
-}
-
-.accent:hover {
-  background-color: var(--accent-secondary);
-}
-
-.accent:active {
-  border-color: transparent;
-  background-color: var(--accent-tertiary);
-  color: var(--text-on-accent-secondary);
-}
-
-.accentDisabled {
-  border-color: transparent;
-  background-color: var(--control-fill-disabled);
-  color: var(--text-on-accent-disabled);
-}
-
-.hyperlink {
-  background-color: var(--subtle-fill-transparent);
-  color: var(--accent-text-primary);
-  cursor: pointer;
-}
-
-.hyperlink:hover {
-  background-color: var(--subtle-fill-secondary);
-}
-
-.hyperlink:active {
-  background-color: var(--subtle-fill-tertiary);
-  color: var(--accent-text-tertiary);
-}
-
-.hyperlinkDisabled {
-  color: var(--accent-text-disabled);
+	&:focus-visible {
+		box-shadow: var(--focus-stroke);
+	}
 }
 
 .buttonDisabled {
-  pointer-events: none;
+	pointer-events: none;
+}
+
+.standard {
+	border: 1px solid;
+	border-color: var(--control-border-default);
+	background-color: var(--control-fill-default);
+	color: var(--text-primary);
+	background-clip: padding-box;
+
+	&:hover {
+		background-color: var(--control-fill-secondary);
+	}
+
+	&:active {
+		border-color: var(--control-stroke-default);
+		background-color: var(--control-fill-tertiary);
+		color: var(--text-secondary);
+	}
+}
+
+.standardDisabled {
+	border-color: var(--control-stroke-default);
+	background-color: var(--control-fill-disabled);
+	color: var(--text-disabled);
+}
+
+.accent {
+	border: 1px solid var(--control-stroke-on-accent-default);
+	border-bottom-color: var(--control-stroke-on-accent-secondary);
+	background-color: var(--accent-default);
+	color: var(--text-on-accent-primary);
+	transition: var(--control-faster-duration) ease border-color;
+
+	&:hover {
+		background-color: var(--accent-secondary);
+	}
+
+	&:active {
+		border-color: var(--control-stroke-on-accent-tertiary);
+		background-color: var(--accent-tertiary);
+		color: var(--text-on-accent-secondary);
+	}
+}
+
+.accentDisabled {
+	border-color: transparent;
+	background-color: var(--control-fill-disabled);
+	color: var(--text-on-accent-disabled);
+}
+
+.hyperlink {
+	background-color: var(--subtle-fill-transparent);
+	color: var(--accent-text-primary);
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--subtle-fill-secondary);
+	}
+
+	&:active {
+		background-color: var(--subtle-fill-tertiary);
+		color: var(--accent-text-tertiary);
+	}
+}
+
+.hyperlinkDisabled {
+	color: var(--accent-text-disabled);
 }
