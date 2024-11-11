@@ -28,6 +28,8 @@ export default function Home() {
 				HyperLink disabled
 			</Button>
       <ToggleSwitch label="Default" />
+      <ToggleSwitch label="Default Disabled"  disabled/>
+      <ToggleSwitch defaultChecked label="Checked disabled" disabled/>
 			<ToggleSwitch defaultChecked label="Default checked" />
       <ToggleSwitch description="Description" label="Default description" />
 			<ToggleSwitch
