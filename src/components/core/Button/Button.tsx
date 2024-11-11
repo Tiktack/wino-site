@@ -15,7 +15,7 @@ const buttonVariants = cva(styles.button, {
       hyperlink: styles.hyperlink,
 		},
     disabled: {
-      true: styles.disabled,
+      true: styles.buttonDisabled,
       false: ""
     },
 	},

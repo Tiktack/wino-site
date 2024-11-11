@@ -36,7 +36,6 @@
 }
 
 .standardDisabled {
-  pointer-events: none;
   border-color: var(--control-stroke-default);
   background-color: var(--control-fill-disabled);
   color: var(--text-disabled);
@@ -61,7 +60,6 @@
 }
 
 .accentDisabled {
-  pointer-events: none;
   border-color: transparent;
   background-color: var(--control-fill-disabled);
   color: var(--text-on-accent-disabled);
@@ -83,6 +81,9 @@
 }
 
 .hyperlinkDisabled {
-  pointer-events: none;
   color: var(--accent-text-disabled);
+}
+
+.buttonDisabled {
+  pointer-events: none;
 }
