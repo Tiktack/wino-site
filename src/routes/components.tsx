@@ -3,33 +3,29 @@ import { useLocation, type RouteSectionProps } from "@solidjs/router";
 import { createMemo, For } from "solid-js";
 import ListItem from "~/components/core/ListItem/ListItem";
 import { TextBlock } from "~/components/core/TextBlock/TextBlock";
-import {
-	ControlButtonIcon,
-	ToggleLeftIcon,
-	TextBulletListTreeIcon,
-	TextCaseTitleIcon,
-} from "solid-fluent-icons";
+import {TbBluetoothConnected, TbToggleLeft, TbList, TbTextCaption
+} from "solid-icons/tb";
 
 const routesConfig = [
 	{
 		name: "Button",
 		path: "/components/buttons",
-		icon: ControlButtonIcon,
+		icon: TbBluetoothConnected,
 	},
 	{
 		name: "ToggleSwitch",
 		path: "/components/toggleswitches",
-		icon: ToggleLeftIcon,
+		icon: TbToggleLeft,
 	},
 	{
 		name: "ListItem",
 		path: "/components/listitems",
-		icon: TextBulletListTreeIcon,
+		icon: TbList,
 	},
 	{
 		name: "TextBlock",
 		path: "/components/textblocks",
-		icon: TextCaseTitleIcon,
+		icon: TbTextCaption,
 	},
 ];
 
