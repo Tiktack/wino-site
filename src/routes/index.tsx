@@ -1,19 +1,29 @@
 import { Title } from "@solidjs/meta";
-import Counter from "~/components/Counter";
+import { Button } from "~/components/core/Button/Button";
 
 export default function Home() {
-  return (
-    <main>
-      <Title>Hello World</Title>
-      <h1>Hello world!</h1>
-      <Counter />
-      <p>
-        Visit{" "}
-        <a href="https://start.solidjs.com" target="_blank">
-          start.solidjs.com
-        </a>{" "}
-        to learn how to build SolidStart apps.
-      </p>
-    </main>
-  );
+	return (
+		<main
+			style={{
+				display: "flex",
+				"flex-direction": "column",
+				gap: "1rem",
+				width: "200px",
+			}}
+		>
+      <Title>Components</Title>
+			<Button variant={"standard"}>Standard</Button>
+			<Button variant={"accent"}>Accent</Button>
+			<Button variant={"hyperlink"}>Click me</Button>
+			<Button variant={"standard"} disabled>
+				Standard Diasbled
+			</Button>
+			<Button variant={"accent"} disabled>
+				Accent Disabled
+			</Button>
+			<Button variant={"hyperlink"} disabled>
+				HyperLink disabled
+			</Button>
+		</main>
+	);
 }
