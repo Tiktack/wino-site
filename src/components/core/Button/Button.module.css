@@ -15,7 +15,7 @@
 	}
 }
 
-.buttonDisabled {
+.button-disabled {
 	pointer-events: none;
 }
 
@@ -37,7 +37,7 @@
 	}
 }
 
-.standardDisabled {
+.standard-disabled {
 	border-color: var(--control-stroke-default);
 	background-color: var(--control-fill-disabled);
 	color: var(--text-disabled);
@@ -61,7 +61,7 @@
 	}
 }
 
-.accentDisabled {
+.accent-disabled {
 	border-color: transparent;
 	background-color: var(--control-fill-disabled);
 	color: var(--text-on-accent-disabled);
@@ -82,6 +82,6 @@
 	}
 }
 
-.hyperlinkDisabled {
+.hyperlink-disabled {
 	color: var(--accent-text-disabled);
 }
