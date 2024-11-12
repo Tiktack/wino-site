@@ -1,6 +1,7 @@
 .container {
 	min-height: 100vh;
 	background-color: var(--system-background-attention);
+	padding-top: 56px;
 
 	&::before {
 		content: "";

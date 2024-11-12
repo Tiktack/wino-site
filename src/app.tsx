@@ -6,18 +6,48 @@ import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 import { MainLayout } from "./components/layouts/MainLayout";
+import Navbar from "./components/Navbar/Navbar";
+import { IconButton } from "./components/core/IconButton/IconButton";
+import { SiDiscord, SiGithub } from "solid-icons/si";
 
 export default function App() {
 	return (
 		<Router
 			root={(props) => (
 				<MetaProvider>
-					<Title>SolidStart - Basic</Title>
+					<Title>Wino Mail</Title>
 
 					<MainLayout>
-						<a href="/">Index</a>
-						<a href="/about">About</a>
-						<a href="/components/buttons">Components</a>
+						<Navbar
+							items={[
+								{
+									href: "/",
+									name: "Home",
+								},
+								{
+									href: "/blog",
+									name: "Blog",
+								},
+								{
+									href: "/documentation",
+									name: "Documentation",
+								},
+								{
+									href: "/components/buttons",
+									name: "Components",
+								},
+							]}
+							buttons={
+								<div style={{ display: "flex", "flex-direction": "row" }}>
+									<IconButton variant="standard">
+										<SiDiscord />
+									</IconButton>
+									<IconButton variant="standard" disabled>
+										<SiGithub />
+									</IconButton>
+								</div>
+							}
+						/>
 						<Suspense>{props.children}</Suspense>
 					</MainLayout>
 				</MetaProvider>

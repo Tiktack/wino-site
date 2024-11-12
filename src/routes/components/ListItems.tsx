@@ -11,6 +11,7 @@ export default function ListItems() {
 					display: "flex",
 					"flex-direction": "column",
 					width: "299px",
+					height: "1500px",
 					gap: "1rem",
 				}}
 			>

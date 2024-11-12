@@ -1,22 +1,35 @@
 import { Title } from "@solidjs/meta";
 import { createSignal } from "solid-js";
-import { Button } from "~/components/core/Button/Button";
-import ListItem from "~/components/core/ListItem/ListItem";
-import { ToggleSwitch } from "~/components/core/ToggleSwitch/ToggleSwitch";
+import { TextBlock } from "~/components/core/TextBlock/TextBlock";
 
 export default function Home() {
-	const [switchState, setSwitchState] = createSignal(false);
 	return (
 		<main
 			style={{
 				display: "flex",
 				"flex-direction": "column",
+				"align-items": "center",
+				"justify-content": "center",
 				gap: "1rem",
 				color: "white",
 			}}
 		>
-			<Title>Components</Title>
-			Welcome!
+			<Title>WinoMail | Home</Title>
+			<div
+				style={{
+					width: "70%",
+					display: "flex",
+					"flex-direction": "column",
+					"align-items": "center",
+					"justify-content": "center",
+				}}
+			>
+				<TextBlock variant="title">WinoMail</TextBlock>
+				<TextBlock variant="caption">
+					Native mail client for Windows device families
+				</TextBlock>
+				<img src="/WinoPromo.png" aria-label="wino" />
+			</div>
 		</main>
 	);
 }

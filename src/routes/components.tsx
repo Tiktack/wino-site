@@ -27,6 +27,11 @@ const routesConfig = [
 		path: "/components/textblocks",
 		icon: TbTextCaption,
 	},
+	{
+		name: "IconButton",
+		path: "/components/iconbuttons",
+		icon: TbTextCaption,
+	},
 ];
 
 export default function Components(props: RouteSectionProps) {
