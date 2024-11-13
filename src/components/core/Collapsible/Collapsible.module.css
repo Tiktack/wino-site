@@ -1,0 +1,43 @@
+.collapsibleTrigger {
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.collapsibleTriggerIcon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: transform 250ms;
+}
+
+.collapsibleTrigger[data-expanded] .collapsibleTriggerIcon {
+	transform: rotateZ(180deg);
+}
+
+.collapsibleContent {
+	overflow: hidden;
+	animation: slideUp 300ms ease-out;
+}
+
+.collapsibleContent[data-expanded] {
+	animation: slideDown 300ms ease-out;
+}
+
+@keyframes slideDown {
+	from {
+		height: 0;
+	}
+	to {
+		height: var(--kb-collapsible-content-height);
+	}
+}
+
+@keyframes slideUp {
+	from {
+		height: var(--kb-collapsible-content-height);
+	}
+	to {
+		height: 0;
+	}
+}
