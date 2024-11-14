@@ -3,7 +3,7 @@ import { useLocation, type RouteSectionProps } from "@solidjs/router";
 import { createMemo, For } from "solid-js";
 import ListItem from "~/components/core/ListItem/ListItem";
 import { TextBlock } from "~/components/core/TextBlock/TextBlock";
-import { TbBluetoothConnected, TbToggleLeft, TbList, TbTextCaption } from "solid-icons/tb";
+import { TbBluetoothConnected, TbToggleLeft, TbList, TbTextCaption, TbProgress } from "solid-icons/tb";
 
 const routesConfig = [
 	{
@@ -35,6 +35,11 @@ const routesConfig = [
 		name: "Collapsible",
 		path: "/components/collapsibles",
 		icon: TbTextCaption,
+	},
+	{
+		name: "ProgressBar",
+		path: "/components/progressbars",
+		icon: TbProgress,
 	},
 ];
 
