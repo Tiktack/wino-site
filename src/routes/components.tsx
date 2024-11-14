@@ -41,6 +41,11 @@ const routesConfig = [
 		path: "/components/progressbars",
 		icon: TbProgress,
 	},
+	{
+		name: "ProgressRing",
+		path: "/components/progressrings",
+		icon: TbProgress,
+	}
 ];
 
 export default function Components(props: RouteSectionProps) {
