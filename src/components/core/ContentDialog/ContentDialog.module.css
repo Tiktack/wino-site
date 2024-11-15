@@ -64,8 +64,7 @@
   border-block-start: 1px solid var(--card-stroke-default);
   white-space: nowrap;
 }
-
-.footer > :global(.button:only-child) {
+/* .footer > :global(.button:only-child) {
   inline-size: 50%;
   justify-self: end;
-}
+} */
