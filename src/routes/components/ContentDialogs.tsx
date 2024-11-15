@@ -33,10 +33,9 @@ export default function Buttons() {
 				</Button>
 				<ContentDialog
 					open={isOpen()}
-
 					onClose={handleClose}
 					size="standard"
-					darken={true}
+					darken={false}
 					title="Dialog Title"
 					closable={false}
 					footer={
