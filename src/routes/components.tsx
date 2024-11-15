@@ -45,6 +45,11 @@ const routesConfig = [
 		name: "ProgressRing",
 		path: "/components/progressrings",
 		icon: TbProgress,
+	},
+	{
+		name: "ContentDialog",
+		path: "/components/contentdialogs",
+		icon: TbTextCaption,
 	}
 ];
 
