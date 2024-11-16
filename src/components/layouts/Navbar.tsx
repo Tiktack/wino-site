@@ -1,8 +1,9 @@
-// Navbar.tsx
 import { For, type JSX } from 'solid-js';
 import { useLocation } from '@solidjs/router';
 import { TextBlock } from '../core/TextBlock/TextBlock';
 import styles from "./Navbar.module.css"
+import { SiDiscord, SiGithub } from "solid-icons/si";
+import { IconButton } from "../core/IconButton/IconButton";
 
 interface Item {
   href: string;
@@ -10,14 +11,28 @@ interface Item {
   icon?: string;
 }
 
-interface NavbarProps {
-  items: Item[];
-  buttons?: JSX.Element;
-}
+const NAVBAR_ITEMS: Item[] = [
+  {
+    href: "/",
+    name: "Home",
+  },
+  {
+    href: "/blog",
+    name: "Blog",
+  },
+  {
+    href: "/documentation",
+    name: "Documentation",
+  },
+  {
+    href: "/components/buttons",
+    name: "Components",
+  },
+];
 
-export default function Navbar(props: NavbarProps) {
+export const Navbar = () => {
   const location = useLocation();
-  
+
   const isSelected = (href: string) => {
     const pathname = location.pathname;
     return (
@@ -36,9 +51,9 @@ export default function Navbar(props: NavbarProps) {
         <a class={styles.logo} href="/">
           <img src="/logo.png" width="32" height="32" alt="Wino logo" />
           Wino Mail
-          </a>
+        </a>
         <nav>
-          <For each={props.items}>
+          <For each={NAVBAR_ITEMS}>
             {(item) => (
               <a
                 href={item.href}
@@ -51,7 +66,14 @@ export default function Navbar(props: NavbarProps) {
           </For>
         </nav>
         <div class={styles.buttons}>
-          {props.buttons}
+          <div style={{ display: "flex", "flex-direction": "row" }}>
+            <IconButton variant="standard">
+              <SiDiscord />
+            </IconButton>
+            <IconButton variant="standard" disabled>
+              <SiGithub />
+            </IconButton>
+          </div>
         </div>
       </div>
     </header>
