@@ -12,6 +12,11 @@ const routesConfig = [
 		icon: TbBluetoothConnected,
 	},
 	{
+		name: "Checkbox",
+		path: "/components/checkboxes",
+		icon: TbBluetoothConnected,
+	},
+	{
 		name: "ToggleSwitch",
 		path: "/components/toggleswitches",
 		icon: TbToggleLeft,
