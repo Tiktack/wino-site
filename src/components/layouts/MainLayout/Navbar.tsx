@@ -1,9 +1,9 @@
 import { For, type JSX } from 'solid-js';
 import { useLocation } from '@solidjs/router';
-import { TextBlock } from '../core/TextBlock/TextBlock';
 import styles from "./Navbar.module.css"
 import { SiDiscord, SiGithub } from "solid-icons/si";
-import { IconButton } from "../core/IconButton/IconButton";
+import { TextBlock } from '~/components/core/TextBlock/TextBlock';
+import { IconButton } from '~/components/core/IconButton/IconButton';
 
 interface Item {
   href: string;

@@ -1,95 +1,61 @@
-import { Title } from "@solidjs/meta";
-import { useLocation, type RouteSectionProps } from "@solidjs/router";
-import { createMemo, For } from "solid-js";
-import ListItem from "~/components/core/ListItem/ListItem";
-import { TextBlock } from "~/components/core/TextBlock/TextBlock";
+import type { RouteSectionProps } from "@solidjs/router";
 import { TbBluetoothConnected, TbToggleLeft, TbList, TbTextCaption, TbProgress } from "solid-icons/tb";
+import { SidebarLayout } from "~/components/layouts/SidebarLayout";
 
-const routesConfig = [
-	{
-		name: "Button",
-		path: "/components/buttons",
-		icon: TbBluetoothConnected,
-	},
-	{
-		name: "Checkbox",
-		path: "/components/checkboxes",
-		icon: TbBluetoothConnected,
-	},
-	{
-		name: "ToggleSwitch",
-		path: "/components/toggleswitches",
-		icon: TbToggleLeft,
-	},
-	{
-		name: "ListItem",
-		path: "/components/listitems",
-		icon: TbList,
-	},
-	{
-		name: "TextBlock",
-		path: "/components/textblocks",
-		icon: TbTextCaption,
-	},
-	{
-		name: "IconButton",
-		path: "/components/iconbuttons",
-		icon: TbTextCaption,
-	},
-	{
-		name: "Collapsible",
-		path: "/components/collapsibles",
-		icon: TbTextCaption,
-	},
-	{
-		name: "ProgressBar",
-		path: "/components/progressbars",
-		icon: TbProgress,
-	},
-	{
-		name: "ProgressRing",
-		path: "/components/progressrings",
-		icon: TbProgress,
-	},
-	{
-		name: "ContentDialog",
-		path: "/components/contentdialogs",
-		icon: TbTextCaption,
-	}
-];
-
-export default function Components(props: RouteSectionProps) {
-	const location = useLocation();
-
-	const pathname = createMemo(() => location.pathname);
+export default function ComponentsLayout(props: RouteSectionProps) {
 	return (
-		<main style={{ display: "flex", width: "100%" }}>
-			<Title>Components</Title>
-			<div
-				style={{
-					width: "20%",
-					padding: "1rem",
-					"border-right": "1px solid #ccc",
-				}}
-			>
-				<div
-					style={{ display: "flex", "flex-direction": "column", gap: "0.1rem" }}
-				>
-					<TextBlock variant="subtitle" style={{ "text-align": "left" }}>
-						Components
-					</TextBlock>
-					<For each={routesConfig}>
-						{(route) => (
-							<ListItem selected={pathname() === route.path} href={route.path}>
-								<route.icon />
-								{route.name}
-							</ListItem>
-						)}
-					</For>
-				</div>
-			</div>
-			<div style={{ width: "70%", padding: "1rem" }}>{props.children}</div>
-		</main>
+		<SidebarLayout routes={[{
+			name: "Button",
+			path: "/components/buttons",
+			Icon: TbBluetoothConnected,
+		},
+		{
+			name: "Checkbox",
+			path: "/components/checkboxes",
+			Icon: TbBluetoothConnected,
+		},
+		{
+			name: "ToggleSwitch",
+			path: "/components/toggleswitches",
+			Icon: TbToggleLeft,
+		},
+		{
+			name: "ListItem",
+			path: "/components/listitems",
+			Icon: TbList,
+		},
+		{
+			name: "TextBlock",
+			path: "/components/textblocks",
+			Icon: TbTextCaption,
+		},
+		{
+			name: "IconButton",
+			path: "/components/iconbuttons",
+			Icon: TbTextCaption,
+		},
+		{
+			name: "Collapsible",
+			path: "/components/collapsibles",
+			Icon: TbTextCaption,
+		},
+		{
+			name: "ProgressBar",
+			path: "/components/progressbars",
+			Icon: TbProgress,
+		},
+		{
+			name: "ProgressRing",
+			path: "/components/progressrings",
+			Icon: TbProgress,
+		},
+		{
+			name: "ContentDialog",
+			path: "/components/contentdialogs",
+			Icon: TbTextCaption,
+		}]}>
+			{props.children}
+		</SidebarLayout>
 	);
 }
 
