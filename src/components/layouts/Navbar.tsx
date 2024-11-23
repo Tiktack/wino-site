@@ -21,7 +21,7 @@ const NAVBAR_ITEMS: Item[] = [
     name: "Blog",
   },
   {
-    href: "/documentation",
+    href: "/docs/overview",
     name: "Documentation",
   },
   {
