@@ -7,6 +7,7 @@
 	border: none;
 	outline: none;
 	cursor: default;
+	font-size: var(--body-font-size);
 	border-radius: var(--control-corner-radius);
 	transition: var(--control-faster-duration) ease background;
 
