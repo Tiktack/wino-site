@@ -10,7 +10,7 @@ import { MainLayout } from "./components/layouts/MainLayout";
 export default function App() {
 	return (
 		<Router
-		  base={import.meta.env.SERVER_BASE_URL}
+		  // base={import.meta.env.SERVER_BASE_URL}
 			root={(props) => (
 				<MetaProvider>
 					<Title>Wino Mail</Title>

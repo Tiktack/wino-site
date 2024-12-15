@@ -1,19 +1,24 @@
 import { defineConfig } from "@solidjs/start/config";
+/* @ts-ignore */
+import pkg from "@vinxi/plugin-mdx";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
+const { default: mdx } = pkg;
 export default defineConfig({
-	// vite: {
-	// 	css: {
-	// 		modules: {
-	// 			generateScopedName: (name) => {
-  //         // Convert kebab-case to camelCase
-	// 				return name.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
-	// 			},
-	// 		},
-	// 	},
-	// },
-    // ssr: true,
-    server: {
-      baseURL: process.env.BASE_PATH,
-      preset: "static"
-    }
+  extensions: ["mdx", "md"],
+  vite: {
+    plugins: [
+      mdx.withImports({})({
+        remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+        jsx: true,
+        jsxImportSource: "solid-js",
+        providerImportSource: "solid-mdx"
+      })
+    ]
+  },
+	// server: {
+	// 	baseURL: process.env.BASE_PATH,
+	// 	preset: "static"
+	// }
 });
