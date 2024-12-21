@@ -3,6 +3,8 @@ import { A } from "@solidjs/router";
 import styles from "./index.module.css";
 import { TextBlock } from "~/components/core/TextBlock/TextBlock";
 import { Title } from "@solidjs/meta";
+import { InfoBadge } from "~/components/core/InfoBadge/InfoBadge";
+import { Button } from "~/components/core/Button/Button";
 
 // Use Vite's glob import to get all MDX files from the routes/posts directory
 export type PostMetadata = { title: string, description: string, thumbnail: string, date: string, author: string, name: string };
@@ -49,12 +51,27 @@ const Blog = () => {
 								gap: "1rem",
 							}}
 						>
+							<InfoBadge
+								severity="information"
+								style={{ padding: "0.5rem 0.5rem" }}
+							>
+								{new Date(mostRecentPost.date).toLocaleDateString("en-US", {
+									month: "short",
+									day: "numeric",
+									year: "numeric",
+								})}
+							</InfoBadge>
 							<TextBlock variant="subtitle">{mostRecentPost.title}</TextBlock>
 							<TextBlock variant="bodyLarge">
 								{mostRecentPost.description}
 							</TextBlock>
-							<TextBlock>{mostRecentPost.date}</TextBlock>
-							<TextBlock>{mostRecentPost.author}</TextBlock>
+							<Button
+								variant={"accent"}
+								as={A}
+								href={mostRecentPost.name}
+							>
+								Read More
+							</Button>
 						</div>
 						<div
 							style={{
