@@ -35,7 +35,7 @@ export default function Buttons() {
 					open={isOpen()}
 					onClose={handleClose}
 					size="standard"
-					darken={false}
+					darken={true}
 					title="Dialog Title"
 					closable={false}
 					footer={

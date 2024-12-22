@@ -46,6 +46,9 @@ const Blog = () => {
 								src={mostRecentPost.thumbnail}
 								alt={mostRecentPost.title}
 								class="w-full h-full object-cover"
+								style={{
+									"view-transition-name": `blog-image-${mostRecentPost.name}`,
+								}}
 							/>
 						</div>
 					</div>
@@ -55,7 +58,13 @@ const Blog = () => {
 							{(post: PostMetadata) => (
 								<A class={styles.featureCard} href={post.name}>
 									<div>
-										<img src={post.thumbnail} alt={post.title} />
+										<img
+											src={post.thumbnail}
+											alt={post.title}
+											style={{
+												"view-transition-name": `blog-image-${post.name}`,
+											}}
+										/>
 										<TextBlock variant="subtitle">{post.title}</TextBlock>
 										<TextBlock variant="bodyLarge">
 											{post.description}
