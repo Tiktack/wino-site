@@ -51,10 +51,7 @@ const Blog = () => {
 								gap: "1rem",
 							}}
 						>
-							<InfoBadge
-								severity="information"
-								style={{ padding: "0.5rem 0.5rem" }}
-							>
+							<InfoBadge severity="information">
 								{new Date(mostRecentPost.date).toLocaleDateString("en-US", {
 									month: "short",
 									day: "numeric",

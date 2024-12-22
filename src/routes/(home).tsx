@@ -60,10 +60,20 @@ export default function Home() {
 					and designed for Windows 11.
 				</TextBlock>
 				<div style={{ display: "flex", "flex-direction": "row", gap: "1rem" }}>
-					<Button variant={"accent"} style={{ width: "120px", "text-align": "center" }} as="a" href="docs/install">
+					<Button
+						variant={"accent"}
+						style={{ width: "120px", "text-align": "center" }}
+						as="a"
+						href="docs/install"
+					>
 						Install
 					</Button>
-					<Button variant={"hyperlink"} style={{ width: "120px", "text-align": "center" }} as="a" href="docs/overview">
+					<Button
+						variant={"hyperlink"}
+						style={{ width: "120px", "text-align": "center" }}
+						as="a"
+						href="docs/overview"
+					>
 						Learn more
 					</Button>
 				</div>
