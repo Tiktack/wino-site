@@ -65,11 +65,7 @@ const Blog = () => {
 							<TextBlock variant="bodyLarge">
 								{mostRecentPost.description}
 							</TextBlock>
-							<Button
-								variant={"accent"}
-								as={A}
-								href={mostRecentPost.name}
-							>
+							<Button variant={"accent"} as={A} href={mostRecentPost.name}>
 								Read More
 							</Button>
 						</div>
@@ -109,14 +105,17 @@ const Blog = () => {
 						}}
 					>
 						<For each={restOfPosts}>
-							{/* biome-ignore lint/suspicious/noExplicitAny: <explanation> */}
-							{(post: any) => (
+							{(post: PostMetadata) => (
 								<A class={styles.featureCard} href={post.name}>
-									<img src={post.thumbnail} alt={post.title} />
-									<TextBlock variant="subtitle">{post.title}</TextBlock>
-									<TextBlock variant="bodyLarge">{post.description}</TextBlock>
-									<TextBlock>{post.date}</TextBlock>
-									<TextBlock>{post.author}</TextBlock>
+									<div>
+										<img src={post.thumbnail} alt={post.title} />
+										<TextBlock variant="subtitle">{post.title}</TextBlock>
+										<TextBlock variant="bodyLarge">
+											{post.description}
+										</TextBlock>
+										<TextBlock>{post.date}</TextBlock>
+										<TextBlock>{post.author}</TextBlock>
+									</div>
 								</A>
 							)}
 						</For>
