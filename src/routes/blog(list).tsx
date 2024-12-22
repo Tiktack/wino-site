@@ -9,12 +9,10 @@ import { Button } from "~/components/core/Button/Button";
 // Use Vite's glob import to get all MDX files from the routes/posts directory
 export type PostMetadata = { title: string, description: string, thumbnail: string, date: string, author: string, name: string };
 const postsRaw = import.meta.glob<PostMetadata>("./blog/*.mdx", { eager: true, import: "frontmatter" });
-console.log(postsRaw);
 const posts = Object.entries(postsRaw).map(([path, post]) => ({
 	...post,
 	name: path.replace('./blog/', '').replace('.mdx', '')
 }));
-console.log(posts);
 
 
 const Blog = () => {
@@ -25,32 +23,9 @@ const Blog = () => {
   return (
 			<main>
 				<Title>Wino | Blog</Title>
-				<div
-					style={{
-						padding: "0 24px",
-						"max-width": "1200px",
-						margin: "0 auto",
-						width: "100%",
-					}}
-				>
-					<div
-						style={{
-							"margin-top": "25px",
-							display: "grid",
-							"grid-template-columns": "1fr 1fr",
-							gap: "2rem",
-							"min-height": "300px",
-							padding: "2rem",
-						}}
-					>
-						<div
-							style={{
-								display: "flex",
-								"flex-direction": "column",
-								"justify-content": "center",
-								gap: "1rem",
-							}}
-						>
+				<div class="px-6 max-w-[1200px] mx-auto w-full">
+					<div class="mt-[25px] grid grid-cols-2 gap-8 min-h-[300px] p-8">
+						<div class="flex flex-col justify-center gap-4">
 							<InfoBadge severity="information">
 								{new Date(mostRecentPost.date).toLocaleDateString("en-US", {
 									month: "short",
@@ -66,41 +41,16 @@ const Blog = () => {
 								Read More
 							</Button>
 						</div>
-						<div
-							style={{
-								width: "100%",
-								height: "100%",
-								overflow: "hidden",
-								"border-radius": "0.5rem",
-							}}
-						>
+						<div class="w-full h-full overflow-hidden rounded-md">
 							<img
 								src={mostRecentPost.thumbnail}
 								alt={mostRecentPost.title}
-								style={{
-									width: "100%",
-									height: "100%",
-									"object-fit": "cover",
-								}}
+								class="w-full h-full object-cover"
 							/>
 						</div>
 					</div>
-					<div
-						style={{
-							height: "1px",
-							background: "rgba(255, 255, 255, 0.08)",
-							margin: "24px 0",
-							width: "100%",
-						}}
-					/>
-					<div
-						style={{
-							display: "grid",
-							width: "100%",
-							"grid-template-columns": "repeat(auto-fill, minmax(300px, 1fr))",
-							gap: "1rem",
-						}}
-					>
+					<div class="w-full h-px bg-[rgba(255,255,255,0.08)] my-6" />
+					<div class="w-full grid [grid-template-columns:repeat(auto-fill,minmax(300px,1fr))] gap-4">
 						<For each={restOfPosts}>
 							{(post: PostMetadata) => (
 								<A class={styles.featureCard} href={post.name}>

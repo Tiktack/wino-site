@@ -30,8 +30,3 @@
   background-color: var(--subtle-fill-disabled);
   color: var(--text-disabled);
 }
-
-/* :global(.iconButton svg) {
-  width: 16px;
-  height: 16px;
-} */
