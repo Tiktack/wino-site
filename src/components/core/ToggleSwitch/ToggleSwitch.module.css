@@ -12,9 +12,10 @@
 }
 
 .container {
-	display: flex;
-	align-items: center;
-	gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap; /* Allow wrapping if needed */
 }
 
 .control {
