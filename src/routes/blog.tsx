@@ -1,7 +1,8 @@
-import { children, type JSX } from "solid-js";
+import type { JSX } from "solid-js";
 import type { PostMetadata } from "./blog(list)";
-import { useLocation, useParams } from "@solidjs/router";
+import { useLocation } from "@solidjs/router";
 import { TextBlock } from "~/components/core/TextBlock/TextBlock";
+import './blog.css';
 
 interface BlogLaytoutProps {
   children: JSX.Element;
