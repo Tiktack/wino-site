@@ -22,7 +22,9 @@ const BlogLaytout = (props: BlogLaytoutProps) => {
   const post = posts.find((post) => post.name === slug);
   return (
 			<div class="flex flex-col items-center w-full max-w-[800px] mx-auto gap-4">
-				<TextBlock variant="title">{post?.title}</TextBlock>
+				<TextBlock variant="title" style={{
+								"view-transition-name": `blog-title-${post?.name}`,
+							}}>{post?.title}</TextBlock>
 				<div>
 					<img
 						src={post?.thumbnail}

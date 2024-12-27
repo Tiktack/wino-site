@@ -52,15 +52,31 @@ useBeforeLeave((e) => {
 				<div class="px-6 max-w-[1200px] mx-auto w-full">
 					<div class="relative grid grid-cols-2 gap-8 min-h-[300px] p-8">
 						<div
-							style={{ "background-image": `url(${mostRecentPost.thumbnail})`, mask: "linear-gradient(black,transparent 80%)", height: "calc(100% + 150px)" }}
-							class={"object-cover absolute w-[100vw] left-1/2 -translate-x-1/2 top-0 bg-cover bg-center opacity-25 -z-10"}
+							style={{
+								"background-image": `url(${mostRecentPost.thumbnail})`,
+								mask: "linear-gradient(black,transparent 80%)",
+								height: "calc(100% + 150px)",
+							}}
+							class={
+								"object-cover absolute w-[100vw] left-1/2 -translate-x-1/2 top-0 bg-cover bg-center opacity-25 -z-10"
+							}
 						/>
 
 						<div class="flex flex-col justify-center gap-4">
 							<InfoBadge severity="information">
-								{format(new Date(mostRecentPost.date), DateFormatToken.ShortNumericDate)}
+								{format(
+									new Date(mostRecentPost.date),
+									DateFormatToken.ShortNumericDate,
+								)}
 							</InfoBadge>
-							<TextBlock variant="subtitle">{mostRecentPost.title}</TextBlock>
+							<TextBlock
+								variant="subtitle"
+								style={{
+									"view-transition-name": `blog-title-${mostRecentPost.name}`,
+								}}
+							>
+								{mostRecentPost.title}
+							</TextBlock>
 							<TextBlock variant="bodyLarge">
 								{mostRecentPost.description}
 							</TextBlock>
@@ -92,7 +108,14 @@ useBeforeLeave((e) => {
 												"view-transition-name": `blog-image-${post.name}`,
 											}}
 										/>
-										<TextBlock variant="subtitle">{post.title}</TextBlock>
+										<TextBlock
+											variant="subtitle"
+											style={{
+												"view-transition-name": `blog-title-${post.name}`
+											}}
+										>
+											{post.title}
+										</TextBlock>
 										<TextBlock variant="bodyLarge">
 											{post.description}
 										</TextBlock>
