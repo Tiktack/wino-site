@@ -5,7 +5,7 @@ import { TextBlock } from "~/components/core/TextBlock/TextBlock";
 
 export const Footer = () => {
 	return (
-		<footer class="bg-[var(--solid-background-base)] p-4 flex justify-around">
+		<footer class="bg-[var(--solid-background-base)] p-4 flex justify-around mt-12">
 			<div class="flex flex-col gap-y-2">
 				<div class="flex items-center gap-x-2">
 					<img src="/logo.png" alt="Wino Mail Logo" class="w-8" />

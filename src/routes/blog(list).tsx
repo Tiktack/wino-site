@@ -7,6 +7,7 @@ import { InfoBadge } from "~/components/core/InfoBadge/InfoBadge";
 import { Button } from "~/components/core/Button/Button";
 import {compareDesc, format} from "date-fns";
 import { DateFormatToken } from "~/shared/lib/date";
+import { BlogCard } from "~/components/BlogCard";
 
 // Use Vite's glob import to get all MDX files from the routes/posts directory
 export type PostMetadata = { title: string, description: string, thumbnail: string, date: string, author: string, name: string };
@@ -66,7 +67,7 @@ useBeforeLeave((e) => {
 							<InfoBadge severity="information">
 								{format(
 									new Date(mostRecentPost.date),
-									DateFormatToken.ShortNumericDate,
+									DateFormatToken.ShortDate,
 								)}
 							</InfoBadge>
 							<TextBlock
@@ -99,29 +100,18 @@ useBeforeLeave((e) => {
 					<div class="w-full grid [grid-template-columns:repeat(auto-fill,minmax(300px,1fr))] gap-4">
 						<For each={restOfPosts}>
 							{(post) => (
-								<A class={styles.featureCard} href={post.name}>
-									<div>
-										<img
-											src={post.thumbnail}
-											alt={post.title}
-											style={{
-												"view-transition-name": `blog-image-${post.name}`,
-											}}
-										/>
-										<TextBlock
-											variant="subtitle"
-											style={{
-												"view-transition-name": `blog-title-${post.name}`
-											}}
-										>
-											{post.title}
-										</TextBlock>
-										<TextBlock variant="bodyLarge">
-											{post.description}
-										</TextBlock>
-										<TextBlock>{post.date}</TextBlock>
-										<TextBlock>{post.author}</TextBlock>
-									</div>
+								<A  href={post.name}>
+									<BlogCard
+										title={post.title}
+										description={post.description}
+										thumbnail={post.thumbnail}
+										date={format(
+											new Date(post.date),
+											DateFormatToken.ShortNumericDate,
+										)}
+										author={post.author}
+										slug={post.name}
+									/>
 								</A>
 							)}
 						</For>
