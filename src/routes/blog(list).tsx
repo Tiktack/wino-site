@@ -150,17 +150,19 @@ const Blog = () => {
 					<For each={restOfPosts}>
 						{(post) => (
 							<A href={post.name}>
-								<BlogCard
-									title={post.title}
-									description={post.description}
-									thumbnail={post.thumbnail}
-									date={format(
-										new Date(post.date),
-										DateFormatToken.ShortNumericDate,
-									)}
-									author={post.author}
-									slug={post.name}
-								/>
+								<div>
+									<BlogCard
+										title={post.title}
+										description={post.description}
+										thumbnail={post.thumbnail}
+										date={format(
+											new Date(post.date),
+											DateFormatToken.ShortNumericDate,
+										)}
+										author={post.author}
+										slug={post.name}
+									/>
+								</div>
 							</A>
 						)}
 					</For>

@@ -1,6 +1,7 @@
 .textBlock {
   color: white;
   display: inline-block;
+  text-decoration: none;
   margin: 0;
   padding: 0;
   font-family: var(--font-family-text);

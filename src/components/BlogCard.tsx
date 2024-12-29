@@ -40,6 +40,9 @@ export const BlogCard = (props: BlogCardProps) => {
 				alt={props.title}
 				style={{
 					"view-transition-name": `blog-image-${props.slug}`,
+					height: "12rem",
+					width: "100%",
+					"object-fit": "cover",
 				}}
 			/>
 
@@ -48,34 +51,42 @@ export const BlogCard = (props: BlogCardProps) => {
 					display: "flex",
 					flex: "1",
 					"flex-direction": "column",
-					"justify-content": "space-between",
 					padding: "1.25rem",
+					gap: "0.75rem",
+					height: "12rem",
 				}}
 			>
-				<div
+				<TextBlock
+					variant="subtitle"
 					style={{
-						display: "flex",
-						"flex-direction": "column",
-						gap: "0.25rem",
+						"view-transition-name": `blog-title-${props.slug}`,
+						display: "-webkit-box",
+						"-webkit-line-clamp": "2",
+						"-webkit-box-orient": "vertical",
+						overflow: "hidden",
 					}}
 				>
-					<TextBlock
-						variant="subtitle"
-						style={{
-							"view-transition-name": `blog-title-${props.slug}`,
-						}}
-					>
-						{props.title}
-					</TextBlock>
-					<TextBlock
-						variant="subtitle"
-						style={{ color: "var(--text-tertiary)" }}
-					>
-						{props.description}
-					</TextBlock>
-				</div>
-
-				<TextBlock style={{ color: "var(--text-tertiary)" }}>
+					{props.title}
+				</TextBlock>
+				<TextBlock
+					variant="subtitle"
+					style={{
+						color: "var(--text-tertiary)",
+						flex: 1,
+						display: "-webkit-box",
+						"-webkit-line-clamp": "3",
+						"-webkit-box-orient": "vertical",
+						overflow: "hidden",
+					}}
+				>
+					{props.description}
+				</TextBlock>
+				<TextBlock
+					style={{
+						color: "var(--text-tertiary)",
+						"margin-top": "auto",
+					}}
+				>
 					{format(props.date, DateFormatToken.ShortDate)}
 				</TextBlock>
 			</div>
