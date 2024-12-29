@@ -5,10 +5,30 @@ import { TextBlock } from "~/components/core/TextBlock/TextBlock";
 
 export const Footer = () => {
 	return (
-		<footer class="bg-[var(--solid-background-base)] p-4 flex justify-around mt-12">
-			<div class="flex flex-col gap-y-2">
-				<div class="flex items-center gap-x-2">
-					<img src="/logo.png" alt="Wino Mail Logo" class="w-8" />
+		<footer
+			style={{
+				"background-color": "var(--solid-background-base)",
+				padding: "1rem",
+				display: "flex",
+				"justify-content": "space-around",
+				"margin-top": "3rem",
+			}}
+		>
+			<div
+				style={{
+					display: "flex",
+					"flex-direction": "column",
+					gap: "0.5rem",
+				}}
+			>
+				<div
+					style={{
+						display: "flex",
+						"align-items": "center",
+						gap: "0.5rem",
+					}}
+				>
+					<img src="/logo.png" alt="Wino Mail Logo" style={{ width: "2rem" }} />
 					<TextBlock variant="subtitle">Wino Mail</TextBlock>
 				</div>
 				<TextBlock
@@ -19,7 +39,13 @@ export const Footer = () => {
 					Copyright (c) {format(new Date(), "yyyy")} Wino
 				</TextBlock>
 			</div>
-			<div class="flex flex-col gap-y-1">
+			<div
+				style={{
+					display: "flex",
+					"flex-direction": "column",
+					gap: "0.25rem",
+				}}
+			>
 				<TextBlock
 					style={{
 						padding: "0.6rem",
@@ -45,7 +71,13 @@ export const Footer = () => {
 					Contribution Guideline
 				</Button>
 			</div>
-			<div class="flex flex-col gap-y-1">
+			<div
+				style={{
+					display: "flex",
+					"flex-direction": "column",
+					gap: "0.25rem",
+				}}
+			>
 				<TextBlock
 					style={{
 						padding: "0.6rem",
@@ -54,11 +86,7 @@ export const Footer = () => {
 				>
 					Support
 				</TextBlock>
-				<Button
-					variant="hyperlink"
-					as={A}
-					href="/Privacy"
-				>
+				<Button variant="hyperlink" as={A} href="/Privacy">
 					Privacy
 				</Button>
 			</div>

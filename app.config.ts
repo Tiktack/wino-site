@@ -1,3 +1,4 @@
+import remarkGfm from "remark-gfm";
 import { defineConfig } from "@solidjs/start/config";
 /* @ts-ignore */
 import pkg from "@vinxi/plugin-mdx";
@@ -10,15 +11,15 @@ export default defineConfig({
   vite: {
     plugins: [
       mdx.withImports({})({
-        remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+        remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
         jsx: true,
         jsxImportSource: "solid-js",
-        providerImportSource: "solid-mdx"
-      })
-    ]
+        providerImportSource: "solid-mdx",
+      }),
+    ],
   },
-	// server: {
-	// 	baseURL: process.env.BASE_PATH,
-	// 	preset: "static"
-	// }
+  // server: {
+  // 	baseURL: process.env.BASE_PATH,
+  // 	preset: "static"
+  // }
 });

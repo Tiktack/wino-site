@@ -8,7 +8,32 @@ type MainLayoutProps = {
 
 export const MainLayout = (props: MainLayoutProps) => {
 	return (
-		<div class="min-h-screen pt-[56px] before:fixed before:inset-0 before:w-full before:h-full before:scale-[2] before:-z-10 before:bg-[url('https://fluent-svelte.vercel.app/bloom-mica-dark.png')] before:bg-cover before:bg-center before:bg-no-repeat before:bg-fixed flex flex-col">
+		<div
+			style={{
+				"min-height": "100vh",
+				"padding-top": "56px",
+				display: "flex",
+				"flex-direction": "column",
+				position: "relative",
+			}}
+		>
+			{/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+			<div
+				style={{
+					position: "fixed",
+					inset: 0,
+					width: "100%",
+					height: "100%",
+					transform: "scale(2)",
+					"z-index": -10,
+					"background-image":
+						"url('https://fluent-svelte.vercel.app/bloom-mica-dark.png')",
+					"background-size": "cover",
+					"background-position": "center",
+					"background-repeat": "no-repeat",
+					"background-attachment": "fixed",
+				}}
+			></div>
 			<Navbar />
 			<div class="flex-1">{props.children}</div>
 			<Footer />

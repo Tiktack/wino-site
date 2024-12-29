@@ -24,24 +24,45 @@ export const ContentDialog: Component<DialogProps> = (props) => {
 			>
 				<KDialog.Portal>
 					<div
-						class={`fixed inset-0 flex items-center justify-center z-[101] ${
-							props.darken ? "bg-[var(--smoke-background-default)]" : ""
-						}`}
+						style={{
+							position: "fixed",
+							inset: "0",
+							display: "flex",
+							"align-items": "center",
+							"justify-content": "center",
+							"z-index": "101",
+							"background-color": props.darken ? "var(--smoke-background-default)" : ""
+						}}
 					>
 						<KDialog.Content
-							class={`fixed box-border max-w-[calc(100%-24px)] rounded-overlay bg-[var(--solid-background-base)] bg-clip-padding shadow-dialog border border-[var(--surface-stroke-default)] overflow-hidden ${
-								props.size === "min"
-									? "w-[320px]"
-									: props.size === "max"
-										? "w-[540px]"
-										: "w-[448px]"
-							} ${props.class || ""}`}
+							style={{
+								position: "fixed",
+								"box-sizing": "border-box",
+								"max-width": "calc(100% - 24px)",
+								"border-radius": "var(--overlay-corner-radius)",
+								"background-color": "var(--solid-background-base)",
+								"background-clip": "padding-box",
+								"box-shadow": "var(--shadow-dialog)",
+								border: "1px solid var(--surface-stroke-default)",
+								overflow: "hidden",
+								width: props.size === "min" ? "320px" : props.size === "max" ? "540px" : "448px"
+							}}
 						>
-							<div class="p-6 bg-[var(--layer-background-default)] text-text-primary">
+							<div
+								style={{
+									padding: "24px",
+									"background-color": "var(--layer-background-default)",
+									color: "var(--text-primary)"
+								}}
+							>
 								<Show when={props.title}>
 									<TextBlock
 										variant="subtitle"
-										class="block mb-3 text-text-primary"
+										style={{
+											display: "block",
+											"margin-bottom": "12px",
+											color: "var(--text-primary)"
+										}}
 									>
 										{props.title}
 									</TextBlock>
@@ -49,7 +70,17 @@ export const ContentDialog: Component<DialogProps> = (props) => {
 								{props.children}
 							</div>
 							<Show when={props.footer}>
-								<footer class="p-6 grid auto-rows-[1fr] grid-flow-col gap-2 border-t border-[var(--card-stroke-default)] whitespace-nowrap">
+								<footer
+									style={{
+										padding: "24px",
+										display: "grid",
+										"grid-auto-rows": "1fr",
+										"grid-auto-flow": "column",
+										gap: "8px",
+										"border-top": "1px solid var(--card-stroke-default)",
+										"white-space": "nowrap"
+									}}
+								>
 									{props.footer}
 								</footer>
 							</Show>

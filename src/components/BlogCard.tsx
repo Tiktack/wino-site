@@ -13,7 +13,28 @@ interface BlogCardProps {
 
 export const BlogCard = (props: BlogCardProps) => {
 	return (
-		<div class="flex flex-col justify-start rounded-lg bg-[var(--system-background-attention)] shadow-md transition-transform duration-200 hover:-translate-y-[5px] hover:shadow-[var(--card-shadow)] h-96 overflow-hidden">
+		// biome-ignore lint/a11y/useKeyWithMouseEvents: <explanation>
+		<div
+			style={{
+				display: "flex",
+				"flex-direction": "column",
+				"justify-content": "start",
+				"border-radius": "0.5rem",
+				background: "var(--system-background-attention)",
+				"box-shadow": "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+				transition: "transform 200ms",
+				height: "24rem",
+				overflow: "hidden",
+			}}
+			onMouseOver={(e) => {
+				e.currentTarget.style.transform = "translateY(-5px)";
+				e.currentTarget.style.boxShadow = "var(--card-shadow)";
+			}}
+			onMouseOut={(e) => {
+				e.currentTarget.style.transform = "translateY(0)";
+				e.currentTarget.style.boxShadow = "0 4px 6px -1px rgb(0 0 0 / 0.1)";
+			}}
+		>
 			<img
 				src={props.thumbnail}
 				alt={props.title}
@@ -22,8 +43,22 @@ export const BlogCard = (props: BlogCardProps) => {
 				}}
 			/>
 
-			<div class="flex flex-1 flex-col justify-between p-5">
-				<div class="flex flex-col gap-y-1">
+			<div
+				style={{
+					display: "flex",
+					flex: "1",
+					"flex-direction": "column",
+					"justify-content": "space-between",
+					padding: "1.25rem",
+				}}
+			>
+				<div
+					style={{
+						display: "flex",
+						"flex-direction": "column",
+						gap: "0.25rem",
+					}}
+				>
 					<TextBlock
 						variant="subtitle"
 						style={{
@@ -32,12 +67,15 @@ export const BlogCard = (props: BlogCardProps) => {
 					>
 						{props.title}
 					</TextBlock>
-					<TextBlock variant="subtitle" class="text-text-tertiary">
+					<TextBlock
+						variant="subtitle"
+						style={{ color: "var(--text-tertiary)" }}
+					>
 						{props.description}
 					</TextBlock>
 				</div>
 
-				<TextBlock class="text-text-tertiary">
+				<TextBlock style={{ color: "var(--text-tertiary)" }}>
 					{format(props.date, DateFormatToken.ShortDate)}
 				</TextBlock>
 			</div>
