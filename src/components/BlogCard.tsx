@@ -23,7 +23,7 @@ export const BlogCard = (props: BlogCardProps) => {
 				background: "var(--system-background-attention)",
 				"box-shadow": "0 4px 6px -1px rgb(0 0 0 / 0.1)",
 				transition: "transform 200ms",
-				height: "24rem",
+				height: "25rem",
 				overflow: "hidden",
 			}}
 			onMouseOver={(e) => {
@@ -69,14 +69,15 @@ export const BlogCard = (props: BlogCardProps) => {
 					{props.title}
 				</TextBlock>
 				<TextBlock
-					variant="subtitle"
+					variant="body"
 					style={{
 						color: "var(--text-tertiary)",
 						flex: 1,
 						display: "-webkit-box",
-						"-webkit-line-clamp": "3",
 						"-webkit-box-orient": "vertical",
 						overflow: "hidden",
+						"text-overflow": "ellipsis",
+						"white-space": "wrap",
 					}}
 				>
 					{props.description}

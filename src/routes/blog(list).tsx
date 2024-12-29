@@ -149,8 +149,7 @@ const Blog = () => {
 				>
 					<For each={restOfPosts}>
 						{(post) => (
-							<A href={post.name}>
-								<div>
+							<A href={post.name} style={{ "text-decoration": "none" }}>
 									<BlogCard
 										title={post.title}
 										description={post.description}
@@ -162,7 +161,6 @@ const Blog = () => {
 										author={post.author}
 										slug={post.name}
 									/>
-								</div>
 							</A>
 						)}
 					</For>
