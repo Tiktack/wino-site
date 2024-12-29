@@ -8,6 +8,34 @@ export default function ComponentsLayout(props: RouteSectionProps) {
 			name: "Button",
 			path: "/components/buttons",
 			Icon: TbBluetoothConnected,
+			routes: [
+				{
+					name: "Primary Button",
+					path: "/components/buttons/primary",
+					routes: [
+						{
+							name: "Primary Button",
+							path: "/components/buttons/primary",
+						},
+						{
+							name: "Secondary Button",
+							path: "/components/buttons/secondary",
+						},
+						{
+							name: "Tertiary Button",
+							path: "/components/buttons/tertiary",
+						},
+					]
+				},
+				{
+					name: "Secondary Button",
+					path: "/components/buttons/secondary",
+				},
+				{
+					name: "Tertiary Button",
+					path: "/components/buttons/tertiary",
+				},
+			]
 		},
 		{
 			name: "Checkbox",
@@ -23,6 +51,34 @@ export default function ComponentsLayout(props: RouteSectionProps) {
 			name: "ListItem",
 			path: "/components/listitems",
 			Icon: TbList,
+			routes: [
+				{
+					name: "Primary Button",
+					path: "/components/buttons/primary",
+					routes: [
+						{
+							name: "Primary Button",
+							path: "/components/buttons/primary",
+						},
+						{
+							name: "Secondary Button",
+							path: "/components/buttons/secondary",
+						},
+						{
+							name: "Tertiary Button",
+							path: "/components/buttons/tertiary",
+						},
+					]
+				},
+				{
+					name: "Secondary Button",
+					path: "/components/buttons/secondary",
+				},
+				{
+					name: "Tertiary Button",
+					path: "/components/buttons/tertiary",
+				},
+			]
 		},
 		{
 			name: "TextBlock",
