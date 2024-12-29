@@ -1,0 +1,38 @@
+.infoBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  user-select: none;
+  min-inline-size: 16px;
+  min-block-size: 16px;
+  border-radius: 16px;
+  padding: 5px;
+  width: fit-content;
+  color: var(--text-on-accent-primary);
+  line-height: var(--caption-font-size);
+  font-family: var(--font-family-small);
+  font-size: var(--caption-font-size);
+}
+
+.severity-attention {
+  background-color: var(--system-attention);
+}
+.severity-success {
+  background-color: var(--system-success);
+}
+.severity-caution {
+  background-color: var(--system-caution);
+}
+.severity-critical {
+  background-color: var(--system-critical);
+}
+.severity-information {
+  background-color: var(--system-solid-neutral);
+}
+
+.infoBadge svg {
+  inline-size: 8px;
+  block-size: 8px;
+  fill: currentColor;
+}

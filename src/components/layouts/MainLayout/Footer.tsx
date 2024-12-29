@@ -6,46 +6,49 @@ import { TextBlock } from "~/components/core/TextBlock/TextBlock";
 export const Footer = () => {
 	return (
 		<footer
-			style={{
-				"background-color": "var(--solid-background-base)",
-				padding: "1rem",
-				display: "flex",
-				"justify-content": "space-around",
-				"margin-top": "3rem",
-			}}
-		>
-			<div
 				style={{
+			"background-color": "var(--solid-background-base)",
+			display: "flex",
+			"justify-content": "space-around",
+			position: "fixed",
+			bottom: 0,
+			left: 0,
+			right: 0,
+			"margin-top": 0,
+				}}
+		>
+				<div
+			style={{
 					display: "flex",
 					"flex-direction": "column",
 					gap: "0.5rem",
-				}}
-			>
-				<div
-					style={{
-						display: "flex",
-						"align-items": "center",
-						gap: "0.5rem",
-					}}
+			}}
 				>
+			<div
+					style={{
+				display: "flex",
+				"align-items": "center",
+				gap: "0.5rem",
+					}}
+			>
 					<img src="/logo.png" alt="Wino Mail Logo" style={{ width: "2rem" }} />
 					<TextBlock variant="subtitle">Wino Mail</TextBlock>
-				</div>
-				<TextBlock
-					style={{
-						color: "var(--text-tertiary)",
-					}}
-				>
-					Copyright (c) {format(new Date(), "yyyy")} Wino
-				</TextBlock>
 			</div>
-			<div
-				style={{
+			<TextBlock
+					style={{
+				color: "var(--text-tertiary)",
+					}}
+			>
+					Copyright (c) {format(new Date(), "yyyy")} Wino
+			</TextBlock>
+				</div>
+				<div
+			style={{
 					display: "flex",
 					"flex-direction": "column",
 					gap: "0.25rem",
-				}}
-			>
+			}}
+				>
 				<TextBlock
 					style={{
 						padding: "0.6rem",

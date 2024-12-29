@@ -60,7 +60,6 @@ const BlogLaytout = (props: BlogLaytoutProps) => {
 					color: "white",
 					"max-width": "none",
 				}}
-				class="prose prose-invert prose-lg"
 			>
 				{props.children}
 			</div>
