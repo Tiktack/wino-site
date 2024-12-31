@@ -1,13 +1,13 @@
 import type { RouteSectionProps } from "@solidjs/router";
-import { TbBluetoothConnected, TbToggleLeft, TbList, TbTextCaption, TbProgress } from "solid-icons/tb";
 import { SidebarLayout } from "~/components/layouts/SidebarLayout";
+import News24Regular from "@fluentui/svg-icons/icons/news_24_regular.svg?raw";
 
 export default function ComponentsLayout(props: RouteSectionProps) {
 	return (
 		<SidebarLayout routes={[{
 			name: "Button",
 			path: "/components/buttons",
-			Icon: TbBluetoothConnected,
+			Icon: News24Regular,
 			routes: [
 				{
 					name: "Primary Button",
@@ -40,17 +40,17 @@ export default function ComponentsLayout(props: RouteSectionProps) {
 		{
 			name: "Checkbox",
 			path: "/components/checkboxes",
-			Icon: TbBluetoothConnected,
+			Icon: News24Regular,
 		},
 		{
 			name: "ToggleSwitch",
 			path: "/components/toggleswitches",
-			Icon: TbToggleLeft,
+			Icon: News24Regular,
 		},
 		{
 			name: "ListItem",
 			path: "/components/listitems",
-			Icon: TbList,
+			Icon: News24Regular,
 			routes: [
 				{
 					name: "Primary Button",
@@ -83,32 +83,32 @@ export default function ComponentsLayout(props: RouteSectionProps) {
 		{
 			name: "TextBlock",
 			path: "/components/textblocks",
-			Icon: TbTextCaption,
+			Icon: News24Regular,
 		},
 		{
 			name: "IconButton",
 			path: "/components/iconbuttons",
-			Icon: TbTextCaption,
+			Icon: News24Regular,
 		},
 		{
 			name: "Collapsible",
 			path: "/components/collapsibles",
-			Icon: TbTextCaption,
+			Icon: News24Regular,
 		},
 		{
 			name: "ProgressBar",
 			path: "/components/progressbars",
-			Icon: TbProgress,
+			Icon: News24Regular,
 		},
 		{
 			name: "ProgressRing",
 			path: "/components/progressrings",
-			Icon: TbProgress,
+			Icon: News24Regular,
 		},
 		{
 			name: "ContentDialog",
 			path: "/components/contentdialogs",
-			Icon: TbTextCaption,
+			Icon: News24Regular,
 		}]}>
 			{props.children}
 		</SidebarLayout>

@@ -67,9 +67,3 @@
 .disabled.selected::before {
   background-color: var(--accent-disabled);
 }
-
-.listItem svg {
-  width: 16px;
-  height: 16px;
-  margin-inline-end: 16px;
-}

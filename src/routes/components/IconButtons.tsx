@@ -1,6 +1,7 @@
 import { Title } from "@solidjs/meta";
 import { IconButton } from "~/components/core/IconButton/IconButton";
-import { TbSettings } from "solid-icons/tb";
+import Settings24Regular from "@fluentui/svg-icons/icons/settings_24_regular.svg?raw";
+import FluentIcon from "~/components/FluentIcon";
 export default function IconButtons() {
 	return (
 		<main>
@@ -13,10 +14,10 @@ export default function IconButtons() {
 				}}
 			>
 				<IconButton variant="standard">
-					<TbSettings />
+					<FluentIcon icon={Settings24Regular} />
 				</IconButton>
-        <IconButton variant="standard" disabled>
-					<TbSettings />
+				<IconButton variant="standard" disabled>
+					<FluentIcon icon={Settings24Regular} />
 				</IconButton>
 			</div>
 		</main>

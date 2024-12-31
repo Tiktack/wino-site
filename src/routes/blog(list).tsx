@@ -7,7 +7,6 @@ import { Button } from "~/components/core/Button/Button";
 import {compareDesc, format} from "date-fns";
 import { DateFormatToken } from "~/shared/lib/date";
 import { BlogCard } from "~/components/BlogCard";
-
 // Use Vite's glob import to get all MDX files from the routes/posts directory
 export type PostMetadata = { title: string, description: string, thumbnail: string, date: string, author: string, name: string };
 const postsRaw = import.meta.glob<PostMetadata>("./blog/*.mdx", { eager: true, import: "frontmatter" });
@@ -150,17 +149,17 @@ const Blog = () => {
 					<For each={restOfPosts}>
 						{(post) => (
 							<A href={post.name} style={{ "text-decoration": "none" }}>
-									<BlogCard
-										title={post.title}
-										description={post.description}
-										thumbnail={post.thumbnail}
-										date={format(
-											new Date(post.date),
-											DateFormatToken.ShortNumericDate,
-										)}
-										author={post.author}
-										slug={post.name}
-									/>
+								<BlogCard
+									title={post.title}
+									description={post.description}
+									thumbnail={post.thumbnail}
+									date={format(
+										new Date(post.date),
+										DateFormatToken.ShortNumericDate,
+									)}
+									author={post.author}
+									slug={post.name}
+								/>
 							</A>
 						)}
 					</For>

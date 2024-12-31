@@ -1,6 +1,5 @@
 import { Title } from "@solidjs/meta";
 import ListItem from "~/components/core/ListItem/ListItem";
-import { TbGasStation, TbCar, TbTableOptions } from "solid-icons/tb";
 
 export default function ListItems() {
 	return (
@@ -17,15 +16,15 @@ export default function ListItems() {
 			>
 				<ListItem>Standard</ListItem>
 				<ListItem selected>
-					<TbGasStation />
+					{/* <TbGasStation /> */}
 					Selected
 				</ListItem>
 				<ListItem disabled>
-					<TbCar />
+					{/* <TbCar /> */}
 					Disabled
 				</ListItem>
 				<ListItem selected>
-					<TbTableOptions />
+					{/* <TbTableOptions /> */}
 					Selected Disabled
 				</ListItem>
 			</div>

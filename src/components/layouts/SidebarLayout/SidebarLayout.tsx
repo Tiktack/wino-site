@@ -1,14 +1,14 @@
 import { useLocation } from "@solidjs/router";
 import type { JSX } from "solid-js";
 import ListItem from "~/components/core/ListItem/ListItem";
-import type { IconTypes } from "solid-icons";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger, CollapsibleTriggerIcon } from "~/components/core/Collapsible/Collapsible";
-import { FaSolidChevronDown } from "solid-icons/fa";
+import ChevronDown24Regular from "@fluentui/svg-icons/icons/chevron_down_24_regular.svg?raw";
+import FluentIcon from "~/components/FluentIcon";
 
 interface Route {
 	name: string;
 	path: string,
-	Icon?: IconTypes,
+	Icon?: string,
 	routes?: Route[]
 }
 
@@ -45,19 +45,11 @@ const TraverseRoutes = (routes: Route[], location: string) => {
 								}}
 							>
 								{route.Icon && (
-									<route.Icon
-										style={{
-											width: "16px",
-											height: "16px",
-											"margin-inline-end": "16px"
-										}}
-									/>
+									<FluentIcon icon={route.Icon} style={{ "margin-inline-end": "16px" }} />
 								)}
 								<span style={{ "flex-grow": "1" }}>{route.name}</span>
 								<CollapsibleTriggerIcon style={{ "margin-inline-start": "8px" }}>
-									<FaSolidChevronDown
-										style={{ width: "16px", height: "16px" }}
-									/>
+									<FluentIcon icon={ChevronDown24Regular} />
 								</CollapsibleTriggerIcon>
 							</CollapsibleTrigger>
 							<CollapsibleContent style={{ "margin-left": "16px" }}>
@@ -67,7 +59,7 @@ const TraverseRoutes = (routes: Route[], location: string) => {
 					) : (
 						<ListItem
 							selected={location === route.path}
-							icon={route.Icon ? <route.Icon /> : undefined}
+							icon={route.Icon ? <FluentIcon icon={route.Icon} style={{ "margin-inline-end": "16px" }} /> : undefined}
 							href={route.path}
 						>
 							{route.name}
