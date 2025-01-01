@@ -53,21 +53,21 @@ export const Navbar = () => {
 	};
 
 	return (
-		<header {...stylex.props(styles.navbar)}>
-			<div {...stylex.props(styles.navbarInner)}>
-				<a href="/" {...stylex.props(styles.logo)}>
-					<img src="/logo.png" {...stylex.props(styles.logoImage)} alt="Wino logo" />
+		<header {...stylex.attrs(styles.navbar)}>
+			<div {...stylex.attrs(styles.navbarInner)}>
+				<a href="/" {...stylex.attrs(styles.logo)}>
+					<img src="/logo.png" {...stylex.attrs(styles.logoImage)} alt="Wino logo" />
 					Wino Mail
 				</a>
 
-				<nav {...stylex.props(styles.nav)}>
+				<nav {...stylex.attrs(styles.nav)}>
 					<For each={NAVBAR_ITEMS}>
 						{(item) => (
 							<A
 								href={item.href}
 								activeClass="bg-accent-tertiary"
 								end
-								{...stylex.props(styles.navLink, isSelected(item.href) && styles.selectedNav)}
+								{...stylex.attrs(styles.navLink, isSelected(item.href) && styles.selectedNav)}
 							>
 								{item.Icon && <FluentIcon icon={item.Icon} />}
 								<TextBlock>{item.name}</TextBlock>
@@ -75,7 +75,7 @@ export const Navbar = () => {
 						)}
 					</For>
 				</nav>
-				<div {...stylex.props(styles.buttons)}>
+				<div {...stylex.attrs(styles.buttons)}>
 					<div style={{ display: "flex", "flex-direction": "row" }}>
 						<IconButton
 							as={"a"}
