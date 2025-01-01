@@ -15,7 +15,6 @@ const posts = Object.entries(postsRaw).map(([path, post]) => ({
 	name: path.replace('./blog/', '').replace('.mdx', '')
 }));
 
-
 const Blog = () => {
 	const sortedPosts = posts.toSorted((a, b) =>
 		compareDesc(new Date(a.date), new Date(b.date)),

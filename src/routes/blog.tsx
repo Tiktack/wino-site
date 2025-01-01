@@ -18,7 +18,7 @@ const posts = Object.entries(postsRaw).map(([path, post]) => ({
 	name: path.replace("./blog/", "").replace(".mdx", ""),
 }));
 
-const BlogLaytout = (props: BlogLaytoutProps) => {
+const BlogLayout = (props: BlogLaytoutProps) => {
 	const location = useLocation();
 	const slug = location.pathname.split("/").pop();
 	const post = posts.find((post) => post.name === slug);
@@ -67,4 +67,4 @@ const BlogLaytout = (props: BlogLaytoutProps) => {
 	);
 };
 
-export default BlogLaytout;
+export default BlogLayout;
