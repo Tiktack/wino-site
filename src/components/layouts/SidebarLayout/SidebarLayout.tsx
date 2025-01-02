@@ -9,6 +9,7 @@ import {
 } from "~/components/core/Collapsible/Collapsible";
 import ChevronDown24Regular from "@fluentui/svg-icons/icons/chevron_down_24_regular.svg?raw";
 import FluentIcon from "~/components/FluentIcon";
+import * as stylex from "@stylexjs/stylex";
 
 interface Route {
 	name: string;
@@ -21,42 +22,6 @@ interface SidebarLayoutProps {
 	children: JSX.Element;
 	routes: Route[];
 }
-
-const routeStyles = stylex.create({
-	collapsibleTrigger: {
-		display: "flex",
-		alignItems: "center",
-		width: "100%",
-		position: "relative",
-		flex: "0 0 auto",
-		margin: "3px 5px",
-		paddingInline: "12px",
-		borderRadius: "var(--control-corner-radius)",
-		backgroundColor: "var(--subtle-fill-transparent)",
-		border: "1px solid var(--control-stroke)",
-		color: "var(--text-primary)",
-		textDecoration: "none",
-		cursor: "default",
-		userSelect: "none",
-		blockSize: "34px",
-		":hover": {
-			backgroundColor: "var(--subtle-fill-secondary)",
-		},
-	},
-	icon: {
-		marginInlineEnd: "16px",
-	},
-	textSpan: {
-		flexGrow: "1",
-		textAlign: "left",
-	},
-	triggerIcon: {
-		marginInlineStart: "8px",
-	},
-	collapsibleContent: {
-		marginLeft: "16px",
-	},
-});
 
 const TraverseRoutes = (routes: Route[], location: string) => {
 	return routes.reduce(
@@ -114,7 +79,54 @@ const TraverseRoutes = (routes: Route[], location: string) => {
 	);
 };
 
-import * as stylex from "@stylexjs/stylex";
+export const SidebarLayout = (props: SidebarLayoutProps) => {
+	const location = useLocation();
+
+	return (
+		<main {...stylex.attrs(styles.main)}>
+			<div {...stylex.attrs(styles.sidebar)}>
+				{TraverseRoutes(props.routes, location.pathname)}
+			</div>
+			<div {...stylex.attrs(styles.content)}>{props.children}</div>
+		</main>
+	);
+};
+
+const routeStyles = stylex.create({
+	collapsibleTrigger: {
+		display: "flex",
+		alignItems: "center",
+		width: "100%",
+		position: "relative",
+		flex: "0 0 auto",
+		margin: "3px 5px",
+		paddingInline: "12px",
+		borderRadius: "var(--control-corner-radius)",
+		backgroundColor: "var(--subtle-fill-transparent)",
+		border: "1px solid var(--control-stroke)",
+		color: "var(--text-primary)",
+		textDecoration: "none",
+		cursor: "default",
+		userSelect: "none",
+		blockSize: "34px",
+		":hover": {
+			backgroundColor: "var(--subtle-fill-secondary)",
+		},
+	},
+	icon: {
+		marginInlineEnd: "16px",
+	},
+	textSpan: {
+		flexGrow: "1",
+		textAlign: "left",
+	},
+	triggerIcon: {
+		marginInlineStart: "8px",
+	},
+	collapsibleContent: {
+		marginLeft: "16px",
+	},
+});
 
 const styles = stylex.create({
 	main: {
@@ -134,17 +146,3 @@ const styles = stylex.create({
 		padding: "1rem",
 	},
 });
-
-export const SidebarLayout = (props: SidebarLayoutProps) => {
-	const location = useLocation();
-
-	return (
-		<main {...stylex.attrs(styles.main)}>
-			<div {...stylex.attrs(styles.sidebar)}>
-				{TraverseRoutes(props.routes, location.pathname)}
-			</div>
-			<div {...stylex.attrs(styles.content)}>{props.children}</div>
-		</main>
-	);
-};
-

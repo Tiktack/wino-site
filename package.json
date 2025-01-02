@@ -11,6 +11,7 @@
     "@fluentui/svg-icons": "^1.1.271",
     "@kobalte/core": "^0.13.7",
     "@mdx-js/mdx": "^3.1.0",
+    "@solid-primitives/storage": "^4.2.1",
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.15.2",
     "@solidjs/start": "^1.0.10",

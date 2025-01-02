@@ -1,6 +1,7 @@
 import type { JSX } from "solid-js";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import * as stylex from '@stylexjs/stylex';
 
 type MainLayoutProps = {
 	children: JSX.Element;
@@ -8,35 +9,38 @@ type MainLayoutProps = {
 
 export const MainLayout = (props: MainLayoutProps) => {
 	return (
-		<div
-			style={{
-				"min-height": "100vh",
-				"padding-top": "56px",
-				display: "flex",
-				"flex-direction": "column",
-				position: "relative",
-			}}
-		>
-			{/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-			<div
-				style={{
-					position: "fixed",
-					inset: 0,
-					width: "100%",
-					height: "100%",
-					transform: "scale(2)",
-					"z-index": -10,
-					"background-image":
-						"url('https://fluent-svelte.vercel.app/bloom-mica-dark.png')",
-					"background-size": "cover",
-					"background-position": "center",
-					"background-repeat": "no-repeat",
-					"background-attachment": "fixed",
-				}}
-			></div>
+		<div {...stylex.attrs(styles.container)}>
 			<Navbar />
-			<div style={{ flex: "1" }}>{props.children}</div>
+			<div {...stylex.attrs(styles.content)}>{props.children}</div>
 			<Footer />
+
+			<div {...stylex.attrs(styles.background)} />
 		</div>
 	);
 };
+
+const styles = stylex.create({
+	container: {
+		minHeight: "100vh",
+		paddingTop: "56px",
+		display: "flex",
+		flexDirection: "column",
+		position: "relative",
+	},
+	content: {
+		flex: 1,
+	},
+	background: {
+		position: "fixed",
+		inset: 0,
+		width: "100%",
+		height: "100%",
+		transform: "scale(2)",
+		zIndex: -10,
+		backgroundImage: "url('https://fluent-svelte.vercel.app/bloom-mica-dark.png')",
+		backgroundSize: "cover",
+		backgroundPosition: "center",
+		backgroundRepeat: "no-repeat",
+		backgroundAttachment: "fixed",
+	},
+});

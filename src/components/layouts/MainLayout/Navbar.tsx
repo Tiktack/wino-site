@@ -1,5 +1,5 @@
-import { For } from 'solid-js';
-import { A, useLocation } from '@solidjs/router';
+import { For, useContext } from 'solid-js';
+import { A } from '@solidjs/router';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { IconButton } from '~/components/core/IconButton/IconButton';
 import FluentIcon from '~/components/FluentIcon';
@@ -7,15 +7,18 @@ import Settings24Regular from "@fluentui/svg-icons/icons/settings_24_regular.svg
 import Home24Regular from "@fluentui/svg-icons/icons/home_24_regular.svg?raw";
 import News24Regular from "@fluentui/svg-icons/icons/news_24_regular.svg?raw";
 import DocumentOnePage24Regular from "@fluentui/svg-icons/icons/document_one_page_24_regular.svg?raw";
+import WeatherSunny from "@fluentui/svg-icons/icons/weather_sunny_24_regular.svg?raw";
 import * as stylex from '@stylexjs/stylex';
+import { ThemeContext } from '~/shared/theme/context';
+import { colors } from '~/shared/theme/tokens.stylex';
 
-interface Item {
+type NavItem = {
 	href: string;
 	name: string;
 	Icon?: string;
 }
 
-const NAVBAR_ITEMS: Item[] = [
+const NAVBAR_ITEMS: NavItem[] = [
 	{
 		href: "/",
 		name: "Home",
@@ -38,62 +41,51 @@ const NAVBAR_ITEMS: Item[] = [
 ];
 
 export const Navbar = () => {
-	const location = useLocation();
-
-	const isSelected = (href: string) => {
-		const pathname = location.pathname;
-		return (
-			pathname === href ||
-			(pathname.split('/').length > 1 &&
-				href.split('/').length > 1 &&
-				pathname.startsWith(href) &&
-				!(href === '' || href === '/')) ||
-			(href === '/' && pathname === '')
-		);
-	};
+	const { toggleTheme } = useContext(ThemeContext);
 
 	return (
 		<header {...stylex.attrs(styles.navbar)}>
 			<div {...stylex.attrs(styles.navbarInner)}>
-				<a href="/" {...stylex.attrs(styles.logo)}>
+				<A href="/" {...stylex.attrs(styles.logo)}>
 					<img src="/logo.png" {...stylex.attrs(styles.logoImage)} alt="Wino logo" />
-					Wino Mail
-				</a>
+
+					<span>Wino Mail</span>
+				</A>
 
 				<nav {...stylex.attrs(styles.nav)}>
 					<For each={NAVBAR_ITEMS}>
 						{(item) => (
 							<A
 								href={item.href}
-								activeClass="bg-accent-tertiary"
 								end
-								{...stylex.attrs(styles.navLink, isSelected(item.href) && styles.selectedNav)}
+								activeClass={stylex.attrs(styles.selectedNav).class}
+								{...stylex.attrs(styles.navLink)}
 							>
 								{item.Icon && <FluentIcon icon={item.Icon} />}
+
 								<TextBlock>{item.name}</TextBlock>
 							</A>
 						)}
 					</For>
 				</nav>
 				<div {...stylex.attrs(styles.buttons)}>
-					<div style={{ display: "flex", "flex-direction": "row" }}>
-						<IconButton
-							as={"a"}
-							variant="standard"
-							href="https://discord.com/invite/windows-apps-hub-714581497222398064"
-							target="_blank"
-						>
-							<FluentIcon icon={Settings24Regular} />
-						</IconButton>
-						<IconButton
-							as={"a"}
-							variant="standard"
-							href="https://github.com/bkaankose/Wino-Mail/"
-							target="_blank"
-						>
-							<FluentIcon icon={Settings24Regular} />
-						</IconButton>
-					</div>
+					<IconButton
+						as={"a"}
+						href="https://discord.com/invite/windows-apps-hub-714581497222398064"
+						target="_blank"
+					>
+						<FluentIcon icon={Settings24Regular} />
+					</IconButton>
+					<IconButton
+						as={"a"}
+						href="https://github.com/bkaankose/Wino-Mail"
+						target="_blank"
+					>
+						<FluentIcon icon={Settings24Regular} />
+					</IconButton>
+					<IconButton onClick={() => toggleTheme()}>
+						<FluentIcon icon={WeatherSunny} />
+					</IconButton>
 				</div>
 			</div>
 		</header>
@@ -114,9 +106,10 @@ const styles = stylex.create({
 		minBlockSize: '56px',
 		boxSizing: 'border-box',
 		borderBottom: '1px solid var(--surface-stroke-flyout)',
-		backgroundColor: 'var(--layer-background-default)',
+		// backgroundColor: 'var(--layer-background-default)',
+		backgroundColor: colors.accentPrimary,
 		backgroundClip: 'padding-box',
-		backdropFilter: 'blur(60px)'
+		backdropFilter: 'blur(60px)',
 	},
 	navbarInner: {
 		display: 'flex',
@@ -124,7 +117,7 @@ const styles = stylex.create({
 		inlineSize: '100%',
 		maxInlineSize: '1440px',
 		paddingInline: '18px 12px',
-		margin: '0 auto'
+		margin: '0 auto',
 	},
 	nav: {
 		display: 'flex',
@@ -144,6 +137,7 @@ const styles = stylex.create({
 		color: 'var(--text-primary)',
 		transition: 'var(--control-fast-duration) var(--control-fast-out-slow-in-easing)',
 		padding: '5px 11px',
+		columnGap: '4px',
 		':hover': {
 			backgroundColor: 'var(--subtle-fill-secondary)'
 		},
@@ -179,7 +173,7 @@ const styles = stylex.create({
 	buttons: {
 		display: 'flex',
 		alignItems: 'center',
-		gap: '8px',
-		flex: '0 0 auto'
-	}
+		columnGap: '8px',
+		flex: '0 0 auto',
+	},
 });
