@@ -12,6 +12,8 @@ export const Footer = () => {
 				"justify-content": "space-around",
 				width: "100%",
 				padding: "1rem 0",
+				"margin-top": "25px", // Add this to push footer to bottom
+				bottom: "0", // Add this to keep footer at bottom
 			}}
 		>
 			<div

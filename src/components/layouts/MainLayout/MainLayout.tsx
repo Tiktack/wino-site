@@ -35,7 +35,7 @@ export const MainLayout = (props: MainLayoutProps) => {
 				}}
 			></div>
 			<Navbar />
-			<div class="flex-1">{props.children}</div>
+			<div style={{ flex: "1" }}>{props.children}</div>
 			<Footer />
 		</div>
 	);
