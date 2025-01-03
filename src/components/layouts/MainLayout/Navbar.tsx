@@ -106,8 +106,7 @@ const styles = stylex.create({
 		minBlockSize: '56px',
 		boxSizing: 'border-box',
 		borderBottom: '1px solid var(--surface-stroke-flyout)',
-		// backgroundColor: 'var(--layer-background-default)',
-		backgroundColor: colors.accentPrimary,
+		backgroundColor: colors.layerBackgroundDefault,
 		backgroundClip: 'padding-box',
 		backdropFilter: 'blur(60px)',
 	},
@@ -168,7 +167,7 @@ const styles = stylex.create({
 	logoImage: {
 		marginInlineEnd: '14px',
 		width: 'auto',
-		height: '25px'
+		height: '25px',
 	},
 	buttons: {
 		display: 'flex',

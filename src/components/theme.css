@@ -1,14 +1,5 @@
 /* Global Variables */
 :root {
-	/* Accent Colors */
-	--accent-light-3: 191, 98%, 80%;
-	--accent-light-2: 199, 99%, 69%;
-	--accent-light-1: 205, 100%, 49%;
-	--accent-base: 206, 100%, 42%;
-	--accent-dark-1: 209, 100%, 36%;
-	--accent-dark-2: 215, 100%, 29%;
-	--accent-dark-3: 226, 100%, 20%;
-
 	/* Font Families */
 	--font-family-fallback: "Segoe UI", -apple-system, ui-sans-serif, system-ui,
 		BlinkMacSystemFont, Helvetica, Arial, sans-serif;
@@ -72,15 +63,15 @@
 		--text-disabled: hsla(0, 0%, 0%, 36.14%);
 
 		/* Accent */
-		--accent-default: hsl(var(--accent-dark-1));
-		--accent-secondary: hsla(var(--accent-dark-1), 90%);
-		--accent-tertiary: hsla(var(--accent-dark-1), 80%);
+		--accent-default: hsl(209, 100%, 36%);
+		--accent-secondary: hsla(209, 100%, 36%, 90%);
+		--accent-tertiary: hsla(209, 100%, 36%, 80%);
 		--accent-disabled: hsla(0, 0%, 0%, 21.69%);
 
 		/* Accent Text */
-		--accent-text-primary: hsl(var(--accent-dark-2));
-		--accent-text-secondary: hsl(var(--accent-dark-3));
-		--accent-text-tertiary: hsl(var(--accent-dark-1));
+		--accent-text-primary: hsl(215, 100%, 29%);
+		--accent-text-secondary: hsl(226, 100%, 20%);
+		--accent-text-tertiary: hsl(209, 100%, 36%);
 		--accent-text-disabled: hsla(0, 0%, 0%, 36.14%);
 
 		/* Text on Accent */
@@ -240,15 +231,15 @@
 		--text-disabled: hsla(0, 0%, 100%, 36.28%);
 
 		/* Accent */
-		--accent-default: hsla(var(--accent-light-2));
-		--accent-secondary: hsla(var(--accent-light-2), 90%);
-		--accent-tertiary: hsla(var(--accent-light-2), 80%);
+		--accent-default: hsla(199, 99%, 69%);
+		--accent-secondary: hsla(199, 99%, 69%, 90%);
+		--accent-tertiary: hsla(199, 99%, 69%, 80%);
 		--accent-disabled: hsla(0, 0%, 100%, 15.81%);
 
 		/* Accent Text */
-		--accent-text-primary: hsl(var(--accent-light-3));
-		--accent-text-secondary: hsl(var(--accent-light-3));
-		--accent-text-tertiary: hsl(var(--accent-light-2));
+		--accent-text-primary: hsl(191, 98%, 80%);
+		--accent-text-secondary: hsl(191, 98%, 80%);
+		--accent-text-tertiary: hsl(199, 99%, 69%);
 		--accent-text-disabled: hsla(0, 0%, 100%, 36.28%);
 
 		/* Text on Accent */
