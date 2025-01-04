@@ -1,26 +1,30 @@
 import { type JSX, splitProps } from "solid-js";
+import * as stylex from "@stylexjs/stylex";
+import { colors } from "~/shared/theme/tokens.stylex";
 
 interface FluentIconProps extends JSX.HTMLAttributes<HTMLDivElement> {
   icon: string;
 }
 
-const FluentIcon = (props: FluentIconProps) => {
+export const FluentIcon = (props: FluentIconProps) => {
   const [local, others] = splitProps(props, ["icon"]);
 
   return (
     <div
-      style={{
-        width: "1.1rem",
-        height: "1.1rem",
-        fill: "var(--text-primary)",
-        display: "flex",
-        "align-items": "center",
-        "justify-content": "center"
-      }}
+      {...stylex.attrs(styles.icon)}
       {...others}
       innerHTML={local.icon}
     />
   );
 };
 
-export default FluentIcon;
+const styles = stylex.create({
+  icon: {
+    width: "1.1rem",
+    height: "1.1rem",
+    fill: colors.textPrimary,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  }
+});

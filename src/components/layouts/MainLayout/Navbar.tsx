@@ -2,7 +2,7 @@ import { For, useContext } from 'solid-js';
 import { A } from '@solidjs/router';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { IconButton } from '~/components/core/IconButton/IconButton';
-import FluentIcon from '~/components/FluentIcon';
+import { FluentIcon } from '~/components/FluentIcon';
 import Settings24Regular from "@fluentui/svg-icons/icons/settings_24_regular.svg?raw";
 import Home24Regular from "@fluentui/svg-icons/icons/home_24_regular.svg?raw";
 import News24Regular from "@fluentui/svg-icons/icons/news_24_regular.svg?raw";

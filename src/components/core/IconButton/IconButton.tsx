@@ -1,70 +1,62 @@
 import type { JSX, ValidComponent } from "solid-js";
 import { splitProps } from "solid-js";
-
 import * as ButtonPrimitive from "@kobalte/core/button";
 import type { PolymorphicProps } from "@kobalte/core/polymorphic";
-import type { VariantProps } from "class-variance-authority";
-import { cva } from "class-variance-authority";
-import styles from "./IconButton.module.css";
-
-const IconButtonVariants = cva(styles.button, {
-	variants: {
-		variant: {
-			standard: styles.iconButton,
-			accent: styles.iconButton,
-		},
-		disabled: {
-			true: styles.iconButton,
-			false: "",
-		},
-	},
-	compoundVariants: [
-		{
-			variant: ["standard"],
-			disabled: true,
-			class: styles.standardDisabled,
-		},
-		{
-			variant: ["accent"],
-			disabled: true,
-			class: styles.accentDisabled,
-		}
-	],
-	defaultVariants: {
-		variant: "standard",
-		disabled: false,
-	},
-});
+import * as stylex from "@stylexjs/stylex";
+import type { WithStyleX } from "~/shared/theme/type";
 
 type IconButtonProps<T extends ValidComponent = "button"> =
-	ButtonPrimitive.ButtonRootProps<T> &
-		VariantProps<typeof IconButtonVariants> & {
-			class?: string | undefined;
-			children?: JSX.Element;
-		};
+	ButtonPrimitive.ButtonRootProps<T> & {
+		children: JSX.Element;
+	};
 
-const IconButton = <T extends ValidComponent = "button">(
-	props: PolymorphicProps<T, IconButtonProps<T>>,
+export const IconButton = <T extends ValidComponent = "button">(
+	props: WithStyleX<PolymorphicProps<T, IconButtonProps<T>>>,
 ) => {
-	const [local, others] = splitProps(props as IconButtonProps, [
-    "children",
-		"variant",
-		"class",
-		"disabled",
+	const [local, others] = splitProps(props as WithStyleX<IconButtonProps>, [
+		"children",
+		"style"
 	]);
+
 	return (
 		<ButtonPrimitive.Root
-			class={IconButtonVariants({
-				variant: local.variant,
-				disabled: local.disabled,
-				className: local.class,
-			})}
+			{...stylex.attrs(
+				styles.base,
+				local.style,
+			)}
 			{...others}
 		>
-      {local.children}
-    </ButtonPrimitive.Root>
+			{local.children}
+		</ButtonPrimitive.Root>
 	);
 };
 
-export type { IconButtonProps };
-export { IconButton, IconButtonVariants };
+const styles = stylex.create({
+	base: {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		outline: 'none',
+		border: 'none',
+		boxSizing: 'border-box',
+		minInlineSize: '30px',
+		minBlockSize: '30px',
+		padding: '8px',
+		color: 'var(--text-primary)',
+		borderRadius: 'var(--control-corner-radius)',
+		backgroundColor: 'var(--subtle-fill-transparent)',
+		':focus-visible': {
+			boxShadow: 'var(--focus-stroke)',
+		},
+		':hover': {
+			backgroundColor: 'var(--subtle-fill-secondary)',
+		},
+		':active': {
+			backgroundColor: 'var(--subtle-fill-tertiary)',
+		},
+		':disabled': {
+			backgroundColor: 'var(--subtle-fill-disabled)',
+			color: 'var(--text-disabled)',
+		}
+	},
+});

@@ -59,7 +59,6 @@
 		/* Text */
 		--text-primary: hsla(0, 0%, 0%, 89.56%);
 		--text-secondary: hsla(0, 0%, 0%, 60.63%);
-		--text-tertiary: hsla(0, 0%, 0%, 44.58%);
 		--text-disabled: hsla(0, 0%, 0%, 36.14%);
 
 		/* Accent */
@@ -227,7 +226,6 @@
 		/* Text */
 		--text-primary: hsla(0, 0%, 100%, 100%);
 		--text-secondary: hsla(0, 0%, 100%, 78.6%);
-		--text-tertiary: hsla(0, 0%, 100%, 54.42%);
 		--text-disabled: hsla(0, 0%, 100%, 36.28%);
 
 		/* Accent */

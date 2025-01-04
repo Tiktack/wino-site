@@ -2,7 +2,7 @@ import { Title } from "@solidjs/meta";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger, CollapsibleTriggerIcon } from "~/components/core/Collapsible/Collapsible";
 import styles from './Collapsibles.module.css';
 import ChevronDown24Regular from "@fluentui/svg-icons/icons/chevron_down_24_regular.svg?raw";
-import FluentIcon from "~/components/FluentIcon";
+import { FluentIcon } from "~/components/FluentIcon";
 
 export default function Collapsibles() {
 	return (

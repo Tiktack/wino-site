@@ -1,7 +1,8 @@
 import { Title } from "@solidjs/meta";
 import { IconButton } from "~/components/core/IconButton/IconButton";
 import Settings24Regular from "@fluentui/svg-icons/icons/settings_24_regular.svg?raw";
-import FluentIcon from "~/components/FluentIcon";
+import { FluentIcon } from "~/components/FluentIcon";
+
 export default function IconButtons() {
 	return (
 		<main>
@@ -13,10 +14,10 @@ export default function IconButtons() {
 					gap: "1rem",
 				}}
 			>
-				<IconButton variant="standard">
+				<IconButton>
 					<FluentIcon icon={Settings24Regular} />
 				</IconButton>
-				<IconButton variant="standard" disabled>
+				<IconButton disabled>
 					<FluentIcon icon={Settings24Regular} />
 				</IconButton>
 			</div>

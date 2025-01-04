@@ -2,63 +2,33 @@ import { A } from "@solidjs/router";
 import { format } from "date-fns/format";
 import { Button } from "~/components/core/Button/Button";
 import { TextBlock } from "~/components/core/TextBlock/TextBlock";
+import * as stylex from "@stylexjs/stylex";
+import { colors } from "~/shared/theme/tokens.stylex";
+import { DateFormatToken } from "~/shared/lib/date";
 
 export const Footer = () => {
 	return (
-		<footer
-			style={{
-				"background-color": "var(--solid-background-base)",
-				display: "flex",
-				"justify-content": "space-around",
-				width: "100%",
-				padding: "1rem 0",
-				"margin-top": "25px", // Add this to push footer to bottom
-				bottom: "0", // Add this to keep footer at bottom
-			}}
-		>
-			<div
-				style={{
-					display: "flex",
-					"flex-direction": "column",
-					gap: "0.5rem",
-				}}
-			>
-				<div
-					style={{
-						display: "flex",
-						"align-items": "center",
-						gap: "0.5rem",
-					}}
-				>
-					<img src="/logo.png" alt="Wino Mail Logo" style={{ width: "2rem" }} />
+		<footer {...stylex.attrs(styles.container)}>
+			<div {...stylex.attrs(styles.column)}>
+				<div {...stylex.attrs(styles.logoContainer)}>
+					<img src="/logo.png" {...stylex.attrs(styles.logo)} alt="Wino Mail Logo" />
+
 					<TextBlock variant="subtitle">Wino Mail</TextBlock>
 				</div>
-				<TextBlock
-					style={{
-						color: "var(--text-tertiary)",
-					}}
-				>
-					Copyright (c) {format(new Date(), "yyyy")} Wino
+
+				<TextBlock {...stylex.attrs(styles.textTertiary)}>
+					Copyright (c) {format(new Date(), DateFormatToken.Year)} Wino
 				</TextBlock>
 			</div>
-			<div
-				style={{
-					display: "flex",
-					"flex-direction": "column",
-					gap: "0.25rem",
-				}}
-			>
-				<TextBlock
-					style={{
-						padding: "0.6rem",
-						color: "var(--text-tertiary)",
-					}}
-				>
+
+			<div {...stylex.attrs(styles.smallGapColumn)}>
+				<TextBlock {...stylex.attrs(styles.columnText)}>
 					Contribute
 				</TextBlock>
+
 				<Button
 					variant="hyperlink"
-					as="a"
+					as={A}
 					href="https://github.com/bkaankose/Wino-Mail/issues/new/choose"
 					target="_blank"
 				>
@@ -66,28 +36,19 @@ export const Footer = () => {
 				</Button>
 				<Button
 					variant="hyperlink"
-					as="a"
+					as={A}
 					href="https://github.com/bkaankose/Wino-Mail/blob/main/CONTRIBUTING.md"
 					target="_blank"
 				>
 					Contribution Guideline
 				</Button>
 			</div>
-			<div
-				style={{
-					display: "flex",
-					"flex-direction": "column",
-					gap: "0.25rem",
-				}}
-			>
-				<TextBlock
-					style={{
-						padding: "0.6rem",
-						color: "var(--text-tertiary)",
-					}}
-				>
+
+			<div {...stylex.attrs(styles.smallGapColumn)}>
+				<TextBlock {...stylex.attrs(styles.columnText)}>
 					Support
 				</TextBlock>
+
 				<Button variant="hyperlink" as={A} href="/Privacy">
 					Privacy
 				</Button>
@@ -95,3 +56,40 @@ export const Footer = () => {
 		</footer>
 	);
 };
+
+const styles = stylex.create({
+	container: {
+		backgroundColor: colors.solidBackgroundBase,
+		display: "flex",
+		justifyContent: "space-around",
+		width: "100%",
+		padding: "1rem 0",
+		marginTop: "25px",
+		bottom: "0",
+	},
+	column: {
+		display: "flex",
+		flexDirection: "column",
+		gap: "0.5rem",
+	},
+	logoContainer: {
+		display: "flex",
+		alignItems: "center",
+		gap: "0.5rem",
+	},
+	logo: {
+		width: "2rem",
+	},
+	textTertiary: {
+		color: colors.textTertiary,
+	},
+	columnText: {
+		padding: "0.6rem",
+		color: colors.textTertiary,
+	},
+	smallGapColumn: {
+		display: "flex",
+		flexDirection: "column",
+		gap: "0.25rem",
+	},
+});

@@ -8,8 +8,9 @@ import {
 	CollapsibleTriggerIcon,
 } from "~/components/core/Collapsible/Collapsible";
 import ChevronDown24Regular from "@fluentui/svg-icons/icons/chevron_down_24_regular.svg?raw";
-import FluentIcon from "~/components/FluentIcon";
+import { FluentIcon } from "~/components/FluentIcon";
 import * as stylex from "@stylexjs/stylex";
+import { colors } from "~/shared/theme/tokens.stylex";
 
 interface Route {
 	name: string;
@@ -104,7 +105,7 @@ const routeStyles = stylex.create({
 		borderRadius: "var(--control-corner-radius)",
 		backgroundColor: "var(--subtle-fill-transparent)",
 		border: "1px solid var(--control-stroke)",
-		color: "var(--text-primary)",
+		color: colors.textPrimary,
 		textDecoration: "none",
 		cursor: "default",
 		userSelect: "none",

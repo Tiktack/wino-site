@@ -17,7 +17,6 @@
     "@solidjs/start": "^1.0.10",
     "@stylexjs/stylex": "^0.9.3",
     "@vinxi/plugin-mdx": "^3.7.2",
-    "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "postcss": "^8.4.49",
