@@ -76,6 +76,8 @@ const styles = stylex.create({
 	title: (slug: string) => ({
 		viewTransitionName: `blog-title-${slug}`,
 		display: "-webkit-box",
+		textDecoration: "none",	
+		color: colors.textPrimary,
 		WebkitLineClamp: 2,
 		WebkitBoxOrient: "vertical",
 		overflow: "hidden",

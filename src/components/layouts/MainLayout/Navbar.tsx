@@ -49,7 +49,7 @@ export const Navbar = () => {
 				<A href="/" {...stylex.attrs(styles.logo)}>
 					<img src="/logo.png" {...stylex.attrs(styles.logoImage)} alt="Wino logo" />
 
-					<span>Wino Mail</span>
+					<TextBlock>Wino Mail</TextBlock>
 				</A>
 
 				<nav {...stylex.attrs(styles.nav)}>
@@ -63,7 +63,7 @@ export const Navbar = () => {
 							>
 								{item.Icon && <FluentIcon icon={item.Icon} />}
 
-								<TextBlock>{item.name}</TextBlock>
+								<TextBlock >{item.name}</TextBlock>
 							</A>
 						)}
 					</For>

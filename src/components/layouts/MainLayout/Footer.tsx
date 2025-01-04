@@ -13,7 +13,7 @@ export const Footer = () => {
 				<div {...stylex.attrs(styles.logoContainer)}>
 					<img src="/logo.png" {...stylex.attrs(styles.logo)} alt="Wino Mail Logo" />
 
-					<TextBlock variant="subtitle">Wino Mail</TextBlock>
+					<TextBlock variant="bodyStrong">Wino Mail</TextBlock>
 				</div>
 
 				<TextBlock {...stylex.attrs(styles.textTertiary)}>

@@ -4,15 +4,25 @@ import { TextBlock } from "~/components/core/TextBlock/TextBlock";
 import { Title } from "@solidjs/meta";
 import { InfoBadge } from "~/components/core/InfoBadge/InfoBadge";
 import { Button } from "~/components/core/Button/Button";
-import {compareDesc, format} from "date-fns";
+import { compareDesc, format } from "date-fns";
 import { DateFormatToken } from "~/shared/lib/date";
 import { BlogCard } from "~/components/BlogCard";
 // Use Vite's glob import to get all MDX files from the routes/posts directory
-export type PostMetadata = { title: string, description: string, thumbnail: string, date: string, author: string, name: string };
-const postsRaw = import.meta.glob<PostMetadata>("./blog/*.mdx", { eager: true, import: "frontmatter" });
+export type PostMetadata = {
+	title: string;
+	description: string;
+	thumbnail: string;
+	date: string;
+	author: string;
+	name: string;
+};
+const postsRaw = import.meta.glob<PostMetadata>("./blog/*.mdx", {
+	eager: true,
+	import: "frontmatter",
+});
 const posts = Object.entries(postsRaw).map(([path, post]) => ({
 	...post,
-	name: path.replace('./blog/', '').replace('.mdx', '')
+	name: path.replace("./blog/", "").replace(".mdx", ""),
 }));
 
 const Blog = () => {
@@ -77,7 +87,6 @@ const Blog = () => {
 							"background-size": "cover",
 							"background-position": "center",
 							opacity: "0.25",
-							"z-index": "-10",
 						}}
 					/>
 
@@ -100,7 +109,7 @@ const Blog = () => {
 						>
 							{mostRecentPost.title}
 						</TextBlock>
-						<TextBlock variant="bodyLarge">
+						<TextBlock variant="body">
 							{mostRecentPost.description}
 						</TextBlock>
 						<Button variant={"accent"} as={A} href={mostRecentPost.name}>
@@ -120,10 +129,10 @@ const Blog = () => {
 							src={mostRecentPost.thumbnail}
 							alt={mostRecentPost.title}
 							style={{
+								"view-transition-name": `blog-image-${mostRecentPost.name}`,
 								width: "100%",
 								height: "100%",
 								"object-fit": "cover",
-								"view-transition-name": `blog-image-${mostRecentPost.name}`,
 							}}
 						/>
 					</div>
@@ -166,6 +175,6 @@ const Blog = () => {
 			</div>
 		</main>
 	);
-}
+};
 
 export default Blog;
