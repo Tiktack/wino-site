@@ -63,7 +63,7 @@ export default function HomePage() {
 				</div>
 
 				<img
-					src="/WinoPromo.png"
+					src="WinoPromo.png"
 					{...stylex.attrs(styles.image)}
 					aria-label="wino"
 				/>
