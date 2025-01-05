@@ -50,7 +50,7 @@ jobs:
       - name: build
         run: bun run build
         env:
-          BASE_PATH: /win-site/
+          BASE_PATH: /wino-site/
           
       - name: create .nojekyll
         run: touch .output/public/.nojekyll
