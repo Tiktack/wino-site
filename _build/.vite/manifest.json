@@ -187,7 +187,7 @@
     ]
   },
   "src/routes/(home).tsx?pick=default&pick=$css": {
-    "file": "assets/(home)-C7nXH_a0.js",
+    "file": "assets/(home)-DT5B9sMP.js",
     "name": "(home)",
     "src": "src/routes/(home).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -241,7 +241,7 @@
     ]
   },
   "src/routes/blog(list).tsx?pick=default&pick=$css": {
-    "file": "assets/blog(list)-DoZHnMqW.js",
+    "file": "assets/blog(list)-DNpJkJzt.js",
     "name": "blog(list)",
     "src": "src/routes/blog(list).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -566,7 +566,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-CA7XHfVz.js",
+    "file": "assets/client-IW7E-izl.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
