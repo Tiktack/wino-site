@@ -48,7 +48,7 @@ export const Navbar = () => {
 			<div {...stylex.attrs(styles.navbarInner)}>
 				<A href="/" {...stylex.attrs(styles.logo)}>
 					<img
-						src="/logo.png"
+						src="logo.png"
 						{...stylex.attrs(styles.logoImage)}
 						alt="Wino logo"
 					/>
