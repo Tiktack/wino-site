@@ -7,11 +7,12 @@ import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 import { MainLayout } from "./components/layouts/MainLayout";
 import { ThemeProvider } from "./shared/theme/provider";
+import { config } from "./config";
 
 export default function App() {
 	return (
 		<Router
-			base={import.meta.env.SERVER_BASE_URL}
+			base={config.base}
 			root={(props) => (
 				<MetaProvider>
 					<Title>Wino Mail</Title>
