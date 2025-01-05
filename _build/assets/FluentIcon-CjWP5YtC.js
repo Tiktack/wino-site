@@ -1,0 +1,1 @@
+import{D as a,i as n,j as o,m as l,r as i,t as m}from"./web-Cfx9MWSs.js";import"./stylex-_HEqwSgu.js";var x=m("<div>");const u=e=>{const[r,s]=a(e,["icon"]);return(()=>{var t=n(x);return o(t,l(()=>({class:"xmh2cwo xhdxxi3 xtywb94 x78zum5 x6s0dn4 xl56j7k"}),s,{get innerHTML(){return r.icon}}),!1,!1),i(),t})()};export{u as F};
