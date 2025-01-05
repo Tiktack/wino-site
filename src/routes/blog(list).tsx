@@ -25,10 +25,11 @@ const posts = Object.entries(postsRaw).map(([path, post]) => ({
 	name: path.replace("./blog/", "").replace(".mdx", ""),
 }));
 
+const sortedPosts = posts.toSorted((a, b) =>
+	compareDesc(new Date(a.date), new Date(b.date)),
+);
+
 const Blog = () => {
-	const sortedPosts = posts.toSorted((a, b) =>
-		compareDesc(new Date(a.date), new Date(b.date)),
-	);
 	const mostRecentPost = sortedPosts[0];
 	const restOfPosts = sortedPosts.slice(1);
 
