@@ -122,8 +122,8 @@
       "_routing-Bp5AkZHs.js"
     ]
   },
-  "_config-DbyUInZW.js": {
-    "file": "assets/config-DbyUInZW.js",
+  "_config-BRbu5zHP.js": {
+    "file": "assets/config-BRbu5zHP.js",
     "name": "config"
   },
   "_date-DOga6MM-.js": {
@@ -191,7 +191,7 @@
     ]
   },
   "src/routes/(home).tsx?pick=default&pick=$css": {
-    "file": "assets/(home)-BLdo9UUW.js",
+    "file": "assets/(home)-D4_1mQz6.js",
     "name": "(home)",
     "src": "src/routes/(home).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -202,7 +202,7 @@
       "_Button-BFmKRz6v.js",
       "_TextBlock-D_DQy0FE.js",
       "_stylex-_HEqwSgu.js",
-      "_config-DbyUInZW.js",
+      "_config-BRbu5zHP.js",
       "_components-Cc62qxTs.js",
       "_UKTBL2JL-BAf851Gh.js",
       "_5WXHJDCZ-B9JQyimU.js",
@@ -571,7 +571,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-R4IqQZUu.js",
+    "file": "assets/client-Bw-7RmSu.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
@@ -586,7 +586,7 @@
       "_components-Cc62qxTs.js",
       "_date-DOga6MM-.js",
       "_Button-BFmKRz6v.js",
-      "_config-DbyUInZW.js",
+      "_config-BRbu5zHP.js",
       "_routing-Bp5AkZHs.js",
       "_HttpStatusCode-DjTx85av.js",
       "_UKTBL2JL-BAf851Gh.js",
