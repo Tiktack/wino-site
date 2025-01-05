@@ -7,7 +7,6 @@ import {
 	CollapsibleTrigger,
 	CollapsibleTriggerIcon,
 } from '~/components/core/Collapsible/Collapsible';
-import styles from './Collapsibles.module.css';
 
 export default function Collapsibles() {
 	return (
@@ -20,7 +19,7 @@ export default function Collapsibles() {
 					gap: '1rem',
 				}}
 			>
-				<Collapsible class={styles.collapsible}>
+				<Collapsible>
 					<CollapsibleTrigger>
 						Collapsible
 						<CollapsibleTriggerIcon>
