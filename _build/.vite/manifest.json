@@ -252,7 +252,7 @@
     ]
   },
   "src/routes/blog(list).tsx?pick=default&pick=$css": {
-    "file": "assets/blog(list)-CmChydgY.js",
+    "file": "assets/blog(list)-BJAeIEqd.js",
     "name": "blog(list)",
     "src": "src/routes/blog(list).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -577,7 +577,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-DuiEp_Vj.js",
+    "file": "assets/client-Cs1FWCqY.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
