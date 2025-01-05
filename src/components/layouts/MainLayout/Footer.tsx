@@ -5,6 +5,7 @@ import { TextBlock } from "~/components/core/TextBlock/TextBlock";
 import * as stylex from "@stylexjs/stylex";
 import { base, colors } from "~/shared/theme/tokens.stylex";
 import { DateFormatToken } from "~/shared/lib/date";
+import winoPromo from "../../../../public/logo.png";
 
 export const Footer = () => {
 	return (
@@ -12,7 +13,7 @@ export const Footer = () => {
 			<div {...stylex.attrs(styles.column)}>
 				<div {...stylex.attrs(styles.logoContainer)}>
 					<img
-						src="logo.png"
+						src={winoPromo}
 						{...stylex.attrs(styles.logo)}
 						alt="Wino Mail Logo"
 					/>

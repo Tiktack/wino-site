@@ -7,6 +7,7 @@ import { Button } from "~/components/core/Button/Button";
 import { compareDesc, format } from "date-fns";
 import { DateFormatToken } from "~/shared/lib/date";
 import { BlogCard } from "~/components/BlogCard";
+import { resolvePath } from "~/shared/lib/resolvePath";
 // Use Vite's glob import to get all MDX files from the routes/posts directory
 export type PostMetadata = {
 	title: string;
@@ -77,7 +78,7 @@ const Blog = () => {
 				>
 					<div
 						style={{
-							"background-image": `url(${mostRecentPost.thumbnail})`,
+							"background-image": `url(${resolvePath(mostRecentPost.thumbnail)})`,
 							mask: "linear-gradient(black,transparent 80%)",
 							height: "calc(100% + 250px)",
 							position: "absolute",
@@ -125,7 +126,7 @@ const Blog = () => {
 						}}
 					>
 						<img
-							src={mostRecentPost.thumbnail}
+							src={resolvePath(mostRecentPost.thumbnail)}
 							alt={mostRecentPost.title}
 							style={{
 								"view-transition-name": `blog-image-${mostRecentPost.name}`,
@@ -159,7 +160,7 @@ const Blog = () => {
 								<BlogCard
 									title={post.title}
 									description={post.description}
-									thumbnail={post.thumbnail}
+									thumbnail={resolvePath(mostRecentPost.thumbnail)}
 									date={format(
 										new Date(post.date),
 										DateFormatToken.ShortNumericDate,

@@ -5,7 +5,7 @@ import { For } from "solid-js";
 import * as stylex from "@stylexjs/stylex";
 import { A } from "@solidjs/router";
 import { colors } from "~/shared/theme/tokens.stylex";
-import { config } from "~/config";
+import winoPromo from "../../public/WinoPromo.png";
 
 const KEY_FEATURES_ITEMS = [
 	{
@@ -64,7 +64,7 @@ export default function HomePage() {
 				</div>
 
 				<img
-					src={`${config.base}/WinoPromo.png`}
+					src={winoPromo}
 					{...stylex.attrs(styles.image)}
 					aria-label="wino"
 				/>

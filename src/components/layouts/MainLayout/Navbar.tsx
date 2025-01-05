@@ -11,6 +11,7 @@ import WeatherSunny from "@fluentui/svg-icons/icons/weather_sunny_24_regular.svg
 import * as stylex from '@stylexjs/stylex';
 import { ThemeContext } from '~/shared/theme/context';
 import { base, colors } from '~/shared/theme/tokens.stylex';
+import winoPromo from "../../../../public/logo.png";
 
 type NavItem = {
 	href: string;
@@ -48,7 +49,7 @@ export const Navbar = () => {
 			<div {...stylex.attrs(styles.navbarInner)}>
 				<A href="/" {...stylex.attrs(styles.logo)}>
 					<img
-						src="logo.png"
+						src={winoPromo}
 						{...stylex.attrs(styles.logoImage)}
 						alt="Wino logo"
 					/>
