@@ -1,4 +1,4 @@
-const styleXPlugin = require("@stylexjs/babel-plugin");
+const styleXPlugin = require('@stylexjs/babel-plugin');
 
 /** @type {import('@babel/core').TransformOptions} */
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
 			{
 				dev: true,
 				unstable_moduleResolution: {
-					type: "commonJS",
+					type: 'commonJS',
 					rootDir: __dirname,
 				},
 			},

@@ -1,6 +1,6 @@
 // ProgressRing.tsx
-import { type Component, createSignal, createEffect } from "solid-js";
-import styles from "./ProgressRing.module.css";
+import { type Component, createEffect, createSignal } from 'solid-js';
+import styles from './ProgressRing.module.css';
 
 interface ProgressRingProps {
 	value?: number;
@@ -20,12 +20,12 @@ export const ProgressRing: Component<ProgressRingProps> = (props) => {
 	});
 
 	const isIndeterminate = () =>
-		typeof props.value === "undefined" ||
+		typeof props.value === 'undefined' ||
 		props.value === null ||
 		Number.isNaN(props.value);
 
 	const normalizedValue = () => {
-		if (typeof props.value !== "number") return undefined;
+		if (typeof props.value !== 'number') return undefined;
 		return Math.max(0, Math.min(100, props.value));
 	};
 
@@ -41,14 +41,14 @@ export const ProgressRing: Component<ProgressRingProps> = (props) => {
 			// biome-ignore lint/style/noNonNullAssertion: <explanation>
 			ref={element!}
 			tabIndex={-1}
-			class={`${styles.progressRing} ${props.class || ""}`}
+			class={`${styles.progressRing} ${props.class || ''}`}
 			classList={{
 				[styles.indeterminate]: isIndeterminate(),
 			}}
 			width={props.size || 32}
 			height={props.size || 32}
 			viewBox="0 0 16 16"
-			role={!isIndeterminate() ? "progressbar" : "status"}
+			role={!isIndeterminate() ? 'progressbar' : 'status'}
 			aria-valuemin={!isIndeterminate() ? 0 : undefined}
 			aria-valuemax={!isIndeterminate() ? 100 : undefined}
 			aria-valuenow={normalizedValue()}

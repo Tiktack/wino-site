@@ -1,16 +1,16 @@
-import { useLocation } from "@solidjs/router";
-import type { JSX } from "solid-js";
-import ListItem from "~/components/core/ListItem/ListItem";
+import ChevronDown24Regular from '@fluentui/svg-icons/icons/chevron_down_24_regular.svg?raw';
+import { useLocation } from '@solidjs/router';
+import * as stylex from '@stylexjs/stylex';
+import type { JSX } from 'solid-js';
+import { FluentIcon } from '~/components/FluentIcon';
 import {
 	Collapsible,
 	CollapsibleContent,
 	CollapsibleTrigger,
 	CollapsibleTriggerIcon,
-} from "~/components/core/Collapsible/Collapsible";
-import ChevronDown24Regular from "@fluentui/svg-icons/icons/chevron_down_24_regular.svg?raw";
-import { FluentIcon } from "~/components/FluentIcon";
-import * as stylex from "@stylexjs/stylex";
-import { colors } from "~/shared/theme/tokens.stylex";
+} from '~/components/core/Collapsible/Collapsible';
+import ListItem from '~/components/core/ListItem/ListItem';
+import { colors } from '~/shared/theme/tokens.stylex';
 
 interface Route {
 	name: string;
@@ -34,9 +34,7 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 					{Acc}
 					{route.routes ? (
 						<Collapsible>
-							<CollapsibleTrigger
-								style={routeStyles.collapsibleTrigger}
-							>
+							<CollapsibleTrigger style={routeStyles.collapsibleTrigger}>
 								{route.Icon && (
 									<FluentIcon
 										icon={route.Icon}
@@ -46,16 +44,12 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 								<span {...stylex.attrs(routeStyles.textSpan)}>
 									{route.name}
 								</span>
-								<CollapsibleTriggerIcon
-									style={routeStyles.triggerIcon}
-								>
+								<CollapsibleTriggerIcon style={routeStyles.triggerIcon}>
 									<FluentIcon icon={ChevronDown24Regular} />
 								</CollapsibleTriggerIcon>
 							</CollapsibleTrigger>
-							
-							<CollapsibleContent
-								style={routeStyles.collapsibleContent}
-							>
+
+							<CollapsibleContent style={routeStyles.collapsibleContent}>
 								{traverseRoutes(route.routes)}
 							</CollapsibleContent>
 						</Collapsible>
@@ -95,56 +89,56 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 
 const routeStyles = stylex.create({
 	collapsibleTrigger: {
-		display: "flex",
-		alignItems: "center",
-		width: "100%",
-		position: "relative",
-		flex: "0 0 auto",
-		margin: "3px 5px",
-		paddingInline: "12px",
-		borderRadius: "var(--control-corner-radius)",
-		backgroundColor: "var(--subtle-fill-transparent)",
-		border: "1px solid var(--control-stroke)",
+		display: 'flex',
+		alignItems: 'center',
+		width: '100%',
+		position: 'relative',
+		flex: '0 0 auto',
+		margin: '3px 5px',
+		paddingInline: '12px',
+		borderRadius: 'var(--control-corner-radius)',
+		backgroundColor: 'var(--subtle-fill-transparent)',
+		border: '1px solid var(--control-stroke)',
 		color: colors.textPrimary,
-		textDecoration: "none",
-		cursor: "default",
-		userSelect: "none",
-		blockSize: "34px",
-		":hover": {
-			backgroundColor: "var(--subtle-fill-secondary)",
+		textDecoration: 'none',
+		cursor: 'default',
+		userSelect: 'none',
+		blockSize: '34px',
+		':hover': {
+			backgroundColor: 'var(--subtle-fill-secondary)',
 		},
 	},
 	icon: {
-		marginInlineEnd: "16px",
+		marginInlineEnd: '16px',
 		fill: colors.textPrimary,
 	},
 	textSpan: {
-		flexGrow: "1",
-		textAlign: "left",
+		flexGrow: '1',
+		textAlign: 'left',
 	},
 	triggerIcon: {
-		marginInlineStart: "8px",
+		marginInlineStart: '8px',
 	},
 	collapsibleContent: {
-		marginLeft: "16px",
+		marginLeft: '16px',
 	},
 });
 
 const styles = stylex.create({
 	main: {
-		display: "flex",
-		width: "100%",
+		display: 'flex',
+		width: '100%',
 	},
 	sidebar: {
-		display: "flex",
-		flexDirection: "column",
-		gap: "0.1rem",
-		width: "20%",
-		padding: "1rem",
-		borderRight: "1px solid var(--control-stroke)",
+		display: 'flex',
+		flexDirection: 'column',
+		gap: '0.1rem',
+		width: '20%',
+		padding: '1rem',
+		borderRight: '1px solid var(--control-stroke)',
 	},
 	content: {
-		width: "80%",
-		padding: "1rem",
+		width: '80%',
+		padding: '1rem',
 	},
 });

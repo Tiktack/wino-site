@@ -1,43 +1,43 @@
-import { For, useContext } from 'solid-js';
+import DocumentOnePage24Regular from '@fluentui/svg-icons/icons/document_one_page_24_regular.svg?raw';
+import Home24Regular from '@fluentui/svg-icons/icons/home_24_regular.svg?raw';
+import News24Regular from '@fluentui/svg-icons/icons/news_24_regular.svg?raw';
+import Settings24Regular from '@fluentui/svg-icons/icons/settings_24_regular.svg?raw';
+import WeatherSunny from '@fluentui/svg-icons/icons/weather_sunny_24_regular.svg?raw';
 import { A } from '@solidjs/router';
-import { TextBlock } from '~/components/core/TextBlock/TextBlock';
-import { IconButton } from '~/components/core/IconButton/IconButton';
-import { FluentIcon } from '~/components/FluentIcon';
-import Settings24Regular from "@fluentui/svg-icons/icons/settings_24_regular.svg?raw";
-import Home24Regular from "@fluentui/svg-icons/icons/home_24_regular.svg?raw";
-import News24Regular from "@fluentui/svg-icons/icons/news_24_regular.svg?raw";
-import DocumentOnePage24Regular from "@fluentui/svg-icons/icons/document_one_page_24_regular.svg?raw";
-import WeatherSunny from "@fluentui/svg-icons/icons/weather_sunny_24_regular.svg?raw";
 import * as stylex from '@stylexjs/stylex';
+import { For, useContext } from 'solid-js';
+import { FluentIcon } from '~/components/FluentIcon';
+import { IconButton } from '~/components/core/IconButton/IconButton';
+import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { ThemeContext } from '~/shared/theme/context';
 import { base, colors } from '~/shared/theme/tokens.stylex';
-import winoPromo from "../../../../public/logo.png";
+import winoPromo from '../../../../public/logo.png';
 
 type NavItem = {
 	href: string;
 	name: string;
 	Icon?: string;
-}
+};
 
 const NAVBAR_ITEMS: NavItem[] = [
 	{
-		href: "/",
-		name: "Home",
-		Icon: Home24Regular
+		href: '/',
+		name: 'Home',
+		Icon: Home24Regular,
 	},
 	{
-		href: "/blog",
-		name: "Blog",
+		href: '/blog',
+		name: 'Blog',
 		Icon: News24Regular,
 	},
 	{
-		href: "/docs/overview",
-		name: "Documentation",
+		href: '/docs/overview',
+		name: 'Documentation',
 		Icon: DocumentOnePage24Regular,
 	},
 	{
-		href: "/components/buttons",
-		name: "Components",
+		href: '/components/buttons',
+		name: 'Components',
 	},
 ];
 
@@ -75,14 +75,14 @@ export const Navbar = () => {
 				</nav>
 				<div {...stylex.attrs(styles.buttons)}>
 					<IconButton
-						as={"a"}
+						as={'a'}
 						href="https://discord.com/invite/windows-apps-hub-714581497222398064"
 						target="_blank"
 					>
 						<FluentIcon icon={Settings24Regular} />
 					</IconButton>
 					<IconButton
-						as={"a"}
+						as={'a'}
 						href="https://github.com/bkaankose/Wino-Mail"
 						target="_blank"
 					>
@@ -95,58 +95,58 @@ export const Navbar = () => {
 			</div>
 		</header>
 	);
-}
+};
 
 const styles = stylex.create({
 	navbar: {
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "center",
-		position: "fixed",
-		transform: "translateY(0.001px)",
-		insetBlockStart: "0",
-		insetInlineStart: "0",
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		position: 'fixed',
+		transform: 'translateY(0.001px)',
+		insetBlockStart: '0',
+		insetInlineStart: '0',
 		zIndex: 1000,
-		inlineSize: "100%",
-		minBlockSize: "56px",
-		boxSizing: "border-box",
-		borderBottom: "1px solid var(--surface-stroke-flyout)",
+		inlineSize: '100%',
+		minBlockSize: '56px',
+		boxSizing: 'border-box',
+		borderBottom: '1px solid var(--surface-stroke-flyout)',
 		backgroundColor: colors.layerBackgroundDefault,
-		backgroundClip: "padding-box",
-		backdropFilter: "blur(60px)",
+		backgroundClip: 'padding-box',
+		backdropFilter: 'blur(60px)',
 	},
 	navbarInner: {
-		display: "flex",
-		alignItems: "center",
-		inlineSize: "100%",
-		maxInlineSize: "1440px",
-		paddingInline: "18px 12px",
-		margin: "0 auto",
+		display: 'flex',
+		alignItems: 'center',
+		inlineSize: '100%',
+		maxInlineSize: '1440px',
+		paddingInline: '18px 12px',
+		margin: '0 auto',
 	},
 	nav: {
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "flex-end",
-		gap: "12px",
-		flex: "1 1 auto",
-		padding: "0 16px",
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'flex-end',
+		gap: '12px',
+		flex: '1 1 auto',
+		padding: '0 16px',
 	},
 	navLink: {
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "center",
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
 		borderRadius: base.controlCornerRadius,
-		position: "relative",
-		textDecoration: "none",
+		position: 'relative',
+		textDecoration: 'none',
 		color: colors.textPrimary,
 		transition:
-			"var(--control-fast-duration) var(--control-fast-out-slow-in-easing)",
-		padding: "5px 11px",
-		columnGap: "4px",
-		":hover": {
+			'var(--control-fast-duration) var(--control-fast-out-slow-in-easing)',
+		padding: '5px 11px',
+		columnGap: '4px',
+		':hover': {
 			backgroundColor: colors.subtleFillSecondary,
 		},
-		":active": {
+		':active': {
 			backgroundColor: colors.subtleFillTertiary,
 		},
 	},
@@ -155,21 +155,21 @@ const styles = stylex.create({
 		color: colors.accentTextPrimary,
 	},
 	logo: {
-		display: "flex",
-		justifyContent: "center",
-		alignItems: "center",
-		textDecoration: "none",
-		position: "relative",
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		textDecoration: 'none',
+		position: 'relative',
 	},
 	logoImage: {
-		marginInlineEnd: "14px",
-		width: "auto",
-		height: "25px",
+		marginInlineEnd: '14px',
+		width: 'auto',
+		height: '25px',
 	},
 	buttons: {
-		display: "flex",
-		alignItems: "center",
-		columnGap: "8px",
-		flex: "0 0 auto",
+		display: 'flex',
+		alignItems: 'center',
+		columnGap: '8px',
+		flex: '0 0 auto',
 	},
 });

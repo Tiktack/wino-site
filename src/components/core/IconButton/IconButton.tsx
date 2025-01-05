@@ -1,29 +1,26 @@
-import type { JSX, ValidComponent } from "solid-js";
-import { splitProps } from "solid-js";
-import * as ButtonPrimitive from "@kobalte/core/button";
-import type { PolymorphicProps } from "@kobalte/core/polymorphic";
-import * as stylex from "@stylexjs/stylex";
-import type { WithStyleX } from "~/shared/theme/type";
+import * as ButtonPrimitive from '@kobalte/core/button';
+import type { PolymorphicProps } from '@kobalte/core/polymorphic';
+import * as stylex from '@stylexjs/stylex';
+import type { JSX, ValidComponent } from 'solid-js';
+import { splitProps } from 'solid-js';
+import type { WithStyleX } from '~/shared/theme/type';
 
-type IconButtonProps<T extends ValidComponent = "button"> =
+type IconButtonProps<T extends ValidComponent = 'button'> =
 	ButtonPrimitive.ButtonRootProps<T> & {
 		children: JSX.Element;
 	};
 
-export const IconButton = <T extends ValidComponent = "button">(
+export const IconButton = <T extends ValidComponent = 'button'>(
 	props: WithStyleX<PolymorphicProps<T, IconButtonProps<T>>>,
 ) => {
 	const [local, others] = splitProps(props as WithStyleX<IconButtonProps>, [
-		"children",
-		"style"
+		'children',
+		'style',
 	]);
 
 	return (
 		<ButtonPrimitive.Root
-			{...stylex.attrs(
-				styles.base,
-				local.style,
-			)}
+			{...stylex.attrs(styles.base, local.style)}
 			{...others}
 		>
 			{local.children}
@@ -57,6 +54,6 @@ const styles = stylex.create({
 		':disabled': {
 			backgroundColor: 'var(--subtle-fill-disabled)',
 			color: 'var(--text-disabled)',
-		}
+		},
 	},
 });

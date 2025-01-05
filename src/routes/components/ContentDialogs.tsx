@@ -1,21 +1,21 @@
-import { Title } from "@solidjs/meta";
-import { createSignal } from "solid-js";
-import { Button } from "~/components/core/Button/Button";
-import { ContentDialog } from "~/components/core/ContentDialog/ContentDialog";
-import { TextBlock } from "~/components/core/TextBlock/TextBlock";
+import { Title } from '@solidjs/meta';
+import { createSignal } from 'solid-js';
+import { Button } from '~/components/core/Button/Button';
+import { ContentDialog } from '~/components/core/ContentDialog/ContentDialog';
+import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 
 export default function Buttons() {
 	const [isOpen, setIsOpen] = createSignal(false);
-	const [result, setResult] = createSignal("");
+	const [result, setResult] = createSignal('');
 
 	const handleConfirm = () => {
 		setIsOpen(false);
-		setResult("Confirmed");
+		setResult('Confirmed');
 	};
 
 	const handleClose = () => {
 		setIsOpen(false);
-		setResult("Closed");
+		setResult('Closed');
 	};
 
 	return (
@@ -23,12 +23,12 @@ export default function Buttons() {
 			<Title>Content Dialog</Title>
 			<div
 				style={{
-					display: "flex",
-					"flex-direction": "column",
-					gap: "1rem",
+					display: 'flex',
+					'flex-direction': 'column',
+					gap: '1rem',
 				}}
 			>
-				<Button style={{ width: "150px" }} onClick={() => setIsOpen(true)}>
+				<Button style={{ width: '150px' }} onClick={() => setIsOpen(true)}>
 					Open dialog
 				</Button>
 				<ContentDialog
@@ -41,20 +41,20 @@ export default function Buttons() {
 					footer={
 						<div
 							style={{
-								width: "100%",
-								display: "flex",
-								"flex-direction": "row",
-								gap: "0.5rem",
+								width: '100%',
+								display: 'flex',
+								'flex-direction': 'row',
+								gap: '0.5rem',
 							}}
 						>
 							<Button
-								style={{ flex: "1" }}
-								variant={"accent"}
+								style={{ flex: '1' }}
+								variant={'accent'}
 								onClick={handleConfirm}
 							>
 								Accept
 							</Button>
-							<Button style={{ flex: "1" }} onClick={handleClose}>
+							<Button style={{ flex: '1' }} onClick={handleClose}>
 								Cancel
 							</Button>
 						</div>

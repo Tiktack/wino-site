@@ -1,32 +1,35 @@
-import { Title } from "@solidjs/meta";
-import { Button } from "~/components/core/Button/Button";
-import { TextBlock } from "~/components/core/TextBlock/TextBlock";
-import { For } from "solid-js";
-import * as stylex from "@stylexjs/stylex";
-import { A } from "@solidjs/router";
-import { colors } from "~/shared/theme/tokens.stylex";
-import winoPromo from "../../public/WinoPromo.png";
+import { Title } from '@solidjs/meta';
+import { A } from '@solidjs/router';
+import * as stylex from '@stylexjs/stylex';
+import { For } from 'solid-js';
+import { Button } from '~/components/core/Button/Button';
+import { TextBlock } from '~/components/core/TextBlock/TextBlock';
+import { colors } from '~/shared/theme/tokens.stylex';
+import winoPromo from '../../public/WinoPromo.png';
 
 const KEY_FEATURES_ITEMS = [
 	{
-		title: "Native Windows App",
-		description: "Seamlessly integrated with Windows 11 for a native user experience.",
+		title: 'Native Windows App',
+		description:
+			'Seamlessly integrated with Windows 11 for a native user experience.',
 	},
 	{
-		title: "Simple",
-		description: "Intuitive interface for effortless email management.",
+		title: 'Simple',
+		description: 'Intuitive interface for effortless email management.',
 	},
 	{
-		title: "Performance",
-		description: "Lightning-fast email processing and smooth operations.",
+		title: 'Performance',
+		description: 'Lightning-fast email processing and smooth operations.',
 	},
 	{
-		title: "Offline Possibilities",
-		description: "Access and manage your emails even without an internet connection.",
+		title: 'Offline Possibilities',
+		description:
+			'Access and manage your emails even without an internet connection.',
 	},
 	{
-		title: "Customization",
-		description: "Tailor the app to your preferences with extensive customization options.",
+		title: 'Customization',
+		description:
+			'Tailor the app to your preferences with extensive customization options.',
 	},
 ];
 
@@ -45,7 +48,7 @@ export default function HomePage() {
 
 				<div {...stylex.attrs(styles.buttonContainer)}>
 					<Button
-						variant={"accent"}
+						variant={'accent'}
 						as={A}
 						href="docs/install"
 						style={styles.button}
@@ -54,7 +57,7 @@ export default function HomePage() {
 					</Button>
 
 					<Button
-						variant={"hyperlink"}
+						variant={'hyperlink'}
 						as={A}
 						href="docs/overview"
 						style={styles.button}
@@ -94,46 +97,46 @@ export default function HomePage() {
 
 const styles = stylex.create({
 	main: {
-		display: "flex",
-		flexDirection: "column",
-		alignItems: "center",
-		justifyContent: "center",
-		gap: "1rem",
-		color: "white",
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyContent: 'center',
+		gap: '1rem',
+		color: 'white',
 	},
 	container: {
-		padding: "2rem",
-		gap: "1rem",
-		width: "100%",
-		display: "flex",
-		flexDirection: "column",
-		alignItems: "center",
-		justifyContent: "center",
+		padding: '2rem',
+		gap: '1rem',
+		width: '100%',
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	buttonContainer: {
-		display: "flex",
-		flexDirection: "row",
-		gap: "1rem",
+		display: 'flex',
+		flexDirection: 'row',
+		gap: '1rem',
 	},
 	button: {
-		width: "120px",
-		textAlign: "center",
+		width: '120px',
+		textAlign: 'center',
 	},
 	image: {
-		borderRadius: "0.5rem",
-		width: "70%",
+		borderRadius: '0.5rem',
+		width: '70%',
 	},
 	featuresGrid: {
-		display: "grid",
-		width: "100%",
-		gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
-		gap: "1rem",
+		display: 'grid',
+		width: '100%',
+		gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+		gap: '1rem',
 	},
 	textTertiary: {
 		color: colors.textTertiary,
 	},
 	textCenter: {
-		textAlign: "center",
+		textAlign: 'center',
 	},
 
 	featureCard: {
@@ -149,6 +152,6 @@ const styles = stylex.create({
 		':hover': {
 			transform: 'translateY(-5px)',
 			boxShadow: 'var(--card-shadow)',
-		}
+		},
 	},
 });

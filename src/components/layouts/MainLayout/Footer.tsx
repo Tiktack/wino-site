@@ -1,11 +1,11 @@
-import { A } from "@solidjs/router";
-import { format } from "date-fns/format";
-import { Button } from "~/components/core/Button/Button";
-import { TextBlock } from "~/components/core/TextBlock/TextBlock";
-import * as stylex from "@stylexjs/stylex";
-import { base, colors } from "~/shared/theme/tokens.stylex";
-import { DateFormatToken } from "~/shared/lib/date";
-import winoPromo from "../../../../public/logo.png";
+import { A } from '@solidjs/router';
+import * as stylex from '@stylexjs/stylex';
+import { format } from 'date-fns/format';
+import { Button } from '~/components/core/Button/Button';
+import { TextBlock } from '~/components/core/TextBlock/TextBlock';
+import { DateFormatToken } from '~/shared/lib/date';
+import { base, colors } from '~/shared/theme/tokens.stylex';
+import winoPromo from '../../../../public/logo.png';
 
 export const Footer = () => {
 	return (
@@ -61,37 +61,37 @@ export const Footer = () => {
 const styles = stylex.create({
 	container: {
 		backgroundColor: colors.layerBackgroundDefault,
-		display: "flex",
-		justifyContent: "space-around",
-		width: "100%",
-		padding: "1rem 0",
-		marginTop: "25px",
-		bottom: "0",
+		display: 'flex',
+		justifyContent: 'space-around',
+		width: '100%',
+		padding: '1rem 0',
+		marginTop: '25px',
+		bottom: '0',
 	},
 	column: {
-		display: "flex",
-		flexDirection: "column",
-		gap: "0.5rem",
+		display: 'flex',
+		flexDirection: 'column',
+		gap: '0.5rem',
 	},
 	logoContainer: {
-		display: "flex",
-		alignItems: "center",
-		gap: "0.5rem",
+		display: 'flex',
+		alignItems: 'center',
+		gap: '0.5rem',
 	},
 	logo: {
-		width: "2rem",
+		width: '2rem',
 	},
 	textTertiary: {
 		color: colors.textTertiary,
 		fontSize: base.bodyFontSize,
 	},
 	columnText: {
-		padding: "0.6rem",
+		padding: '0.6rem',
 		color: colors.textTertiary,
 	},
 	smallGapColumn: {
-		display: "flex",
-		flexDirection: "column",
-		gap: "0.25rem",
+		display: 'flex',
+		flexDirection: 'column',
+		gap: '0.25rem',
 	},
 });

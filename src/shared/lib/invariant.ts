@@ -8,9 +8,9 @@
  * @throws Error instance with error message that was passed as an argument
  */
 export const invariant = <T extends object>(error: string): T => {
-  return new Proxy<T>({} as never, {
-    get: () => {
-      throw new Error(error);
-    }
-  });
+	return new Proxy<T>({} as never, {
+		get: () => {
+			throw new Error(error);
+		},
+	});
 };

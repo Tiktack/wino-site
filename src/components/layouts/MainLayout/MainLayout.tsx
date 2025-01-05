@@ -1,8 +1,8 @@
-import { useContext, type JSX } from "solid-js";
-import { Navbar } from "./Navbar";
-import { Footer } from "./Footer";
 import * as stylex from '@stylexjs/stylex';
-import { type Theme, ThemeContext } from "~/shared/theme/context";
+import { type JSX, useContext } from 'solid-js';
+import { type Theme, ThemeContext } from '~/shared/theme/context';
+import { Footer } from './Footer';
+import { Navbar } from './Navbar';
 
 type MainLayoutProps = {
 	children: JSX.Element;
@@ -10,7 +10,7 @@ type MainLayoutProps = {
 
 export const MainLayout = (props: MainLayoutProps) => {
 	const { theme } = useContext(ThemeContext);
-	
+
 	return (
 		<div {...stylex.attrs(styles.container)}>
 			<Navbar />
@@ -24,26 +24,26 @@ export const MainLayout = (props: MainLayoutProps) => {
 
 const styles = stylex.create({
 	container: {
-		minHeight: "100vh",
-		paddingTop: "56px",
-		display: "flex",
-		flexDirection: "column",
-		position: "relative",
+		minHeight: '100vh',
+		paddingTop: '56px',
+		display: 'flex',
+		flexDirection: 'column',
+		position: 'relative',
 	},
 	content: {
 		flex: 1,
 	},
 	background: (theme: Theme) => ({
-		position: "fixed",
+		position: 'fixed',
 		inset: 0,
-		width: "100%",
-		height: "100%",
-		transform: "scale(2)",
+		width: '100%',
+		height: '100%',
+		transform: 'scale(2)',
 		zIndex: -10,
 		backgroundImage: `url('https://fluent-svelte.vercel.app/bloom-mica-${theme}.png')`,
-		backgroundSize: "cover",
-		backgroundPosition: "center",
-		backgroundRepeat: "no-repeat",
-		backgroundAttachment: "fixed",
+		backgroundSize: 'cover',
+		backgroundPosition: 'center',
+		backgroundRepeat: 'no-repeat',
+		backgroundAttachment: 'fixed',
 	}),
 });

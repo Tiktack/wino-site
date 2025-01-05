@@ -1,8 +1,8 @@
-import { format } from "date-fns";
-import { TextBlock } from "./core/TextBlock/TextBlock";
-import { DateFormatToken } from "~/shared/lib/date";
-import stylex from '@stylexjs/stylex';
-import { base, colors } from "~/shared/theme/tokens.stylex";
+import * as stylex from '@stylexjs/stylex';
+import { format } from 'date-fns';
+import { DateFormatToken } from '~/shared/lib/date';
+import { base, colors } from '~/shared/theme/tokens.stylex';
+import { TextBlock } from './core/TextBlock/TextBlock';
 
 interface BlogCardProps {
 	title: string;
@@ -29,10 +29,7 @@ export const BlogCard = (props: BlogCardProps) => {
 				>
 					{props.title}
 				</TextBlock>
-				<TextBlock
-					variant="body"
-					{...stylex.attrs(styles.description)}
-				>
+				<TextBlock variant="body" {...stylex.attrs(styles.description)}>
 					{props.description}
 				</TextBlock>
 				<TextBlock {...stylex.attrs(styles.date)}>
@@ -45,54 +42,54 @@ export const BlogCard = (props: BlogCardProps) => {
 
 const styles = stylex.create({
 	container: {
-		display: "flex",
-		flexDirection: "column",
-		justifyContent: "start",
-		borderRadius: "0.5rem",
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'start',
+		borderRadius: '0.5rem',
 		background: colors.cardBackgroundDefault,
 		boxShadow: base.cardShadow,
-		transition: "transform 200ms",
-		height: "25rem",
-		overflow: "hidden",
-		":hover": {
-			transform: "translateY(-5px)",
+		transition: 'transform 200ms',
+		height: '25rem',
+		overflow: 'hidden',
+		':hover': {
+			transform: 'translateY(-5px)',
 			boxShadow: base.cardShadow,
 		},
 	},
 	image: (slug: string) => ({
 		viewTransitionName: `blog-image-${slug}`,
-		height: "12rem",
-		width: "100%",
-		objectFit: "cover",
+		height: '12rem',
+		width: '100%',
+		objectFit: 'cover',
 	}),
 	content: {
-		display: "flex",
+		display: 'flex',
 		flex: 1,
-		flexDirection: "column",
-		padding: "1.25rem",
-		gap: "0.75rem",
-		height: "12rem",
+		flexDirection: 'column',
+		padding: '1.25rem',
+		gap: '0.75rem',
+		height: '12rem',
 	},
 	title: (slug: string) => ({
 		viewTransitionName: `blog-title-${slug}`,
-		display: "-webkit-box",
-		textDecoration: "none",
+		display: '-webkit-box',
+		textDecoration: 'none',
 		color: colors.textPrimary,
 		WebkitLineClamp: 2,
-		WebkitBoxOrient: "vertical",
-		overflow: "hidden",
+		WebkitBoxOrient: 'vertical',
+		overflow: 'hidden',
 	}),
 	description: {
 		color: colors.textTertiary,
 		flex: 1,
-		display: "-webkit-box",
-		WebkitBoxOrient: "vertical",
-		overflow: "hidden",
-		textOverflow: "ellipsis",
-		whiteSpace: "wrap",
+		display: '-webkit-box',
+		WebkitBoxOrient: 'vertical',
+		overflow: 'hidden',
+		textOverflow: 'ellipsis',
+		whiteSpace: 'wrap',
 	},
 	date: {
 		color: colors.textTertiary,
-		marginTop: "auto",
+		marginTop: 'auto',
 	},
 });

@@ -1,18 +1,17 @@
-import { Title } from "@solidjs/meta";
-import { createSignal } from "solid-js";
-import { ToggleSwitch } from "~/components/core/ToggleSwitch/ToggleSwitch";
+import { Title } from '@solidjs/meta';
+import { createSignal } from 'solid-js';
+import { ToggleSwitch } from '~/components/core/ToggleSwitch/ToggleSwitch';
 
 export default function ToggleSwitches() {
-
-  const [switchState, setSwitchState] = createSignal(false);
+	const [switchState, setSwitchState] = createSignal(false);
 
 	return (
 		<main>
 			<Title>Buttons</Title>
 			<div
 				style={{
-					display: "flex",
-					"flex-direction": "row",
+					display: 'flex',
+					'flex-direction': 'row',
 				}}
 			>
 				<ToggleSwitch label="Default" />

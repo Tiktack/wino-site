@@ -1,69 +1,70 @@
 /* ListItem.module.css */
 .listItem {
-  display: flex;
-  align-items: center;
-  inline-size: calc(100% - 10px);
-  position: relative;
-  box-sizing: border-box;
-  flex: 0 0 auto;
-  margin: 3px 5px;
-  padding-inline: 12px;
-  border-radius: var(--control-corner-radius);
-  outline: none;
-  background-color: var(--subtle-fill-transparent);
-  color: var(--text-primary);
-  text-decoration: none;
-  cursor: default;
-  user-select: none;
-  block-size: 34px;
+	display: flex;
+	align-items: center;
+	inline-size: calc(100% - 10px);
+	position: relative;
+	box-sizing: border-box;
+	flex: 0 0 auto;
+	margin: 3px 5px;
+	padding-inline: 12px;
+	border-radius: var(--control-corner-radius);
+	outline: none;
+	background-color: var(--subtle-fill-transparent);
+	color: var(--text-primary);
+	text-decoration: none;
+	cursor: default;
+	user-select: none;
+	block-size: 34px;
 }
 
 .listItem::before {
-  content: "";
-  position: absolute;
-  border-radius: 3px;
-  background-color: var(--accent-default);
-  transition: transform var(--control-fast-duration) var(--control-fast-out-slow-in-easing);
-  opacity: 0;
-  inset-inline-start: 0;
-  inline-size: 3px;
-  block-size: 16px;
-  transform: scaleY(0);
+	content: "";
+	position: absolute;
+	border-radius: 3px;
+	background-color: var(--accent-default);
+	transition: transform var(--control-fast-duration)
+		var(--control-fast-out-slow-in-easing);
+	opacity: 0;
+	inset-inline-start: 0;
+	inline-size: 3px;
+	block-size: 16px;
+	transform: scaleY(0);
 }
 
 .selected::before {
-  transform: scaleY(1);
-  opacity: 1;
+	transform: scaleY(1);
+	opacity: 1;
 }
 
 .listItem:focus-visible {
-  box-shadow: var(--focus-stroke);
+	box-shadow: var(--focus-stroke);
 }
 
 .listItem:hover,
 .selected {
-  background-color: var(--subtle-fill-secondary);
+	background-color: var(--subtle-fill-secondary);
 }
 
 .listItem:active {
-  background-color: var(--subtle-fill-tertiary);
-  color: var(--text-secondary);
+	background-color: var(--subtle-fill-tertiary);
+	color: var(--text-secondary);
 }
 
 .listItem:active::before {
-  transform: scaleY(0.625);
+	transform: scaleY(0.625);
 }
 
 .disabled {
-  background-color: var(--subtle-fill-transparent);
-  color: var(--text-disabled);
-  pointer-events: none;
+	background-color: var(--subtle-fill-transparent);
+	color: var(--text-disabled);
+	pointer-events: none;
 }
 
 .disabled.selected {
-  background-color: var(--subtle-fill-secondary);
+	background-color: var(--subtle-fill-secondary);
 }
 
 .disabled.selected::before {
-  background-color: var(--accent-disabled);
+	background-color: var(--accent-disabled);
 }

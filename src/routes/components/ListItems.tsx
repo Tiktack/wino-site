@@ -1,5 +1,5 @@
-import { Title } from "@solidjs/meta";
-import ListItem from "~/components/core/ListItem/ListItem";
+import { Title } from '@solidjs/meta';
+import ListItem from '~/components/core/ListItem/ListItem';
 
 export default function ListItems() {
 	return (
@@ -7,11 +7,11 @@ export default function ListItems() {
 			<Title>List Items</Title>
 			<div
 				style={{
-					display: "flex",
-					"flex-direction": "column",
-					width: "299px",
-					height: "1500px",
-					gap: "1rem",
+					display: 'flex',
+					'flex-direction': 'column',
+					width: '299px',
+					height: '1500px',
+					gap: '1rem',
 				}}
 			>
 				<ListItem>Standard</ListItem>

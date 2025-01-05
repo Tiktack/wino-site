@@ -1,11 +1,10 @@
-import { Title } from "@solidjs/meta";
+import { Title } from '@solidjs/meta';
 
 export default function InstallPage() {
-  return (
-    <main>
-      <Title>Wino Mail | Docs | Install</Title>
-
-      Install
-    </main>
-  );
+	return (
+		<main>
+			<Title>Wino Mail | Docs | Install</Title>
+			Install
+		</main>
+	);
 }
