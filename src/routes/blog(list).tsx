@@ -160,7 +160,7 @@ const Blog = () => {
 								<BlogCard
 									title={post.title}
 									description={post.description}
-									thumbnail={resolvePath(mostRecentPost.thumbnail)}
+									thumbnail={resolvePath(post.thumbnail)}
 									date={format(
 										new Date(post.date),
 										DateFormatToken.ShortNumericDate,
