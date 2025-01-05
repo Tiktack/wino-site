@@ -1,34 +1,36 @@
 import * as stylex from '@stylexjs/stylex';
 
-// const baseTokens = {
-//   // Font Families
-//   fontFamilyFallback: '"Segoe UI", -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, Helvetica, Arial, sans-serif',
-//   fontFamilyText: '"Segoe UI Variable Text", "Seoge UI Variable Static Text", var(--font-family-fallback)',
-//   fontFamilySmall: '"Segoe UI Variable Small", "Seoge UI Variable Static Small", var(--font-family-fallback)',
-//   fontFamilyDisplay: '"Segoe UI Variable Display", "Seoge UI Variable Static Display", var(--font-family-fallback)',
+const baseTokens = {
+  // Font Families
+  fontFamilyFallback: '"Segoe UI", -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, Helvetica, Arial, sans-serif',
+  fontFamilyText: '"Segoe UI Variable Text", "Seoge UI Variable Static Text", var(--font-family-fallback)',
+  fontFamilySmall: '"Segoe UI Variable Small", "Seoge UI Variable Static Small", var(--font-family-fallback)',
+  fontFamilyDisplay: '"Segoe UI Variable Display", "Seoge UI Variable Static Display", var(--font-family-fallback)',
 
-//   // Font Sizes
-//   captionFontSize: '12px',
-//   bodyFontSize: '14px',
-//   bodyLargeFontSize: '18px',
-//   subtitleFontSize: '20px',
-//   titleFontSize: '28px',
-//   titleLargeFontSize: '40px',
-//   displayFontSize: '68px',
+  // Font Sizes
+  captionFontSize: '12px',
+  bodyFontSize: '14px',
+  bodyLargeFontSize: '18px',
+  subtitleFontSize: '20px',
+  titleFontSize: '28px',
+  titleLargeFontSize: '40px',
+  displayFontSize: '68px',
 
-//   // Roundness
-//   controlCornerRadius: '4px',
-//   overlayCornerRadius: '8px',
+  // Roundness
+  controlCornerRadius: '4px',
+  overlayCornerRadius: '8px',
 
-//   // Duration
-//   controlSlowDuration: '333ms',
-//   controlNormalDuration: '250ms',
-//   controlFastDuration: '167ms',
-//   controlFasterDuration: '83ms',
+  // Duration
+  controlSlowDuration: '333ms',
+  controlNormalDuration: '250ms',
+  controlFastDuration: '167ms',
+  controlFasterDuration: '83ms',
 
-//   // Easing
-//   controlFastOutSlowInEasing: 'cubic-bezier(0, 0, 0, 1)',
-// };
+  // Easing
+  controlFastOutSlowInEasing: 'cubic-bezier(0, 0, 0, 1)',
+};
+
+export const base = stylex.defineVars(baseTokens);
 
 const colorTokens = {
   /* Text */

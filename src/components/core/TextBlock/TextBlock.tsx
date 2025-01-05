@@ -1,8 +1,7 @@
 import type { Component, JSX } from 'solid-js';
-import styles from './TextBlock.module.css';
 import { Dynamic } from 'solid-js/web';
 import * as stylex from '@stylexjs/stylex';
-import { colors } from '~/shared/theme/tokens.stylex';
+import { base, colors } from '~/shared/theme/tokens.stylex';
 
 type Variant = "caption" | "body" | "bodyStrong" | "bodyLarge" | "subtitle" | "title" | "titleLarge" | "display";
 
@@ -31,10 +30,9 @@ export const TextBlock: Component<TextBlockProps> = (props) => {
   return (
 			<Dynamic
 				component={Tag}
-				// class={`${styles.textBlock} ${styles[variantMap[variant()].name]} ${props.class || ''}`}
 				{...stylex.attrs(
-					stylesNew.textBlock,
-					stylesNew[variantMap[variant()].name],
+					styles.textBlock,
+					styles[variantMap[variant()].name],
 				)}
 				ref={props.ref}
 				{...props}
@@ -44,7 +42,7 @@ export const TextBlock: Component<TextBlockProps> = (props) => {
 		);
 };
 
-const stylesNew = stylex.create({
+const styles = stylex.create({
 	textBlock: {
 		margin: 0,
 		padding: 0,
@@ -58,31 +56,31 @@ const stylesNew = stylex.create({
 		lineHeight: 1.66,
 	},
 	body: {
-		// fontSize: "1rem",
-		lineHeight: 1.5,
+		fontSize: base.bodyFontSize,
+		// lineHeight: 1.5,
 	},
 	bodyStrong: {
-		fontSize: "1.25rem",
-		lineHeight: 1.5,
+		fontSize: base.bodyFontSize,
+		// lineHeight: 1.5,
 	},
 	bodyLarge: {
-		fontSize: "1.5rem",
-		lineHeight: 1.5,
+		fontSize: base.bodyLargeFontSize,
+		// lineHeight: 1.5,
 	},
 	subtitle: {
-		fontSize: "2rem",
-		lineHeight: 1.5,
+		fontSize: base.subtitleFontSize,
+		// lineHeight: 1.5,
 	},
 	title: {
-		fontSize: "2.5rem",
-		lineHeight: 1.5,
+		fontSize: base.titleFontSize,
+		// lineHeight: 1.5,
 	},
 	titleLarge: {
-		fontSize: "3.5rem",
-		lineHeight: 1.5,
+		fontSize: base.titleLargeFontSize,
+		// lineHeight: 1.5,
 	},
 	display: {
-		fontSize: "4.5rem",
-		lineHeight: 1.5,
+		fontSize: base.displayFontSize,
+		// lineHeight: 1.5,
 	},
 });

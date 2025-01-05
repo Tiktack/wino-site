@@ -116,6 +116,7 @@ const routeStyles = stylex.create({
 	},
 	icon: {
 		marginInlineEnd: "16px",
+		fill: colors.textPrimary,
 	},
 	textSpan: {
 		flexGrow: "1",

@@ -47,7 +47,11 @@ export const Navbar = () => {
 		<header {...stylex.attrs(styles.navbar)}>
 			<div {...stylex.attrs(styles.navbarInner)}>
 				<A href="/" {...stylex.attrs(styles.logo)}>
-					<img src="/logo.png" {...stylex.attrs(styles.logoImage)} alt="Wino logo" />
+					<img
+						src="/logo.png"
+						{...stylex.attrs(styles.logoImage)}
+						alt="Wino logo"
+					/>
 
 					<TextBlock>Wino Mail</TextBlock>
 				</A>
@@ -63,7 +67,7 @@ export const Navbar = () => {
 							>
 								{item.Icon && <FluentIcon icon={item.Icon} />}
 
-								<TextBlock >{item.name}</TextBlock>
+								<TextBlock variant="body">{item.name}</TextBlock>
 							</A>
 						)}
 					</For>

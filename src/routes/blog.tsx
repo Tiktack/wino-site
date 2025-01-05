@@ -62,7 +62,6 @@ const styles = stylex.create({
 		gap: "1rem",
 	},
 	content: {
-		maxWidth: "none",
 		color: colors.textPrimary,
 	},
 	image: (slug: string) => ({
