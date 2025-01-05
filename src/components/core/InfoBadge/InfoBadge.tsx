@@ -1,39 +1,33 @@
 import { type Component, type JSX, Show, Switch, Match } from "solid-js";
-import styles from "./InfoBadge.module.css";
+import * as stylex from "@stylexjs/stylex";
+import { colors } from "~/shared/theme/tokens.stylex";
 
-type Severity =
-	| "attention"
+interface InfoBadgeProps extends JSX.HTMLAttributes<HTMLSpanElement> {
+	severity?: "attention"
 	| "success"
 	| "caution"
 	| "critical"
 	| "information";
-interface InfoBadgeProps extends JSX.HTMLAttributes<HTMLSpanElement> {
-	severity?: Severity;
-	element?: HTMLSpanElement;
 }
-
-const svgProps = {
-	"aria-hidden": "true",
-	xmlns: "http://www.w3.org/2000/svg",
-};
 
 export const InfoBadge: Component<InfoBadgeProps> = (props) => {
 	const severity = () => props.severity ?? "attention";
 
+	const svgProps: JSX.SvgSVGAttributes<SVGSVGElement> = {
+		"aria-hidden": true,
+		xmlns: "http://www.w3.org/2000/svg",
+		...stylex.attrs(styles.infoBadgeSvg),
+	};
+
 	return (
 		<span
-			ref={props.element}
-			classList={{
-				[styles.infoBadge]: true,
-				[styles[`severity-${severity()}`]]: true,
-			}}
+			{...stylex.attrs(styles.infoBadge, severityVariants[severity()])}
 			{...props}
 		>
 			<Show
 				when={props.children}
 				fallback={
-					// biome-ignore lint/complexity/noUselessFragments: <explanation>
-					<Switch fallback={<></>}>
+					<Switch>
 						<Match when={severity() === "attention"}>
 							<svg {...svgProps} viewBox="162 118 701 789">
 								<path fill="currentColor" d="M862.5,680C862.5,687.333 ...Z" />
@@ -73,3 +67,45 @@ export const InfoBadge: Component<InfoBadgeProps> = (props) => {
 		</span>
 	);
 };
+
+const styles = stylex.create({
+	infoBadge: {
+		display: 'inline-flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		boxSizing: 'border-box',
+		userSelect: 'none',
+		minInlineSize: '16px',
+		minBlockSize: '16px',
+		borderRadius: '16px',
+		padding: '5px',
+		width: 'fit-content',
+		color: colors.textOnAccentPrimary,
+		lineHeight: 'var(--caption-font-size)',
+		fontFamily: 'var(--font-family-small)',
+		fontSize: 'var(--caption-font-size)',
+	},
+	infoBadgeSvg: {
+		inlineSize: '8px',
+		blockSize: '8px',
+		fill: 'currentColor',
+	},
+});
+
+const severityVariants = stylex.create({
+	attention: {
+		backgroundColor: colors.systemAttention,
+	},
+	success: {
+		backgroundColor: colors.systemSuccess,
+	},
+	caution: {
+		backgroundColor: colors.systemCaution,
+	},
+	critical: {
+		backgroundColor: colors.systemCritical,
+	},
+	information: {
+		backgroundColor: colors.systemSolidNeutral,
+	},
+});

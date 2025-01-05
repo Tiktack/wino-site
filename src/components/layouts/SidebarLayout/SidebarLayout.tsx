@@ -24,16 +24,18 @@ interface SidebarLayoutProps {
 	routes: Route[];
 }
 
-const TraverseRoutes = (routes: Route[], location: string) => {
-	return routes.reduce(
-		(acc, route) => {
-			return (
+export const SidebarLayout = (props: SidebarLayoutProps) => {
+	const location = useLocation();
+
+	const traverseRoutes = (routes: Route[]) => {
+		return routes.reduce(
+			(Acc, route) => (
 				<>
-					{acc}
+					{Acc}
 					{route.routes ? (
 						<Collapsible>
 							<CollapsibleTrigger
-								{...stylex.attrs(routeStyles.collapsibleTrigger)}
+								style={routeStyles.collapsibleTrigger}
 							>
 								{route.Icon && (
 									<FluentIcon
@@ -45,20 +47,21 @@ const TraverseRoutes = (routes: Route[], location: string) => {
 									{route.name}
 								</span>
 								<CollapsibleTriggerIcon
-									{...stylex.attrs(routeStyles.triggerIcon)}
+									style={routeStyles.triggerIcon}
 								>
 									<FluentIcon icon={ChevronDown24Regular} />
 								</CollapsibleTriggerIcon>
 							</CollapsibleTrigger>
+							
 							<CollapsibleContent
-								{...stylex.attrs(routeStyles.collapsibleContent)}
+								style={routeStyles.collapsibleContent}
 							>
-								{TraverseRoutes(route.routes, location)}
+								{traverseRoutes(route.routes)}
 							</CollapsibleContent>
 						</Collapsible>
 					) : (
 						<ListItem
-							selected={location === route.path}
+							selected={location.pathname === route.path}
 							icon={
 								route.Icon ? (
 									<FluentIcon
@@ -73,21 +76,18 @@ const TraverseRoutes = (routes: Route[], location: string) => {
 						</ListItem>
 					)}
 				</>
-			);
-		},
-		// biome-ignore lint/complexity/noUselessFragments: <explanation>
-		<></>,
-	);
-};
-
-export const SidebarLayout = (props: SidebarLayoutProps) => {
-	const location = useLocation();
+			),
+			// biome-ignore lint/complexity/noUselessFragments: <explanation>
+			<></>,
+		);
+	};
 
 	return (
 		<main {...stylex.attrs(styles.main)}>
 			<div {...stylex.attrs(styles.sidebar)}>
-				{TraverseRoutes(props.routes, location.pathname)}
+				{traverseRoutes(props.routes)}
 			</div>
+
 			<div {...stylex.attrs(styles.content)}>{props.children}</div>
 		</main>
 	);

@@ -16,13 +16,13 @@ export default function Collapsibles() {
 				}}
 			>
 				<Collapsible class={styles.collapsible}>
-					<CollapsibleTrigger class={styles.collapsibleTrigger}>
+					<CollapsibleTrigger >
 						Collapsible
-						<CollapsibleTriggerIcon style={{ width: "20px", height: "20px" }}>
+						<CollapsibleTriggerIcon >
 							<FluentIcon icon={ChevronDown24Regular} />
 						</CollapsibleTriggerIcon>
 					</CollapsibleTrigger>
-					<CollapsibleContent class={styles.collapsibleContent}>
+					<CollapsibleContent >
 						Kobalte is a UI toolkit for building accessible web apps and design
 						systems with SolidJS. It provides a set of low-level UI components
 						and primitives which can be the foundation for your design system
