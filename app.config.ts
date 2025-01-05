@@ -23,6 +23,6 @@ export default defineConfig({
   ssr: true,
   server: {
     baseURL: process.env.BASE_PATH,
-    preset: "github-pages",
+    preset: "githubPages",
   }
 });
