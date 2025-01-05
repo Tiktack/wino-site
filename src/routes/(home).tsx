@@ -146,7 +146,7 @@ const styles = stylex.create({
 		justifyContent: 'flex-start',
 		padding: '1rem',
 		borderRadius: '0.5rem',
-		backgroundColor: 'var(--system-background-attention)',
+		backgroundColor: colors.systemBackgroundAttention,
 		boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
 		transition: 'transform 0.2s',
 		':hover': {
