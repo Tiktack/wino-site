@@ -5,7 +5,6 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import viteStyleXPlugin from "vite-plugin-stylex"
 /* @ts-ignore */
 import pkg from "@vinxi/plugin-mdx";
-import { config } from "~/config";
 const { default: vinxiMdxPlugin } = pkg;
 
 export default defineConfig({
@@ -23,8 +22,8 @@ export default defineConfig({
   },
   ssr: true,
   server: {
-    baseURL: config.base,
+    baseURL: process.env.BASE_PATH,
     preset: "github-pages",
     static: true,
-  },
+  }
 });
