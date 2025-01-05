@@ -2,7 +2,7 @@ import { format } from "date-fns";
 import { TextBlock } from "./core/TextBlock/TextBlock";
 import { DateFormatToken } from "~/shared/lib/date";
 import stylex from '@stylexjs/stylex';
-import { colors } from "~/shared/theme/tokens.stylex";
+import { base, colors } from "~/shared/theme/tokens.stylex";
 
 interface BlogCardProps {
 	title: string;
@@ -49,15 +49,15 @@ const styles = stylex.create({
 		flexDirection: "column",
 		justifyContent: "start",
 		borderRadius: "0.5rem",
-		background: 'var(--card-background-default)',
-		boxShadow: "var(--card-shadow)",
+		background: colors.cardBackgroundDefault,
+		boxShadow: base.cardShadow,
 		transition: "transform 200ms",
 		height: "25rem",
 		overflow: "hidden",
-		':hover': {
+		":hover": {
 			transform: "translateY(-5px)",
-			boxShadow: "var(--card-shadow)",
-		}
+			boxShadow: base.cardShadow,
+		},
 	},
 	image: (slug: string) => ({
 		viewTransitionName: `blog-image-${slug}`,
@@ -76,7 +76,7 @@ const styles = stylex.create({
 	title: (slug: string) => ({
 		viewTransitionName: `blog-title-${slug}`,
 		display: "-webkit-box",
-		textDecoration: "none",	
+		textDecoration: "none",
 		color: colors.textPrimary,
 		WebkitLineClamp: 2,
 		WebkitBoxOrient: "vertical",

@@ -102,16 +102,14 @@ const Blog = () => {
 							{format(new Date(mostRecentPost.date), DateFormatToken.ShortDate)}
 						</InfoBadge>
 						<TextBlock
-							variant="subtitle"
+							variant="title"
 							style={{
 								"view-transition-name": `blog-title-${mostRecentPost.name}`,
 							}}
 						>
 							{mostRecentPost.title}
 						</TextBlock>
-						<TextBlock variant="body">
-							{mostRecentPost.description}
-						</TextBlock>
+						<TextBlock variant="body">{mostRecentPost.description}</TextBlock>
 						<Button variant={"accent"} as={A} href={mostRecentPost.name}>
 							Read More
 						</Button>

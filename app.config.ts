@@ -20,4 +20,9 @@ export default defineConfig({
       viteStyleXPlugin(),
     ],
   },
+  ssr: true,
+  server: {
+    baseURL: process.env.BASE_PATH,
+    preset: "static"
+  }
 });

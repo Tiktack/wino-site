@@ -3,7 +3,7 @@ import { format } from "date-fns/format";
 import { Button } from "~/components/core/Button/Button";
 import { TextBlock } from "~/components/core/TextBlock/TextBlock";
 import * as stylex from "@stylexjs/stylex";
-import { colors } from "~/shared/theme/tokens.stylex";
+import { base, colors } from "~/shared/theme/tokens.stylex";
 import { DateFormatToken } from "~/shared/lib/date";
 
 export const Footer = () => {
@@ -11,9 +11,13 @@ export const Footer = () => {
 		<footer {...stylex.attrs(styles.container)}>
 			<div {...stylex.attrs(styles.column)}>
 				<div {...stylex.attrs(styles.logoContainer)}>
-					<img src="/logo.png" {...stylex.attrs(styles.logo)} alt="Wino Mail Logo" />
+					<img
+						src="/logo.png"
+						{...stylex.attrs(styles.logo)}
+						alt="Wino Mail Logo"
+					/>
 
-					<TextBlock variant="bodyStrong">Wino Mail</TextBlock>
+					<TextBlock variant="subtitle">Wino Mail</TextBlock>
 				</div>
 
 				<TextBlock {...stylex.attrs(styles.textTertiary)}>
@@ -22,9 +26,7 @@ export const Footer = () => {
 			</div>
 
 			<div {...stylex.attrs(styles.smallGapColumn)}>
-				<TextBlock {...stylex.attrs(styles.columnText)}>
-					Contribute
-				</TextBlock>
+				<TextBlock {...stylex.attrs(styles.columnText)}>Contribute</TextBlock>
 
 				<Button
 					variant="hyperlink"
@@ -45,9 +47,7 @@ export const Footer = () => {
 			</div>
 
 			<div {...stylex.attrs(styles.smallGapColumn)}>
-				<TextBlock {...stylex.attrs(styles.columnText)}>
-					Support
-				</TextBlock>
+				<TextBlock {...stylex.attrs(styles.columnText)}>Support</TextBlock>
 
 				<Button variant="hyperlink" as={A} href="/Privacy">
 					Privacy
@@ -59,7 +59,7 @@ export const Footer = () => {
 
 const styles = stylex.create({
 	container: {
-		backgroundColor: colors.solidBackgroundBase,
+		backgroundColor: colors.layerBackgroundDefault,
 		display: "flex",
 		justifyContent: "space-around",
 		width: "100%",
@@ -82,6 +82,7 @@ const styles = stylex.create({
 	},
 	textTertiary: {
 		color: colors.textTertiary,
+		fontSize: base.bodyFontSize,
 	},
 	columnText: {
 		padding: "0.6rem",

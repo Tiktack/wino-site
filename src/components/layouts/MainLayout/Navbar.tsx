@@ -10,7 +10,7 @@ import DocumentOnePage24Regular from "@fluentui/svg-icons/icons/document_one_pag
 import WeatherSunny from "@fluentui/svg-icons/icons/weather_sunny_24_regular.svg?raw";
 import * as stylex from '@stylexjs/stylex';
 import { ThemeContext } from '~/shared/theme/context';
-import { colors } from '~/shared/theme/tokens.stylex';
+import { base, colors } from '~/shared/theme/tokens.stylex';
 
 type NavItem = {
 	href: string;
@@ -53,7 +53,7 @@ export const Navbar = () => {
 						alt="Wino logo"
 					/>
 
-					<TextBlock>Wino Mail</TextBlock>
+					<TextBlock variant="subtitle">Wino Mail</TextBlock>
 				</A>
 
 				<nav {...stylex.attrs(styles.nav)}>
@@ -98,85 +98,77 @@ export const Navbar = () => {
 
 const styles = stylex.create({
 	navbar: {
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		position: 'fixed',
-		transform: 'translateY(0.001px)',
-		insetBlockStart: '0',
-		insetInlineStart: '0',
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		position: "fixed",
+		transform: "translateY(0.001px)",
+		insetBlockStart: "0",
+		insetInlineStart: "0",
 		zIndex: 1000,
-		inlineSize: '100%',
-		minBlockSize: '56px',
-		boxSizing: 'border-box',
-		borderBottom: '1px solid var(--surface-stroke-flyout)',
+		inlineSize: "100%",
+		minBlockSize: "56px",
+		boxSizing: "border-box",
+		borderBottom: "1px solid var(--surface-stroke-flyout)",
 		backgroundColor: colors.layerBackgroundDefault,
-		backgroundClip: 'padding-box',
-		backdropFilter: 'blur(60px)',
+		backgroundClip: "padding-box",
+		backdropFilter: "blur(60px)",
 	},
 	navbarInner: {
-		display: 'flex',
-		alignItems: 'center',
-		inlineSize: '100%',
-		maxInlineSize: '1440px',
-		paddingInline: '18px 12px',
-		margin: '0 auto',
+		display: "flex",
+		alignItems: "center",
+		inlineSize: "100%",
+		maxInlineSize: "1440px",
+		paddingInline: "18px 12px",
+		margin: "0 auto",
 	},
 	nav: {
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'flex-end',
-		gap: '12px',
-		flex: '1 1 auto',
-		padding: '0 16px'
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "flex-end",
+		gap: "12px",
+		flex: "1 1 auto",
+		padding: "0 16px",
 	},
 	navLink: {
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		borderRadius: 'var(--control-corner-radius)',
-		position: 'relative',
-		textDecoration: 'none',
-		color: 'var(--text-primary)',
-		transition: 'var(--control-fast-duration) var(--control-fast-out-slow-in-easing)',
-		padding: '5px 11px',
-		columnGap: '4px',
-		':hover': {
-			backgroundColor: 'var(--subtle-fill-secondary)'
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		borderRadius: base.controlCornerRadius,
+		position: "relative",
+		textDecoration: "none",
+		color: colors.textPrimary,
+		transition:
+			"var(--control-fast-duration) var(--control-fast-out-slow-in-easing)",
+		padding: "5px 11px",
+		columnGap: "4px",
+		":hover": {
+			backgroundColor: colors.subtleFillSecondary,
 		},
-		':active': {
-			backgroundColor: 'var(--subtle-fill-tertiary)'
-		}
+		":active": {
+			backgroundColor: colors.subtleFillTertiary,
+		},
 	},
 	selectedNav: {
-		backgroundColor: 'var(--subtle-fill-secondary)',
-		color: 'var(--accent-text-primary)'
+		backgroundColor: colors.subtleFillSecondary,
+		color: colors.accentTextPrimary,
 	},
 	logo: {
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		textDecoration: 'none',
-		position: 'relative',
-		color: 'var(--text-primary)',
-		transition: 'var(--control-fast-duration) var(--control-fast-out-slow-in-easing)',
-		fontFamily: 'var(--fds-font-family-display)',
-		fontSize: '20px',
-		fontWeight: 600,
-		flex: '0 0 auto',
-		':hover': {
-			color: 'var(--text-secondary)'
-		}
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+		textDecoration: "none",
+		position: "relative",
 	},
 	logoImage: {
-		marginInlineEnd: '14px',
-		width: 'auto',
-		height: '25px',
+		marginInlineEnd: "14px",
+		width: "auto",
+		height: "25px",
 	},
 	buttons: {
-		display: 'flex',
-		alignItems: 'center',
-		columnGap: '8px',
-		flex: '0 0 auto',
+		display: "flex",
+		alignItems: "center",
+		columnGap: "8px",
+		flex: "0 0 auto",
 	},
 });
