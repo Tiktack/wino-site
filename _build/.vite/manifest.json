@@ -187,7 +187,7 @@
     ]
   },
   "src/routes/(home).tsx?pick=default&pick=$css": {
-    "file": "assets/(home)-DT5B9sMP.js",
+    "file": "assets/(home)-C7nXH_a0.js",
     "name": "(home)",
     "src": "src/routes/(home).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -566,7 +566,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-BghzAAWD.js",
+    "file": "assets/client-CA7XHfVz.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
