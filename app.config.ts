@@ -25,5 +25,8 @@ export default defineConfig({
 		baseURL: process.env.BASE_PATH,
 		preset: 'github_pages',
 		static: true,
+		prerender: {
+			crawlLinks: true,
+		},
 	},
 });
