@@ -182,7 +182,7 @@
     "src": "public/logo.png"
   },
   "src/routes/(home).tsx?pick=default&pick=$css": {
-    "file": "assets/(home)-CftzMgZ_.js",
+    "file": "assets/(home)-BwY60WVs.js",
     "name": "(home)",
     "src": "src/routes/(home).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -554,7 +554,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-CFXSDrPb.js",
+    "file": "assets/client-BkJFLE7i.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
