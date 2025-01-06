@@ -24,7 +24,7 @@ export const BlogCard = (props: BlogCardProps) => {
 
 			<div {...stylex.attrs(styles.content)}>
 				<TextBlock
-					variant="subtitle"
+					variant="title"
 					{...stylex.attrs(styles.title(props.slug))}
 				>
 					{props.title}
@@ -68,7 +68,7 @@ const styles = stylex.create({
 		flexDirection: 'column',
 		padding: '1.25rem',
 		gap: '0.75rem',
-		height: '12rem',
+		height: '13rem',
 	},
 	title: (slug: string) => ({
 		viewTransitionName: `blog-title-${slug}`,
@@ -78,12 +78,11 @@ const styles = stylex.create({
 		WebkitLineClamp: 2,
 		WebkitBoxOrient: 'vertical',
 		overflow: 'hidden',
+		height: '2rem',
 	}),
 	description: {
 		color: colors.textTertiary,
 		flex: 1,
-		display: '-webkit-box',
-		WebkitBoxOrient: 'vertical',
 		overflow: 'hidden',
 		textOverflow: 'ellipsis',
 		whiteSpace: 'wrap',
@@ -91,5 +90,6 @@ const styles = stylex.create({
 	date: {
 		color: colors.textTertiary,
 		marginTop: 'auto',
+		height: '1.5rem',
 	},
 });

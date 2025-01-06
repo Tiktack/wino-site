@@ -12,13 +12,9 @@ export const Footer = () => {
 		<footer {...stylex.attrs(styles.container)}>
 			<div {...stylex.attrs(styles.column)}>
 				<div {...stylex.attrs(styles.logoContainer)}>
-					<img
-						src={logo}
-						{...stylex.attrs(styles.logo)}
-						alt="Wino Mail Logo"
-					/>
+					<img src={logo} {...stylex.attrs(styles.logo)} alt="Wino Mail Logo" />
 
-					<TextBlock variant="subtitle">Wino Mail</TextBlock>
+					<TextBlock variant="title">Wino Mail</TextBlock>
 				</div>
 
 				<TextBlock {...stylex.attrs(styles.textTertiary)}>
@@ -26,33 +22,51 @@ export const Footer = () => {
 				</TextBlock>
 			</div>
 
-			<div {...stylex.attrs(styles.smallGapColumn)}>
-				<TextBlock {...stylex.attrs(styles.columnText)}>Contribute</TextBlock>
+			<div {...stylex.attrs(styles.linksColumn)}>
+				<div {...stylex.attrs(styles.smallGapColumn)}>
+					<TextBlock {...stylex.attrs(styles.columnText)}>Contribute</TextBlock>
 
-				<Button
-					variant="hyperlink"
-					as={A}
-					href="https://github.com/bkaankose/Wino-Mail/issues/new/choose"
-					target="_blank"
-				>
-					GitHub Issue
-				</Button>
-				<Button
-					variant="hyperlink"
-					as={A}
-					href="https://github.com/bkaankose/Wino-Mail/blob/main/CONTRIBUTING.md"
-					target="_blank"
-				>
-					Contribution Guideline
-				</Button>
-			</div>
+					<Button
+						variant="hyperlink"
+						as={A}
+						href="https://github.com/bkaankose/Wino-Mail/issues/new/choose"
+						target="_blank"
+					>
+						GitHub Issue
+					</Button>
+					<Button
+						variant="hyperlink"
+						as={A}
+						href="https://github.com/bkaankose/Wino-Mail/blob/main/CONTRIBUTING.md"
+						target="_blank"
+					>
+						Contribution Guideline
+					</Button>
+					<Button
+						variant="hyperlink"
+						as={A}
+						href="https://crowdin.com/project/wino-mail"
+						target="_blank"
+					>
+						Translations
+					</Button>
+				</div>
 
-			<div {...stylex.attrs(styles.smallGapColumn)}>
-				<TextBlock {...stylex.attrs(styles.columnText)}>Support</TextBlock>
+				<div {...stylex.attrs(styles.smallGapColumn)}>
+					<TextBlock {...stylex.attrs(styles.columnText)}>Support</TextBlock>
 
-				<Button variant="hyperlink" as={A} href="/Privacy">
-					Privacy
-				</Button>
+					<Button variant="hyperlink" as={A} href="/Privacy">
+						Privacy
+					</Button>
+					<Button
+						variant="hyperlink"
+						as={A}
+						href="https://github.com/bkaankose/Wino-Mail/tree/main?tab=GPL-3.0-1-ov-file#readme"
+						target="_blank"
+					>
+						Licence
+					</Button>
+				</div>
 			</div>
 		</footer>
 	);
@@ -62,9 +76,9 @@ const styles = stylex.create({
 	container: {
 		backgroundColor: colors.layerBackgroundDefault,
 		display: 'flex',
-		justifyContent: 'space-around',
+		justifyContent: 'space-between',
+		padding: '1rem 3rem',
 		width: '100%',
-		padding: '1rem 0',
 		marginTop: '25px',
 		bottom: '0',
 	},
@@ -79,7 +93,7 @@ const styles = stylex.create({
 		gap: '0.5rem',
 	},
 	logo: {
-		width: '2rem',
+		width: '3rem',
 	},
 	textTertiary: {
 		color: colors.textTertiary,
@@ -93,5 +107,10 @@ const styles = stylex.create({
 		display: 'flex',
 		flexDirection: 'column',
 		gap: '0.25rem',
+	},
+	linksColumn: {
+		display: 'flex',
+		flexDirection: 'row',
+		gap: '15rem',
 	},
 });

@@ -52,7 +52,7 @@ const styles = stylex.create({
 		margin: 0,
 		padding: 0,
 		color: colors.textPrimary,
-		fontFamily: 'var(--font-family)',
+		fontFamily: base.fontFamilyText,
 		display: 'inline-block',
 		textDecoration: 'none',
 	},

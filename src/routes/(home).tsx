@@ -6,30 +6,67 @@ import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { base, colors } from '~/shared/theme/tokens.stylex';
 import winoPromo from '../../public/WinoPromo.png';
+import AlertOn from '@fluentui/svg-icons/icons/alert_on_24_regular.svg?raw';
+import Code from '@fluentui/svg-icons/icons/code_24_regular.svg?raw';
+import Fingerprint from '@fluentui/svg-icons/icons/fingerprint_24_regular.svg?raw';
+import Accessibility from '@fluentui/svg-icons/icons/accessibility_24_regular.svg?raw';
+import WifiOff from '@fluentui/svg-icons/icons/wifi_off_24_regular.svg?raw';
+import DeveloperBoard from '@fluentui/svg-icons/icons/developer_board_24_regular.svg?raw';
+import Color from '@fluentui/svg-icons/icons/color_24_regular.svg?raw';
+import StoreMicrosoft from '@fluentui/svg-icons/icons/store_microsoft_24_regular.svg?raw';
+import TableSimple from '@fluentui/svg-icons/icons/table_simple_24_regular.svg?raw';
+import { FluentIcon } from '~/components/FluentIcon';
 
 const KEY_FEATURES_ITEMS = [
 	{
+		icon: StoreMicrosoft,
 		title: 'Native Windows App',
 		description:
 			'Seamlessly integrated with Windows 11 for a native user experience.',
 	},
 	{
+		icon: TableSimple,
 		title: 'Simple',
 		description: 'Intuitive interface for effortless email management.',
 	},
 	{
+		icon: DeveloperBoard,
 		title: 'Performance',
 		description: 'Lightning-fast email processing and smooth operations.',
 	},
 	{
+		icon: WifiOff,
 		title: 'Offline Possibilities',
 		description:
 			'Access and manage your emails even without an internet connection.',
 	},
 	{
+		icon: Color,
 		title: 'Customization',
 		description:
 			'Tailor the app to your preferences with extensive customization options.',
+	},
+	{
+		icon: Fingerprint,
+		title: 'Security & Privacy',
+		description:
+			'Your data stays on your device - no cloud storage or data collection.',
+	},
+	{
+		icon: Accessibility,
+		title: 'Accessibility',
+		description:
+			'Comprehensive accessibility features for a seamless user experience.',
+	},
+	{
+		icon: AlertOn,
+		title: 'Live Notifications',
+		description: 'Stay up-to-date with real-time notifications and alerts.',
+	},
+	{
+		icon: Code,
+		title: 'Open Source',
+		description: 'Contribute to the project and make it even better.',
 	},
 ];
 
@@ -41,7 +78,7 @@ export default function HomePage() {
 			<div {...stylex.attrs(styles.container)}>
 				<TextBlock variant="titleLarge">Welcome to Wino Mail</TextBlock>
 
-				<TextBlock variant="bodyLarge" {...stylex.attrs(styles.textTertiary)}>
+				<TextBlock variant="body" {...stylex.attrs(styles.textTertiary)}>
 					The perfect native replacement for Windows Mail. Powerful, intuitive,
 					and designed for Windows 11.
 				</TextBlock>
@@ -72,17 +109,21 @@ export default function HomePage() {
 					aria-label="wino"
 				/>
 
-				<TextBlock variant="body">Key Features</TextBlock>
+				<TextBlock variant="title">Key Features</TextBlock>
 
 				<div {...stylex.attrs(styles.featuresGrid)}>
 					<For each={KEY_FEATURES_ITEMS}>
 						{(feature) => (
 							<div {...stylex.attrs(styles.featureCard)}>
-								<TextBlock variant="subtitle">{feature.title}</TextBlock>
+								<FluentIcon
+									icon={feature.icon}
+									{...stylex.attrs(styles.featureIcon)}
+								/>
+								<TextBlock variant="title">{feature.title}</TextBlock>
 
 								<TextBlock
-									variant="bodyLarge"
-									{...stylex.attrs(styles.textTertiary, styles.textCenter)}
+									variant="body"
+									{...stylex.attrs(styles.textTertiary)}
 								>
 									{feature.description}
 								</TextBlock>
@@ -108,6 +149,7 @@ const styles = stylex.create({
 		padding: '2rem',
 		gap: '1rem',
 		width: '100%',
+		maxWidth: '1300px',
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
@@ -124,7 +166,7 @@ const styles = stylex.create({
 	},
 	image: {
 		borderRadius: '0.5rem',
-		width: '70%',
+		width: '100%',
 	},
 	featuresGrid: {
 		display: 'grid',
@@ -134,9 +176,6 @@ const styles = stylex.create({
 	},
 	textTertiary: {
 		color: colors.textTertiary,
-	},
-	textCenter: {
-		textAlign: 'center',
 	},
 
 	featureCard: {
@@ -153,5 +192,10 @@ const styles = stylex.create({
 			transform: 'translateY(-5px)',
 			boxShadow: base.cardShadow,
 		},
+	},
+	featureIcon: {
+		width: '2rem',
+		height: '2rem',
+		fill: colors.textPrimary,
 	},
 });

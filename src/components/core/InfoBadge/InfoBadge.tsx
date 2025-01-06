@@ -74,7 +74,7 @@ const styles = stylex.create({
 		minInlineSize: '16px',
 		minBlockSize: '16px',
 		borderRadius: '16px',
-		padding: '5px',
+		padding: '5px 10px',
 		width: 'fit-content',
 		color: colors.textOnAccentPrimary,
 		lineHeight: 'var(--caption-font-size)',
