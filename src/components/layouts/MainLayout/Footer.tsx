@@ -5,7 +5,7 @@ import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { DateFormatToken } from '~/shared/lib/date';
 import { base, colors } from '~/shared/theme/tokens.stylex';
-import winoPromo from '../../../../public/logo.png';
+import winoPromo from '/logo.png';
 
 export const Footer = () => {
 	return (

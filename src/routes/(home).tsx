@@ -4,8 +4,8 @@ import * as stylex from '@stylexjs/stylex';
 import { For } from 'solid-js';
 import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
-import { colors } from '~/shared/theme/tokens.stylex';
-import winoPromo from '../../public/WinoPromo.png';
+import { base, colors } from '~/shared/theme/tokens.stylex';
+import winoPromo from '/WinoPromo.png';
 
 const KEY_FEATURES_ITEMS = [
 	{
@@ -151,7 +151,7 @@ const styles = stylex.create({
 		transition: 'transform 0.2s',
 		':hover': {
 			transform: 'translateY(-5px)',
-			boxShadow: 'var(--card-shadow)',
+			boxShadow: base.cardShadow,
 		},
 	},
 });

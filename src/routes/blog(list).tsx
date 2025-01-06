@@ -8,6 +8,9 @@ import { InfoBadge } from '~/components/core/InfoBadge/InfoBadge';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { DateFormatToken } from '~/shared/lib/date';
 import { resolvePath } from '~/shared/lib/resolvePath';
+import * as stylex from '@stylexjs/stylex';
+import { colors } from '~/shared/theme/tokens.stylex';
+
 // Use Vite's glob import to get all MDX files from the routes/posts directory
 export type PostMetadata = {
 	title: string;
@@ -38,7 +41,6 @@ const Blog = () => {
 		if (!document.startViewTransition) {
 			return fnStartingTheSynchronousTransition();
 		}
-
 		const transition = document.startViewTransition(
 			fnStartingTheSynchronousTransition,
 		);
@@ -56,50 +58,12 @@ const Blog = () => {
 	return (
 		<main>
 			<Title>Wino | Blog</Title>
-			<div
-				style={{
-					'padding-left': '1.5rem',
-					'padding-right': '1.5rem',
-					'max-width': '1200px',
-					'margin-left': 'auto',
-					'margin-right': 'auto',
-					width: '100%',
-				}}
-			>
-				<div
-					style={{
-						position: 'relative',
-						display: 'grid',
-						'grid-template-columns': 'repeat(2, 1fr)',
-						gap: '2rem',
-						'min-height': '300px',
-						padding: '2rem',
-					}}
-				>
+			<div {...stylex.props(styles.container)}>
+				<div {...stylex.props(styles.heroSection)}>
 					<div
-						style={{
-							'background-image': `url(${resolvePath(mostRecentPost.thumbnail)})`,
-							mask: 'linear-gradient(black,transparent 80%)',
-							height: 'calc(100% + 250px)',
-							position: 'absolute',
-							width: '100vw',
-							left: '50%',
-							transform: 'translateX(-50%) translateY(-5%)',
-							top: '0',
-							'background-size': 'cover',
-							'background-position': 'center',
-							opacity: '0.25',
-						}}
+						{...stylex.props(styles.heroBackground(mostRecentPost.thumbnail))}
 					/>
-
-					<div
-						style={{
-							display: 'flex',
-							'flex-direction': 'column',
-							'justify-content': 'center',
-							gap: '1rem',
-						}}
-					>
+					<div {...stylex.props(styles.heroContent)}>
 						<InfoBadge severity="information">
 							{format(new Date(mostRecentPost.date), DateFormatToken.ShortDate)}
 						</InfoBadge>
@@ -116,47 +80,22 @@ const Blog = () => {
 							Read More
 						</Button>
 					</div>
-					<div
-						style={{
-							width: '100%',
-							height: '100%',
-							overflow: 'hidden',
-							'border-radius': '0.375rem',
-							position: 'relative',
-						}}
+					<A
+						href={mostRecentPost.name}
+						{...stylex.props(styles.imageContainer)}
 					>
 						<img
 							src={resolvePath(mostRecentPost.thumbnail)}
 							alt={mostRecentPost.title}
-							style={{
-								'view-transition-name': `blog-image-${mostRecentPost.name}`,
-								width: '100%',
-								height: '100%',
-								'object-fit': 'cover',
-							}}
+							{...stylex.props(styles.heroImage(mostRecentPost.name))}
 						/>
-					</div>
+					</A>
 				</div>
-				<div
-					style={{
-						width: '100%',
-						height: '1px',
-						'background-color': 'rgba(255,255,255,0.08)',
-						'margin-top': '1.5rem',
-						'margin-bottom': '1.5rem',
-					}}
-				/>
-				<div
-					style={{
-						width: '100%',
-						display: 'grid',
-						'grid-template-columns': 'repeat(auto-fill,minmax(300px,1fr))',
-						gap: '1rem',
-					}}
-				>
+				<div {...stylex.props(styles.divider)} />
+				<div {...stylex.props(styles.postsGrid)}>
 					<For each={restOfPosts}>
 						{(post) => (
-							<A href={post.name} style={{ 'text-decoration': 'none' }}>
+							<A href={post.name} {...stylex.props(styles.postLink)}>
 								<BlogCard
 									title={post.title}
 									description={post.description}
@@ -176,5 +115,72 @@ const Blog = () => {
 		</main>
 	);
 };
+
+const styles = stylex.create({
+	container: {
+		paddingLeft: '1.5rem',
+		paddingRight: '1.5rem',
+		maxWidth: '1200px',
+		marginLeft: 'auto',
+		marginRight: 'auto',
+		width: '100%',
+	},
+	heroSection: {
+		position: 'relative',
+		display: 'grid',
+		gridTemplateColumns: 'repeat(auto-fill,minmax(400px,1fr))',
+		gap: '2rem',
+		minHeight: '300px',
+		paddingTop: '2rem',
+	},
+	heroBackground: (backgroundImage: string) => ({
+		mask: 'linear-gradient(black,transparent 80%)',
+		backgroundImage: `url(${resolvePath(backgroundImage)})`,
+		height: 'calc(100% + 250px)',
+		position: 'absolute',
+		width: '100vw',
+		left: '50%',
+		transform: 'translateX(-50%) translateY(-5%)',
+		top: '0',
+		backgroundSize: 'cover',
+		backgroundPosition: 'center',
+		opacity: '0.25',
+	}),
+	heroContent: {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		gap: '1rem',
+	},
+	imageContainer: {
+		width: '100%',
+		height: '100%',
+		overflow: 'hidden',
+		borderRadius: '0.375rem',
+		position: 'relative',
+	},
+	heroImage: (postName: string) => ({
+		viewTransitionName: `blog-image-${postName}`,
+		width: '100%',
+		height: '100%',
+		objectFit: 'cover',
+	}),
+	divider: {
+		width: '100%',
+		height: '1px',
+		backgroundColor: colors.textTertiary,
+		marginTop: '1.5rem',
+		marginBottom: '1.5rem',
+	},
+	postsGrid: {
+		width: '100%',
+		display: 'grid',
+		gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))',
+		gap: '1rem',
+	},
+	postLink: {
+		textDecoration: 'none',
+	},
+});
 
 export default Blog;

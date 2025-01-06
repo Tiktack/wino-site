@@ -24,6 +24,11 @@ const BlogLayout = (props: BlogLaytoutProps) => {
 	const location = useLocation();
 	const slug = location.pathname.split('/').pop();
 	const post = posts.find((post) => post.name === slug);
+
+	if (!post) {
+		return <div>Post not found</div>;
+	}
+
 	return (
 		<div {...stylex.attrs(styles.container)}>
 			<TextBlock
@@ -35,15 +40,10 @@ const BlogLayout = (props: BlogLaytoutProps) => {
 				{post?.title}
 			</TextBlock>
 			<div>
-				{/* biome-ignore lint/a11y/useAltText: <explanation> */}
 				<img
-					src={post?.thumbnail}
-					alt={post?.title}
-					// biome-ignore lint/style/noNonNullAssertion: <explanation></explanation>
-					{...stylex.attrs(styles.image(post!.name))}
-					style={{
-						'view-transition-name': `blog-image-${post?.name}`,
-					}}
+					src={post.thumbnail}
+					alt={post.title}
+					{...stylex.attrs(styles.image(post.name))}
 				/>
 			</div>
 			<div {...stylex.attrs(styles.content)}>{props.children}</div>
@@ -65,6 +65,7 @@ const styles = stylex.create({
 		color: colors.textPrimary,
 	},
 	image: (slug: string) => ({
+		viewTransitionName: `blog-image-${slug}`,
 		width: '750px',
 		height: '500px',
 		objectFit: 'cover',

@@ -11,7 +11,7 @@ import { IconButton } from '~/components/core/IconButton/IconButton';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { ThemeContext } from '~/shared/theme/context';
 import { base, colors } from '~/shared/theme/tokens.stylex';
-import winoPromo from '../../../../public/logo.png';
+import winoPromo from '/logo.png';
 
 type NavItem = {
 	href: string;
