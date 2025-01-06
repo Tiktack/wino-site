@@ -193,12 +193,16 @@
     "file": "assets/logo-CbH4gWoI.png",
     "src": "public/logo.png"
   },
+  "public/wino-app-dark.png": {
+    "file": "assets/wino-app-dark-DqbUrqBH.png",
+    "src": "public/wino-app-dark.png"
+  },
   "public/wino-app-light.png": {
     "file": "assets/wino-app-light-BkJcX5x3.png",
     "src": "public/wino-app-light.png"
   },
   "src/routes/(home).tsx?pick=default&pick=$css": {
-    "file": "assets/(home)-CiXSx_dB.js",
+    "file": "assets/(home)-DoUvwRNR.js",
     "name": "(home)",
     "src": "src/routes/(home).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -217,6 +221,7 @@
       "_routing-DQ4yeyHX.js"
     ],
     "assets": [
+      "assets/wino-app-dark-DqbUrqBH.png",
       "assets/wino-app-light-BkJcX5x3.png"
     ]
   },
@@ -585,7 +590,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-B-DucWnb.js",
+    "file": "assets/client-lBG5-QnM.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
