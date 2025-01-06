@@ -119,7 +119,7 @@ export default function HomePage() {
 									icon={feature.icon}
 									{...stylex.attrs(styles.featureIcon)}
 								/>
-								<TextBlock variant="title">{feature.title}</TextBlock>
+								<TextBlock variant="subtitle">{feature.title}</TextBlock>
 
 								<TextBlock
 									variant="body"
