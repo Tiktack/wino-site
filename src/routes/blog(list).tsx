@@ -1,5 +1,6 @@
 import { Title } from '@solidjs/meta';
 import { A, useBeforeLeave } from '@solidjs/router';
+import * as stylex from '@stylexjs/stylex';
 import { compareDesc, format } from 'date-fns';
 import { For } from 'solid-js';
 import { BlogCard } from '~/components/BlogCard';
@@ -7,53 +8,20 @@ import { Button } from '~/components/core/Button/Button';
 import { InfoBadge } from '~/components/core/InfoBadge/InfoBadge';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { DateFormatToken } from '~/shared/lib/date';
+import { getBlogPosts } from '~/shared/lib/mdx';
 import { resolvePath } from '~/shared/lib/resolvePath';
-import * as stylex from '@stylexjs/stylex';
 import { colors } from '~/shared/theme/tokens.stylex';
+import { useRouteTransition } from '~/shared/ui/useRouteTransition';
 
-// Use Vite's glob import to get all MDX files from the routes/posts directory
-export type PostMetadata = {
-	title: string;
-	description: string;
-	thumbnail: string;
-	date: string;
-	author: string;
-	name: string;
-};
-const postsRaw = import.meta.glob<PostMetadata>('./blog/*.mdx', {
-	eager: true,
-	import: 'frontmatter',
-});
-const posts = Object.entries(postsRaw).map(([path, post]) => ({
-	...post,
-	name: path.replace('./blog/', '').replace('.mdx', ''),
-}));
+const posts = getBlogPosts()
+	.slice()
+	.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
 
-const sortedPosts = posts.toSorted((a, b) =>
-	compareDesc(new Date(a.date), new Date(b.date)),
-);
+export default function BlogList() {
+	const mostRecentPost = posts[0];
+	const restPosts = posts.slice(1);
 
-const Blog = () => {
-	const mostRecentPost = sortedPosts[0];
-	const restOfPosts = sortedPosts.slice(1);
-
-	const transition = (fnStartingTheSynchronousTransition: () => void) => {
-		if (!document.startViewTransition) {
-			return fnStartingTheSynchronousTransition();
-		}
-		const transition = document.startViewTransition(
-			fnStartingTheSynchronousTransition,
-		);
-	};
-
-	useBeforeLeave((e) => {
-		if (!e.defaultPrevented) {
-			e.preventDefault();
-			transition(() => {
-				e.retry(true);
-			});
-		}
-	});
+	useRouteTransition();
 
 	return (
 		<main>
@@ -67,35 +35,39 @@ const Blog = () => {
 						<InfoBadge severity="information">
 							{format(new Date(mostRecentPost.date), DateFormatToken.ShortDate)}
 						</InfoBadge>
+
 						<TextBlock
 							variant="title"
-							style={{
-								'view-transition-name': `blog-title-${mostRecentPost.name}`,
-							}}
+							style={styles.title(mostRecentPost.slug)}
 						>
 							{mostRecentPost.title}
 						</TextBlock>
+
 						<TextBlock variant="body">{mostRecentPost.description}</TextBlock>
-						<Button variant={'accent'} as={A} href={mostRecentPost.name}>
+
+						<Button variant={'accent'} as={A} href={mostRecentPost.slug}>
 							Read More
 						</Button>
 					</div>
+
 					<A
-						href={mostRecentPost.name}
+						href={mostRecentPost.slug}
 						{...stylex.props(styles.imageContainer)}
 					>
 						<img
 							src={resolvePath(mostRecentPost.thumbnail)}
 							alt={mostRecentPost.title}
-							{...stylex.props(styles.heroImage(mostRecentPost.name))}
+							{...stylex.props(styles.heroImage(mostRecentPost.slug))}
 						/>
 					</A>
 				</div>
+
 				<div {...stylex.props(styles.divider)} />
+
 				<div {...stylex.props(styles.postsGrid)}>
-					<For each={restOfPosts}>
+					<For each={restPosts}>
 						{(post) => (
-							<A href={post.name} {...stylex.props(styles.postLink)}>
+							<A href={post.slug} {...stylex.props(styles.postLink)}>
 								<BlogCard
 									title={post.title}
 									description={post.description}
@@ -105,7 +77,7 @@ const Blog = () => {
 										DateFormatToken.ShortNumericDate,
 									)}
 									author={post.author}
-									slug={post.name}
+									slug={post.slug}
 								/>
 							</A>
 						)}
@@ -114,7 +86,7 @@ const Blog = () => {
 			</div>
 		</main>
 	);
-};
+}
 
 const styles = stylex.create({
 	container: {
@@ -159,6 +131,9 @@ const styles = stylex.create({
 		borderRadius: '0.375rem',
 		position: 'relative',
 	},
+	title: (postName: string) => ({
+		viewTransitionName: `blog-title-${postName}`,
+	}),
 	heroImage: (postName: string) => ({
 		viewTransitionName: `blog-image-${postName}`,
 		width: '100%',
@@ -182,5 +157,3 @@ const styles = stylex.create({
 		textDecoration: 'none',
 	},
 });
-
-export default Blog;

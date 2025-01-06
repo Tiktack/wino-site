@@ -1,21 +1,21 @@
+import Accessibility from '@fluentui/svg-icons/icons/accessibility_24_regular.svg?raw';
+import AlertOn from '@fluentui/svg-icons/icons/alert_on_24_regular.svg?raw';
+import Code from '@fluentui/svg-icons/icons/code_24_regular.svg?raw';
+import Color from '@fluentui/svg-icons/icons/color_24_regular.svg?raw';
+import DeveloperBoard from '@fluentui/svg-icons/icons/developer_board_24_regular.svg?raw';
+import Fingerprint from '@fluentui/svg-icons/icons/fingerprint_24_regular.svg?raw';
+import StoreMicrosoft from '@fluentui/svg-icons/icons/store_microsoft_24_regular.svg?raw';
+import TableSimple from '@fluentui/svg-icons/icons/table_simple_24_regular.svg?raw';
+import WifiOff from '@fluentui/svg-icons/icons/wifi_off_24_regular.svg?raw';
 import { Title } from '@solidjs/meta';
 import { A } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
 import { For } from 'solid-js';
+import { FluentIcon } from '~/components/FluentIcon';
 import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { base, colors } from '~/shared/theme/tokens.stylex';
 import winoPromo from '../../public/WinoPromo.png';
-import AlertOn from '@fluentui/svg-icons/icons/alert_on_24_regular.svg?raw';
-import Code from '@fluentui/svg-icons/icons/code_24_regular.svg?raw';
-import Fingerprint from '@fluentui/svg-icons/icons/fingerprint_24_regular.svg?raw';
-import Accessibility from '@fluentui/svg-icons/icons/accessibility_24_regular.svg?raw';
-import WifiOff from '@fluentui/svg-icons/icons/wifi_off_24_regular.svg?raw';
-import DeveloperBoard from '@fluentui/svg-icons/icons/developer_board_24_regular.svg?raw';
-import Color from '@fluentui/svg-icons/icons/color_24_regular.svg?raw';
-import StoreMicrosoft from '@fluentui/svg-icons/icons/store_microsoft_24_regular.svg?raw';
-import TableSimple from '@fluentui/svg-icons/icons/table_simple_24_regular.svg?raw';
-import { FluentIcon } from '~/components/FluentIcon';
 
 const KEY_FEATURES_ITEMS = [
 	{
@@ -78,7 +78,7 @@ export default function HomePage() {
 			<div {...stylex.attrs(styles.container)}>
 				<TextBlock variant="titleLarge">Welcome to Wino Mail</TextBlock>
 
-				<TextBlock variant="body" {...stylex.attrs(styles.textTertiary)}>
+				<TextBlock variant="body" style={styles.textTertiary}>
 					The perfect native replacement for Windows Mail. Powerful, intuitive,
 					and designed for Windows 11.
 				</TextBlock>
@@ -121,10 +121,7 @@ export default function HomePage() {
 								/>
 								<TextBlock variant="subtitle">{feature.title}</TextBlock>
 
-								<TextBlock
-									variant="body"
-									{...stylex.attrs(styles.textTertiary)}
-								>
+								<TextBlock variant="body" style={styles.textTertiary}>
 									{feature.description}
 								</TextBlock>
 							</div>

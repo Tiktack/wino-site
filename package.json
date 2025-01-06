@@ -7,6 +7,7 @@
 		"start": "vinxi start",
 		"version": "vinxi version",
 		"lint": "biome check --write",
+		"type-check": "tsc --noEmit",
 		"lint-staged": "lint-staged",
 		"prepare": "husky"
 	},

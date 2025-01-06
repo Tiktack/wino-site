@@ -11,7 +11,7 @@ import { IconButton } from '~/components/core/IconButton/IconButton';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { ThemeContext } from '~/shared/theme/context';
 import { base, colors } from '~/shared/theme/tokens.stylex';
-import logo from '../../../../public/logo.png';
+import logo from '/logo.png';
 
 type NavItem = {
 	href: string;
@@ -48,11 +48,7 @@ export const Navbar = () => {
 		<header {...stylex.attrs(styles.navbar)}>
 			<div {...stylex.attrs(styles.navbarInner)}>
 				<A href="/" {...stylex.attrs(styles.logo)}>
-					<img
-						src={logo}
-						{...stylex.attrs(styles.logoImage)}
-						alt="Wino logo"
-					/>
+					<img src={logo} {...stylex.attrs(styles.logoImage)} alt="Wino logo" />
 
 					<TextBlock variant="subtitle">Wino Mail</TextBlock>
 				</A>

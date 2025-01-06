@@ -5,7 +5,7 @@ import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { DateFormatToken } from '~/shared/lib/date';
 import { base, colors } from '~/shared/theme/tokens.stylex';
-import logo from '../../../../public/logo.png';
+import logo from '/logo.png';
 
 export const Footer = () => {
 	return (
@@ -17,14 +17,14 @@ export const Footer = () => {
 					<TextBlock variant="title">Wino Mail</TextBlock>
 				</div>
 
-				<TextBlock {...stylex.attrs(styles.textTertiary)}>
+				<TextBlock style={styles.textTertiary}>
 					Copyright (c) {format(new Date(), DateFormatToken.Year)} Wino
 				</TextBlock>
 			</div>
 
 			<div {...stylex.attrs(styles.linksColumn)}>
 				<div {...stylex.attrs(styles.smallGapColumn)}>
-					<TextBlock {...stylex.attrs(styles.columnText)}>Contribute</TextBlock>
+					<TextBlock style={styles.columnText}>Contribute</TextBlock>
 
 					<Button
 						variant="hyperlink"
@@ -53,7 +53,7 @@ export const Footer = () => {
 				</div>
 
 				<div {...stylex.attrs(styles.smallGapColumn)}>
-					<TextBlock {...stylex.attrs(styles.columnText)}>Support</TextBlock>
+					<TextBlock style={styles.textTertiary}>Support</TextBlock>
 
 					<Button variant="hyperlink" as={A} href="/Privacy">
 						Privacy

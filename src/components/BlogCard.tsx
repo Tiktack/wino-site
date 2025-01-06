@@ -23,16 +23,13 @@ export const BlogCard = (props: BlogCardProps) => {
 			/>
 
 			<div {...stylex.attrs(styles.content)}>
-				<TextBlock
-					variant="title"
-					{...stylex.attrs(styles.title(props.slug))}
-				>
+				<TextBlock variant="title" style={styles.title(props.slug)}>
 					{props.title}
 				</TextBlock>
-				<TextBlock variant="body" {...stylex.attrs(styles.description)}>
+				<TextBlock variant="body" style={styles.description}>
 					{props.description}
 				</TextBlock>
-				<TextBlock {...stylex.attrs(styles.date)}>
+				<TextBlock style={styles.date}>
 					{format(props.date, DateFormatToken.ShortDate)}
 				</TextBlock>
 			</div>
@@ -85,7 +82,7 @@ const styles = stylex.create({
 		flex: 1,
 		overflow: 'hidden',
 		textOverflow: 'ellipsis',
-		whiteSpace: 'wrap',
+		// whiteSpace: 'wrap',
 	},
 	date: {
 		color: colors.textTertiary,

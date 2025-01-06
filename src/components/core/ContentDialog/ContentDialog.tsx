@@ -1,6 +1,7 @@
-// Dialog.tsx
 import { Dialog as KDialog } from '@kobalte/core';
+import * as stylex from '@stylexjs/stylex';
 import { type Component, type JSX, Show } from 'solid-js';
+import { colors } from '~/shared/theme/tokens.stylex';
 import { TextBlock } from '../TextBlock/TextBlock';
 
 interface DialogProps {
@@ -23,73 +24,23 @@ export const ContentDialog: Component<DialogProps> = (props) => {
 				onOpenChange={(isOpen) => !isOpen && props.onClose?.()}
 			>
 				<KDialog.Portal>
-					<div
-						style={{
-							position: 'fixed',
-							inset: '0',
-							display: 'flex',
-							'align-items': 'center',
-							'justify-content': 'center',
-							'z-index': '101',
-							'background-color': props.darken
-								? 'var(--smoke-background-default)'
-								: '',
-						}}
-					>
+					<div {...stylex.attrs(styles.container(props.darken))}>
 						<KDialog.Content
-							style={{
-								position: 'fixed',
-								'box-sizing': 'border-box',
-								'max-width': 'calc(100% - 24px)',
-								'border-radius': 'var(--overlay-corner-radius)',
-								'background-color': 'var(--solid-background-base)',
-								'background-clip': 'padding-box',
-								'box-shadow': 'var(--shadow-dialog)',
-								border: '1px solid var(--surface-stroke-default)',
-								overflow: 'hidden',
-								width:
-									props.size === 'min'
-										? '320px'
-										: props.size === 'max'
-											? '540px'
-											: '448px',
-							}}
+							{...stylex.attrs(
+								styles.content,
+								sizeVariants[props.size ?? 'standard'],
+							)}
 						>
-							<div
-								style={{
-									padding: '24px',
-									'background-color': 'var(--layer-background-default)',
-									color: 'var(--text-primary)',
-								}}
-							>
+							<div {...stylex.attrs(styles.content2)}>
 								<Show when={props.title}>
-									<TextBlock
-										variant="subtitle"
-										style={{
-											display: 'block',
-											'margin-bottom': '12px',
-											color: 'var(--text-primary)',
-										}}
-									>
+									<TextBlock variant="subtitle" style={styles.title}>
 										{props.title}
 									</TextBlock>
 								</Show>
 								{props.children}
 							</div>
 							<Show when={props.footer}>
-								<footer
-									style={{
-										padding: '24px',
-										display: 'grid',
-										'grid-auto-rows': '1fr',
-										'grid-auto-flow': 'column',
-										gap: '8px',
-										'border-top': '1px solid var(--card-stroke-default)',
-										'white-space': 'nowrap',
-									}}
-								>
-									{props.footer}
-								</footer>
+								<footer {...stylex.attrs(styles.footer)}>{props.footer}</footer>
 							</Show>
 						</KDialog.Content>
 					</div>
@@ -98,3 +49,56 @@ export const ContentDialog: Component<DialogProps> = (props) => {
 		</Show>
 	);
 };
+
+const sizeVariants = stylex.create({
+	min: {
+		width: '320px',
+	},
+	max: {
+		width: '540px',
+	},
+	standard: {
+		width: '448px',
+	},
+});
+
+const styles = stylex.create({
+	container: (darken: boolean | undefined) => ({
+		position: 'fixed',
+		inset: '0',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		zIndex: '101',
+		backgroundColor: darken ? colors.smokeBackgroundDefault : '',
+	}),
+	content: {
+		position: 'fixed',
+		maxWidth: 'calc(100% - 24px)',
+		borderRadius: 'var(--overlay-corner-radius)',
+		backgroundColor: colors.solidBackgroundBase,
+		backgroundClip: 'padding-box',
+		boxShadow: 'var(--shadow-dialog)',
+		border: '1px solid var(--surface-stroke-default)',
+		overflow: 'hidden',
+	},
+	content2: {
+		padding: '24px',
+		backgroundColor: 'var(--layer-background-default)',
+		color: 'var(--text-primary)',
+	},
+	title: {
+		display: 'block',
+		marginBottom: '12px',
+		color: colors.textPrimary,
+	},
+	footer: {
+		padding: '24px',
+		display: 'grid',
+		gridAutoRows: '1fr',
+		gridAutoFlow: 'column',
+		gap: '8px',
+		borderTop: '1px solid var(--card-stroke-default)',
+		whiteSpace: 'nowrap',
+	},
+});

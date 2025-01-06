@@ -28,9 +28,7 @@ export default function Buttons() {
 					gap: '1rem',
 				}}
 			>
-				<Button style={{ width: '150px' }} onClick={() => setIsOpen(true)}>
-					Open dialog
-				</Button>
+				<Button onClick={() => setIsOpen(true)}>Open dialog</Button>
 				<ContentDialog
 					open={isOpen()}
 					onClose={handleClose}
@@ -47,16 +45,10 @@ export default function Buttons() {
 								gap: '0.5rem',
 							}}
 						>
-							<Button
-								style={{ flex: '1' }}
-								variant={'accent'}
-								onClick={handleConfirm}
-							>
+							<Button variant={'accent'} onClick={handleConfirm}>
 								Accept
 							</Button>
-							<Button style={{ flex: '1' }} onClick={handleClose}>
-								Cancel
-							</Button>
+							<Button onClick={handleClose}>Cancel</Button>
 						</div>
 					}
 				>

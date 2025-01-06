@@ -1,7 +1,8 @@
 import * as stylex from '@stylexjs/stylex';
-import type { Component, JSX } from 'solid-js';
+import { type Component, type JSX, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 import { base, colors } from '~/shared/theme/tokens.stylex';
+import type { WithStyleX } from '~/shared/theme/type';
 
 type Variant =
 	| 'caption'
@@ -16,7 +17,6 @@ type Variant =
 interface TextBlockProps extends JSX.HTMLAttributes<HTMLElement> {
 	variant?: Variant;
 	tag?: keyof JSX.IntrinsicElements;
-	class?: string;
 	ref?: HTMLElement;
 }
 
@@ -31,18 +31,22 @@ const variantMap = {
 	display: { tag: 'h1', name: 'display' },
 } as const;
 
-export const TextBlock: Component<TextBlockProps> = (props) => {
-	const variant = () => props.variant || 'body';
-	const Tag = props.tag || variantMap[variant()].tag;
+export const TextBlock: Component<WithStyleX<TextBlockProps>> = (props) => {
+	const [local, other] = splitProps(props, ['style']);
+	const variant = () => other.variant || 'body';
+	const Tag = other.tag ?? variantMap[variant()].tag;
 
 	return (
 		<Dynamic
 			component={Tag}
-			{...stylex.attrs(styles.textBlock, styles[variantMap[variant()].name])}
-			ref={props.ref}
-			{...props}
+			{...stylex.attrs(
+				styles.textBlock,
+				styles[variantMap[variant()].name],
+				local.style,
+			)}
+			{...other}
 		>
-			{props.children}
+			{other.children}
 		</Dynamic>
 	);
 };

@@ -2,28 +2,21 @@ import { useLocation } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
 import type { JSX } from 'solid-js';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
+import { type PostMetadata, getBlogPosts } from '~/shared/lib/mdx';
+import { resolvePath } from '~/shared/lib/resolvePath';
 import { colors } from '~/shared/theme/tokens.stylex';
-import type { PostMetadata } from './blog(list)';
 
-interface BlogLaytoutProps {
+const posts = getBlogPosts();
+
+type BlogPostLayoutProps = {
 	children: JSX.Element;
 	metadata: PostMetadata;
-}
+};
 
-// Use Vite's glob import to get all MDX files from the routes/posts directory
-const postsRaw = import.meta.glob<PostMetadata>('./blog/*.mdx', {
-	eager: true,
-	import: 'frontmatter',
-});
-const posts = Object.entries(postsRaw).map(([path, post]) => ({
-	...post,
-	name: path.replace('./blog/', '').replace('.mdx', ''),
-}));
-
-const BlogLayout = (props: BlogLaytoutProps) => {
+export default function BlogPostLayout(props: BlogPostLayoutProps) {
 	const location = useLocation();
 	const slug = location.pathname.split('/').pop();
-	const post = posts.find((post) => post.name === slug);
+	const post = posts.find((post) => post.slug === slug);
 
 	if (!post) {
 		return <div>Post not found</div>;
@@ -31,25 +24,20 @@ const BlogLayout = (props: BlogLaytoutProps) => {
 
 	return (
 		<div {...stylex.attrs(styles.container)}>
-			<TextBlock
-				variant="title"
-				style={{
-					'view-transition-name': `blog-title-${post?.name}`,
-				}}
-			>
-				{post?.title}
+			<TextBlock variant="title" style={styles.title(post.slug)}>
+				{post.title}
 			</TextBlock>
-			<div>
-				<img
-					src={post.thumbnail}
-					alt={post.title}
-					{...stylex.attrs(styles.image(post.name))}
-				/>
-			</div>
+
+			<img
+				src={resolvePath(post.thumbnail)}
+				alt={post.title}
+				{...stylex.attrs(styles.image(post.slug))}
+			/>
+
 			<div {...stylex.attrs(styles.content)}>{props.children}</div>
 		</div>
 	);
-};
+}
 
 const styles = stylex.create({
 	container: {
@@ -58,19 +46,21 @@ const styles = stylex.create({
 		alignItems: 'center',
 		width: '100%',
 		maxWidth: '800px',
-		margin: '0 auto',
+		margin: '32px auto 0',
 		gap: '1rem',
 	},
 	content: {
 		color: colors.textPrimary,
 	},
+	title: (postName: string) => ({
+		viewTransitionName: `blog-title-${postName}`,
+	}),
 	image: (slug: string) => ({
 		viewTransitionName: `blog-image-${slug}`,
-		width: '750px',
-		height: '500px',
-		objectFit: 'cover',
+		height: 'auto',
+		width: '100%',
+		objectFit: 'fill',
 		borderRadius: '0.375rem',
+		marginBottom: '1rem',
 	}),
 });
-
-export default BlogLayout;
