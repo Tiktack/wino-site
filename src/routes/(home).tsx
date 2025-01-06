@@ -16,7 +16,7 @@ import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { ThemeContext } from '~/shared/theme/context';
 import { base, colors } from '~/shared/theme/tokens.stylex';
-import winoAppDark from '../../public/wino-app-light.png';
+import winoAppDark from '../../public/wino-app-dark.png';
 import winoAppLight from '../../public/wino-app-light.png';
 
 const KEY_FEATURES_ITEMS = [
