@@ -10,12 +10,14 @@ import WifiOff from '@fluentui/svg-icons/icons/wifi_off_24_regular.svg?raw';
 import { Title } from '@solidjs/meta';
 import { A } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
-import { For } from 'solid-js';
+import { For, Match, Switch, useContext } from 'solid-js';
 import { FluentIcon } from '~/components/FluentIcon';
 import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
+import { ThemeContext } from '~/shared/theme/context';
 import { base, colors } from '~/shared/theme/tokens.stylex';
-import winoPromo from '../../public/WinoPromo.png';
+import winoAppDark from '/wino-app-dark.png';
+import winoAppLight from '/wino-app-light.png';
 
 const KEY_FEATURES_ITEMS = [
 	{
@@ -71,6 +73,8 @@ const KEY_FEATURES_ITEMS = [
 ];
 
 export default function HomePage() {
+	const { theme } = useContext(ThemeContext);
+
 	return (
 		<main {...stylex.attrs(styles.main)}>
 			<Title>WinoMail | Home</Title>
@@ -103,11 +107,27 @@ export default function HomePage() {
 					</Button>
 				</div>
 
-				<img
-					src={winoPromo}
+				<Switch>
+					<Match when={theme() === 'light'}>
+						<img
+							src={winoAppLight}
+							{...stylex.attrs(styles.image)}
+							aria-label="wino"
+						/>
+					</Match>
+					<Match when={theme() === 'dark'}>
+						<img
+							src={winoAppDark}
+							{...stylex.attrs(styles.image)}
+							aria-label="wino"
+						/>
+					</Match>
+				</Switch>
+				{/* <img
+					src={winoAppDark}
 					{...stylex.attrs(styles.image)}
 					aria-label="wino"
-				/>
+				/> */}
 
 				<TextBlock variant="title">Key Features</TextBlock>
 
