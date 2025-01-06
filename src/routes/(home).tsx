@@ -5,7 +5,7 @@ import { For } from 'solid-js';
 import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { base, colors } from '~/shared/theme/tokens.stylex';
-import winoPromo from '/WinoPromo.png';
+import winoPromo from '../../public/WinoPromo.png';
 
 const KEY_FEATURES_ITEMS = [
 	{
