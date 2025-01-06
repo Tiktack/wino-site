@@ -1,11 +1,11 @@
 import { Title } from '@solidjs/meta';
 import { A } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
-import { For } from 'solid-js';
+import { For, Match, Switch, useContext } from 'solid-js';
 import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
-import { base, colors } from '~/shared/theme/tokens.stylex';
-import winoPromo from '../../public/WinoPromo.png';
+import winoAppDark from '../../public/wino-app-dark.png';
+import winoAppLight from '../../public/wino-app-light.png';
 import AlertOn from '@fluentui/svg-icons/icons/alert_on_24_regular.svg?raw';
 import Code from '@fluentui/svg-icons/icons/code_24_regular.svg?raw';
 import Fingerprint from '@fluentui/svg-icons/icons/fingerprint_24_regular.svg?raw';
@@ -16,6 +16,8 @@ import Color from '@fluentui/svg-icons/icons/color_24_regular.svg?raw';
 import StoreMicrosoft from '@fluentui/svg-icons/icons/store_microsoft_24_regular.svg?raw';
 import TableSimple from '@fluentui/svg-icons/icons/table_simple_24_regular.svg?raw';
 import { FluentIcon } from '~/components/FluentIcon';
+import { ThemeContext } from '~/shared/theme/context';
+import { base, colors } from '~/shared/theme/tokens.stylex';
 
 const KEY_FEATURES_ITEMS = [
 	{
@@ -71,6 +73,7 @@ const KEY_FEATURES_ITEMS = [
 ];
 
 export default function HomePage() {
+	const { theme } = useContext(ThemeContext);
 	return (
 		<main {...stylex.attrs(styles.main)}>
 			<Title>WinoMail | Home</Title>
@@ -103,11 +106,27 @@ export default function HomePage() {
 					</Button>
 				</div>
 
-				<img
-					src={winoPromo}
+				<Switch>
+					<Match when={theme() === 'light'}>
+						<img
+							src={winoAppLight}
+							{...stylex.attrs(styles.image)}
+							aria-label="wino"
+						/>
+					</Match>
+					<Match when={theme() === 'dark'}>
+						<img
+							src={winoAppDark}
+							{...stylex.attrs(styles.image)}
+							aria-label="wino"
+						/>
+					</Match>
+				</Switch>
+				{/* <img
+					src={winoAppDark}
 					{...stylex.attrs(styles.image)}
 					aria-label="wino"
-				/>
+				/> */}
 
 				<TextBlock variant="title">Key Features</TextBlock>
 
