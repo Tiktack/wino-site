@@ -11,7 +11,7 @@ import { IconButton } from '~/components/core/IconButton/IconButton';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { ThemeContext } from '~/shared/theme/context';
 import { base, colors } from '~/shared/theme/tokens.stylex';
-import logo from '/logo.png';
+import logo from '../../../../public/logo.png';
 
 type NavItem = {
 	href: string;
