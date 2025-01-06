@@ -126,6 +126,8 @@ export default function HomePage() {
 
 				<TextBlock variant="title">Key Features</TextBlock>
 
+				{/* Adding test comment  */}
+
 				<div {...stylex.attrs(styles.featuresGrid)}>
 					<For each={KEY_FEATURES_ITEMS}>
 						{(feature) => (
