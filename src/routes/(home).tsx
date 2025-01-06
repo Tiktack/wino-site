@@ -123,11 +123,6 @@ export default function HomePage() {
 						/>
 					</Match>
 				</Switch>
-				{/* <img
-					src={winoAppDark}
-					{...stylex.attrs(styles.image)}
-					aria-label="wino"
-				/> */}
 
 				<TextBlock variant="title">Key Features</TextBlock>
 
