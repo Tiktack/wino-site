@@ -64,7 +64,8 @@ export const Navbar = () => {
 						{(item) => (
 							<A
 								href={item.href}
-								end
+								// only for home ('/') we should match exactly
+								end={item.href === '/'}
 								activeClass={stylex.attrs(styles.selectedNav).class}
 								{...stylex.attrs(styles.navLink)}
 							>
