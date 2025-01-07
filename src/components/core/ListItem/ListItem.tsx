@@ -1,3 +1,4 @@
+import { A } from '@solidjs/router';
 // ListItem.tsx
 import { type Component, type JSX, splitProps } from 'solid-js';
 import styles from './ListItem.module.css';
@@ -38,7 +39,7 @@ const ListItem: Component<ListItemProps> = (props) => {
 
 	if (local.href && !local.disabled) {
 		return (
-			<a
+			<A
 				{...others}
 				href={local.href}
 				class={baseClass()}
@@ -49,7 +50,7 @@ const ListItem: Component<ListItemProps> = (props) => {
 				{local.icon}
 				{/* <TextBlock>{local.children}</TextBlock> */}
 				{local.children}
-			</a>
+			</A>
 		);
 	}
 
