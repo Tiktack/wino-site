@@ -1,6 +1,6 @@
 import { cookieStorage, makePersisted } from '@solid-primitives/storage';
 import * as stylex from '@stylexjs/stylex';
-import { type JSX, createSignal, onMount } from 'solid-js';
+import { type JSX, Match, Switch, createSignal, onMount } from 'solid-js';
 import { type Theme, ThemeContext } from './context';
 import { darkTheme, lightTheme } from './tokens.stylex';
 
@@ -26,7 +26,7 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
 		}
 	});
 
-	const theme = () => localTheme() ?? 'light';
+	const theme = () => localTheme() ?? 'dark';
 
 	const toggleTheme = () => {
 		setTheme(theme() === 'light' ? 'dark' : 'light');
@@ -40,7 +40,14 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
 
 	return (
 		<ThemeContext.Provider value={{ theme, toggleTheme }}>
-			<div {...stylex.props(themes[theme()])}>{props.children}</div>
+			<Switch>
+				<Match when={theme() === 'light'}>
+					<div {...stylex.props(themes.light)}>{props.children}</div>
+				</Match>
+				<Match when={theme() === 'dark'}>
+					<div {...stylex.props(themes.dark)}>{props.children}</div>
+				</Match>
+			</Switch>
 		</ThemeContext.Provider>
 	);
 };
