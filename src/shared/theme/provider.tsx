@@ -40,7 +40,7 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
 
 	return (
 		<ThemeContext.Provider value={{ theme, toggleTheme }}>
-			<div {...stylex.props(themes[theme()])}>{props.children}</div>
+			<div {...stylex.attrs(themes[theme()])}>{props.children}</div>
 		</ThemeContext.Provider>
 	);
 };
