@@ -1,6 +1,6 @@
 import { cookieStorage, makePersisted } from '@solid-primitives/storage';
 import * as stylex from '@stylexjs/stylex';
-import { type JSX, createSignal, onMount } from 'solid-js';
+import { type JSX, createEffect, createSignal, onMount } from 'solid-js';
 import { type Theme, ThemeContext } from './context';
 import { darkTheme, lightTheme } from './tokens.stylex';
 
@@ -16,6 +16,10 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
 		name: THEME_COOKIE_KEY,
 	});
 
+	createEffect(() => {
+		console.log('localThemeNew', localTheme());
+	});
+
 	onMount(() => {
 		console.log('localTheme', localTheme());
 		console.log('theme', theme());
@@ -28,7 +32,7 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
 			);
 		} else {
 			console.log('second condition');
-			setTheme(localTheme());
+			setTheme(localTheme() === 'light' ? 'dark' : 'light');
 		}
 	});
 
