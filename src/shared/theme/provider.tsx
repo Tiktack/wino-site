@@ -33,6 +33,9 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
 		} else {
 			console.log('second condition');
 			setTheme(localTheme() === 'light' ? 'dark' : 'light');
+			setTimeout(() => {
+				setTheme(localTheme() === 'light' ? 'dark' : 'light');
+			}, 0);
 		}
 	});
 
