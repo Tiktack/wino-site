@@ -17,13 +17,17 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
 	});
 
 	onMount(() => {
+		console.log('localTheme', localTheme());
+		console.log('theme', theme());
 		if (!localTheme()) {
+			console.log('first condition');
 			setTheme(
 				window.matchMedia('(prefers-color-scheme: dark)').matches
 					? 'dark'
 					: 'light',
 			);
 		} else {
+			console.log('second condition');
 			setTheme(localTheme());
 		}
 	});
