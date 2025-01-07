@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import { type JSX, createEffect, useContext } from 'solid-js';
+import { type JSX, useContext } from 'solid-js';
 import { type Theme, ThemeContext } from '~/shared/theme/context';
 import { Footer } from './Footer';
 import { Navbar } from './Navbar';
@@ -9,16 +9,7 @@ type MainLayoutProps = {
 };
 
 export const MainLayout = (props: MainLayoutProps) => {
-	const { theme, toggleTheme } = useContext(ThemeContext);
-	console.log('theme', theme());
-
-	createEffect(() => {
-		console.log('theme', theme());
-	});
-
-	// test toggleTheme
-	toggleTheme();
-	toggleTheme();
+	const { theme } = useContext(ThemeContext);
 
 	return (
 		<div {...stylex.attrs(styles.container)}>
