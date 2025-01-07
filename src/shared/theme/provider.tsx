@@ -23,6 +23,8 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
 					? 'dark'
 					: 'light',
 			);
+		} else {
+			setTheme(localTheme());
 		}
 	});
 
