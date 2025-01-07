@@ -55,7 +55,7 @@ const styles = stylex.create({
 		border: '1px solid',
 		borderColor: 'var(--control-border-default)',
 		backgroundColor: 'var(--control-fill-default)',
-		color: 'var(--text-primary)',
+		color: colors.textPrimary,
 		backgroundClip: 'padding-box',
 		':hover': {
 			backgroundColor: 'var(--control-fill-secondary)',
@@ -63,7 +63,7 @@ const styles = stylex.create({
 		':active': {
 			borderColor: 'var(--control-stroke-default)',
 			backgroundColor: 'var(--control-fill-tertiary)',
-			color: 'var(--text-secondary)',
+			color: colors.textSecondary,
 		},
 		':disabled': {
 			borderColor: 'var(--control-stroke-default)',
@@ -82,8 +82,8 @@ const styles = stylex.create({
 		},
 		':active': {
 			borderColor: 'var(--control-stroke-on-accent-tertiary)',
-			backgroundColor: 'var(--accent-tertiary)',
-			color: 'var(--text-on-accent-secondary)',
+			backgroundColor: colors.accentTertiary,
+			color: colors.textOnAccentSecondary,
 		},
 		':disabled': {
 			borderColor: 'var(--control-stroke-on-accent-default)',
@@ -92,15 +92,15 @@ const styles = stylex.create({
 		},
 	},
 	hyperlink: {
-		backgroundColor: 'var(--subtle-fill-transparent)',
+		backgroundColor: colors.subtleFillTransparent,
 		color: colors.accentTextPrimary,
 		cursor: 'pointer',
 		':hover': {
-			backgroundColor: 'var(--subtle-fill-secondary)',
+			backgroundColor: colors.subtleFillSecondary,
 		},
 		':active': {
-			backgroundColor: 'var(--subtle-fill-tertiary)',
-			color: 'var(--accent-text-tertiary)',
+			backgroundColor: colors.subtleFillTertiary,
+			color: colors.accentTertiary,
 		},
 		':disabled': {
 			color: colors.accentTextDisabled,
