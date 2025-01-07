@@ -26,7 +26,7 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
 		}
 	});
 
-	const theme = () => localTheme() ?? 'dark';
+	const theme = () => localTheme() ?? 'light';
 
 	const toggleTheme = () => {
 		setTheme(theme() === 'light' ? 'dark' : 'light');
