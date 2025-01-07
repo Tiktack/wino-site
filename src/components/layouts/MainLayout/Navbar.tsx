@@ -1,11 +1,11 @@
 import DocumentOnePage24Regular from '@fluentui/svg-icons/icons/document_one_page_24_regular.svg?raw';
 import Home24Regular from '@fluentui/svg-icons/icons/home_24_regular.svg?raw';
 import News24Regular from '@fluentui/svg-icons/icons/news_24_regular.svg?raw';
-import Settings24Regular from '@fluentui/svg-icons/icons/settings_24_regular.svg?raw';
+import WeatherMoon from '@fluentui/svg-icons/icons/weather_moon_24_regular.svg?raw';
 import WeatherSunny from '@fluentui/svg-icons/icons/weather_sunny_24_regular.svg?raw';
 import { A } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
-import { For, useContext } from 'solid-js';
+import { For, Match, Switch, useContext } from 'solid-js';
 import { FluentIcon } from '~/components/FluentIcon';
 import { IconButton } from '~/components/core/IconButton/IconButton';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
@@ -37,14 +37,18 @@ const NAVBAR_ITEMS: NavItem[] = [
 		name: 'Documentation',
 		Icon: DocumentOnePage24Regular,
 	},
-	{
-		href: '/components/buttons',
-		name: 'Components',
-	},
+	...(import.meta.env.DEV
+		? [
+				{
+					href: '/components/buttons',
+					name: 'Components',
+				},
+			]
+		: []),
 ];
 
 export const Navbar = () => {
-	const { toggleTheme } = useContext(ThemeContext);
+	const { theme, toggleTheme } = useContext(ThemeContext);
 
 	return (
 		<header {...stylex.attrs(styles.navbar)}>
@@ -87,7 +91,14 @@ export const Navbar = () => {
 						<FluentIcon icon={githubLogo} />
 					</IconButton>
 					<IconButton onClick={() => toggleTheme()}>
-						<FluentIcon icon={WeatherSunny} />
+						<Switch>
+							<Match when={theme() === 'light'}>
+								<FluentIcon icon={WeatherMoon} />
+							</Match>
+							<Match when={theme() === 'dark'}>
+								<FluentIcon icon={WeatherSunny} />
+							</Match>
+						</Switch>
 					</IconButton>
 				</div>
 			</div>
