@@ -1,4 +1,4 @@
-import { makePersisted } from '@solid-primitives/storage';
+import { cookieStorage, makePersisted } from '@solid-primitives/storage';
 import * as stylex from '@stylexjs/stylex';
 import { type JSX, createSignal, onMount } from 'solid-js';
 import { type Theme, ThemeContext } from './context';
@@ -12,7 +12,7 @@ type ThemeProviderProps = {
 
 export const ThemeProvider = (props: ThemeProviderProps) => {
 	const [localTheme, setTheme] = makePersisted(createSignal<Theme>(), {
-		storage: localStorage,
+		storage: cookieStorage,
 		name: THEME_COOKIE_KEY,
 	});
 
