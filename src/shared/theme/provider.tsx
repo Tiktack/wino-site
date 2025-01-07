@@ -1,6 +1,6 @@
 import { cookieStorage, makePersisted } from '@solid-primitives/storage';
 import * as stylex from '@stylexjs/stylex';
-import { type JSX, createEffect, createSignal, onMount } from 'solid-js';
+import { type JSX, createSignal, onMount } from 'solid-js';
 import { type Theme, ThemeContext } from './context';
 import { darkTheme, lightTheme } from './tokens.stylex';
 
@@ -16,22 +16,15 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
 		name: THEME_COOKIE_KEY,
 	});
 
-	createEffect(() => {
-		console.log('localThemeNew', localTheme());
-	});
-
 	onMount(() => {
-		console.log('localTheme', localTheme());
-		console.log('theme', theme());
 		if (!localTheme()) {
-			console.log('first condition');
 			setTheme(
 				window.matchMedia('(prefers-color-scheme: dark)').matches
 					? 'dark'
 					: 'light',
 			);
 		} else {
-			console.log('second condition');
+			// TODO: Hack to force re-render on first load
 			setTheme(localTheme() === 'light' ? 'dark' : 'light');
 			setTimeout(() => {
 				setTheme(localTheme() === 'light' ? 'dark' : 'light');
