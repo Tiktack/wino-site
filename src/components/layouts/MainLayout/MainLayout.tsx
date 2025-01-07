@@ -9,12 +9,16 @@ type MainLayoutProps = {
 };
 
 export const MainLayout = (props: MainLayoutProps) => {
-	const { theme } = useContext(ThemeContext);
+	const { theme, toggleTheme } = useContext(ThemeContext);
 	console.log('theme', theme());
 
 	createEffect(() => {
 		console.log('theme', theme());
 	});
+
+	// test toggleTheme
+	toggleTheme();
+	toggleTheme();
 
 	return (
 		<div {...stylex.attrs(styles.container)}>
