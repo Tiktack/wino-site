@@ -1,4 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
+import { sub } from 'date-fns';
 
 const baseTokens = {
 	// Font Families
@@ -109,6 +110,7 @@ const colorTokens = {
 	subtleFillTransparent: 'transparent',
 	subtleFillSecondary: 'hsla(0, 0%, 0%, 3.73%)',
 	subtleFillTertiary: 'hsla(0, 0%, 0%, 2.41%)',
+	subtleFillDisabled: 'transparent',
 };
 
 export const colors = stylex.defineVars(colorTokens);
@@ -168,4 +170,5 @@ export const darkTheme = stylex.createTheme(colors, {
 	subtleFillTransparent: 'transparent',
 	subtleFillSecondary: 'hsla(0, 0%, 100%, 6.05%)',
 	subtleFillTertiary: 'hsla(0, 0%, 100%, 4.19%)',
+	subtleFillDisabled: 'transparent',
 } satisfies typeof colorTokens);

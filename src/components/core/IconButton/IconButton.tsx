@@ -3,6 +3,7 @@ import type { PolymorphicProps } from '@kobalte/core/polymorphic';
 import * as stylex from '@stylexjs/stylex';
 import type { JSX, ValidComponent } from 'solid-js';
 import { splitProps } from 'solid-js';
+import { base, colors } from '~/shared/theme/tokens.stylex';
 import type { WithStyleX } from '~/shared/theme/type';
 
 type IconButtonProps<T extends ValidComponent = 'button'> =
@@ -39,21 +40,21 @@ const styles = stylex.create({
 		minInlineSize: '30px',
 		minBlockSize: '30px',
 		padding: '8px',
-		color: 'var(--text-primary)',
-		borderRadius: 'var(--control-corner-radius)',
-		backgroundColor: 'var(--subtle-fill-transparent)',
+		color: colors.textPrimary,
+		borderRadius: base.controlCornerRadius,
+		backgroundColor: colors.subtleFillTransparent,
 		':focus-visible': {
 			boxShadow: 'var(--focus-stroke)',
 		},
 		':hover': {
-			backgroundColor: 'var(--subtle-fill-secondary)',
+			backgroundColor: colors.subtleFillSecondary,
 		},
 		':active': {
-			backgroundColor: 'var(--subtle-fill-tertiary)',
+			backgroundColor: colors.subtleFillTertiary,
 		},
 		':disabled': {
-			backgroundColor: 'var(--subtle-fill-disabled)',
-			color: 'var(--text-disabled)',
+			backgroundColor: colors.subtleFillDisabled,
+			color: colors.textDisabled,
 		},
 	},
 });
