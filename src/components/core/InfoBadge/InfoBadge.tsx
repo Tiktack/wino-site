@@ -1,6 +1,6 @@
 import * as stylex from '@stylexjs/stylex';
 import { type Component, type JSX, Match, Show, Switch } from 'solid-js';
-import { colors } from '~/shared/theme/tokens.stylex';
+import { base, colors } from '~/shared/theme/tokens.stylex';
 
 interface InfoBadgeProps extends JSX.HTMLAttributes<HTMLSpanElement> {
 	severity?: 'attention' | 'success' | 'caution' | 'critical' | 'information';
@@ -77,9 +77,9 @@ const styles = stylex.create({
 		padding: '5px 10px',
 		width: 'fit-content',
 		color: colors.textOnAccentPrimary,
-		lineHeight: 'var(--caption-font-size)',
+		lineHeight: base.captionFontSize,
 		fontFamily: 'var(--font-family-small)',
-		fontSize: 'var(--caption-font-size)',
+		fontSize: base.captionFontSize,
 	},
 	infoBadgeSvg: {
 		inlineSize: '8px',

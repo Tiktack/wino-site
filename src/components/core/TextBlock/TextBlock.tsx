@@ -61,8 +61,7 @@ const styles = stylex.create({
 		textDecoration: 'none',
 	},
 	caption: {
-		fontSize: '0.75rem',
-		lineHeight: 1.66,
+		fontSize: base.captionFontSize,
 	},
 	body: {
 		fontSize: base.bodyFontSize,

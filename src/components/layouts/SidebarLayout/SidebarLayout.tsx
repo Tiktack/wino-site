@@ -10,7 +10,7 @@ import {
 	CollapsibleTriggerIcon,
 } from '~/components/core/Collapsible/Collapsible';
 import ListItem from '~/components/core/ListItem/ListItem';
-import { colors } from '~/shared/theme/tokens.stylex';
+import { base, colors } from '~/shared/theme/tokens.stylex';
 
 interface Route {
 	name: string;
@@ -96,8 +96,8 @@ const routeStyles = stylex.create({
 		flex: '0 0 auto',
 		margin: '3px 5px',
 		paddingInline: '12px',
-		borderRadius: 'var(--control-corner-radius)',
-		backgroundColor: 'var(--subtle-fill-transparent)',
+		borderRadius: base.controlCornerRadius,
+		backgroundColor: colors.subtleFillTransparent,
 		border: '1px solid var(--control-stroke)',
 		color: colors.textPrimary,
 		textDecoration: 'none',
@@ -105,7 +105,7 @@ const routeStyles = stylex.create({
 		userSelect: 'none',
 		blockSize: '34px',
 		':hover': {
-			backgroundColor: 'var(--subtle-fill-secondary)',
+			backgroundColor: colors.subtleFillSecondary,
 		},
 	},
 	icon: {
