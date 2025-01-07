@@ -11,6 +11,8 @@ import { IconButton } from '~/components/core/IconButton/IconButton';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { ThemeContext } from '~/shared/theme/context';
 import { base, colors } from '~/shared/theme/tokens.stylex';
+import dicordLogo from '../../../../public/discord-logo.svg?raw';
+import githubLogo from '../../../../public/github-logo.svg?raw';
 import logo from '../../../../public/logo.png';
 
 type NavItem = {
@@ -75,14 +77,14 @@ export const Navbar = () => {
 						href="https://discord.com/invite/windows-apps-hub-714581497222398064"
 						target="_blank"
 					>
-						<FluentIcon icon={Settings24Regular} />
+						<FluentIcon icon={dicordLogo} />
 					</IconButton>
 					<IconButton
 						as={'a'}
 						href="https://github.com/bkaankose/Wino-Mail"
 						target="_blank"
 					>
-						<FluentIcon icon={Settings24Regular} />
+						<FluentIcon icon={githubLogo} />
 					</IconButton>
 					<IconButton onClick={() => toggleTheme()}>
 						<FluentIcon icon={WeatherSunny} />

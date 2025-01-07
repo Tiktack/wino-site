@@ -24,7 +24,7 @@ export const Footer = () => {
 
 			<div {...stylex.attrs(styles.linksColumn)}>
 				<div {...stylex.attrs(styles.smallGapColumn)}>
-					<TextBlock style={styles.columnText}>Contribute</TextBlock>
+					<TextBlock style={styles.columnTitleText}>Contribute</TextBlock>
 
 					<Button
 						variant="hyperlink"
@@ -53,7 +53,7 @@ export const Footer = () => {
 				</div>
 
 				<div {...stylex.attrs(styles.smallGapColumn)}>
-					<TextBlock style={styles.textTertiary}>Support</TextBlock>
+					<TextBlock style={styles.columnTitleText}>Support</TextBlock>
 
 					<Button variant="hyperlink" as={A} href="/Privacy">
 						Privacy
@@ -97,9 +97,8 @@ const styles = stylex.create({
 	},
 	textTertiary: {
 		color: colors.textTertiary,
-		fontSize: base.bodyFontSize,
 	},
-	columnText: {
+	columnTitleText: {
 		padding: '0.6rem',
 		color: colors.textTertiary,
 	},
@@ -111,6 +110,6 @@ const styles = stylex.create({
 	linksColumn: {
 		display: 'flex',
 		flexDirection: 'row',
-		gap: '15rem',
+		gap: '2rem',
 	},
 });
