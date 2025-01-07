@@ -79,10 +79,10 @@ const styles = stylex.create({
 	}),
 	description: {
 		color: colors.textTertiary,
-		flex: 1,
+		display: '-webkit-box',
 		overflow: 'hidden',
-		textOverflow: 'ellipsis',
-		// whiteSpace: 'wrap',
+		WebkitLineClamp: 5,
+		WebkitBoxOrient: 'vertical',
 	},
 	date: {
 		color: colors.textTertiary,

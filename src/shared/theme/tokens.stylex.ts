@@ -1,5 +1,4 @@
 import * as stylex from '@stylexjs/stylex';
-import { sub } from 'date-fns';
 
 const baseTokens = {
 	// Font Families

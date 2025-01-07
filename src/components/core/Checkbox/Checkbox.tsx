@@ -1,19 +1,19 @@
-import type { ValidComponent } from "solid-js"
-import { Match, splitProps, Switch } from "solid-js";
-import Checkmark24Regular from "@fluentui/svg-icons/icons/checkmark_24_regular.svg?raw";
-import * as CheckboxPrimitive from "@kobalte/core/checkbox"
-import type { PolymorphicProps } from "@kobalte/core/polymorphic"
-import cn from "classnames"
-import styles from "./Checkbox.module.css"
-import { FluentIcon } from "~/components/FluentIcon";
+import Checkmark24Regular from '@fluentui/svg-icons/icons/checkmark_24_regular.svg?raw';
+import * as CheckboxPrimitive from '@kobalte/core/checkbox';
+import type { PolymorphicProps } from '@kobalte/core/polymorphic';
+import cn from 'classnames';
+import type { ValidComponent } from 'solid-js';
+import { Match, Switch, splitProps } from 'solid-js';
+import { FluentIcon } from '~/components/FluentIcon';
+import styles from './Checkbox.module.css';
 
-type CheckboxRootProps<T extends ValidComponent = "div"> =
-	CheckboxPrimitive.CheckboxRootProps<T> & { class?: string }
+type CheckboxRootProps<T extends ValidComponent = 'div'> =
+	CheckboxPrimitive.CheckboxRootProps<T> & { class?: string };
 
-const Checkbox = <T extends ValidComponent = "div">(
-	props: PolymorphicProps<T, CheckboxRootProps<T>>
+const Checkbox = <T extends ValidComponent = 'div'>(
+	props: PolymorphicProps<T, CheckboxRootProps<T>>,
 ) => {
-	const [local, others] = splitProps(props as CheckboxRootProps, ["class"])
+	const [local, others] = splitProps(props as CheckboxRootProps, ['class']);
 	return (
 		<CheckboxPrimitive.Root
 			class={cn(styles.checkboxInner, local.class)}
@@ -34,6 +34,6 @@ const Checkbox = <T extends ValidComponent = "div">(
 			</CheckboxPrimitive.Control>
 		</CheckboxPrimitive.Root>
 	);
-}
+};
 
-export { Checkbox }
+export { Checkbox };

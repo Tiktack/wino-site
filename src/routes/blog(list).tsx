@@ -26,12 +26,14 @@ export default function BlogList() {
 	return (
 		<main>
 			<Title>Wino | Blog</Title>
-			<div {...stylex.props(styles.container)}>
-				<div {...stylex.props(styles.heroSection)}>
+
+			<div {...stylex.attrs(styles.container)}>
+				<div {...stylex.attrs(styles.heroSection)}>
 					<div
-						{...stylex.props(styles.heroBackground(mostRecentPost.thumbnail))}
+						{...stylex.attrs(styles.heroBackground(mostRecentPost.thumbnail))}
 					/>
-					<div {...stylex.props(styles.heroContent)}>
+
+					<div {...stylex.attrs(styles.heroContent)}>
 						<InfoBadge severity="information">
 							{format(new Date(mostRecentPost.date), DateFormatToken.ShortDate)}
 						</InfoBadge>
@@ -52,22 +54,22 @@ export default function BlogList() {
 
 					<A
 						href={mostRecentPost.slug}
-						{...stylex.props(styles.imageContainer)}
+						{...stylex.attrs(styles.imageContainer)}
 					>
 						<img
 							src={resolvePath(mostRecentPost.thumbnail)}
 							alt={mostRecentPost.title}
-							{...stylex.props(styles.heroImage(mostRecentPost.slug))}
+							{...stylex.attrs(styles.heroImage(mostRecentPost.slug))}
 						/>
 					</A>
 				</div>
 
-				<div {...stylex.props(styles.divider)} />
+				<div {...stylex.attrs(styles.divider)} />
 
-				<div {...stylex.props(styles.postsGrid)}>
+				<div {...stylex.attrs(styles.postsGrid)}>
 					<For each={restPosts}>
 						{(post) => (
-							<A href={post.slug} {...stylex.props(styles.postLink)}>
+							<A href={post.slug} {...stylex.attrs(styles.postLink)}>
 								<BlogCard
 									title={post.title}
 									description={post.description}
