@@ -1,1 +1,0 @@
-import{i as a,j as s,m as l,k as i,r as n,t as d}from"./web-NOoGXgWu.js";var p=d("<div><div>");function m(e){return(()=>{var t=a(p),r=t.firstChild;return s(t,l(()=>({class:"xted6l9 xr6jg0x x19bbpc0 x78zum5 xdt5ytf"})),!1,!0),i(r,()=>e.children),n(),t})()}export{m as default};

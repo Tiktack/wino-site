@@ -1,0 +1,1 @@
+import{i as l,n as r,k as i,b as s,t as o}from"./web-NOoGXgWu.js";import{T as m}from"./index-k8z6uEkB.js";var p=o("<main><!$><!/>Install");function f(){return(()=>{var t=l(p),n=t.firstChild,[e,a]=r(n.nextSibling);return e.nextSibling,i(t,s(m,{children:"Wino | Docs | Install"}),e,a),t})()}export{f as default};

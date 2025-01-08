@@ -163,8 +163,8 @@
     "file": "assets/news_24_regular-Bi3Wh5Cn.js",
     "name": "news_24_regular"
   },
-  "_resolvePath-8R1nLzN8.js": {
-    "file": "assets/resolvePath-8R1nLzN8.js",
+  "_resolvePath-BBRiL9IW.js": {
+    "file": "assets/resolvePath-BBRiL9IW.js",
     "name": "resolvePath",
     "imports": [
       "_index-CAKgJtvh.js",
@@ -211,7 +211,7 @@
     "src": "public/wino-app-light.png"
   },
   "src/routes/(home).tsx?pick=default&pick=$css": {
-    "file": "assets/(home)-BwhHwgSF.js",
+    "file": "assets/(home)-BT6kje9V.js",
     "name": "(home)",
     "src": "src/routes/(home).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -247,7 +247,7 @@
     ]
   },
   "src/routes/blog(list).tsx?pick=default&pick=$css": {
-    "file": "assets/blog(list)-B4SnVuT_.js",
+    "file": "assets/blog(list)-BwlWyGib.js",
     "name": "blog(list)",
     "src": "src/routes/blog(list).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -259,7 +259,7 @@
       "_date-DOga6MM-.js",
       "_TextBlock-Bz3oQSwi.js",
       "_Button-DDzfjh3C.js",
-      "_resolvePath-8R1nLzN8.js",
+      "_resolvePath-BBRiL9IW.js",
       "_routing-CyECxcq-.js",
       "_components-5-JsBAtx.js",
       "_UKTBL2JL-DWmBOj33.js",
@@ -269,16 +269,17 @@
     ]
   },
   "src/routes/blog.tsx?pick=default&pick=$css": {
-    "file": "assets/blog-BlOKNZUP.js",
+    "file": "assets/blog-Bubaef50.js",
     "name": "blog",
     "src": "src/routes/blog.tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_web-NOoGXgWu.js",
+      "_index-k8z6uEkB.js",
       "_stylex-lfbtzg0Y.js",
       "_TextBlock-Bz3oQSwi.js",
-      "_resolvePath-8R1nLzN8.js",
+      "_resolvePath-BBRiL9IW.js",
       "_routing-CyECxcq-.js",
       "_index-CAKgJtvh.js",
       "_config-BRbu5zHP.js"
@@ -296,7 +297,7 @@
     ]
   },
   "src/routes/blog/release-1-9-0.mdx?pick=$css": {
-    "file": "assets/release-1-9-0-C9pbeYV7.js",
+    "file": "assets/release-1-9-0-BMgPi_zX.js",
     "name": "release-1-9-0",
     "src": "src/routes/blog/release-1-9-0.mdx?pick=$css",
     "isEntry": true,
@@ -340,7 +341,7 @@
     ]
   },
   "src/routes/blog/wino-website.mdx?pick=$css": {
-    "file": "assets/wino-website-CHNEmNoJ.js",
+    "file": "assets/wino-website-DsSluZvo.js",
     "name": "wino-website",
     "src": "src/routes/blog/wino-website.mdx?pick=$css",
     "isEntry": true,
@@ -557,7 +558,7 @@
     ]
   },
   "src/routes/docs/install.tsx?pick=default&pick=$css": {
-    "file": "assets/install-dEnKI1NG.js",
+    "file": "assets/install-DLPvKPtG.js",
     "name": "install",
     "src": "src/routes/docs/install.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -568,7 +569,7 @@
     ]
   },
   "src/routes/docs/overview.tsx?pick=default&pick=$css": {
-    "file": "assets/overview-CbX6Ien7.js",
+    "file": "assets/overview-GwhPiW5e.js",
     "name": "overview",
     "src": "src/routes/docs/overview.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -579,13 +580,14 @@
     ]
   },
   "src/routes/support.tsx?pick=default&pick=$css": {
-    "file": "assets/support-BlKGbz-b.js",
+    "file": "assets/support-gwKp2iFs.js",
     "name": "support",
     "src": "src/routes/support.tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_web-NOoGXgWu.js"
+      "_web-NOoGXgWu.js",
+      "_index-k8z6uEkB.js"
     ]
   },
   "src/routes/support/Privacy.mdx?pick=$css": {
@@ -600,7 +602,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-Dw1LHyXr.js",
+    "file": "assets/client-Cu0HpR0v.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
@@ -653,7 +655,7 @@
       "src/routes/blog/release-1-9-1/index.mdx?pick=$css"
     ],
     "css": [
-      "assets/client-DxjW2MdA.css"
+      "assets/client-CIrFhZwf.css"
     ],
     "assets": [
       "assets/bloom-mica-dark-B_veKFNW.png",
