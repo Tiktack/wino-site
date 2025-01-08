@@ -7,6 +7,7 @@ import { FileRoutes } from '@solidjs/start/router';
 import { Suspense } from 'solid-js';
 import { MainLayout } from './components/layouts/MainLayout';
 import { config } from './config';
+import { MDXProvider } from './shared/mdx/provider';
 import { ThemeProvider } from './shared/theme/provider';
 
 export default function App() {
@@ -18,9 +19,11 @@ export default function App() {
 					<Title>Wino Mail</Title>
 
 					<ThemeProvider>
-						<MainLayout>
-							<Suspense>{props.children}</Suspense>
-						</MainLayout>
+						<MDXProvider>
+							<MainLayout>
+								<Suspense>{props.children}</Suspense>
+							</MainLayout>
+						</MDXProvider>
 					</ThemeProvider>
 				</MetaProvider>
 			)}
