@@ -235,7 +235,7 @@
     ]
   },
   "src/routes/[...404].tsx?pick=default&pick=$css": {
-    "file": "assets/_...404_-CZk554DX.js",
+    "file": "assets/_...404_-DBE8NWTm.js",
     "name": "_...404_",
     "src": "src/routes/[...404].tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -243,7 +243,14 @@
     "imports": [
       "_web-NOoGXgWu.js",
       "_index-k8z6uEkB.js",
-      "_HttpStatusCode-DjTx85av.js"
+      "_HttpStatusCode-DjTx85av.js",
+      "_Button-DDzfjh3C.js",
+      "_TextBlock-Bz3oQSwi.js",
+      "_components-5-JsBAtx.js",
+      "_stylex-lfbtzg0Y.js",
+      "_UKTBL2JL-DWmBOj33.js",
+      "_5WXHJDCZ-Cv7SIjPi.js",
+      "_routing-CyECxcq-.js"
     ]
   },
   "src/routes/blog(list).tsx?pick=default&pick=$css": {
@@ -602,7 +609,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-Cu0HpR0v.js",
+    "file": "assets/client-Cssc214Z.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
@@ -655,7 +662,7 @@
       "src/routes/blog/release-1-9-1/index.mdx?pick=$css"
     ],
     "css": [
-      "assets/client-CIrFhZwf.css"
+      "assets/client-TPWF0hUh.css"
     ],
     "assets": [
       "assets/bloom-mica-dark-B_veKFNW.png",
