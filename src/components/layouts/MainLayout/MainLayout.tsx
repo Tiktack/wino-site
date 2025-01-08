@@ -1,6 +1,8 @@
 import * as stylex from '@stylexjs/stylex';
 import { type JSX, useContext } from 'solid-js';
 import { type Theme, ThemeContext } from '~/shared/theme/context';
+import micaBackgroundDark from '../../../../public/bloom-mica-dark.png';
+import micaBackgroundLight from '../../../../public/bloom-mica-light.png';
 import { Footer } from './Footer';
 import { Navbar } from './Navbar';
 
@@ -40,7 +42,10 @@ const styles = stylex.create({
 		height: '100%',
 		transform: 'scale(2)',
 		zIndex: -10,
-		backgroundImage: `url('https://fluent-svelte.vercel.app/bloom-mica-${theme}.png')`,
+		backgroundImage:
+			theme === 'dark'
+				? `url(${micaBackgroundDark})`
+				: `url(${micaBackgroundLight})`,
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
