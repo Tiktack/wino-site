@@ -29,7 +29,7 @@ export const BlogCard = (props: BlogCardProps) => {
 				<TextBlock variant="body" style={styles.description}>
 					{props.description}
 				</TextBlock>
-				<TextBlock style={styles.date}>
+				<TextBlock variant="caption" style={styles.date}>
 					{format(props.date, DateFormatToken.ShortDate)}
 				</TextBlock>
 			</div>
@@ -65,7 +65,6 @@ const styles = stylex.create({
 		flexDirection: 'column',
 		padding: '1.25rem',
 		gap: '0.75rem',
-		height: '13rem',
 	},
 	title: (slug: string) => ({
 		viewTransitionName: `blog-title-${slug}`,
@@ -75,7 +74,6 @@ const styles = stylex.create({
 		WebkitLineClamp: 2,
 		WebkitBoxOrient: 'vertical',
 		overflow: 'hidden',
-		height: '2rem',
 	}),
 	description: {
 		color: colors.textTertiary,
@@ -87,6 +85,5 @@ const styles = stylex.create({
 	date: {
 		color: colors.textTertiary,
 		marginTop: 'auto',
-		height: '1.5rem',
 	},
 });
