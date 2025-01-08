@@ -1,3 +1,4 @@
+import { Title } from '@solidjs/meta';
 import { useLocation } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
 import type { JSX } from 'solid-js';
@@ -22,18 +23,21 @@ export default function BlogPostLayout(props: BlogPostLayoutProps) {
 	}
 
 	return (
-		<div {...stylex.attrs(styles.container)}>
-			<TextBlock variant="titleLarge" style={styles.title(post.slug)}>
-				{post.title}
-			</TextBlock>
+		<div>
+			<Title>Wino | Blog | {post.metaTitle}</Title>
+			<div {...stylex.attrs(styles.container)}>
+				<TextBlock variant="titleLarge" style={styles.title(post.slug)}>
+					{post.title}
+				</TextBlock>
 
-			<img
-				src={resolvePath(post.thumbnail)}
-				alt={post.title}
-				{...stylex.attrs(styles.image(post.slug))}
-			/>
+				<img
+					src={resolvePath(post.thumbnail)}
+					alt={post.title}
+					{...stylex.attrs(styles.image(post.slug))}
+				/>
 
-			<div>{props.children}</div>
+				<div>{props.children}</div>
+			</div>
 		</div>
 	);
 }

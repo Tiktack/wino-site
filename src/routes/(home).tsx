@@ -77,7 +77,7 @@ export default function HomePage() {
 
 	return (
 		<main {...stylex.attrs(styles.main)}>
-			<Title>WinoMail | Home</Title>
+			<Title>Wino | Home</Title>
 
 			<div {...stylex.attrs(styles.container)}>
 				<TextBlock variant="titleLarge">Welcome to Wino Mail</TextBlock>

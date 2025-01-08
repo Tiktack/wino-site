@@ -1,10 +1,15 @@
+import { Title } from '@solidjs/meta';
 import type { RouteSectionProps } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
 
 export default function SupportLayout(props: RouteSectionProps) {
 	return (
-		<div {...stylex.attrs(styles.content)}>
-			<div>{props.children}</div>
+		<div>
+			<Title>Wino | Privacy</Title>
+
+			<div {...stylex.attrs(styles.content)}>
+				<div>{props.children}</div>
+			</div>
 		</div>
 	);
 }

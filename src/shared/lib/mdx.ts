@@ -1,17 +1,18 @@
 export type PostMetadata = {
 	title: string;
+	metaTitle: string;
 	description: string;
 	thumbnail: string;
 	date: string;
 	author: string;
 };
 
-export type DocPage = {
-	title: string;
-	slug: string;
-	path: string;
-	children: DocPage[] | undefined;
-};
+// export type DocPage = {
+// 	title: string;
+// 	slug: string;
+// 	path: string;
+// 	children: DocPage[] | undefined;
+// };
 
 export const getBlogPosts = () => {
 	const postsRaw = import.meta.glob<PostMetadata>('/src/routes/blog/**/*.mdx', {

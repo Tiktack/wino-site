@@ -46,7 +46,7 @@ const styles = stylex.create({
 		background: colors.cardBackgroundDefault,
 		boxShadow: base.cardShadow,
 		transition: 'transform 200ms',
-		height: '25rem',
+		height: '100%',
 		overflow: 'hidden',
 		':hover': {
 			transform: 'translateY(-5px)',

@@ -34,7 +34,7 @@ const NAVBAR_ITEMS: NavItem[] = [
 	},
 	{
 		href: '/docs/overview',
-		name: 'Documentation',
+		name: 'Docs',
 		Icon: DocumentOnePage24Regular,
 	},
 	...(import.meta.env.DEV

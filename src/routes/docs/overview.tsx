@@ -3,7 +3,7 @@ import { Title } from '@solidjs/meta';
 export default function OverviewPage() {
 	return (
 		<main>
-			<Title>Wino Mail | Docs | Overview</Title>
+			<Title>Wino | Docs | Overview</Title>
 
 			<h1>Overview</h1>
 

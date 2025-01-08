@@ -16,7 +16,7 @@ export default function App() {
 			base={config.base}
 			root={(props) => (
 				<MetaProvider>
-					<Title>Wino Mail</Title>
+					<Title>Wino</Title>
 
 					<ThemeProvider>
 						<MDXProvider>
