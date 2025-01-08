@@ -201,6 +201,14 @@
     "file": "assets/web-NIKE90-i.js",
     "name": "web"
   },
+  "public/bloom-mica-dark.png": {
+    "file": "assets/bloom-mica-dark-B_veKFNW.png",
+    "src": "public/bloom-mica-dark.png"
+  },
+  "public/bloom-mica-light.png": {
+    "file": "assets/bloom-mica-light-DIFQI4wN.png",
+    "src": "public/bloom-mica-light.png"
+  },
   "public/logo.png": {
     "file": "assets/logo-CbH4gWoI.png",
     "src": "public/logo.png"
@@ -605,7 +613,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-uxS-qAKX.js",
+    "file": "assets/client-DS3nAInB.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
@@ -660,6 +668,8 @@
       "assets/client-C6EN2PFn.css"
     ],
     "assets": [
+      "assets/bloom-mica-dark-B_veKFNW.png",
+      "assets/bloom-mica-light-DIFQI4wN.png",
       "assets/logo-CbH4gWoI.png"
     ]
   }
