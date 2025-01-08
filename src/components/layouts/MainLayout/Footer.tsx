@@ -55,7 +55,7 @@ export const Footer = () => {
 				<div {...stylex.attrs(styles.smallGapColumn)}>
 					<TextBlock style={styles.columnTitleText}>Support</TextBlock>
 
-					<Button variant="hyperlink" as={A} href="/Privacy">
+					<Button variant="hyperlink" as={A} href="/support/privacy">
 						Privacy
 					</Button>
 					<Button

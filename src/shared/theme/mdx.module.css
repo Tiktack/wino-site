@@ -1,0 +1,50 @@
+/* Base text styles */
+.contentBase {
+	font-family: var(--font-family-text);
+	line-height: 1.6;
+}
+
+/* Headings */
+.contentBase h1 {
+	font-size: var(--title-large-font-size);
+	margin: 2rem 0 1rem;
+	font-family: var(--font-family-display);
+}
+
+.contentBase h2 {
+	font-size: var(--title-font-size);
+	margin: 1.5rem 0 1rem;
+	font-family: var(--font-family-display);
+}
+
+.contentBase h3 {
+	font-size: var(--subtitle-font-size);
+	margin: 1.25rem 0 0.75rem;
+}
+
+/* Paragraphs and lists */
+.contentBase p {
+	font-size: var(--body-font-size);
+	margin: 0;
+}
+
+.contentBase ul,
+.contentBase ol {
+	padding-left: 1.5rem;
+	margin: 1rem 0;
+}
+
+.contentBase li {
+	margin: 0.1rem 0;
+}
+
+/* Links */
+.contentBase a {
+	color: var(--accent-default);
+	text-decoration: none;
+	transition: color var(--control-faster-duration) ease;
+}
+
+.contentBase a:hover {
+	color: var(--accent-secondary);
+}

@@ -4,6 +4,7 @@ import type { JSX } from 'solid-js';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { type PostMetadata, getBlogPosts } from '~/shared/lib/mdx';
 import { resolvePath } from '~/shared/lib/resolvePath';
+import mdxStyles from '~/shared/theme/mdx.module.css';
 import { colors } from '~/shared/theme/tokens.stylex';
 
 const posts = getBlogPosts();
@@ -34,7 +35,9 @@ export default function BlogPostLayout(props: BlogPostLayoutProps) {
 				{...stylex.attrs(styles.image(post.slug))}
 			/>
 
-			<div {...stylex.attrs(styles.content)}>{props.children}</div>
+			<div {...stylex.attrs(styles.content)}>
+				<div class={mdxStyles.contentBase}>{props.children}</div>
+			</div>
 		</div>
 	);
 }
