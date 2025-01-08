@@ -4,8 +4,6 @@ import type { JSX } from 'solid-js';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { type PostMetadata, getBlogPosts } from '~/shared/lib/mdx';
 import { resolvePath } from '~/shared/lib/resolvePath';
-import mdxStyles from '~/shared/theme/mdx.module.css';
-import { colors } from '~/shared/theme/tokens.stylex';
 
 const posts = getBlogPosts();
 
@@ -25,7 +23,7 @@ export default function BlogPostLayout(props: BlogPostLayoutProps) {
 
 	return (
 		<div {...stylex.attrs(styles.container)}>
-			<TextBlock variant="title" style={styles.title(post.slug)}>
+			<TextBlock variant="titleLarge" style={styles.title(post.slug)}>
 				{post.title}
 			</TextBlock>
 
@@ -35,9 +33,7 @@ export default function BlogPostLayout(props: BlogPostLayoutProps) {
 				{...stylex.attrs(styles.image(post.slug))}
 			/>
 
-			<div {...stylex.attrs(styles.content)}>
-				<div class={mdxStyles.contentBase}>{props.children}</div>
-			</div>
+			<div>{props.children}</div>
 		</div>
 	);
 }
@@ -51,9 +47,6 @@ const styles = stylex.create({
 		maxWidth: '800px',
 		margin: '32px auto 0',
 		gap: '1rem',
-	},
-	content: {
-		color: colors.textPrimary,
 	},
 	title: (postName: string) => ({
 		viewTransitionName: `blog-title-${postName}`,
