@@ -23,7 +23,7 @@ export default defineConfig({
 	ssr: true,
 	server: {
 		baseURL: process.env.BASE_PATH,
-		preset: 'azureSwa',
+		preset: 'azure_swa',
 		static: true,
 		prerender: {
 			crawlLinks: true,
