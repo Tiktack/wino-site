@@ -123,10 +123,6 @@
       "_routing-CyECxcq-.js"
     ]
   },
-  "_config-BRbu5zHP.js": {
-    "file": "assets/config-BRbu5zHP.js",
-    "name": "config"
-  },
   "_context-BRtVzqin.js": {
     "file": "assets/context-BRtVzqin.js",
     "name": "context",
@@ -159,17 +155,20 @@
       "_web-NOoGXgWu.js"
     ]
   },
+  "_mdx-CtqV7uau.js": {
+    "file": "assets/mdx-CtqV7uau.js",
+    "name": "mdx",
+    "imports": [
+      "_index-CAKgJtvh.js"
+    ]
+  },
   "_news_24_regular-Bi3Wh5Cn.js": {
     "file": "assets/news_24_regular-Bi3Wh5Cn.js",
     "name": "news_24_regular"
   },
-  "_resolvePath-BRyODtBx.js": {
-    "file": "assets/resolvePath-BRyODtBx.js",
-    "name": "resolvePath",
-    "imports": [
-      "_index-CAKgJtvh.js",
-      "_config-BRbu5zHP.js"
-    ]
+  "_resolvePath-B2iwiUFF.js": {
+    "file": "assets/resolvePath-B2iwiUFF.js",
+    "name": "resolvePath"
   },
   "_routing-CyECxcq-.js": {
     "file": "assets/routing-CyECxcq-.js",
@@ -254,7 +253,7 @@
     ]
   },
   "src/routes/blog(list).tsx?pick=default&pick=$css": {
-    "file": "assets/blog(list)-BHopPxer.js",
+    "file": "assets/blog(list)-CnNPkmt7.js",
     "name": "blog(list)",
     "src": "src/routes/blog(list).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -266,17 +265,17 @@
       "_date-DOga6MM-.js",
       "_TextBlock-Bz3oQSwi.js",
       "_Button-DDzfjh3C.js",
-      "_resolvePath-BRyODtBx.js",
+      "_mdx-CtqV7uau.js",
+      "_resolvePath-B2iwiUFF.js",
       "_routing-CyECxcq-.js",
       "_components-5-JsBAtx.js",
       "_UKTBL2JL-DWmBOj33.js",
       "_5WXHJDCZ-Cv7SIjPi.js",
-      "_index-CAKgJtvh.js",
-      "_config-BRbu5zHP.js"
+      "_index-CAKgJtvh.js"
     ]
   },
   "src/routes/blog.tsx?pick=default&pick=$css": {
-    "file": "assets/blog-DT_huMJJ.js",
+    "file": "assets/blog-C4niUZaH.js",
     "name": "blog",
     "src": "src/routes/blog.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -286,10 +285,10 @@
       "_index-k8z6uEkB.js",
       "_stylex-lfbtzg0Y.js",
       "_TextBlock-Bz3oQSwi.js",
-      "_resolvePath-BRyODtBx.js",
+      "_mdx-CtqV7uau.js",
+      "_resolvePath-B2iwiUFF.js",
       "_routing-CyECxcq-.js",
-      "_index-CAKgJtvh.js",
-      "_config-BRbu5zHP.js"
+      "_index-CAKgJtvh.js"
     ]
   },
   "src/routes/blog/release-1-7-6.mdx?pick=$css": {
@@ -587,7 +586,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client--IJ3bBtd.js",
+    "file": "assets/client-BA0DBmJA.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
@@ -603,7 +602,7 @@
       "_news_24_regular-Bi3Wh5Cn.js",
       "_FluentIcon-C6fUWxrE.js",
       "_IconButton-DUstTuAR.js",
-      "_config-BRbu5zHP.js",
+      "_resolvePath-B2iwiUFF.js",
       "_index-CAKgJtvh.js",
       "_tokens.stylex-DYd3I_11.js",
       "_routing-CyECxcq-.js",
