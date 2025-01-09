@@ -32,16 +32,16 @@ const NAVBAR_ITEMS: NavItem[] = [
 		name: 'Blog',
 		Icon: News24Regular,
 	},
-	{
-		href: '/docs/overview',
-		name: 'Docs',
-		Icon: DocumentOnePage24Regular,
-	},
 	...(import.meta.env.DEV
 		? [
 				{
 					href: '/components/buttons',
 					name: 'Components',
+				},
+				{
+					href: '/docs/overview',
+					name: 'Docs',
+					Icon: DocumentOnePage24Regular,
 				},
 			]
 		: []),
