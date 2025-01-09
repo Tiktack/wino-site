@@ -34,17 +34,17 @@ jobs:
       - name: install
         run: bun install
 
-      # - name: Install OIDC Client from Core Package
-      #   run: bun install @actions/core@1.6.0 @actions/http-client
+      - name: Install OIDC Client from Core Package
+        run: bun install @actions/core@1.6.0 @actions/http-client
 
-      # - name: Get Id Token
-      #   uses: actions/github-script@v6
-      #   id: idtoken
-      #   with:
-      #      script: |
-      #          const coredemo = require('@actions/core')
-      #          return await coredemo.getIDToken()
-      #      result-encoding: string
+      - name: Get Id Token
+        uses: actions/github-script@v6
+        id: idtoken
+        with:
+           script: |
+               const coredemo = require('@actions/core')
+               return await coredemo.getIDToken()
+           result-encoding: string
 
       - name: build
         run: bun run build
@@ -62,8 +62,7 @@ jobs:
           app_location: ".output/public" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          # github_id_token: ${{ steps.idtoken.outputs.result }}
+          github_id_token: ${{ steps.idtoken.outputs.result }}
           ###### End of Repository/Build Configurations ######
 
   # close_pull_request_job:
