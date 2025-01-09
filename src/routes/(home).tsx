@@ -100,7 +100,7 @@ export default function HomePage() {
 					<Button
 						variant={'hyperlink'}
 						as={A}
-						href="docs/overview"
+						href="docs/comming-soon"
 						style={styles.button}
 					>
 						Learn more

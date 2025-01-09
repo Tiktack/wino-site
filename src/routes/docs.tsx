@@ -7,13 +7,17 @@ export default function DocsLayout(props: RouteSectionProps) {
 	return (
 		<SidebarLayout
 			routes={[
+				// {
+				// 	name: 'Overview',
+				// 	path: '/docs/overview',
+				// },
+				// {
+				// 	name: 'Install',
+				// 	path: '/docs/install',
+				// },
 				{
-					name: 'Overview',
-					path: '/docs/overview',
-				},
-				{
-					name: 'Install',
-					path: '/docs/install',
+					name: 'Comming Soon',
+					path: '/docs/comming-soon',
 				},
 			]}
 		>
@@ -24,12 +28,13 @@ export default function DocsLayout(props: RouteSectionProps) {
 
 const styles = stylex.create({
 	content: {
-		backgroundColor: colors.layerBackgroundDefault,
+		// backgroundColor: colors.layerBackgroundDefault,
 		padding: '2rem',
 		margin: '0 auto',
+		width: '100%',
 		display: 'flex',
-		flexDirection: 'column',
-		borderTopLeftRadius: '0.75rem',
 		height: '100vh',
+		flexGrow: 1, // Add this to make it take full available width
+		maxWidth: '100%', // Ensure it doesn't overflow
 	},
 });
