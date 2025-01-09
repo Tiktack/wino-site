@@ -23,7 +23,7 @@ export default defineConfig({
 	ssr: true,
 	server: {
 		baseURL: process.env.BASE_PATH,
-		preset: 'azure_swa',
+		preset: 'githubPages',
 		static: true,
 		prerender: {
 			crawlLinks: true,
