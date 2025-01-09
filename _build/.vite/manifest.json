@@ -587,7 +587,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-FBz9m-lQ.js",
+    "file": "assets/client-CBzvn2Nr.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
