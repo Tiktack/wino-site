@@ -163,8 +163,8 @@
     "file": "assets/news_24_regular-Bi3Wh5Cn.js",
     "name": "news_24_regular"
   },
-  "_resolvePath-BBRiL9IW.js": {
-    "file": "assets/resolvePath-BBRiL9IW.js",
+  "_resolvePath-BRyODtBx.js": {
+    "file": "assets/resolvePath-BRyODtBx.js",
     "name": "resolvePath",
     "imports": [
       "_index-CAKgJtvh.js",
@@ -254,7 +254,7 @@
     ]
   },
   "src/routes/blog(list).tsx?pick=default&pick=$css": {
-    "file": "assets/blog(list)-BwlWyGib.js",
+    "file": "assets/blog(list)-BHopPxer.js",
     "name": "blog(list)",
     "src": "src/routes/blog(list).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -266,7 +266,7 @@
       "_date-DOga6MM-.js",
       "_TextBlock-Bz3oQSwi.js",
       "_Button-DDzfjh3C.js",
-      "_resolvePath-BBRiL9IW.js",
+      "_resolvePath-BRyODtBx.js",
       "_routing-CyECxcq-.js",
       "_components-5-JsBAtx.js",
       "_UKTBL2JL-DWmBOj33.js",
@@ -276,7 +276,7 @@
     ]
   },
   "src/routes/blog.tsx?pick=default&pick=$css": {
-    "file": "assets/blog-Bubaef50.js",
+    "file": "assets/blog-DT_huMJJ.js",
     "name": "blog",
     "src": "src/routes/blog.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -286,14 +286,14 @@
       "_index-k8z6uEkB.js",
       "_stylex-lfbtzg0Y.js",
       "_TextBlock-Bz3oQSwi.js",
-      "_resolvePath-BBRiL9IW.js",
+      "_resolvePath-BRyODtBx.js",
       "_routing-CyECxcq-.js",
       "_index-CAKgJtvh.js",
       "_config-BRbu5zHP.js"
     ]
   },
   "src/routes/blog/release-1-7-6.mdx?pick=$css": {
-    "file": "assets/release-1-7-6-CorRS3QM.js",
+    "file": "assets/release-1-7-6-BzQ0okTs.js",
     "name": "release-1-7-6",
     "src": "src/routes/blog/release-1-7-6.mdx?pick=$css",
     "isEntry": true,
@@ -304,7 +304,7 @@
     ]
   },
   "src/routes/blog/release-1-9-0.mdx?pick=$css": {
-    "file": "assets/release-1-9-0-BMgPi_zX.js",
+    "file": "assets/release-1-9-0-xct4qifV.js",
     "name": "release-1-9-0",
     "src": "src/routes/blog/release-1-9-0.mdx?pick=$css",
     "isEntry": true,
@@ -318,28 +318,6 @@
     "file": "assets/index-BS684bWO.js",
     "name": "index",
     "src": "src/routes/blog/release-1-9-1/index.mdx?pick=$css",
-    "isEntry": true,
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-CAKgJtvh.js",
-      "_web-NOoGXgWu.js"
-    ]
-  },
-  "src/routes/blog/test-blog-2.mdx?pick=$css": {
-    "file": "assets/test-blog-2-gELENSEq.js",
-    "name": "test-blog-2",
-    "src": "src/routes/blog/test-blog-2.mdx?pick=$css",
-    "isEntry": true,
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-CAKgJtvh.js",
-      "_web-NOoGXgWu.js"
-    ]
-  },
-  "src/routes/blog/test-blog-3.mdx?pick=$css": {
-    "file": "assets/test-blog-3-Cz72Rbnd.js",
-    "name": "test-blog-3",
-    "src": "src/routes/blog/test-blog-3.mdx?pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
@@ -609,7 +587,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-CKqyzdON.js",
+    "file": "assets/client-FBz9m-lQ.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
@@ -643,8 +621,6 @@
       "src/routes/support.tsx?pick=default&pick=$css",
       "src/routes/blog/release-1-7-6.mdx?pick=$css",
       "src/routes/blog/release-1-9-0.mdx?pick=$css",
-      "src/routes/blog/test-blog-2.mdx?pick=$css",
-      "src/routes/blog/test-blog-3.mdx?pick=$css",
       "src/routes/blog/wino-website.mdx?pick=$css",
       "src/routes/components/Buttons.tsx?pick=default&pick=$css",
       "src/routes/components/Checkboxes.tsx?pick=default&pick=$css",
