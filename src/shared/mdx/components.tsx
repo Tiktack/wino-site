@@ -1,6 +1,7 @@
 import * as stylex from '@stylexjs/stylex';
 import type { Component, JSX } from 'solid-js';
 import { base, colors } from '~/shared/theme/tokens.stylex';
+import { resolvePath } from '../lib/resolvePath';
 
 export const components = {
 	img: (props) => {
@@ -9,7 +10,7 @@ export const components = {
 			<img
 				{...stylex.attrs(styles.base, styles.img)}
 				{...props}
-				src={props.src}
+				src={resolvePath(props.src as string)}
 			/>
 		);
 	},
