@@ -3,7 +3,16 @@ import type { Component, JSX } from 'solid-js';
 import { base, colors } from '~/shared/theme/tokens.stylex';
 
 export const components = {
-	img: (props) => <img {...stylex.attrs(styles.base, styles.img)} {...props} />,
+	img: (props) => {
+		console.log('props', props);
+		return (
+			<img
+				{...stylex.attrs(styles.base, styles.img)}
+				{...props}
+				src={props.src}
+			/>
+		);
+	},
 	a: (props) => <a {...stylex.attrs(styles.base, styles.a)} {...props} />,
 	h1: (props) => <h1 {...stylex.attrs(styles.base, styles.h1)} {...props} />,
 	h2: (props) => <h2 {...stylex.attrs(styles.base, styles.h2)} {...props} />,
@@ -13,7 +22,13 @@ export const components = {
 	ol: (props) => <ol {...stylex.attrs(styles.base, styles.ulOl)} {...props} />,
 	li: (props) => <li {...stylex.attrs(styles.base, styles.li)} {...props} />,
 } satisfies Partial<
-	Record<keyof HTMLElementTagNameMap, Component<{ children: JSX.Element }>>
+	Record<
+		keyof HTMLElementTagNameMap,
+		Component<{
+			src: string | undefined;
+			children: JSX.Element;
+		}>
+	>
 >;
 
 const styles = stylex.create({
