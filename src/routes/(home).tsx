@@ -91,7 +91,7 @@ export default function HomePage() {
 					<Button
 						variant={'accent'}
 						as={A}
-						href="docs/install"
+						href="https://apps.microsoft.com/detail/9NCRCVJC50WL?mode=full"
 						style={styles.button}
 					>
 						Install
@@ -125,8 +125,6 @@ export default function HomePage() {
 				</Switch>
 
 				<TextBlock variant="title">Key Features</TextBlock>
-
-				{/* Adding test comment  */}
 
 				<div {...stylex.attrs(styles.featuresGrid)}>
 					<For each={KEY_FEATURES_ITEMS}>

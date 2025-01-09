@@ -26,6 +26,7 @@ export default function NotFound() {
 
 const styles = stylex.create({
 	main: {
+		padding: '2rem',
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
