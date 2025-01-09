@@ -4,16 +4,13 @@ import { base, colors } from '~/shared/theme/tokens.stylex';
 import { resolvePath } from '../lib/resolvePath';
 
 export const components = {
-	img: (props) => {
-		console.log('props', props);
-		return (
-			<img
-				{...stylex.attrs(styles.base, styles.img)}
-				{...props}
-				src={resolvePath(props.src as string)}
-			/>
-		);
-	},
+	img: (props) => (
+		<img
+			{...stylex.attrs(styles.base, styles.img)}
+			{...props}
+			src={resolvePath(props.src as string)}
+		/>
+	),
 	a: (props) => <a {...stylex.attrs(styles.base, styles.a)} {...props} />,
 	h1: (props) => <h1 {...stylex.attrs(styles.base, styles.h1)} {...props} />,
 	h2: (props) => <h2 {...stylex.attrs(styles.base, styles.h2)} {...props} />,
