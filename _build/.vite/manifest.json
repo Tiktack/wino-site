@@ -211,7 +211,7 @@
     "src": "public/wino-app-light.png"
   },
   "src/routes/(home).tsx?pick=default&pick=$css": {
-    "file": "assets/(home)-BT6kje9V.js",
+    "file": "assets/(home)-DbrXVo5M.js",
     "name": "(home)",
     "src": "src/routes/(home).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -235,7 +235,7 @@
     ]
   },
   "src/routes/[...404].tsx?pick=default&pick=$css": {
-    "file": "assets/_...404_-DBE8NWTm.js",
+    "file": "assets/_...404_-Ce3FZcIL.js",
     "name": "_...404_",
     "src": "src/routes/[...404].tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -543,14 +543,14 @@
     ]
   },
   "src/routes/docs.tsx?pick=default&pick=$css": {
-    "file": "assets/docs-Cjue4NUI.js",
+    "file": "assets/docs-BMaAAN77.js",
     "name": "docs",
     "src": "src/routes/docs.tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_SidebarLayout-acnHKiwF.js",
       "_web-NOoGXgWu.js",
+      "_SidebarLayout-acnHKiwF.js",
       "_Collapsible-ICsMKzV9.js",
       "_stylex-lfbtzg0Y.js",
       "_E53DB7BS-DqCLO6aj.js",
@@ -564,15 +564,15 @@
       "_routing-CyECxcq-.js"
     ]
   },
-  "src/routes/docs/install.tsx?pick=default&pick=$css": {
-    "file": "assets/install-DLPvKPtG.js",
+  "src/routes/docs/install.mdx?pick=$css": {
+    "file": "assets/install-CYupPhBI.js",
     "name": "install",
-    "src": "src/routes/docs/install.tsx?pick=default&pick=$css",
+    "src": "src/routes/docs/install.mdx?pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_web-NOoGXgWu.js",
-      "_index-k8z6uEkB.js"
+      "_index-CAKgJtvh.js"
     ]
   },
   "src/routes/docs/overview.tsx?pick=default&pick=$css": {
@@ -609,7 +609,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-Cssc214Z.js",
+    "file": "assets/client-CKqyzdON.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
@@ -656,13 +656,13 @@
       "src/routes/components/ProgressRings.tsx?pick=default&pick=$css",
       "src/routes/components/TextBlocks.tsx?pick=default&pick=$css",
       "src/routes/components/ToggleSwitches.tsx?pick=default&pick=$css",
-      "src/routes/docs/install.tsx?pick=default&pick=$css",
+      "src/routes/docs/install.mdx?pick=$css",
       "src/routes/docs/overview.tsx?pick=default&pick=$css",
       "src/routes/support/Privacy.mdx?pick=$css",
       "src/routes/blog/release-1-9-1/index.mdx?pick=$css"
     ],
     "css": [
-      "assets/client-TPWF0hUh.css"
+      "assets/client-CHTqfdLj.css"
     ],
     "assets": [
       "assets/bloom-mica-dark-B_veKFNW.png",
