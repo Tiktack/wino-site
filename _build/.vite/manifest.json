@@ -304,7 +304,7 @@
     ]
   },
   "src/routes/blog/release-1-9-0.mdx?pick=$css": {
-    "file": "assets/release-1-9-0-xct4qifV.js",
+    "file": "assets/release-1-9-0-BnauJB0i.js",
     "name": "release-1-9-0",
     "src": "src/routes/blog/release-1-9-0.mdx?pick=$css",
     "isEntry": true,
@@ -587,7 +587,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-CBzvn2Nr.js",
+    "file": "assets/client--IJ3bBtd.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,

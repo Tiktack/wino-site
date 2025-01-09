@@ -3,32 +3,32 @@ import{M as a}from"./index-CAKgJtvh.js";import{b as n,m as o}from"./web-NOoGXgWu
 `,n(e.h2,{children:"Background Synchronization Improvements and System Tray"}),`
 `,n(e.p,{children:"Background synchronization is completely reworked. All synchronization will be done by this process. Double clicking to tray icon will launch the actual application. Your accounts will be synchronized every 3 minutes."}),`
 `,n(e.p,{children:"Make sure 'Start minimized on Windows startup' is enabled and 'Application close behavior' is set to 'Minimize to system tray' or 'Run in the background' to keep recieving notifications."}),`
-`,n(e.p,{get children(){return n(e.img,{src:"/blog-resources/release-1-9-0/backgroundsync2.png",alt:"System Tray"})}}),`
+`,n(e.p,{get children(){return n(e.img,{src:"blog-resources/release-1-9-0/backgroundsync2.png",alt:"System Tray"})}}),`
 `,n(e.p,{children:"Wino keeps running on system tray even after closing the page. Closing Wino will not close it completely, but keep small separate process running on the system tray. You can configure this behavior in the page described above."}),`
-`,n(e.p,{get children(){return n(e.img,{src:"/blog-resources/release-1-9-0/backgroundsync1.png",alt:"System Tray"})}}),`
+`,n(e.p,{get children(){return n(e.img,{src:"blog-resources/release-1-9-0/backgroundsync1.png",alt:"System Tray"})}}),`
 `,n(e.h2,{children:"E-mail Aliases"}),`
 `,n(e.p,{children:"Alias support is here! Gmail accounts will synchronize aliases automatically. Outlook will not synchronize them automatically due to limitations on the Microsoft side yet, but you can manually register them from account settings."}),`
 `,n(e.p,{children:"Please note that your alises are local to Wino Mail only, meaning that if your provider does not allow sending e-mails for an alias your mails won't be delivered. Please only add aliases that you have permission to send mails from by your mail provider."}),`
 `,n(e.p,{children:"For IMAP, make sure your SMTP server allows sending e-mails from registered aliases as well."}),`
-`,n(e.p,{get children(){return n(e.img,{src:"/blog-resources/release-1-9-0/alias1.png",alt:"Aliases Settings"})}}),`
+`,n(e.p,{get children(){return n(e.img,{src:"blog-resources/release-1-9-0/alias1.png",alt:"Aliases Settings"})}}),`
 `,n(e.p,{children:"Your root e-mail address will always be verified after adding an account and will be marked as primary. You can change your primary alias in this page to change your default alias for draft mails."}),`
-`,n(e.p,{get children(){return n(e.img,{src:"/blog-resources/release-1-9-0/alias2.png",alt:"Manage Aliases"})}}),`
+`,n(e.p,{get children(){return n(e.img,{src:"blog-resources/release-1-9-0/alias2.png",alt:"Manage Aliases"})}}),`
 `,n(e.p,{children:"To pick an account to send mails from use the picker in the composer."}),`
-`,n(e.p,{get children(){return n(e.img,{src:"/blog-resources/release-1-9-0/alias3.png",alt:"Picking Alias"})}}),`
+`,n(e.p,{get children(){return n(e.img,{src:"blog-resources/release-1-9-0/alias3.png",alt:"Picking Alias"})}}),`
 `,n(e.h2,{children:"Sender Avatars"}),`
 `,n(e.p,{children:"Wino Mail now synchronizes your account picture for Outlook and Gmail! This is the ground work for supporting another Wino component 'Wino Contacts' for managing contacts. Unfortunately Wino Mail does not have contact management system yet, but it is in my backlog as a separate application for later."}),`
-`,n(e.p,{get children(){return n(e.img,{src:"/blog-resources/release-1-9-0/avatars1.png",alt:"Picking Alias"})}}),`
+`,n(e.p,{get children(){return n(e.img,{src:"blog-resources/release-1-9-0/avatars1.png",alt:"Picking Alias"})}}),`
 `,n(e.h2,{children:"UI Improvements"}),`
 `,n(e.h3,{get children(){return["Mail list splitter (by ",n(e.a,{href:"https://github.com/Tiktack",children:"Tiktack"}),")"]}}),`
 `,n(e.p,{children:"You can now adjust mail list width by dragging the separator between mails and rendered content. Contributed by @TikTack"}),`
 `,n(e.h3,{get children(){return["Removed action toolbar (by ",n(e.a,{href:"https://github.com/Tiktack",children:"Tiktack"}),")"]}}),`
 `,n(e.p,{children:"We got rid of the toolbar items at the top of the mail list by default to save space for desktop users."}),`
-`,n(e.p,{get children(){return n(e.img,{src:"/blog-resources/release-1-9-0/ui1.png",alt:"Toolbar"})}}),`
+`,n(e.p,{get children(){return n(e.img,{src:"blog-resources/release-1-9-0/ui1.png",alt:"Toolbar"})}}),`
 `,n(e.p,{children:"You can still enable them in Settings -> Mail List menu. It was mostly used by tablet users."}),`
-`,n(e.p,{get children(){return n(e.img,{src:"/blog-resources/release-1-9-0/ui2.png",alt:"Enable Toolbar"})}}),`
+`,n(e.p,{get children(){return n(e.img,{src:"blog-resources/release-1-9-0/ui2.png",alt:"Enable Toolbar"})}}),`
 `,n(e.h3,{children:"New conversation thread view"}),`
 `,n(e.p,{children:"Conversation threads now look more like Mail & Calendars. Also fixed couple issues around hover actions which were caused by old control."}),`
-`,n(e.p,{get children(){return n(e.img,{src:"/blog-resources/release-1-9-0/ui3.png",alt:"Threads"})}}),`
+`,n(e.p,{get children(){return n(e.img,{src:"blog-resources/release-1-9-0/ui3.png",alt:"Threads"})}}),`
 `,n(e.h2,{children:"Bugfixes"}),`
 `,n(e.p,{children:"As always, this major release has a lot of overall bugfixes for the application. I'm listing some of the most significants here:"}),`
 `,n(e.ul,{get children(){return[`
