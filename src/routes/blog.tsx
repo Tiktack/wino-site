@@ -44,6 +44,7 @@ export default function BlogPostLayout(props: BlogPostLayoutProps) {
 
 const styles = stylex.create({
 	container: {
+		padding: '2rem',
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
