@@ -1,4 +1,4 @@
-import { Title } from '@solidjs/meta';
+import { Meta, Title } from '@solidjs/meta';
 import { useLocation } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
 import type { JSX } from 'solid-js';
@@ -22,9 +22,28 @@ export default function BlogPostLayout(props: BlogPostLayoutProps) {
 		return <div>Post not found</div>;
 	}
 
+	// Get absolute URL for meta tags
+	const baseUrl = 'https://winomail.app/'; // Replace with your actual domain
+	const absoluteImageUrl = `${baseUrl}${resolvePath(post.thumbnail)}`;
+	const absoluteUrl = `${baseUrl}/blog/${post.slug}`;
+
 	return (
 		<div>
 			<Title>Wino | Blog | {post.metaTitle}</Title>
+
+			{/* Add Open Graph meta tags */}
+			<Meta property="og:title" content={post.title} />
+			<Meta property="og:description" content={post.description} />
+			<Meta property="og:image" content={absoluteImageUrl} />
+			<Meta property="og:url" content={absoluteUrl} />
+			<Meta property="og:type" content="article" />
+
+			{/* Add Twitter Card meta tags */}
+			<Meta name="twitter:card" content="summary_large_image" />
+			<Meta name="twitter:title" content={post.title} />
+			<Meta name="twitter:description" content={post.description} />
+			<Meta name="twitter:image" content={absoluteImageUrl} />
+
 			<div {...stylex.attrs(styles.container)}>
 				<TextBlock variant="titleLarge" style={styles.title(post.slug)}>
 					{post.title}
