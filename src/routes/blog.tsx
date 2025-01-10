@@ -1,7 +1,8 @@
 import { Meta, Title } from '@solidjs/meta';
 import { useLocation } from '@solidjs/router';
+import { clientOnly } from '@solidjs/start';
 import * as stylex from '@stylexjs/stylex';
-import type { JSX } from 'solid-js';
+import { type JSX, children } from 'solid-js';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { type PostMetadata, getBlogPosts } from '~/shared/lib/mdx';
 import { resolvePath } from '~/shared/lib/resolvePath';
@@ -13,7 +14,14 @@ type BlogPostLayoutProps = {
 	metadata: PostMetadata;
 };
 
+const TableOfContents = clientOnly(() =>
+	import('~/shared/mdx/TableOfContents').then((mod) => ({
+		default: mod.TableOfContents,
+	})),
+);
+
 export default function BlogPostLayout(props: BlogPostLayoutProps) {
+	const resolved = children(() => props.children);
 	const location = useLocation();
 	const slug = location.pathname.split('/').pop();
 	const post = posts.find((post) => post.slug === slug);
@@ -45,18 +53,23 @@ export default function BlogPostLayout(props: BlogPostLayoutProps) {
 			<Meta name="twitter:description" content={post.description} />
 			<Meta name="twitter:image" content={absoluteImageUrl} />
 
-			<div {...stylex.attrs(styles.container)}>
-				<TextBlock variant="titleLarge" style={styles.title(post.slug)}>
-					{post.title}
-				</TextBlock>
+			<div {...stylex.attrs(styles.container1)}>
+				<div {...stylex.attrs(styles.container)}>
+					<TextBlock variant="titleLarge" style={styles.title(post.slug)}>
+						{post.title}
+					</TextBlock>
 
-				<img
-					src={resolvePath(post.thumbnail)}
-					alt={post.title}
-					{...stylex.attrs(styles.image(post.slug))}
-				/>
+					<img
+						src={resolvePath(post.thumbnail)}
+						alt={post.title}
+						{...stylex.attrs(styles.image(post.slug))}
+					/>
 
-				<div>{props.children}</div>
+					<div>
+						<div>{resolved()}</div>
+					</div>
+				</div>
+				<TableOfContents childrenReturn={resolved} />
 			</div>
 		</div>
 	);
@@ -68,10 +81,20 @@ const styles = stylex.create({
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
-		width: '100%',
+		// width: '100%',
 		maxWidth: '800px',
 		margin: '32px auto 0',
 		gap: '1rem',
+	},
+	TableOfContents: {
+		// hide it if width is less than 1000px
+		'@media (max-width: 1000px)': {
+			display: 'none',
+		},
+	},
+	container1: {
+		display: 'flex',
+		width: '100%',
 	},
 	title: (postName: string) => ({
 		viewTransitionName: `blog-title-${postName}`,

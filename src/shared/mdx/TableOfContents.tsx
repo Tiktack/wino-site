@@ -32,6 +32,16 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 		Math.min(...headings().map((heading) => heading.level)),
 	);
 
+	const handleScroll = (id: string) => {
+		const element = document.getElementById(id);
+		if (element) {
+			const yOffset = -50; // Adjust this value to match the height of your sticky navbar
+			const y =
+				element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+			window.scrollTo({ top: y, behavior: 'smooth' });
+		}
+	};
+
 	return (
 		<aside {...stylex.attrs(styles.container)}>
 			<span {...stylex.attrs(styles.header)}>On this page</span>
@@ -44,6 +54,10 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 								variant={'hyperlink'}
 								as={'a'}
 								href={`#${heading.id}`}
+								onClick={(e: { preventDefault: () => void }) => {
+									e.preventDefault();
+									handleScroll(heading.id);
+								}}
 								style={styles.item(heading.level - highestLevel())}
 							>
 								{heading.content}
