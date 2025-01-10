@@ -23,7 +23,7 @@ export default function BlogPostLayout(props: BlogPostLayoutProps) {
 	}
 
 	// Get absolute URL for meta tags
-	const baseUrl = 'https://winomail.app/'; // Replace with your actual domain
+	const baseUrl = 'https://winomail.app'; // Replace with your actual domain
 	const absoluteImageUrl = `${baseUrl}${resolvePath(post.thumbnail)}`;
 	const absoluteUrl = `${baseUrl}/blog/${post.slug}`;
 
