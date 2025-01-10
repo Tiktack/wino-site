@@ -1,14 +1,14 @@
 import * as stylex from '@stylexjs/stylex';
 import type { Component, JSX } from 'solid-js';
+import { resolvePath } from '~/shared/lib/resolvePath';
 import { base, colors } from '~/shared/theme/tokens.stylex';
-import { resolvePath } from '../lib/resolvePath';
 
 export const components = {
-	img: (props) => (
+	img: (props: JSX.ImgHTMLAttributes<HTMLImageElement>) => (
 		<img
 			{...stylex.attrs(styles.base, styles.img)}
 			{...props}
-			src={resolvePath(props.src as string)}
+			src={resolvePath(props.src ?? '')}
 		/>
 	),
 	a: (props) => <a {...stylex.attrs(styles.base, styles.a)} {...props} />,
@@ -23,7 +23,6 @@ export const components = {
 	Record<
 		keyof HTMLElementTagNameMap,
 		Component<{
-			src: string | undefined;
 			children: JSX.Element;
 		}>
 	>

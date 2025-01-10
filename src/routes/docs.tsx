@@ -1,9 +1,19 @@
 import type { RouteSectionProps } from '@solidjs/router';
+import { clientOnly } from '@solidjs/start';
 import * as stylex from '@stylexjs/stylex';
+import { children } from 'solid-js';
 import { SidebarLayout } from '~/components/layouts/SidebarLayout';
-import { colors } from '~/shared/theme/tokens.stylex';
+
+// TODO:
+const TableOfContents = clientOnly(() =>
+	import('~/shared/mdx/TableOfContents').then((mod) => ({
+		default: mod.TableOfContents,
+	})),
+);
 
 export default function DocsLayout(props: RouteSectionProps) {
+	const resolved = children(() => props.children);
+
 	return (
 		<SidebarLayout
 			routes={[
@@ -21,19 +31,24 @@ export default function DocsLayout(props: RouteSectionProps) {
 				},
 			]}
 		>
-			<div {...stylex.attrs(styles.content)}>{props.children}</div>
+			<div {...stylex.attrs(styles.container)}>
+				<div {...stylex.attrs(styles.content)}>{resolved()}</div>
+
+				<TableOfContents childrenReturn={resolved} />
+			</div>
 		</SidebarLayout>
 	);
 }
 
 const styles = stylex.create({
+	container: {
+		display: 'flex',
+		width: '100%',
+	},
 	content: {
-		// backgroundColor: colors.layerBackgroundDefault,
 		padding: '2rem',
 		margin: '0 auto',
 		width: '100%',
-		display: 'flex',
-		height: '100vh',
 		flexGrow: 1, // Add this to make it take full available width
 		maxWidth: '100%', // Ensure it doesn't overflow
 	},
