@@ -1,0 +1,1 @@
+import{e as l,B as d,s as u,x as p,a as x,u as k}from"./web-C1wPh4FY.js";function C(e,a={}){const[n,o]=l();return!a.lazy&&m(e,o),c=>{let t,r;const[,s]=d(c,["fallback"]);if(a.lazy&&m(e,o),(t=n())&&!u.context)return t(s);const[f,i]=l(!u.context);return p(()=>i(!0)),x(()=>(t=n(),r=f(),k(()=>t&&r?t(s):c.fallback)))}}function m(e,a){e().then(n=>a(()=>n.default))}export{C as c};

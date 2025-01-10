@@ -115,6 +115,13 @@
       "_web-C1wPh4FY.js"
     ]
   },
+  "_clientOnly-DWDWV5Af.js": {
+    "file": "assets/clientOnly-DWDWV5Af.js",
+    "name": "clientOnly",
+    "imports": [
+      "_web-C1wPh4FY.js"
+    ]
+  },
   "_components-a0hoo_EX.js": {
     "file": "assets/components-a0hoo_EX.js",
     "name": "components",
@@ -279,20 +286,25 @@
     ]
   },
   "src/routes/blog.tsx?pick=default&pick=$css": {
-    "file": "assets/blog-CVrFaSCj.js",
+    "file": "assets/blog-DeRjJHS4.js",
     "name": "blog",
     "src": "src/routes/blog.tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
+      "_preload-helper-hqbToRWM.js",
       "_web-C1wPh4FY.js",
       "_index-COPtt0YR.js",
+      "_clientOnly-DWDWV5Af.js",
       "_stylex-lfbtzg0Y.js",
       "_TextBlock-BwP_5WQa.js",
       "_mdx-Dpr8B9Z-.js",
       "_resolvePath-B2iwiUFF.js",
       "_routing-D8auCNZw.js",
       "_index-C3gjEJgQ.js"
+    ],
+    "dynamicImports": [
+      "src/shared/mdx/TableOfContents.tsx"
     ]
   },
   "src/routes/blog/release-1-7-6.mdx?pick=$css": {
@@ -513,7 +525,7 @@
     ]
   },
   "src/routes/docs.tsx?pick=default&pick=$css": {
-    "file": "assets/docs-Pi1eHEFS.js",
+    "file": "assets/docs-C1YFB-1Z.js",
     "name": "docs",
     "src": "src/routes/docs.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -521,6 +533,7 @@
     "imports": [
       "_preload-helper-hqbToRWM.js",
       "_web-C1wPh4FY.js",
+      "_clientOnly-DWDWV5Af.js",
       "_SidebarLayout-DyH3b2zO.js",
       "_Collapsible-DXA-gfqR.js",
       "_stylex-lfbtzg0Y.js",
@@ -596,7 +609,7 @@
     ]
   },
   "src/shared/mdx/TableOfContents.tsx": {
-    "file": "assets/TableOfContents-UbafB3vT.js",
+    "file": "assets/TableOfContents-6l0zxIuE.js",
     "name": "TableOfContents",
     "src": "src/shared/mdx/TableOfContents.tsx",
     "isDynamicEntry": true,
@@ -609,7 +622,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-CsY0aXbx.js",
+    "file": "assets/client-iqZJcSK8.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
@@ -661,7 +674,7 @@
       "src/routes/support/Privacy.mdx?pick=$css"
     ],
     "css": [
-      "assets/client-CTiXBdPO.css"
+      "assets/client-Dmkk_mAI.css"
     ],
     "assets": [
       "assets/bloom-mica-dark-B_veKFNW.png",
