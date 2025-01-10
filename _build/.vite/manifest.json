@@ -15,8 +15,8 @@
       "_UKTBL2JL-CfAWnVv_.js"
     ]
   },
-  "_Collapsible-CK4Svfy9.js": {
-    "file": "assets/Collapsible-CK4Svfy9.js",
+  "_Collapsible-DXA-gfqR.js": {
+    "file": "assets/Collapsible-DXA-gfqR.js",
     "name": "Collapsible",
     "imports": [
       "_web-C1wPh4FY.js",
@@ -79,12 +79,12 @@
       "assets/ListItem-BCQlbRr_.css"
     ]
   },
-  "_SidebarLayout-BlVHb57u.js": {
-    "file": "assets/SidebarLayout-BlVHb57u.js",
+  "_SidebarLayout-DyH3b2zO.js": {
+    "file": "assets/SidebarLayout-DyH3b2zO.js",
     "name": "SidebarLayout",
     "imports": [
       "_web-C1wPh4FY.js",
-      "_Collapsible-CK4Svfy9.js",
+      "_Collapsible-DXA-gfqR.js",
       "_FluentIcon-BuMt2MK5.js",
       "_ListItem-CL5V8R1S.js",
       "_routing-D8auCNZw.js"
@@ -165,6 +165,10 @@
   "_news_24_regular-Bi3Wh5Cn.js": {
     "file": "assets/news_24_regular-Bi3Wh5Cn.js",
     "name": "news_24_regular"
+  },
+  "_preload-helper-hqbToRWM.js": {
+    "file": "assets/preload-helper-hqbToRWM.js",
+    "name": "preload-helper"
   },
   "_resolvePath-B2iwiUFF.js": {
     "file": "assets/resolvePath-B2iwiUFF.js",
@@ -292,7 +296,7 @@
     ]
   },
   "src/routes/blog/release-1-7-6.mdx?pick=$css": {
-    "file": "assets/release-1-7-6-CGhIAvRd.js",
+    "file": "assets/release-1-7-6-B-UNJP9r.js",
     "name": "release-1-7-6",
     "src": "src/routes/blog/release-1-7-6.mdx?pick=$css",
     "isEntry": true,
@@ -303,7 +307,7 @@
     ]
   },
   "src/routes/blog/release-1-9-0.mdx?pick=$css": {
-    "file": "assets/release-1-9-0-iBb5-YLT.js",
+    "file": "assets/release-1-9-0-tIM58YrU.js",
     "name": "release-1-9-0",
     "src": "src/routes/blog/release-1-9-0.mdx?pick=$css",
     "isEntry": true,
@@ -314,7 +318,7 @@
     ]
   },
   "src/routes/blog/wino-website.mdx?pick=$css": {
-    "file": "assets/wino-website-JevdBo5I.js",
+    "file": "assets/wino-website-BxlZ8Hhr.js",
     "name": "wino-website",
     "src": "src/routes/blog/wino-website.mdx?pick=$css",
     "isEntry": true,
@@ -325,16 +329,16 @@
     ]
   },
   "src/routes/components.tsx?pick=default&pick=$css": {
-    "file": "assets/components-BoT6GYR1.js",
+    "file": "assets/components-R_Qx1JrL.js",
     "name": "components",
     "src": "src/routes/components.tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_news_24_regular-Bi3Wh5Cn.js",
-      "_SidebarLayout-BlVHb57u.js",
+      "_SidebarLayout-DyH3b2zO.js",
       "_web-C1wPh4FY.js",
-      "_Collapsible-CK4Svfy9.js",
+      "_Collapsible-DXA-gfqR.js",
       "_stylex-lfbtzg0Y.js",
       "_E53DB7BS-DTzKjNuF.js",
       "_JNCCF6MP-D4KqywsS.js",
@@ -382,14 +386,14 @@
     ]
   },
   "src/routes/components/Collapsibles.tsx?pick=default&pick=$css": {
-    "file": "assets/Collapsibles-Bh_mHjT-.js",
+    "file": "assets/Collapsibles-DUG1z5Cf.js",
     "name": "Collapsibles",
     "src": "src/routes/components/Collapsibles.tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_web-C1wPh4FY.js",
-      "_Collapsible-CK4Svfy9.js",
+      "_Collapsible-DXA-gfqR.js",
       "_index-COPtt0YR.js",
       "_FluentIcon-BuMt2MK5.js",
       "_stylex-lfbtzg0Y.js",
@@ -509,15 +513,16 @@
     ]
   },
   "src/routes/docs.tsx?pick=default&pick=$css": {
-    "file": "assets/docs-DJs89ikh.js",
+    "file": "assets/docs-Pi1eHEFS.js",
     "name": "docs",
     "src": "src/routes/docs.tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
+      "_preload-helper-hqbToRWM.js",
       "_web-C1wPh4FY.js",
-      "_SidebarLayout-BlVHb57u.js",
-      "_Collapsible-CK4Svfy9.js",
+      "_SidebarLayout-DyH3b2zO.js",
+      "_Collapsible-DXA-gfqR.js",
       "_stylex-lfbtzg0Y.js",
       "_E53DB7BS-DTzKjNuF.js",
       "_JNCCF6MP-D4KqywsS.js",
@@ -528,6 +533,9 @@
       "_ListItem-CL5V8R1S.js",
       "_components-a0hoo_EX.js",
       "_routing-D8auCNZw.js"
+    ],
+    "dynamicImports": [
+      "src/shared/mdx/TableOfContents.tsx"
     ]
   },
   "src/routes/docs/comming-soon.tsx?pick=default&pick=$css": {
@@ -544,7 +552,7 @@
     ]
   },
   "src/routes/docs/install.mdx?pick=$css": {
-    "file": "assets/install-CYR2-yg1.js",
+    "file": "assets/install-BXMpiCPS.js",
     "name": "install",
     "src": "src/routes/docs/install.mdx?pick=$css",
     "isEntry": true,
@@ -577,7 +585,7 @@
     ]
   },
   "src/routes/support/Privacy.mdx?pick=$css": {
-    "file": "assets/Privacy-C_Dfgnvn.js",
+    "file": "assets/Privacy-COqsZa7U.js",
     "name": "Privacy",
     "src": "src/routes/support/Privacy.mdx?pick=$css",
     "isEntry": true,
@@ -587,14 +595,28 @@
       "_web-C1wPh4FY.js"
     ]
   },
+  "src/shared/mdx/TableOfContents.tsx": {
+    "file": "assets/TableOfContents-UbafB3vT.js",
+    "name": "TableOfContents",
+    "src": "src/shared/mdx/TableOfContents.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-C1wPh4FY.js",
+      "_Button-DxWwXhzX.js",
+      "_stylex-lfbtzg0Y.js",
+      "_UKTBL2JL-CfAWnVv_.js",
+      "_5WXHJDCZ-h-Rg6lxy.js"
+    ]
+  },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-DnsKiW2l.js",
+    "file": "assets/client-CsY0aXbx.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
     "imports": [
       "_index-COPtt0YR.js",
       "_web-C1wPh4FY.js",
+      "_preload-helper-hqbToRWM.js",
       "_stylex-lfbtzg0Y.js",
       "_context-BhisIdKl.js",
       "_date-DOga6MM-.js",
@@ -639,7 +661,7 @@
       "src/routes/support/Privacy.mdx?pick=$css"
     ],
     "css": [
-      "assets/client-CT_FBRCX.css"
+      "assets/client-CTiXBdPO.css"
     ],
     "assets": [
       "assets/bloom-mica-dark-B_veKFNW.png",
