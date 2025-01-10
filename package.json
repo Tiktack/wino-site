@@ -27,7 +27,7 @@
 		"remark-frontmatter": "^5.0.0",
 		"remark-gfm": "^4.0.0",
 		"remark-mdx-frontmatter": "^5.0.0",
-		"solid-js": "^1.9.3",
+		"solid-js": "^1.9.4",
 		"solid-mdx": "^0.0.7",
 		"vinxi": "^0.5.1",
 		"vite-plugin-stylex": "^0.13.0"
