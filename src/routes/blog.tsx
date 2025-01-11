@@ -72,6 +72,8 @@ export default function BlogPostLayout(props: BlogPostLayoutProps) {
 const styles = stylex.create({
 	title: (postName: string) => ({
 		viewTransitionName: `blog-title-${postName}`,
+		justifyContent: 'center',
+		display: 'flex',
 	}),
 	image: (slug: string) => ({
 		viewTransitionName: `blog-image-${slug}`,
