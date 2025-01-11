@@ -9,7 +9,7 @@ export default function ComponentsLayout(props: RouteSectionProps) {
 				{
 					name: 'Button',
 					path: '/components/buttons',
-					Icon: News24Regular,
+					icon: News24Regular,
 					routes: [
 						{
 							name: 'Primary Button',
@@ -42,47 +42,47 @@ export default function ComponentsLayout(props: RouteSectionProps) {
 				{
 					name: 'Checkbox',
 					path: '/components/checkboxes',
-					Icon: News24Regular,
+					icon: News24Regular,
 				},
 				{
 					name: 'ToggleSwitch',
 					path: '/components/toggleswitches',
-					Icon: News24Regular,
+					icon: News24Regular,
 				},
 				{
 					name: 'ListItem',
 					path: '/components/listitems',
-					Icon: News24Regular,
+					icon: News24Regular,
 				},
 				{
 					name: 'TextBlock',
 					path: '/components/textblocks',
-					Icon: News24Regular,
+					icon: News24Regular,
 				},
 				{
 					name: 'IconButton',
 					path: '/components/iconbuttons',
-					Icon: News24Regular,
+					icon: News24Regular,
 				},
 				{
 					name: 'Collapsible',
 					path: '/components/collapsibles',
-					Icon: News24Regular,
+					icon: News24Regular,
 				},
 				{
 					name: 'ProgressBar',
 					path: '/components/progressbars',
-					Icon: News24Regular,
+					icon: News24Regular,
 				},
 				{
 					name: 'ProgressRing',
 					path: '/components/progressrings',
-					Icon: News24Regular,
+					icon: News24Regular,
 				},
 				{
 					name: 'ContentDialog',
 					path: '/components/contentdialogs',
-					Icon: News24Regular,
+					icon: News24Regular,
 				},
 			]}
 		>

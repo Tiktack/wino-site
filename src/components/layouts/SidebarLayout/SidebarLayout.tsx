@@ -9,13 +9,12 @@ import {
 	CollapsibleTrigger,
 	CollapsibleTriggerIcon,
 } from '~/components/core/Collapsible/Collapsible';
-import ListItem, { ListItemNew } from '~/components/core/ListItem/ListItem';
-import { base, colors } from '~/shared/theme/tokens.stylex';
+import { ListItemNew } from '~/components/core/ListItem/ListItem';
 
 interface Route {
 	name: string;
 	path: string;
-	Icon?: string;
+	icon?: string;
 	routes?: Route[];
 }
 
@@ -36,22 +35,15 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 						<Collapsible>
 							<ListItemNew
 								as={CollapsibleTrigger}
-								// icon={
-								// 	route.Icon && (
-								// 		<FluentIcon
-								// 			icon={route.Icon}
-								// 			{...stylex.attrs(routeStyles.icon)}
-								// 		/>
-								// 	)
-								// }
+								// icon={route.Icon && <FluentIcon icon={route.Icon} />}
 							>
 								{route.name}
-								<CollapsibleTriggerIcon style={routeStyles.triggerIcon}>
+								<CollapsibleTriggerIcon style={styles.triggerIcon}>
 									<FluentIcon icon={ChevronDown24Regular} />
 								</CollapsibleTriggerIcon>
 							</ListItemNew>
 
-							<CollapsibleContent style={routeStyles.collapsibleContent}>
+							<CollapsibleContent style={styles.collapsibleContent}>
 								{traverseRoutes(route.routes)}
 							</CollapsibleContent>
 						</Collapsible>
@@ -59,14 +51,7 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 						<ListItemNew
 							selected={location.pathname === route.path}
 							as={A}
-							// icon={
-							// 	route.Icon ? (
-							// 		<FluentIcon
-							// 			icon={route.Icon}
-							// 			{...stylex.attrs(routeStyles.icon)}
-							// 		/>
-							// 	) : undefined
-							// }
+							// icon={route.Icon && <FluentIcon icon={route.Icon} />}
 							href={route.path}
 						>
 							{route.name}
@@ -90,41 +75,6 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 	);
 };
 
-const routeStyles = stylex.create({
-	collapsibleTrigger: {
-		display: 'flex',
-		alignItems: 'center',
-		position: 'relative',
-		margin: '3px 5px',
-		paddingInline: '12px',
-		borderRadius: base.controlCornerRadius,
-		backgroundColor: colors.subtleFillTransparent,
-		border: '1px solid var(--control-stroke)',
-		color: colors.textPrimary,
-		textDecoration: 'none',
-		cursor: 'default',
-		userSelect: 'none',
-		blockSize: '34px',
-		':hover': {
-			backgroundColor: colors.subtleFillSecondary,
-		},
-	},
-	icon: {
-		marginInlineEnd: '16px',
-		fill: colors.textPrimary,
-	},
-	textSpan: {
-		flexGrow: '1',
-		textAlign: 'left',
-	},
-	triggerIcon: {
-		marginInlineStart: '8px',
-	},
-	collapsibleContent: {
-		marginLeft: '16px',
-	},
-});
-
 const styles = stylex.create({
 	main: {
 		display: 'flex',
@@ -140,5 +90,11 @@ const styles = stylex.create({
 	content: {
 		width: '80%',
 		padding: '1rem',
+	},
+	collapsibleContent: {
+		marginLeft: '16px',
+	},
+	triggerIcon: {
+		marginInlineStart: '8px',
 	},
 });

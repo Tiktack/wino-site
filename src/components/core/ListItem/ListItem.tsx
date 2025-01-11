@@ -115,6 +115,7 @@ export const ListItemNew = <T extends ValidComponent = 'button'>(
 
 const stylesNew = stylex.create({
 	base: {
+		gap: '1rem',
 		display: 'flex',
 		alignItems: 'center',
 		inlineSize: 'calc(100% - 10px)',
