@@ -9,6 +9,7 @@ import {
 	onMount,
 } from 'solid-js';
 import { Button } from '~/components/core/Button/Button';
+import ListItem, { ListItemNew } from '~/components/core/ListItem/ListItem';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { colors } from '~/shared/theme/tokens.stylex';
 
@@ -91,21 +92,16 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 				<ul {...stylex.attrs(styles.list)}>
 					<For each={headings()}>
 						{(heading) => (
-							<Button
-								variant={'hyperlink'}
-								as={'a'}
-								href={`#${heading.id}`}
+							<ListItemNew
 								onClick={(e: { preventDefault: () => void }) => {
 									e.preventDefault();
 									handleScroll(heading.id);
 								}}
-								style={[
-									styles.item(heading.level - highestLevel()),
-									heading.id === activeId() && styles.activeItem,
-								]}
+								style={[styles.item(heading.level - highestLevel())]}
+								selected={heading.id === activeId()}
 							>
 								{heading.content}
-							</Button>
+							</ListItemNew>
 						)}
 					</For>
 				</ul>
@@ -123,11 +119,6 @@ const styles = stylex.create({
 		maxHeight: 'calc(100vh - 8rem)',
 		overflowY: 'auto',
 	},
-	header: {
-		fontSize: '1.3rem',
-		fontWeight: '700',
-		color: colors.textPrimary,
-	},
 	navigation: {
 		marginTop: '0.5rem',
 	},
@@ -135,13 +126,10 @@ const styles = stylex.create({
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'start',
+		gap: '2px',
 		paddingLeft: 0,
 	},
 	item: (level: number) => ({
 		marginLeft: `${level * 16}px`,
 	}),
-	activeItem: {
-		fontWeight: '600',
-		color: colors.textPrimary,
-	},
 });

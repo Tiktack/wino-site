@@ -1,8 +1,16 @@
+import type { PolymorphicProps } from '@kobalte/core';
+import * as ButtonPrimitive from '@kobalte/core/button';
 import { A } from '@solidjs/router';
-// ListItem.tsx
-import { type Component, type JSX, splitProps } from 'solid-js';
+import * as stylex from '@stylexjs/stylex';
+import {
+	type Component,
+	type JSX,
+	type ValidComponent,
+	splitProps,
+} from 'solid-js';
+import { base, colors } from '~/shared/theme/tokens.stylex';
+import type { WithStyleX } from '~/shared/theme/type';
 import styles from './ListItem.module.css';
-// import { TextBlock } from '../TextBlock/TextBlock';
 
 interface ListItemProps extends JSX.HTMLAttributes<HTMLElement> {
 	selected?: boolean;
@@ -68,5 +76,101 @@ const ListItem: Component<ListItemProps> = (props) => {
 		</li>
 	);
 };
+
+type ListItemNewProps<T extends ValidComponent = 'button'> =
+	ButtonPrimitive.ButtonRootProps<T> & {
+		children: JSX.Element;
+		selected?: boolean;
+		icon?: JSX.Element;
+	};
+
+export const ListItemNew = <T extends ValidComponent = 'button'>(
+	props: WithStyleX<PolymorphicProps<T, ListItemNewProps<T>>>,
+) => {
+	const [local, others] = splitProps(props as WithStyleX<ListItemNewProps>, [
+		'selected',
+		'disabled',
+		'style',
+	]);
+
+	return (
+		<ButtonPrimitive.Root
+			{...others}
+			{...stylex.attrs(
+				stylesNew.base,
+				local.selected && stylesNew.selected,
+				local.disabled && stylesNew.disabled,
+				local.style,
+			)}
+		/>
+	);
+};
+
+const stylesNew = stylex.create({
+	base: {
+		display: 'flex',
+		alignItems: 'center',
+		inlineSize: 'calc(100% - 10px)',
+		position: 'relative',
+		boxSizing: 'border-box',
+		flex: '0 0 auto',
+		paddingInline: '12px',
+		outline: 'none',
+		backgroundColor: colors.subtleFillTransparent,
+		color: colors.textPrimary,
+		textDecoration: 'none',
+		cursor: 'default',
+		userSelect: 'none',
+		blockSize: '34px',
+		border: 'none',
+		borderRadius: base.controlCornerRadius,
+		transition: 'var(--control-faster-duration) ease background',
+		textOverflow: 'ellipsis',
+		whiteSpace: 'nowrap',
+		overflow: 'hidden',
+		':focus-visible': {
+			boxShadow: 'var(--focus-stroke)',
+		},
+		borderColor: 'var(--control-border-default)',
+		backgroundClip: 'padding-box',
+		':hover': {
+			backgroundColor: 'var(--control-fill-secondary)',
+		},
+		':active': {
+			borderColor: 'var(--control-stroke-default)',
+			backgroundColor: 'var(--control-fill-tertiary)',
+			color: colors.textSecondary,
+		},
+		':disabled': {
+			borderColor: 'var(--control-stroke-default)',
+			backgroundColor: 'var(--control-fill-disabled)',
+			color: colors.textDisabled,
+		},
+		'::before': {
+			content: '',
+			position: 'absolute',
+			borderRadius: '3px',
+			backgroundColor: colors.accentDefault,
+			transition:
+				'transform var(--control-fast-duration) var(--control-fast-out-slow-in-easing)',
+			opacity: '0',
+			insetInlineStart: '0',
+			inlineSize: '3px',
+			blockSize: '16px',
+			transform: 'scaleY(0)',
+		},
+	},
+	selected: {
+		backgroundColor: colors.subtleFillSecondary,
+		'::before': {
+			transform: 'scaleY(1)',
+			opacity: '1',
+		},
+	},
+	disabled: {
+		backgroundColor: colors.subtleFillTransparent,
+		color: colors.textDisabled,
+	},
+});
 
 export default ListItem;

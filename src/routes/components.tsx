@@ -53,34 +53,6 @@ export default function ComponentsLayout(props: RouteSectionProps) {
 					name: 'ListItem',
 					path: '/components/listitems',
 					Icon: News24Regular,
-					routes: [
-						{
-							name: 'Primary Button',
-							path: '/components/buttons/primary',
-							routes: [
-								{
-									name: 'Primary Button',
-									path: '/components/buttons/primary',
-								},
-								{
-									name: 'Secondary Button',
-									path: '/components/buttons/secondary',
-								},
-								{
-									name: 'Tertiary Button',
-									path: '/components/buttons/tertiary',
-								},
-							],
-						},
-						{
-							name: 'Secondary Button',
-							path: '/components/buttons/secondary',
-						},
-						{
-							name: 'Tertiary Button',
-							path: '/components/buttons/tertiary',
-						},
-					],
 				},
 				{
 					name: 'TextBlock',
