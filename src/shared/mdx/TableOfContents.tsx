@@ -1,6 +1,7 @@
 import * as stylex from '@stylexjs/stylex';
 import { type ChildrenReturn, type Component, For, createMemo } from 'solid-js';
 import { Button } from '~/components/core/Button/Button';
+import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { colors } from '~/shared/theme/tokens.stylex';
 
 const isHTMLElement = (node: unknown): node is HTMLElement => {
@@ -36,15 +37,14 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 		const element = document.getElementById(id);
 		if (element) {
 			const yOffset = -50; // Adjust this value to match the height of your sticky navbar
-			const y =
-				element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+			const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
 			window.scrollTo({ top: y, behavior: 'smooth' });
 		}
 	};
 
 	return (
 		<aside {...stylex.attrs(styles.container)}>
-			<span {...stylex.attrs(styles.header)}>On this page</span>
+			<TextBlock variant="subtitle">On this page</TextBlock>
 
 			<nav {...stylex.attrs(styles.navigation)}>
 				<ul {...stylex.attrs(styles.list)}>
@@ -76,7 +76,8 @@ const styles = stylex.create({
 		top: '8rem',
 		width: '100%',
 		maxWidth: '300px',
-		height: '100%',
+		maxHeight: 'calc(100vh - 8rem)',
+		overflowY: 'auto',
 	},
 	header: {
 		fontSize: '1.3rem',
