@@ -58,7 +58,7 @@ export default function BlogPostLayout(props: BlogPostLayoutProps) {
 								alt={post.title}
 								{...stylex.attrs(styles.image(post.slug))}
 							/>
-							{props.children}
+							<div>{props.children}</div>
 						</div>
 					);
 				}}
