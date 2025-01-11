@@ -1,9 +1,11 @@
 import { clientOnly } from '@solidjs/start';
 import * as stylex from '@stylexjs/stylex';
-import { type JSX, Match, Switch, children } from 'solid-js';
+import { type Component, type JSX, Match, Switch, children } from 'solid-js';
 
 type MdxLayoutProps = {
-	layout?: (props: { children: JSX.Element }) => JSX.Element | undefined;
+	layout?: Component<{
+		children: JSX.Element;
+	}>;
 	children: JSX.Element;
 };
 
@@ -21,8 +23,8 @@ export default function MdxLayout(props: MdxLayoutProps) {
 			<div {...stylex.attrs(styles.sidebar)} />
 			<div {...stylex.attrs(styles.content)}>
 				<Switch>
-					<Match when={props.layout !== undefined}>
-						{props.layout({ children: resolved() })}
+					<Match when={props.layout}>
+						{props.layout && <props.layout>{resolved()} </props.layout>}
 					</Match>
 					<Match when={props.layout === undefined}>{resolved()}</Match>
 				</Switch>

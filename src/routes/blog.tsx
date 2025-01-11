@@ -46,9 +46,9 @@ export default function BlogPostLayout(props: BlogPostLayoutProps) {
 			<Meta name="twitter:description" content={post.description} />
 			<Meta name="twitter:image" content={absoluteImageUrl} />
 			<MdxLayout
-				layout={(props: { children: JSX.Element }) => {
+				layout={(props) => {
 					return (
-						<div>
+						<div {...stylex.attrs(styles.container)}>
 							<TextBlock variant="titleLarge" style={styles.title(post.slug)}>
 								{post.title}
 							</TextBlock>
@@ -70,10 +70,14 @@ export default function BlogPostLayout(props: BlogPostLayoutProps) {
 }
 
 const styles = stylex.create({
+	container: {
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		gap: '1rem',
+	},
 	title: (postName: string) => ({
 		viewTransitionName: `blog-title-${postName}`,
-		justifyContent: 'center',
-		display: 'flex',
 	}),
 	image: (slug: string) => ({
 		viewTransitionName: `blog-image-${slug}`,
