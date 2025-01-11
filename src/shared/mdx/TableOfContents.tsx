@@ -1,5 +1,13 @@
 import * as stylex from '@stylexjs/stylex';
-import { type ChildrenReturn, type Component, For, createMemo } from 'solid-js';
+import {
+	type ChildrenReturn,
+	type Component,
+	For,
+	createMemo,
+	createSignal,
+	onCleanup,
+	onMount,
+} from 'solid-js';
 import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { colors } from '~/shared/theme/tokens.stylex';
@@ -17,6 +25,8 @@ type TableOfContentsProps = {
 };
 
 export const TableOfContents: Component<TableOfContentsProps> = (props) => {
+	const [activeId, setActiveId] = createSignal('');
+
 	const headings = createMemo(() =>
 		props.childrenReturn
 			.toArray()
@@ -42,6 +52,37 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 		}
 	};
 
+	onMount(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				for (const entry of entries) {
+					if (entry.isIntersecting) {
+						setActiveId(entry.target.id);
+					}
+				}
+			},
+			{
+				rootMargin: '-80px 0px -80% 0px',
+			},
+		);
+
+		for (const heading of headings()) {
+			const element = document.getElementById(heading.id);
+			if (element) {
+				observer.observe(element);
+			}
+		}
+
+		onCleanup(() => {
+			for (const heading of headings()) {
+				const element = document.getElementById(heading.id);
+				if (element) {
+					observer.unobserve(element);
+				}
+			}
+		});
+	});
+
 	return (
 		<aside {...stylex.attrs(styles.container)}>
 			<TextBlock variant="subtitle">On this page</TextBlock>
@@ -58,7 +99,10 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 									e.preventDefault();
 									handleScroll(heading.id);
 								}}
-								style={styles.item(heading.level - highestLevel())}
+								style={[
+									styles.item(heading.level - highestLevel()),
+									heading.id === activeId() && styles.activeItem,
+								]}
 							>
 								{heading.content}
 							</Button>
@@ -96,4 +140,8 @@ const styles = stylex.create({
 	item: (level: number) => ({
 		marginLeft: `${level * 16}px`,
 	}),
+	activeItem: {
+		fontWeight: '600',
+		color: colors.textPrimary,
+	},
 });
