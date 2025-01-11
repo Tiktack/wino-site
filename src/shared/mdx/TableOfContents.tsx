@@ -68,6 +68,9 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 	onMount(() => {
 		window.addEventListener('scroll', handleScroll);
 
+		// Highlight the first heading when the page loads
+		handleScroll();
+
 		onCleanup(() => {
 			window.addEventListener('scroll', handleScroll);
 		});
