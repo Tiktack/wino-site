@@ -130,6 +130,12 @@ const styles = stylex.create({
 		paddingLeft: 0,
 	},
 	item: (level: number) => ({
-		marginLeft: `${level * 16}px`,
+		display: 'inline-block',
+		textAlign: 'start',
+		whiteSpace: 'nowrap',
+		overflow: 'hidden',
+		textOverflow: 'ellipsis',
+		paddingLeft: `${level * 16 + 10}px`,
+		cursor: 'pointer',
 	}),
 });
