@@ -7,6 +7,7 @@ import {
 	type JSX,
 	Show,
 	type ValidComponent,
+	children,
 	splitProps,
 } from 'solid-js';
 import { FluentIcon } from '~/components/FluentIcon';
@@ -97,6 +98,8 @@ export const ListItemNew = <T extends ValidComponent = 'button'>(
 		'style',
 	]);
 
+	const resolvedIcon = children(() => local.icon);
+
 	return (
 		<ButtonPrimitive.Root
 			{...others}
@@ -107,7 +110,7 @@ export const ListItemNew = <T extends ValidComponent = 'button'>(
 				local.style,
 			)}
 		>
-			<Show when={!!local.icon}>{local.icon}</Show>
+			<Show when={resolvedIcon}>{resolvedIcon()}</Show>
 			{local.children}
 		</ButtonPrimitive.Root>
 	);

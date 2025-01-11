@@ -35,7 +35,7 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 						<Collapsible>
 							<ListItemNew
 								as={CollapsibleTrigger}
-								// icon={route.Icon && <FluentIcon icon={route.Icon} />}
+								icon={route.icon && <FluentIcon icon={route.icon} />}
 							>
 								{route.name}
 								<CollapsibleTriggerIcon style={styles.triggerIcon}>
@@ -51,7 +51,7 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 						<ListItemNew
 							selected={location.pathname === route.path}
 							as={A}
-							// icon={route.Icon && <FluentIcon icon={route.Icon} />}
+							icon={route.icon && <FluentIcon icon={route.icon} />}
 							href={route.path}
 						>
 							{route.name}
