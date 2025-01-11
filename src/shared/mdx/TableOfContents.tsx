@@ -8,10 +8,8 @@ import {
 	onCleanup,
 	onMount,
 } from 'solid-js';
-import { Button } from '~/components/core/Button/Button';
-import ListItem, { ListItemNew } from '~/components/core/ListItem/ListItem';
+import { ListItemNew } from '~/components/core/ListItem/ListItem';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
-import { colors } from '~/shared/theme/tokens.stylex';
 
 const isHTMLElement = (node: unknown): node is HTMLElement => {
 	return node instanceof HTMLElement;
@@ -135,7 +133,7 @@ const styles = stylex.create({
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
 		textOverflow: 'ellipsis',
-		paddingLeft: `${level * 16 + 10}px`,
+		marginLeft: `${level * 16 + 10}px`,
 		cursor: 'pointer',
 	}),
 });
