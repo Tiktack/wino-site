@@ -5,9 +5,11 @@ import * as stylex from '@stylexjs/stylex';
 import {
 	type Component,
 	type JSX,
+	Show,
 	type ValidComponent,
 	splitProps,
 } from 'solid-js';
+import { FluentIcon } from '~/components/FluentIcon';
 import { base, colors } from '~/shared/theme/tokens.stylex';
 import type { WithStyleX } from '~/shared/theme/type';
 import styles from './ListItem.module.css';
@@ -88,6 +90,8 @@ export const ListItemNew = <T extends ValidComponent = 'button'>(
 	props: WithStyleX<PolymorphicProps<T, ListItemNewProps<T>>>,
 ) => {
 	const [local, others] = splitProps(props as WithStyleX<ListItemNewProps>, [
+		'children',
+		'icon',
 		'selected',
 		'disabled',
 		'style',
@@ -102,7 +106,10 @@ export const ListItemNew = <T extends ValidComponent = 'button'>(
 				local.disabled && stylesNew.disabled,
 				local.style,
 			)}
-		/>
+		>
+			<Show when={!!local.icon}>{local.icon}</Show>
+			{local.children}
+		</ButtonPrimitive.Root>
 	);
 };
 
@@ -114,6 +121,7 @@ const stylesNew = stylex.create({
 		position: 'relative',
 		boxSizing: 'border-box',
 		flex: '0 0 auto',
+		fontSize: base.bodyFontSize,
 		paddingInline: '12px',
 		outline: 'none',
 		backgroundColor: colors.subtleFillTransparent,

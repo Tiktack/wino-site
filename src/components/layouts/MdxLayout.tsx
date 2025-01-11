@@ -39,7 +39,7 @@ export default function MdxLayout(props: MdxLayoutProps) {
 const styles = stylex.create({
 	container: {
 		display: 'flex',
-		width: '100%',
+		// width: '100%',
 		justifyContent: 'center',
 		gap: '2rem',
 		padding: '2rem',
@@ -63,7 +63,7 @@ const styles = stylex.create({
 	},
 	tableOfContents: {
 		flex: '1',
-		position: 'relative', // Add this line
+		// position: 'relative', // Add this line
 		'@media (max-width: 1200px)': {
 			flex: '0.5',
 		},

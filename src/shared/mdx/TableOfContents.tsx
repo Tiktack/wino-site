@@ -59,7 +59,9 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 				[...headings()]
 					.reverse()
 					.find((heading) => heading.target.offsetTop - 100 <= window.scrollY)
-					?.id ?? headings()?.[0].id,
+					?.id ??
+					headings()?.[0].id ??
+					'',
 			);
 	}
 
@@ -81,7 +83,7 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 						{(heading) => (
 							<ListItemNew
 								onClick={() => handleClick(heading.id)}
-								style={[styles.item(heading.level - highestLevel())]}
+								style={[styles.item(heading.level - highestLevel() - 1)]}
 								selected={heading.id === activeId()}
 							>
 								{heading.content}
@@ -98,10 +100,8 @@ const styles = stylex.create({
 	container: {
 		position: 'sticky',
 		top: '8rem',
-		width: '100%',
-		maxWidth: '300px',
+		// maxWidth: '300px',
 		maxHeight: 'calc(100vh - 8rem)',
-		overflowY: 'auto',
 	},
 	navigation: {
 		marginTop: '0.5rem',

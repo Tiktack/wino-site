@@ -1,5 +1,5 @@
 import ChevronDown24Regular from '@fluentui/svg-icons/icons/chevron_down_24_regular.svg?raw';
-import { useLocation } from '@solidjs/router';
+import { A, useLocation } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
 import type { JSX } from 'solid-js';
 import { FluentIcon } from '~/components/FluentIcon';
@@ -9,7 +9,7 @@ import {
 	CollapsibleTrigger,
 	CollapsibleTriggerIcon,
 } from '~/components/core/Collapsible/Collapsible';
-import ListItem from '~/components/core/ListItem/ListItem';
+import ListItem, { ListItemNew } from '~/components/core/ListItem/ListItem';
 import { base, colors } from '~/shared/theme/tokens.stylex';
 
 interface Route {
@@ -34,40 +34,43 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 					{Acc}
 					{route.routes ? (
 						<Collapsible>
-							<CollapsibleTrigger style={routeStyles.collapsibleTrigger}>
-								{route.Icon && (
-									<FluentIcon
-										icon={route.Icon}
-										{...stylex.attrs(routeStyles.icon)}
-									/>
-								)}
-								<span {...stylex.attrs(routeStyles.textSpan)}>
-									{route.name}
-								</span>
+							<ListItemNew
+								as={CollapsibleTrigger}
+								// icon={
+								// 	route.Icon && (
+								// 		<FluentIcon
+								// 			icon={route.Icon}
+								// 			{...stylex.attrs(routeStyles.icon)}
+								// 		/>
+								// 	)
+								// }
+							>
+								{route.name}
 								<CollapsibleTriggerIcon style={routeStyles.triggerIcon}>
 									<FluentIcon icon={ChevronDown24Regular} />
 								</CollapsibleTriggerIcon>
-							</CollapsibleTrigger>
+							</ListItemNew>
 
 							<CollapsibleContent style={routeStyles.collapsibleContent}>
 								{traverseRoutes(route.routes)}
 							</CollapsibleContent>
 						</Collapsible>
 					) : (
-						<ListItem
+						<ListItemNew
 							selected={location.pathname === route.path}
-							icon={
-								route.Icon ? (
-									<FluentIcon
-										icon={route.Icon}
-										{...stylex.attrs(routeStyles.icon)}
-									/>
-								) : undefined
-							}
+							as={A}
+							// icon={
+							// 	route.Icon ? (
+							// 		<FluentIcon
+							// 			icon={route.Icon}
+							// 			{...stylex.attrs(routeStyles.icon)}
+							// 		/>
+							// 	) : undefined
+							// }
 							href={route.path}
 						>
 							{route.name}
-						</ListItem>
+						</ListItemNew>
 					)}
 				</>
 			),
@@ -91,9 +94,7 @@ const routeStyles = stylex.create({
 	collapsibleTrigger: {
 		display: 'flex',
 		alignItems: 'center',
-		width: '100%',
 		position: 'relative',
-		flex: '0 0 auto',
 		margin: '3px 5px',
 		paddingInline: '12px',
 		borderRadius: base.controlCornerRadius,
@@ -132,10 +133,9 @@ const styles = stylex.create({
 	sidebar: {
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '0.1rem',
+		gap: '0.4rem',
 		width: '20%',
 		padding: '1rem',
-		borderRight: '1px solid var(--control-stroke)',
 	},
 	content: {
 		width: '80%',
