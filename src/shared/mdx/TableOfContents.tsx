@@ -35,6 +35,7 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 				level: Number.parseInt(child.localName[1]),
 				content: child.innerText,
 				id: child.id,
+				target: child,
 			})),
 	);
 
@@ -42,43 +43,31 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 		Math.min(...headings().map((heading) => heading.level)),
 	);
 
-	const handleScroll = (id: string) => {
-		const element = document.getElementById(id);
-		if (element) {
-			const yOffset = -50; // Adjust this value to match the height of your sticky navbar
-			const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-			window.scrollTo({ top: y, behavior: 'smooth' });
-		}
+	const handleClick = (id: string) => {
+		if (id) history.pushState({}, '', `#${id}`);
+
+		window.scrollTo({
+			// biome-ignore lint/style/noNonNullAssertion: <explanation>
+			top: headings().find((x) => x.id === id)!.target.offsetTop - 50,
+			behavior: 'smooth',
+		});
 	};
 
-	onMount(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				for (const entry of entries) {
-					if (entry.isIntersecting) {
-						setActiveId(entry.target.id);
-					}
-				}
-			},
-			{
-				rootMargin: '-80px 0px -80% 0px',
-			},
-		);
+	function handleScroll() {
+		if (headings)
+			setActiveId(
+				[...headings()]
+					.reverse()
+					.find((heading) => heading.target.offsetTop - 100 <= window.scrollY)
+					?.id ?? headings()?.[0].id,
+			);
+	}
 
-		for (const heading of headings()) {
-			const element = document.getElementById(heading.id);
-			if (element) {
-				observer.observe(element);
-			}
-		}
+	onMount(() => {
+		window.addEventListener('scroll', handleScroll);
 
 		onCleanup(() => {
-			for (const heading of headings()) {
-				const element = document.getElementById(heading.id);
-				if (element) {
-					observer.unobserve(element);
-				}
-			}
+			window.addEventListener('scroll', handleScroll);
 		});
 	});
 
@@ -91,10 +80,7 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 					<For each={headings()}>
 						{(heading) => (
 							<ListItemNew
-								onClick={(e: { preventDefault: () => void }) => {
-									e.preventDefault();
-									handleScroll(heading.id);
-								}}
+								onClick={() => handleClick(heading.id)}
 								style={[styles.item(heading.level - highestLevel())]}
 								selected={heading.id === activeId()}
 							>
