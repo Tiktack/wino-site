@@ -80,6 +80,7 @@ const styles = stylex.create({
 	img: {
 		maxWidth: '100%',
 		height: 'auto',
+		borderRadius: base.overlayCornerRadius,
 		display: 'block',
 		marginBlock: '1rem',
 	},
