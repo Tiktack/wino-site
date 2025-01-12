@@ -103,7 +103,6 @@ const styles = stylex.create({
 	container: {
 		position: 'sticky',
 		top: '8rem',
-		// maxWidth: '300px',
 		maxHeight: 'calc(100vh - 8rem)',
 	},
 	navigation: {

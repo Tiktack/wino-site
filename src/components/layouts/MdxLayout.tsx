@@ -39,35 +39,44 @@ export default function MdxLayout(props: MdxLayoutProps) {
 const styles = stylex.create({
 	container: {
 		display: 'flex',
-		// width: '100%',
 		justifyContent: 'center',
 		gap: '2rem',
 		padding: '2rem',
 		minHeight: '100vh',
+		margin: '0 auto',
 	},
 	sidebar: {
-		flex: '1',
-		'@media (max-width: 1200px)': {
-			flex: '0.5',
+		flex: '1 1 300px',
+		minWidth: '200px',
+		'@media (max-width: 1400px)': {
+			flex: '1 1 250px',
 		},
-		'@media (max-width: 1000px)': {
+		'@media (max-width: 1200px)': {
+			flex: '1 1 200px',
+		},
+		'@media (max-width: 1100px)': {
 			display: 'none',
 		},
 	},
 	content: {
-		flex: '0 0 800px',
-		'@media (max-width: 1000px)': {
-			flex: '1',
+		flex: '0 1 800px',
+		minWidth: '0',
+		'@media (max-width: 900px)': {
+			flex: '1 1 auto',
 			maxWidth: '800px',
 		},
 	},
 	tableOfContents: {
-		flex: '1',
-		// position: 'relative', // Add this line
-		'@media (max-width: 1200px)': {
-			flex: '0.5',
+		flex: '1 1 300px',
+		position: 'relative',
+		minWidth: '200px',
+		'@media (max-width: 1400px)': {
+			flex: '1 1 250px',
 		},
-		'@media (max-width: 1000px)': {
+		'@media (max-width: 1200px)': {
+			flex: '1 1 200px',
+		},
+		'@media (max-width: 1100px)': {
 			display: 'none',
 		},
 	},
