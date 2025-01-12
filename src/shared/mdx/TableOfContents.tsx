@@ -54,7 +54,7 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 	};
 
 	function handleScroll() {
-		if (headings)
+		if (headings && headings().length > 0)
 			setActiveId(
 				[...headings()]
 					.reverse()
