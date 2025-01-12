@@ -72,7 +72,7 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 		handleScroll();
 
 		onCleanup(() => {
-			window.addEventListener('scroll', handleScroll);
+			window.removeEventListener('scroll', handleScroll);
 		});
 	});
 
