@@ -121,7 +121,7 @@ const styles = stylex.create({
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
 		textOverflow: 'ellipsis',
-		marginLeft: `${level * 16 + 10}px`,
+		marginLeft: `${level * 16}px`,
 		cursor: 'pointer',
 	}),
 });

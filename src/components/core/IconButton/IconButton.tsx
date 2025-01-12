@@ -43,6 +43,7 @@ const styles = stylex.create({
 		color: colors.textPrimary,
 		borderRadius: base.controlCornerRadius,
 		backgroundColor: colors.subtleFillTransparent,
+		cursor: 'pointer',
 		':focus-visible': {
 			boxShadow: 'var(--focus-stroke)',
 		},

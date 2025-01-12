@@ -11,7 +11,7 @@ import { IconButton } from '~/components/core/IconButton/IconButton';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { ThemeContext } from '~/shared/theme/context';
 import { base, colors } from '~/shared/theme/tokens.stylex';
-import dicordLogo from '../../../../public/discord-logo.svg?raw';
+import discordLogo from '../../../../public/discord-logo.svg?raw';
 import githubLogo from '../../../../public/github-logo.svg?raw';
 import logo from '../../../../public/logo.png';
 
@@ -76,13 +76,14 @@ export const Navbar = () => {
 						)}
 					</For>
 				</nav>
+
 				<div {...stylex.attrs(styles.buttons)}>
 					<IconButton
 						as={'a'}
 						href="https://discord.com/invite/windows-apps-hub-714581497222398064"
 						target="_blank"
 					>
-						<FluentIcon icon={dicordLogo} />
+						<FluentIcon icon={discordLogo} />
 					</IconButton>
 					<IconButton
 						as={'a'}
