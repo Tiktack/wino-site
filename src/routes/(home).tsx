@@ -182,7 +182,7 @@ const styles = stylex.create({
 	},
 	container: {
 		padding: '2rem',
-		gap: '0.5rem',
+		gap: '1rem',
 		width: '100%',
 		maxWidth: '1300px',
 		display: 'flex',
@@ -203,7 +203,7 @@ const styles = stylex.create({
 		position: 'relative',
 		width: '100%',
 		height: {
-			default: '730px',
+			default: '800px',
 			'@media (max-width: 480px)': '250px',
 		},
 		display: 'flex',
@@ -214,7 +214,7 @@ const styles = stylex.create({
 	image: {
 		position: 'absolute',
 		width: '100%',
-		maxWidth: '1000px',
+		maxWidth: '1100px',
 		borderRadius: '0.5rem',
 		boxShadow: base.cardShadow,
 		transition: 'all 0.7s ease-in-out',
