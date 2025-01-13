@@ -1,0 +1,1 @@
+import{M as o}from"./index-CkDODm8W.js";import{b as r,m as a}from"./web-U1AJjSeD.js";const p={title:"Cool folder 1 name",metaTitle:"Appearance",order:3};function n(t){return[]}function f(t={}){const{wrapper:e}={...o(),...t.components};return e?r(e,a(t,{get children(){return r(n,t)}})):n()}export{f as default,p as frontmatter};
