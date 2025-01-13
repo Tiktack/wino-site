@@ -30,6 +30,7 @@ export default defineConfig({
 		static: true,
 		prerender: {
 			crawlLinks: true,
+			routes: ['/', '/blog/**/*', '/docs/**/*'],
 		},
 	},
 });
