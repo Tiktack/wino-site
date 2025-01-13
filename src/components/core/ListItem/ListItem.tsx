@@ -1,102 +1,41 @@
 import type { PolymorphicProps } from '@kobalte/core';
 import * as ButtonPrimitive from '@kobalte/core/button';
-import { A } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
 import {
-	type Component,
 	type JSX,
 	Show,
 	type ValidComponent,
 	children,
 	splitProps,
 } from 'solid-js';
-import { FluentIcon } from '~/components/FluentIcon';
 import { base, colors } from '~/shared/theme/tokens.stylex';
 import type { WithStyleX } from '~/shared/theme/type';
-import styles from './ListItem.module.css';
 
-interface ListItemProps extends JSX.HTMLAttributes<HTMLElement> {
-	selected?: boolean;
-	disabled?: boolean;
-	href?: string;
-	class?: string;
-	ref?: HTMLAnchorElement | HTMLLIElement;
-	children?: JSX.Element;
-	icon?: JSX.Element;
-}
-
-const ListItem: Component<ListItemProps> = (props) => {
-	const [local, others] = splitProps(props, [
-		'selected',
-		'disabled',
-		'href',
-		'role',
-		'class',
-		'ref',
-		'children',
-		'icon',
-	]);
-
-	const handleKeyDown = (e: KeyboardEvent) => {
-		if (e.key === 'Enter') {
-			(e.target as HTMLElement).click();
-		}
-	};
-
-	const baseClass = () =>
-		`${styles.listItem} ${local.class || ''} ${
-			props.selected ? styles.selected : ''
-		} ${local.disabled ? styles.disabled : ''}`;
-
-	if (local.href && !local.disabled) {
-		return (
-			<A
-				{...others}
-				href={local.href}
-				class={baseClass()}
-				tabIndex={local.disabled ? -1 : 0}
-				aria-selected={props.selected}
-				onKeyDown={handleKeyDown}
-			>
-				{local.icon}
-				{/* <TextBlock>{local.children}</TextBlock> */}
-				{local.children}
-			</A>
-		);
-	}
-
-	return (
-		<li
-			{...others}
-			class={baseClass()}
-			tabIndex={local.disabled ? -1 : 0}
-			aria-selected={props.selected}
-			onKeyDown={handleKeyDown}
-		>
-			{local.icon}
-			{/* <TextBlock>{local.children}</TextBlock> */}
-			{local.children}
-		</li>
-	);
-};
-
-type ListItemNewProps<T extends ValidComponent = 'button'> =
+type ListItemProps<T extends ValidComponent = 'button'> =
 	ButtonPrimitive.ButtonRootProps<T> & {
 		children: JSX.Element;
 		selected?: boolean;
+		hierarchyLevel?: number;
 		icon?: JSX.Element;
 	};
 
-export const ListItemNew = <T extends ValidComponent = 'button'>(
-	props: WithStyleX<PolymorphicProps<T, ListItemNewProps<T>>>,
+export const ListItem = <T extends ValidComponent = 'button'>(
+	props: WithStyleX<PolymorphicProps<T, ListItemProps<T>>>,
 ) => {
-	const [local, others] = splitProps(props as WithStyleX<ListItemNewProps>, [
+	const [local, others] = splitProps(props as WithStyleX<ListItemProps>, [
 		'children',
+		'hierarchyLevel',
 		'icon',
 		'selected',
 		'disabled',
 		'style',
 	]);
+
+	const hierarchyLevel =
+		local.hierarchyLevel && local.hierarchyLevel > 0 ? local.hierarchyLevel : 0;
+
+	console.log('local:', local.hierarchyLevel);
+	console.log('hierarchyLevel:', hierarchyLevel);
 
 	const resolvedIcon = children(() => local.icon);
 
@@ -104,9 +43,10 @@ export const ListItemNew = <T extends ValidComponent = 'button'>(
 		<ButtonPrimitive.Root
 			{...others}
 			{...stylex.attrs(
-				stylesNew.base,
-				local.selected && stylesNew.selected,
-				local.disabled && stylesNew.disabled,
+				styles.base,
+				local.selected && styles.selected,
+				local.disabled && styles.disabled,
+				styles.hierarchyLevel(hierarchyLevel),
 				local.style,
 			)}
 		>
@@ -116,7 +56,7 @@ export const ListItemNew = <T extends ValidComponent = 'button'>(
 	);
 };
 
-const stylesNew = stylex.create({
+const styles = stylex.create({
 	base: {
 		gap: '1rem',
 		display: 'flex',
@@ -126,7 +66,6 @@ const stylesNew = stylex.create({
 		boxSizing: 'border-box',
 		flex: '0 0 auto',
 		fontSize: base.bodyFontSize,
-		paddingInline: '12px',
 		outline: 'none',
 		backgroundColor: colors.subtleFillTransparent,
 		color: colors.textPrimary,
@@ -134,6 +73,7 @@ const stylesNew = stylex.create({
 		cursor: 'default',
 		userSelect: 'none',
 		blockSize: '34px',
+		paddingInlineEnd: '12px',
 		border: 'none',
 		borderRadius: base.controlCornerRadius,
 		transition: 'var(--control-faster-duration) ease background',
@@ -183,6 +123,12 @@ const stylesNew = stylex.create({
 		backgroundColor: colors.subtleFillTransparent,
 		color: colors.textDisabled,
 	},
+	hierarchyLevel: (level: number) => ({
+		paddingInlineStart: `${12 + (level) * 16}px`,
+		'::before': {
+			marginLeft: `${level * 16}px`,
+		},
+	}),
 });
 
 export default ListItem;

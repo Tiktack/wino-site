@@ -9,7 +9,7 @@ import {
 	CollapsibleTrigger,
 	CollapsibleTriggerIcon,
 } from '~/components/core/Collapsible/Collapsible';
-import { ListItemNew } from '~/components/core/ListItem/ListItem';
+import ListItem from '~/components/core/ListItem/ListItem';
 
 interface Route {
 	name: string;
@@ -26,36 +26,38 @@ interface SidebarLayoutProps {
 export const SidebarLayout = (props: SidebarLayoutProps) => {
 	const location = useLocation();
 
-	const traverseRoutes = (routes: Route[]) => {
+	const traverseRoutes = (routes: Route[], level: number) => {
 		return routes.reduce(
 			(Acc, route) => (
 				<>
 					{Acc}
 					{route.routes ? (
 						<Collapsible>
-							<ListItemNew
+							<ListItem
 								as={CollapsibleTrigger}
+								hierarchyLevel={level}
 								icon={route.icon && <FluentIcon icon={route.icon} />}
 							>
 								{route.name}
-								<CollapsibleTriggerIcon style={styles.triggerIcon}>
+								<CollapsibleTriggerIcon>
 									<FluentIcon icon={ChevronDown24Regular} />
 								</CollapsibleTriggerIcon>
-							</ListItemNew>
+							</ListItem>
 
-							<CollapsibleContent style={styles.collapsibleContent}>
-								{traverseRoutes(route.routes)}
+							<CollapsibleContent>
+								{traverseRoutes(route.routes, level + 1)}
 							</CollapsibleContent>
 						</Collapsible>
 					) : (
-						<ListItemNew
+						<ListItem
 							selected={location.pathname === route.path}
 							as={A}
+							hierarchyLevel={level}
 							icon={route.icon && <FluentIcon icon={route.icon} />}
 							href={route.path}
 						>
 							{route.name}
-						</ListItemNew>
+						</ListItem>
 					)}
 				</>
 			),
@@ -67,7 +69,7 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 	return (
 		<main {...stylex.attrs(styles.main)}>
 			<div {...stylex.attrs(styles.sidebar)}>
-				{traverseRoutes(props.routes)}
+				{traverseRoutes(props.routes, 0)}
 			</div>
 
 			<div {...stylex.attrs(styles.content)}>{props.children}</div>
@@ -90,11 +92,5 @@ const styles = stylex.create({
 	content: {
 		width: '80%',
 		padding: '1rem',
-	},
-	collapsibleContent: {
-		marginLeft: '16px',
-	},
-	triggerIcon: {
-		marginInlineStart: '8px',
 	},
 });

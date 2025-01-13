@@ -3,6 +3,7 @@ import { clientOnly } from '@solidjs/start';
 import * as stylex from '@stylexjs/stylex';
 import { children } from 'solid-js';
 import { SidebarLayout } from '~/components/layouts/SidebarLayout';
+import { getDocRoutes } from '~/shared/lib/mdx';
 
 // TODO:
 const TableOfContents = clientOnly(() =>
@@ -12,25 +13,11 @@ const TableOfContents = clientOnly(() =>
 );
 
 export default function DocsLayout(props: RouteSectionProps) {
+	const docRoutes = getDocRoutes();
 	const resolved = children(() => props.children);
 
 	return (
-		<SidebarLayout
-			routes={[
-				// {
-				// 	name: 'Overview',
-				// 	path: '/docs/overview',
-				// },
-				// {
-				// 	name: 'Install',
-				// 	path: '/docs/install',
-				// },
-				{
-					name: 'Comming Soon',
-					path: '/docs/comming-soon',
-				},
-			]}
-		>
+		<SidebarLayout routes={docRoutes}>
 			<div {...stylex.attrs(styles.container)}>
 				<div {...stylex.attrs(styles.content)}>{resolved()}</div>
 

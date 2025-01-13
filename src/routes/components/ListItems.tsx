@@ -1,5 +1,5 @@
 import { Title } from '@solidjs/meta';
-import ListItem, { ListItemNew } from '~/components/core/ListItem/ListItem';
+import ListItem from '~/components/core/ListItem/ListItem';
 
 export default function ListItems() {
 	return (
@@ -15,21 +15,8 @@ export default function ListItems() {
 				}}
 			>
 				<ListItem>Standard</ListItem>
-				<ListItem selected>
-					{/* <TbGasStation /> */}
-					Selected
-				</ListItem>
-				<ListItem disabled>
-					{/* <TbCar /> */}
-					Disabled
-				</ListItem>
-				<ListItem selected>
-					{/* <TbTableOptions /> */}
-					Selected Disabled
-				</ListItem>
-				<ListItemNew>Standard</ListItemNew>
-				<ListItemNew selected>Selected</ListItemNew>
-				<ListItemNew disabled>Disabled</ListItemNew>
+				<ListItem selected>Selected</ListItem>
+				<ListItem disabled>Disabled</ListItem>
 			</div>
 		</main>
 	);

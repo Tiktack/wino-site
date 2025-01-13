@@ -8,7 +8,7 @@ import {
 	onCleanup,
 	onMount,
 } from 'solid-js';
-import { ListItemNew } from '~/components/core/ListItem/ListItem';
+import { ListItem } from '~/components/core/ListItem/ListItem';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 
 const isHTMLElement = (node: unknown): node is HTMLElement => {
@@ -84,13 +84,14 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 				<ul {...stylex.attrs(styles.list)}>
 					<For each={headings()}>
 						{(heading) => (
-							<ListItemNew
+							<ListItem
 								onClick={() => handleClick(heading.id)}
-								style={[styles.item(heading.level - highestLevel() - 1)]}
+								style={[styles.item]}
+								hierarchyLevel={heading.level - highestLevel()}
 								selected={heading.id === activeId()}
 							>
 								{heading.content}
-							</ListItemNew>
+							</ListItem>
 						)}
 					</For>
 				</ul>
@@ -115,13 +116,12 @@ const styles = stylex.create({
 		gap: '2px',
 		paddingLeft: 0,
 	},
-	item: (level: number) => ({
+	item: {
 		display: 'inline-block',
 		textAlign: 'start',
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
 		textOverflow: 'ellipsis',
-		marginLeft: `${level * 16}px`,
 		cursor: 'pointer',
-	}),
+	},
 });
