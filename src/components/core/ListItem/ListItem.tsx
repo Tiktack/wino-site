@@ -13,7 +13,7 @@ import type { WithStyleX } from '~/shared/theme/type';
 
 type ListItemProps<T extends ValidComponent = 'button'> =
 	ButtonPrimitive.ButtonRootProps<T> & {
-		children: JSX.Element;
+		children?: JSX.Element;
 		selected?: boolean;
 		hierarchyLevel?: number;
 		icon?: JSX.Element;

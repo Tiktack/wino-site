@@ -1,7 +1,12 @@
 import ChevronDown24Regular from '@fluentui/svg-icons/icons/chevron_down_24_regular.svg?raw';
+import type { PolymorphicCallbackProps } from '@kobalte/core';
+import type {
+	CollapsibleTriggerOptions,
+	CollapsibleTriggerRenderProps,
+} from '@kobalte/core/collapsible';
 import { A, useLocation } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
-import type { JSX } from 'solid-js';
+import type { ComponentProps, JSX } from 'solid-js';
 import { FluentIcon } from '~/components/FluentIcon';
 import {
 	Collapsible,
@@ -28,21 +33,31 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 
 	const traverseRoutes = (routes: Route[], level: number) => {
 		return routes.reduce(
-			(Acc, route) => (
+			(Tree, route) => (
 				<>
-					{Acc}
+					{Tree}
 					{route.routes ? (
 						<Collapsible>
-							<ListItem
-								as={CollapsibleTrigger}
-								hierarchyLevel={level}
-								icon={route.icon && <FluentIcon icon={route.icon} />}
+							<CollapsibleTrigger
+								as={(
+									props: PolymorphicCallbackProps<
+										ComponentProps<typeof ListItem>,
+										CollapsibleTriggerOptions,
+										CollapsibleTriggerRenderProps
+									>,
+								) => (
+									<ListItem
+										{...props}
+										hierarchyLevel={level}
+										icon={route.icon && <FluentIcon icon={route.icon} />}
+									/>
+								)}
 							>
 								{route.name}
 								<CollapsibleTriggerIcon>
 									<FluentIcon icon={ChevronDown24Regular} />
 								</CollapsibleTriggerIcon>
-							</ListItem>
+							</CollapsibleTrigger>
 
 							<CollapsibleContent>
 								{traverseRoutes(route.routes, level + 1)}
