@@ -45,10 +45,9 @@ export const getDocRoutes = () => {
 	const routes: any = [];
 
 	// First pass: Process all non-index files
-	// biome-ignore lint/complexity/noForEach: <explanation>
-	Object.entries(docsRaw).forEach(([path, meta]) => {
-		if (path.endsWith('index.mdx')) return;
-		if (path === '/src/routes/docs/index.mdx') return;
+	for (const [path, meta] of Object.entries(docsRaw)) {
+		if (path.endsWith('index.mdx')) continue;
+		if (path === '/src/routes/docs/index.mdx') continue;
 
 		const segments = path
 			.replace('/src/routes/docs/', '')
@@ -57,7 +56,8 @@ export const getDocRoutes = () => {
 
 		let currentLevel = routes;
 
-		segments.forEach((segment, index) => {
+		for (let index = 0; index < segments.length; index++) {
+			const segment = segments[index];
 			const isLast = index === segments.length - 1;
 			const folderPath = segments.slice(0, index + 1).join('/');
 			const indexPath = `/src/routes/docs/${folderPath}/index.mdx`;
@@ -80,14 +80,13 @@ export const getDocRoutes = () => {
 			} else {
 				currentLevel = existingRoute.routes || [];
 			}
-		});
-	});
+		}
+	}
 
 	// Second pass: Update folder metadata from index files
-	// biome-ignore lint/complexity/noForEach: <explanation>
-	Object.entries(docsRaw).forEach(([path, meta]) => {
+	for (const [path, meta] of Object.entries(docsRaw)) {
 		if (!path.endsWith('index.mdx') || path === '/src/routes/docs/index.mdx')
-			return;
+			continue;
 
 		const segments = path
 			.replace('/src/routes/docs/', '')
@@ -110,17 +109,16 @@ export const getDocRoutes = () => {
 			targetRoute.name = meta.title;
 			targetRoute.order = meta.order ?? targetRoute.order;
 		}
-	});
+	}
 
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	const sortRoutes = (routes: any[]) => {
 		routes.sort((a, b) => (a.order || 0) - (b.order || 0));
-		// biome-ignore lint/complexity/noForEach: <explanation>
-		routes.forEach((route) => {
+		for (const route of routes) {
 			if (route.routes) {
 				sortRoutes(route.routes);
 			}
-		});
+		}
 		return routes;
 	};
 

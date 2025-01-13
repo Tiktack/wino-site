@@ -43,10 +43,9 @@ export const ListItem = <T extends ValidComponent = 'button'>(
 		<ButtonPrimitive.Root
 			{...others}
 			{...stylex.attrs(
-				styles.base,
+				styles.base(hierarchyLevel),
 				local.selected && styles.selected,
 				local.disabled && styles.disabled,
-				styles.hierarchyLevel(hierarchyLevel),
 				local.style,
 			)}
 		>
@@ -57,7 +56,7 @@ export const ListItem = <T extends ValidComponent = 'button'>(
 };
 
 const styles = stylex.create({
-	base: {
+	base: (level: number) => ({
 		gap: '1rem',
 		display: 'flex',
 		alignItems: 'center',
@@ -80,6 +79,7 @@ const styles = stylex.create({
 		textOverflow: 'ellipsis',
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
+		paddingInlineStart: `${12 + (level) * 16}px`,
 		':focus-visible': {
 			boxShadow: 'var(--focus-stroke)',
 		},
@@ -110,8 +110,9 @@ const styles = stylex.create({
 			inlineSize: '3px',
 			blockSize: '16px',
 			transform: 'scaleY(0)',
+			marginLeft: `${level * 16}px`,
 		},
-	},
+	}),
 	selected: {
 		backgroundColor: colors.subtleFillSecondary,
 		'::before': {
@@ -123,12 +124,6 @@ const styles = stylex.create({
 		backgroundColor: colors.subtleFillTransparent,
 		color: colors.textDisabled,
 	},
-	hierarchyLevel: (level: number) => ({
-		paddingInlineStart: `${12 + (level) * 16}px`,
-		'::before': {
-			marginLeft: `${level * 16}px`,
-		},
-	}),
 });
 
 export default ListItem;

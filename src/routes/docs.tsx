@@ -1,3 +1,4 @@
+import { Title } from '@solidjs/meta';
 import type { RouteSectionProps } from '@solidjs/router';
 import { clientOnly } from '@solidjs/start';
 import * as stylex from '@stylexjs/stylex';
@@ -17,13 +18,16 @@ export default function DocsLayout(props: RouteSectionProps) {
 	const resolved = children(() => props.children);
 
 	return (
-		<SidebarLayout routes={docRoutes}>
-			<div {...stylex.attrs(styles.container)}>
-				<div {...stylex.attrs(styles.content)}>{resolved()}</div>
+		<main>
+			<Title>Wino | Docs </Title>
+			<SidebarLayout routes={docRoutes}>
+				<div {...stylex.attrs(styles.container)}>
+					<div {...stylex.attrs(styles.content)}>{resolved()}</div>
 
-				<TableOfContents childrenReturn={resolved} />
-			</div>
-		</SidebarLayout>
+					<TableOfContents childrenReturn={resolved} />
+				</div>
+			</SidebarLayout>
+		</main>
 	);
 }
 
