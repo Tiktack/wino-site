@@ -109,14 +109,20 @@ export default function HomePage() {
 
 				<div {...stylex.attrs(styles.imageContainer)}>
 					<img
-						src={theme() === 'dark' ? winoAppLight : winoAppDark}
-						{...stylex.attrs(styles.image, styles.lightImage)}
-						aria-label="wino light theme"
+						src={winoAppLight}
+						{...stylex.attrs(
+							styles.image,
+							theme() === 'light' ? styles.mainImage : styles.secondaryImage,
+						)}
+						aria-label="Wino Mail App light"
 					/>
 					<img
-						src={theme() === 'dark' ? winoAppDark : winoAppLight}
-						{...stylex.attrs(styles.image, styles.darkImage)}
-						aria-label="wino dark theme"
+						src={winoAppDark}
+						{...stylex.attrs(
+							styles.image,
+							theme() === 'dark' ? styles.mainImage : styles.secondaryImage,
+						)}
+						aria-label="Wino Mail App dark"
 					/>
 				</div>
 
@@ -155,7 +161,7 @@ const styles = stylex.create({
 	},
 	container: {
 		padding: '2rem',
-		gap: '1rem',
+		gap: '0.5rem',
 		width: '100%',
 		maxWidth: '1300px',
 		display: 'flex',
@@ -175,27 +181,42 @@ const styles = stylex.create({
 	imageContainer: {
 		position: 'relative',
 		width: '100%',
-		maxWidth: '1400px',
-		height: '500px', // Increased height to accommodate vertical offset
-		margin: '2rem 0',
+		height: {
+			default: '650px',
+			'@media (max-width: 480px)': '250px',
+		},
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
+		overflow: 'visible',
 	},
 	image: {
 		position: 'absolute',
-		width: '100%', // Slightly smaller
-		maxWidth: '800px',
+		width: '100%',
+		maxWidth: '920px',
 		borderRadius: '0.5rem',
 		boxShadow: base.cardShadow,
-		transition: 'all 0.3s ease-in-out',
+		transition: 'all 0.7s ease-in-out',
+		'@media (max-width: 480px)': {
+			position: 'relative', // Change to relative on mobile
+			maxWidth: '100%',
+		},
 	},
-	lightImage: {
-		transform: 'rotate(-5deg) translate(-40px, -20px)', // Moved up and left
+	secondaryImage: {
+		transform: {
+			default: 'rotate(-3deg) translate(-40px, -20px)',
+			'@media (max-width: 480px)': 'none',
+		},
 		zIndex: 1,
+		'@media (max-width: 480px)': {
+			display: 'none',
+		},
 	},
-	darkImage: {
-		transform: 'rotate(5deg) translate(40px, 20px)', // Moved down and right
+	mainImage: {
+		transform: {
+			default: 'rotate(3deg) translate(30px, 0px)',
+			'@media (max-width: 480px)': 'none',
+		},
 		zIndex: 2,
 	},
 	featuresGrid: {
