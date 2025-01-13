@@ -10,7 +10,7 @@ import WifiOff from '@fluentui/svg-icons/icons/wifi_off_24_regular.svg?raw';
 import { Title } from '@solidjs/meta';
 import { A } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
-import { For, useContext } from 'solid-js';
+import { For, Show, createSignal, useContext } from 'solid-js';
 import { FluentIcon } from '~/components/FluentIcon';
 import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
@@ -74,6 +74,15 @@ const KEY_FEATURES_ITEMS = [
 
 export default function HomePage() {
 	const { theme } = useContext(ThemeContext);
+	const [previewImage, setPreviewImage] = createSignal<string | null>(null);
+
+	const handleImageClick = (imageSrc: string) => {
+		setPreviewImage(imageSrc);
+	};
+
+	const closePreview = () => {
+		setPreviewImage(null);
+	};
 
 	return (
 		<main {...stylex.attrs(styles.main)}>
@@ -110,6 +119,7 @@ export default function HomePage() {
 				<div {...stylex.attrs(styles.imageContainer)}>
 					<img
 						src={winoAppLight}
+						onClick={() => handleImageClick(winoAppLight)}
 						{...stylex.attrs(
 							styles.image,
 							theme() === 'light' ? styles.mainImage : styles.secondaryImage,
@@ -118,6 +128,7 @@ export default function HomePage() {
 					/>
 					<img
 						src={winoAppDark}
+						onClick={() => handleImageClick(winoAppDark)}
 						{...stylex.attrs(
 							styles.image,
 							theme() === 'dark' ? styles.mainImage : styles.secondaryImage,
@@ -146,6 +157,16 @@ export default function HomePage() {
 					</For>
 				</div>
 			</div>
+
+			<Show when={previewImage()}>
+				<div {...stylex.attrs(styles.previewOverlay)} onClick={closePreview}>
+					<img
+						src={previewImage() ?? ''}
+						{...stylex.attrs(styles.previewImage)}
+						onClick={(e) => e.stopPropagation()}
+					/>
+				</div>
+			</Show>
 		</main>
 	);
 }
@@ -182,7 +203,7 @@ const styles = stylex.create({
 		position: 'relative',
 		width: '100%',
 		height: {
-			default: '650px',
+			default: '730px',
 			'@media (max-width: 480px)': '250px',
 		},
 		display: 'flex',
@@ -193,10 +214,11 @@ const styles = stylex.create({
 	image: {
 		position: 'absolute',
 		width: '100%',
-		maxWidth: '920px',
+		maxWidth: '1000px',
 		borderRadius: '0.5rem',
 		boxShadow: base.cardShadow,
 		transition: 'all 0.7s ease-in-out',
+		cursor: 'pointer',
 		'@media (max-width: 480px)': {
 			position: 'relative', // Change to relative on mobile
 			maxWidth: '100%',
@@ -247,5 +269,26 @@ const styles = stylex.create({
 		width: '2rem',
 		height: '2rem',
 		fill: colors.textPrimary,
+	},
+	previewOverlay: {
+		position: 'fixed',
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 0,
+		backgroundColor: 'rgba(0, 0, 0, 0.8)',
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		zIndex: 1000,
+		cursor: 'pointer',
+	},
+
+	previewImage: {
+		maxWidth: '90%',
+		maxHeight: '90vh',
+		borderRadius: '0.5rem',
+		objectFit: 'contain',
+		cursor: 'default',
 	},
 });
