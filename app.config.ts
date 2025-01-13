@@ -26,7 +26,7 @@ export default defineConfig({
 	ssr: true,
 	server: {
 		baseURL: process.env.BASE_PATH,
-		preset: 'githubPages',
+		preset: 'github_pages',
 		static: true,
 		prerender: {
 			crawlLinks: true,
