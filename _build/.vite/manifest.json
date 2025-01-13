@@ -169,8 +169,8 @@
       "_web-U1AJjSeD.js"
     ]
   },
-  "_mdx-YTd80MTB.js": {
-    "file": "assets/mdx-YTd80MTB.js",
+  "_mdx-CzwGQd_h.js": {
+    "file": "assets/mdx-CzwGQd_h.js",
     "name": "mdx",
     "imports": [
       "_index-CkDODm8W.js"
@@ -271,7 +271,7 @@
     ]
   },
   "src/routes/blog(list).tsx?pick=default&pick=$css": {
-    "file": "assets/blog(list)-Di2GeGTP.js",
+    "file": "assets/blog(list)-Hpv7Xgr-.js",
     "name": "blog(list)",
     "src": "src/routes/blog(list).tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -283,7 +283,7 @@
       "_date-DOga6MM-.js",
       "_TextBlock-t8gpAN1H.js",
       "_Button-nmojns7A.js",
-      "_mdx-YTd80MTB.js",
+      "_mdx-CzwGQd_h.js",
       "_resolvePath-B2iwiUFF.js",
       "_routing-N4JRRWBY.js",
       "_components-zD6D5NSk.js",
@@ -293,7 +293,7 @@
     ]
   },
   "src/routes/blog.tsx?pick=default&pick=$css": {
-    "file": "assets/blog-4TY0a5dG.js",
+    "file": "assets/blog-G0SI4pVu.js",
     "name": "blog",
     "src": "src/routes/blog.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -304,7 +304,7 @@
       "_stylex-lfbtzg0Y.js",
       "_TextBlock-t8gpAN1H.js",
       "_MdxLayout-CgOH96T8.js",
-      "_mdx-YTd80MTB.js",
+      "_mdx-CzwGQd_h.js",
       "_resolvePath-B2iwiUFF.js",
       "_routing-N4JRRWBY.js",
       "_preload-helper-hqbToRWM.js",
@@ -531,7 +531,7 @@
     ]
   },
   "src/routes/docs.tsx?pick=default&pick=$css": {
-    "file": "assets/docs-CLJy2OAI.js",
+    "file": "assets/docs-DMx-0Bsn.js",
     "name": "docs",
     "src": "src/routes/docs.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -542,7 +542,7 @@
       "_index-CB4VMv_N.js",
       "_clientOnly-BLs06XgK.js",
       "_SidebarLayout-BV6BWJpJ.js",
-      "_mdx-YTd80MTB.js",
+      "_mdx-CzwGQd_h.js",
       "_Collapsible-irWx_H2a.js",
       "_stylex-lfbtzg0Y.js",
       "_E53DB7BS-Clg3o40K.js",
@@ -582,10 +582,10 @@
       "_web-U1AJjSeD.js"
     ]
   },
-  "src/routes/docs/test-folder/index.mdx?pick=$css": {
+  "src/routes/docs/testFolder/index.mdx?pick=$css": {
     "file": "assets/index-CujD7Omk.js",
     "name": "index",
-    "src": "src/routes/docs/test-folder/index.mdx?pick=$css",
+    "src": "src/routes/docs/testFolder/index.mdx?pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
@@ -593,43 +593,10 @@
       "_web-U1AJjSeD.js"
     ]
   },
-  "src/routes/docs/test-folder/test-folder2/index.mdx?pick=$css": {
-    "file": "assets/index-CchU7KDD.js",
-    "name": "index",
-    "src": "src/routes/docs/test-folder/test-folder2/index.mdx?pick=$css",
-    "isEntry": true,
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-CkDODm8W.js",
-      "_web-U1AJjSeD.js"
-    ]
-  },
-  "src/routes/docs/test-folder/test-folder2/test.mdx?pick=$css": {
-    "file": "assets/test-CzVomQbB.js",
-    "name": "test",
-    "src": "src/routes/docs/test-folder/test-folder2/test.mdx?pick=$css",
-    "isEntry": true,
-    "isDynamicEntry": true,
-    "imports": [
-      "_web-U1AJjSeD.js",
-      "_index-CkDODm8W.js"
-    ]
-  },
-  "src/routes/docs/test-folder/test-folder2/utils.mdx?pick=$css": {
-    "file": "assets/utils-DhwnON3K.js",
-    "name": "utils",
-    "src": "src/routes/docs/test-folder/test-folder2/utils.mdx?pick=$css",
-    "isEntry": true,
-    "isDynamicEntry": true,
-    "imports": [
-      "_web-U1AJjSeD.js",
-      "_index-CkDODm8W.js"
-    ]
-  },
-  "src/routes/docs/test-folder/test.mdx?pick=$css": {
+  "src/routes/docs/testFolder/test.mdx?pick=$css": {
     "file": "assets/test-CMHwWFP7.js",
     "name": "test",
-    "src": "src/routes/docs/test-folder/test.mdx?pick=$css",
+    "src": "src/routes/docs/testFolder/test.mdx?pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
@@ -637,10 +604,43 @@
       "_index-CkDODm8W.js"
     ]
   },
-  "src/routes/docs/test-folder/utils.mdx?pick=$css": {
+  "src/routes/docs/testFolder/testFolder2/index.mdx?pick=$css": {
+    "file": "assets/index-CchU7KDD.js",
+    "name": "index",
+    "src": "src/routes/docs/testFolder/testFolder2/index.mdx?pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-CkDODm8W.js",
+      "_web-U1AJjSeD.js"
+    ]
+  },
+  "src/routes/docs/testFolder/testFolder2/test.mdx?pick=$css": {
+    "file": "assets/test-CzVomQbB.js",
+    "name": "test",
+    "src": "src/routes/docs/testFolder/testFolder2/test.mdx?pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-U1AJjSeD.js",
+      "_index-CkDODm8W.js"
+    ]
+  },
+  "src/routes/docs/testFolder/testFolder2/utils.mdx?pick=$css": {
+    "file": "assets/utils-DhwnON3K.js",
+    "name": "utils",
+    "src": "src/routes/docs/testFolder/testFolder2/utils.mdx?pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-U1AJjSeD.js",
+      "_index-CkDODm8W.js"
+    ]
+  },
+  "src/routes/docs/testFolder/utils.mdx?pick=$css": {
     "file": "assets/utils-Bo2rRNO6.js",
     "name": "utils",
-    "src": "src/routes/docs/test-folder/utils.mdx?pick=$css",
+    "src": "src/routes/docs/testFolder/utils.mdx?pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
@@ -688,7 +688,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-DZ4jWU25.js",
+    "file": "assets/client-Uyba83tT.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
@@ -737,12 +737,12 @@
       "src/routes/docs/install.mdx?pick=$css",
       "src/routes/docs/overview.mdx?pick=$css",
       "src/routes/support/Privacy.mdx?pick=$css",
-      "src/routes/docs/test-folder/index.mdx?pick=$css",
-      "src/routes/docs/test-folder/test.mdx?pick=$css",
-      "src/routes/docs/test-folder/utils.mdx?pick=$css",
-      "src/routes/docs/test-folder/test-folder2/index.mdx?pick=$css",
-      "src/routes/docs/test-folder/test-folder2/test.mdx?pick=$css",
-      "src/routes/docs/test-folder/test-folder2/utils.mdx?pick=$css"
+      "src/routes/docs/testFolder/index.mdx?pick=$css",
+      "src/routes/docs/testFolder/test.mdx?pick=$css",
+      "src/routes/docs/testFolder/utils.mdx?pick=$css",
+      "src/routes/docs/testFolder/testFolder2/index.mdx?pick=$css",
+      "src/routes/docs/testFolder/testFolder2/test.mdx?pick=$css",
+      "src/routes/docs/testFolder/testFolder2/utils.mdx?pick=$css"
     ],
     "css": [
       "assets/client-BpAIYMbe.css"
