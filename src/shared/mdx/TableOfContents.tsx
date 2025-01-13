@@ -103,8 +103,8 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 const styles = stylex.create({
 	container: {
 		position: 'sticky',
-		top: '8rem',
-		maxHeight: 'calc(100vh - 8rem)',
+		top: '6rem',
+		maxHeight: 'calc(100vh - 6rem)',
 	},
 	navigation: {
 		marginTop: '0.5rem',

@@ -10,7 +10,7 @@ import WifiOff from '@fluentui/svg-icons/icons/wifi_off_24_regular.svg?raw';
 import { Title } from '@solidjs/meta';
 import { A } from '@solidjs/router';
 import * as stylex from '@stylexjs/stylex';
-import { For, Match, Switch, useContext } from 'solid-js';
+import { For, useContext } from 'solid-js';
 import { FluentIcon } from '~/components/FluentIcon';
 import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
@@ -107,22 +107,18 @@ export default function HomePage() {
 					</Button>
 				</div>
 
-				<Switch>
-					<Match when={theme() === 'light'}>
-						<img
-							src={winoAppLight}
-							{...stylex.attrs(styles.image)}
-							aria-label="wino"
-						/>
-					</Match>
-					<Match when={theme() === 'dark'}>
-						<img
-							src={winoAppDark}
-							{...stylex.attrs(styles.image)}
-							aria-label="wino"
-						/>
-					</Match>
-				</Switch>
+				<div {...stylex.attrs(styles.imageContainer)}>
+					<img
+						src={theme() === 'dark' ? winoAppLight : winoAppDark}
+						{...stylex.attrs(styles.image, styles.lightImage)}
+						aria-label="wino light theme"
+					/>
+					<img
+						src={theme() === 'dark' ? winoAppDark : winoAppLight}
+						{...stylex.attrs(styles.image, styles.darkImage)}
+						aria-label="wino dark theme"
+					/>
+				</div>
 
 				<TextBlock variant="title">Key Features</TextBlock>
 
@@ -176,9 +172,31 @@ const styles = stylex.create({
 		width: '120px',
 		textAlign: 'center',
 	},
-	image: {
-		borderRadius: '0.5rem',
+	imageContainer: {
+		position: 'relative',
 		width: '100%',
+		maxWidth: '1400px',
+		height: '500px', // Increased height to accommodate vertical offset
+		margin: '2rem 0',
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	image: {
+		position: 'absolute',
+		width: '100%', // Slightly smaller
+		maxWidth: '800px',
+		borderRadius: '0.5rem',
+		boxShadow: base.cardShadow,
+		transition: 'all 0.3s ease-in-out',
+	},
+	lightImage: {
+		transform: 'rotate(-5deg) translate(-40px, -20px)', // Moved up and left
+		zIndex: 1,
+	},
+	darkImage: {
+		transform: 'rotate(5deg) translate(40px, 20px)', // Moved down and right
+		zIndex: 2,
 	},
 	featuresGrid: {
 		display: 'grid',
@@ -189,7 +207,6 @@ const styles = stylex.create({
 	textTertiary: {
 		color: colors.textTertiary,
 	},
-
 	featureCard: {
 		display: 'flex',
 		flexDirection: 'column',
