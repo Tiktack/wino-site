@@ -37,7 +37,7 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 				<>
 					{Tree}
 					{route.routes ? (
-						<Collapsible>
+						<Collapsible open={true}>
 							<CollapsibleTrigger
 								as={(
 									props: PolymorphicCallbackProps<

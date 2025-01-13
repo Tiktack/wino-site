@@ -34,9 +34,6 @@ export const ListItem = <T extends ValidComponent = 'button'>(
 	const hierarchyLevel =
 		local.hierarchyLevel && local.hierarchyLevel > 0 ? local.hierarchyLevel : 0;
 
-	console.log('local:', local.hierarchyLevel);
-	console.log('hierarchyLevel:', hierarchyLevel);
-
 	const resolvedIcon = children(() => local.icon);
 
 	return (
