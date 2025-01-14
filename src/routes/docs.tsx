@@ -8,7 +8,7 @@ import { getDocRoutes } from '~/shared/lib/mdx';
 
 // TODO:
 const TableOfContents = clientOnly(() =>
-	import('~/shared/mdx/TableOfContents').then((mod) => ({
+	import('~/components/layouts/TableOfContents').then((mod) => ({
 		default: mod.TableOfContents,
 	})),
 );
