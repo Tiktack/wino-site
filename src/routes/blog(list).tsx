@@ -64,6 +64,8 @@ export default function BlogList() {
 					</A>
 				</div>
 
+				<div {...stylex.attrs(styles.divider)} />
+
 				<div {...stylex.attrs(styles.postsGrid)}>
 					<For each={restPosts}>
 						{(post) => (
@@ -141,8 +143,14 @@ const styles = stylex.create({
 		height: '100%',
 		objectFit: 'cover',
 	}),
+	divider: {
+		width: '100%',
+		height: '1px',
+		backgroundColor: colors.textTertiary,
+		marginTop: '1.5rem',
+		marginBottom: '1.5rem',
+	},
 	postsGrid: {
-		marginTop: '3rem',
 		width: '100%',
 		display: 'grid',
 		gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))',
