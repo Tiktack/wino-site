@@ -1,8 +1,8 @@
 import * as stylex from '@stylexjs/stylex';
 import { type JSX, useContext } from 'solid-js';
 import { type Theme, ThemeContext } from '~/shared/theme/context';
-import micaBackgroundDark from '../../../../public/bloom-mica-dark.png';
-import micaBackgroundLight from '../../../../public/bloom-mica-light.png';
+import micaBackgroundDark from '../../../../public/bloom-mica-dark.webp';
+import micaBackgroundLight from '../../../../public/bloom-mica-light.webp';
 import { Footer } from './Footer';
 import { Navbar } from './Navbar';
 
