@@ -37,7 +37,7 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 				<>
 					{Tree}
 					{route.routes ? (
-						<Collapsible forceMount>
+						<Collapsible defaultOpen={true}>
 							<CollapsibleTrigger
 								as={(
 									props: PolymorphicCallbackProps<
@@ -96,16 +96,26 @@ const styles = stylex.create({
 	main: {
 		display: 'flex',
 		width: '100%',
+		minHeight: '100vh',
 	},
 	sidebar: {
 		display: 'flex',
 		flexDirection: 'column',
 		gap: '0.4rem',
-		width: '20%',
+		width: '300px',
+		flexShrink: 0,
 		padding: '1rem',
+		borderRight: '1px solid var(--border-color)',
+		'@media (max-width: 768px)': {
+			display: 'none',
+		},
 	},
 	content: {
-		width: '80%',
-		padding: '1rem',
+		flex: '1 1 auto',
+		minWidth: 0,
+		maxWidth: 'calc(100% - 300px)', // Ensure it doesn't overflow when table of contents is hidden
+		'@media (max-width: 768px)': {
+			maxWidth: '100%',
+		},
 	},
 });
