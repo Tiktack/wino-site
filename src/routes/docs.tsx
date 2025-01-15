@@ -18,7 +18,7 @@ export default function DocsLayout(props: RouteSectionProps) {
 	const resolved = children(() => props.children);
 
 	return (
-		<main>
+		<>
 			<Title>Wino | Docs </Title>
 			<SidebarLayout routes={docRoutes}>
 				<div {...stylex.attrs(styles.container)}>
@@ -29,7 +29,7 @@ export default function DocsLayout(props: RouteSectionProps) {
 					</div>
 				</div>
 			</SidebarLayout>
-		</main>
+		</>
 	);
 }
 
@@ -42,8 +42,7 @@ const styles = stylex.create({
 	content: {
 		flex: '1 1 auto',
 		minWidth: 0,
-		maxWidth: 'calc(100% - 300px)', // Account for table of contents
-		// padding: '2rem',
+		maxWidth: 'calc(100% - 300px)',
 		'@media (max-width: 1024px)': {
 			maxWidth: '100%',
 		},

@@ -84,6 +84,11 @@ export default function ComponentsLayout(props: RouteSectionProps) {
 					path: '/components/contentdialogs',
 					icon: News24Regular,
 				},
+				{
+					name: 'InfoBar',
+					path: '/components/infobar',
+					icon: News24Regular,
+				},
 			]}
 		>
 			{props.children}

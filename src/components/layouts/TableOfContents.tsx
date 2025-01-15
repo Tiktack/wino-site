@@ -78,7 +78,7 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 
 	return (
 		<aside {...stylex.attrs(styles.container)}>
-			<TextBlock variant="subtitle">On this page</TextBlock>
+			<TextBlock variant="bodyLarge">On this page</TextBlock>
 
 			<nav {...stylex.attrs(styles.navigation)}>
 				<ul {...stylex.attrs(styles.list)}>
