@@ -12,7 +12,6 @@ import {
 	Collapsible,
 	CollapsibleContent,
 	CollapsibleTrigger,
-	CollapsibleTriggerIcon,
 } from '~/components/core/Collapsible/Collapsible';
 import ListItem from '~/components/core/ListItem/ListItem';
 
@@ -50,15 +49,21 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 										{...props}
 										hierarchyLevel={level}
 										icon={route.icon && <FluentIcon icon={route.icon} />}
-									/>
+									>
+										<span {...stylex.props(styles.triggerContent)}>
+											{route.name}
+											<FluentIcon
+												icon={ChevronDown24Regular}
+												style={
+													props['aria-expanded']
+														? styles.chevronExpanded
+														: styles.chevron
+												}
+											/>
+										</span>
+									</ListItem>
 								)}
-							>
-								{route.name}
-								<CollapsibleTriggerIcon>
-									<FluentIcon icon={ChevronDown24Regular} />
-								</CollapsibleTriggerIcon>
-							</CollapsibleTrigger>
-
+							/>
 							<CollapsibleContent>
 								{traverseRoutes(route.routes, level + 1)}
 							</CollapsibleContent>
@@ -117,5 +122,18 @@ const styles = stylex.create({
 		'@media (max-width: 768px)': {
 			maxWidth: '100%',
 		},
+	},
+	triggerContent: {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		width: '100%',
+	},
+	chevron: {
+		transition: 'transform 0.2s ease',
+	},
+	chevronExpanded: {
+		transition: 'transform 0.2s ease',
+		transform: 'rotate(180deg)',
 	},
 });

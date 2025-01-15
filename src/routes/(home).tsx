@@ -143,10 +143,7 @@ export default function HomePage() {
 					<For each={KEY_FEATURES_ITEMS}>
 						{(feature) => (
 							<div {...stylex.attrs(styles.featureCard)}>
-								<FluentIcon
-									icon={feature.icon}
-									{...stylex.attrs(styles.featureIcon)}
-								/>
+								<FluentIcon icon={feature.icon} style={styles.featureIcon} />
 								<TextBlock variant="subtitle">{feature.title}</TextBlock>
 
 								<TextBlock variant="body" style={styles.textTertiary}>
@@ -268,7 +265,6 @@ const styles = stylex.create({
 	featureIcon: {
 		width: '2rem',
 		height: '2rem',
-		fill: colors.textPrimary,
 	},
 	previewOverlay: {
 		position: 'fixed',
