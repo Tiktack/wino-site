@@ -9,8 +9,8 @@ interface ProgressRingProps {
 }
 
 export const ProgressRing: Component<ProgressRingProps> = (props) => {
-	let element: SVGSVGElement;
-	let circleElement: SVGCircleElement;
+	let element!: SVGSVGElement;
+	let circleElement!: SVGCircleElement;
 	const [circumference, setCircumference] = createSignal(0);
 
 	createEffect(() => {
@@ -38,8 +38,7 @@ export const ProgressRing: Component<ProgressRingProps> = (props) => {
 
 	return (
 		<svg
-			// biome-ignore lint/style/noNonNullAssertion: <explanation>
-			ref={element!}
+			ref={element}
 			tabIndex={-1}
 			class={`${styles.progressRing} ${props.class || ''}`}
 			classList={{
@@ -54,8 +53,7 @@ export const ProgressRing: Component<ProgressRingProps> = (props) => {
 			aria-valuenow={normalizedValue()}
 		>
 			<circle
-				// biome-ignore lint/style/noNonNullAssertion: <explanation>
-				ref={circleElement!}
+				ref={circleElement}
 				cx="50%"
 				cy="50%"
 				r="7"

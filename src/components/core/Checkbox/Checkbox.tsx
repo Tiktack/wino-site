@@ -24,10 +24,10 @@ const Checkbox = <T extends ValidComponent = 'div'>(
 				<CheckboxPrimitive.Indicator class={styles.checkboxIndicator}>
 					<Switch>
 						<Match when={!others.indeterminate}>
-							<FluentIcon icon={Checkmark24Regular} class={styles.icon} />
+							<FluentIcon icon={Checkmark24Regular} /* class={styles.icon} */ />
 						</Match>
 						<Match when={others.indeterminate}>
-							<FluentIcon icon={Checkmark24Regular} class={styles.icon} />
+							<FluentIcon icon={Checkmark24Regular} /* class={styles.icon} */ />
 						</Match>
 					</Switch>
 				</CheckboxPrimitive.Indicator>
