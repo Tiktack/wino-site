@@ -3,31 +3,43 @@ title: Website Update v1.2
 metaTitle: Website v1.2
 description: Overview of new features and improvements in website version 1.2
 thumbnail: blog-resources/website-update-1-2/thumbnail.webp
-date: 2025/1/14
+date: 2025/1/16
 author: Tiktack
 ---
+import {InfoBar} from '~/components/core/InfoBar/InfoBar';
 
 I'm excited to share some recent updates and improvements to the website. Let's go through what's new in this version.
-## Website Update v1.2
+
+## 🎉 New Features
 
 ### Table of Contents Support
-
-One of the major additions is the new table of contents feature, now available on blog posts, privacy policy, and documentation pages. You'll notice a navigation panel on the right side that helps you quickly jump to different sections of the content. This makes it much easier to navigate through longer articles and find exactly what you're looking for.
-
-### Enhanced Home Page Design
-
-The home page has received a visual upgrade! You can now see how the application looks in both light and dark themes, giving visitors a better understanding of the UI's adaptability.
+A navigation panel is now available on blog posts, privacy policy, and documentation pages, making it easier to navigate through longer content and quickly jump between sections.
+![Table of contents](blog-resources/website-update-1-2/tableOfContents.png)
 
 ### Documentation Framework
+We've laid the groundwork for comprehensive documentation. While still in early stages, the infrastructure is ready and we welcome community contributions to help expand our documentation coverage. If you're interested in contributing, feel free to reach @Burak or @Tiktack in a discord channel.
 
-While the documentation section is still in its early stages, all the necessary infrastructure is now in place. We welcome community contributions to help expand our documentation coverage. If you're interested in contributing, feel free to check out our GitHub repository.
+### New InfoBar Component
+Introducing a versatile component for highlighting important information in MDX content:
 
-### Performance Improvements
+<InfoBar severity="information" closable>
+  This is an example of the new InfoBar component showing an informational message.
+</InfoBar>
 
-Several behind-the-scenes optimizations have been implemented:
-- Various style fixes and refinements
-- Image optimization using WebP format to reduce initial page load times
+<InfoBar title='Caution message' severity="caution" closable>
+  You can also use it to display warning messages that need attention with title.
+</InfoBar>
+
+## 🔧 Enhancements
+
+### Home Page Improvements
+- Updated visual design
+- Added theme preview showcasing both light and dark modes
+
+### Performance Optimizations
+- Style refinements and fixes
+- Implemented WebP image format for faster loading times
 
 ---
 
-As always, I'm committed to improving the website experience. Stay tuned for more updates!
+Stay tuned for more updates as we continue to improve the website experience!
