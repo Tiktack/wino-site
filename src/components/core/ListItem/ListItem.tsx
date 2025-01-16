@@ -8,7 +8,12 @@ import {
 	children,
 	splitProps,
 } from 'solid-js';
-import { base, colors } from '~/shared/theme/tokens.stylex';
+import {
+	colors,
+	cornerRadii,
+	durations,
+	fontSizes,
+} from '~/shared/theme/tokens.stylex';
 import type { WithStyleX } from '~/shared/theme/type';
 
 type ListItemProps<T extends ValidComponent = 'button'> =
@@ -61,7 +66,7 @@ const styles = stylex.create({
 		position: 'relative',
 		boxSizing: 'border-box',
 		flex: '0 0 auto',
-		fontSize: base.bodyFontSize,
+		fontSize: fontSizes.body,
 		outline: 'none',
 		backgroundColor: colors.subtleFillTransparent,
 		color: colors.textPrimary,
@@ -71,28 +76,28 @@ const styles = stylex.create({
 		blockSize: '34px',
 		paddingInlineEnd: '12px',
 		border: 'none',
-		borderRadius: base.controlCornerRadius,
-		transition: 'var(--control-faster-duration) ease background',
+		borderRadius: cornerRadii.control,
+		transition: `${durations.faster} ease background`,
 		textOverflow: 'ellipsis',
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
 		paddingInlineStart: `${12 + (level) * 16}px`,
 		':focus-visible': {
-			boxShadow: 'var(--focus-stroke)',
+			boxShadow: colors.focusStroke,
 		},
 		borderColor: 'var(--control-border-default)',
 		backgroundClip: 'padding-box',
 		':hover': {
-			backgroundColor: 'var(--control-fill-secondary)',
+			backgroundColor: colors.controlFillSecondary,
 		},
 		':active': {
-			borderColor: 'var(--control-stroke-default)',
-			backgroundColor: 'var(--control-fill-tertiary)',
+			borderColor: colors.controlStrokeDefault,
+			backgroundColor: colors.controlFillTertiary,
 			color: colors.textSecondary,
 		},
 		':disabled': {
-			borderColor: 'var(--control-stroke-default)',
-			backgroundColor: 'var(--control-fill-disabled)',
+			borderColor: colors.controlStrokeDefault,
+			backgroundColor: colors.controlFillDisabled,
 			color: colors.textDisabled,
 		},
 		'::before': {
@@ -100,8 +105,7 @@ const styles = stylex.create({
 			position: 'absolute',
 			borderRadius: '3px',
 			backgroundColor: colors.accentDefault,
-			transition:
-				'transform var(--control-fast-duration) var(--control-fast-out-slow-in-easing)',
+			transition: `transform ${durations.fast} var(--control-fast-out-slow-in-easing)`,
 			opacity: '0',
 			insetInlineStart: '0',
 			inlineSize: '3px',

@@ -1,7 +1,7 @@
 import * as stylex from '@stylexjs/stylex';
 import { type Component, type JSX, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
-import { base, colors } from '~/shared/theme/tokens.stylex';
+import { colors, fontFamilies, fontSizes } from '~/shared/theme/tokens.stylex';
 import type { WithStyleX } from '~/shared/theme/type';
 
 type Variant =
@@ -56,39 +56,39 @@ const styles = stylex.create({
 		margin: 0,
 		padding: 0,
 		color: colors.textPrimary,
-		fontFamily: base.fontFamilyText,
+		fontFamily: fontFamilies.text,
 		display: 'inline-block',
 		textDecoration: 'none',
 	},
 	caption: {
-		fontSize: base.captionFontSize,
+		fontSize: fontSizes.caption,
 	},
 	body: {
-		fontSize: base.bodyFontSize,
+		fontSize: fontSizes.body,
 		// lineHeight: 1.5,
 	},
 	bodyStrong: {
-		fontSize: base.bodyFontSize,
+		fontSize: fontSizes.body,
 		// lineHeight: 1.5,
 	},
 	bodyLarge: {
-		fontSize: base.bodyLargeFontSize,
+		fontSize: fontSizes.bodyLarge,
 		// lineHeight: 1.5,
 	},
 	subtitle: {
-		fontSize: base.subtitleFontSize,
+		fontSize: fontSizes.subtitle,
 		// lineHeight: 1.5,
 	},
 	title: {
-		fontSize: base.titleFontSize,
+		fontSize: fontSizes.title,
 		// lineHeight: 1.5,
 	},
 	titleLarge: {
-		fontSize: base.titleLargeFontSize,
+		fontSize: fontSizes.titleLarge,
 		// lineHeight: 1.5,
 	},
 	display: {
-		fontSize: base.displayFontSize,
+		fontSize: fontSizes.display,
 		// lineHeight: 1.5,
 	},
 });

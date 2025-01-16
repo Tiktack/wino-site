@@ -44,12 +44,12 @@
 .progressBarTrack {
 	height: 3px;
 	max-width: 50%;
-	transition: var(--control-fast-duration) linear fill;
+	/* transition: var(--control-fast-duration) linear fill; */
 	fill: var(--accent-default);
 }
 
 .progressBarRail {
-	fill: var(--control-strong-stroke-default);
+	/* fill: var(--control-strong-stroke-default); */
 	width: 100%;
 	height: 1px;
 }

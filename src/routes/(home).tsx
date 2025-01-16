@@ -15,7 +15,7 @@ import { FluentIcon } from '~/components/FluentIcon';
 import { Button } from '~/components/core/Button/Button';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { ThemeContext } from '~/shared/theme/context';
-import { base, colors } from '~/shared/theme/tokens.stylex';
+import { SCREEN_SIZE, colors, shadows } from '~/shared/theme/tokens.stylex';
 import winoAppDark from '../../public/wino-app-dark.webp';
 import winoAppLight from '../../public/wino-app-light.webp';
 
@@ -170,12 +170,12 @@ export default function HomePage() {
 
 const styles = stylex.create({
 	main: {
+		position: 'relative',
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
 		justifyContent: 'center',
 		gap: '1rem',
-		color: 'white',
 	},
 	container: {
 		padding: '2rem',
@@ -201,6 +201,7 @@ const styles = stylex.create({
 		width: '100%',
 		height: {
 			default: '800px',
+			// [SCREEN_SIZE.sm]: '250px',
 			'@media (max-width: 480px)': '250px',
 		},
 		display: 'flex',
@@ -213,7 +214,7 @@ const styles = stylex.create({
 		width: '100%',
 		maxWidth: '1100px',
 		borderRadius: '0.5rem',
-		boxShadow: base.cardShadow,
+		boxShadow: shadows.card,
 		transition: 'all 0.7s ease-in-out',
 		cursor: 'pointer',
 		'@media (max-width: 480px)': {
@@ -259,7 +260,7 @@ const styles = stylex.create({
 		transition: 'transform 0.2s',
 		':hover': {
 			transform: 'translateY(-5px)',
-			boxShadow: base.cardShadow,
+			boxShadow: shadows.card,
 		},
 	},
 	featureIcon: {

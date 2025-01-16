@@ -1,7 +1,13 @@
 import * as stylex from '@stylexjs/stylex';
 import type { Component, JSX } from 'solid-js';
 import { resolvePath } from '~/shared/lib/resolvePath';
-import { base, colors } from '~/shared/theme/tokens.stylex';
+import {
+	colors,
+	cornerRadii,
+	durations,
+	fontFamilies,
+	fontSizes,
+} from '~/shared/theme/tokens.stylex';
 
 export const components = {
 	img: (props: JSX.ImgHTMLAttributes<HTMLImageElement>) => (
@@ -30,26 +36,26 @@ export const components = {
 
 const styles = stylex.create({
 	base: {
-		fontFamily: base.fontFamilyText,
+		fontFamily: fontFamilies.text,
 		lineHeight: 1.6,
 		color: colors.textPrimary,
 	},
 	h1: {
-		fontSize: base.titleLargeFontSize,
+		fontSize: fontSizes.titleLarge,
 		marginBlock: '2rem 1rem',
-		fontFamily: base.fontFamilyDisplay,
+		fontFamily: fontFamilies.display,
 	},
 	h2: {
-		fontSize: base.titleFontSize,
+		fontSize: fontSizes.title,
 		marginBlock: '1.5rem 1rem',
-		fontFamily: base.fontFamilyDisplay,
+		fontFamily: fontFamilies.display,
 	},
 	h3: {
-		fontSize: 'var(--subtitle-font-size)',
+		fontSize: fontSizes.subtitle,
 		marginBlock: '1.25rem 0.75rem',
 	},
 	p: {
-		fontSize: base.bodyFontSize,
+		fontSize: fontSizes.body,
 		margin: 0,
 	},
 	ulOl: {
@@ -63,8 +69,8 @@ const styles = stylex.create({
 		backgroundColor: colors.subtleFillTransparent,
 		textDecoration: 'none',
 		color: colors.accentTextPrimary,
-		borderRadius: base.controlCornerRadius,
-		transition: 'var(--control-faster-duration) ease background',
+		borderRadius: cornerRadii.control,
+		transition: `${durations.faster} ease background`,
 		cursor: 'pointer',
 		':hover': {
 			backgroundColor: colors.subtleFillSecondary,
@@ -80,7 +86,7 @@ const styles = stylex.create({
 	img: {
 		maxWidth: '100%',
 		height: 'auto',
-		borderRadius: base.overlayCornerRadius,
+		borderRadius: cornerRadii.overlay,
 		display: 'block',
 		marginBlock: '1rem',
 	},

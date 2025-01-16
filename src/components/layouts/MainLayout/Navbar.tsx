@@ -10,7 +10,7 @@ import { FluentIcon } from '~/components/FluentIcon';
 import { IconButton } from '~/components/core/IconButton/IconButton';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { ThemeContext } from '~/shared/theme/context';
-import { base, colors } from '~/shared/theme/tokens.stylex';
+import { colors, cornerRadii, durations } from '~/shared/theme/tokens.stylex';
 import discordLogo from '../../../../public/discord-logo.svg?raw';
 import githubLogo from '../../../../public/github-logo.svg?raw';
 import logo from '../../../../public/logo.png';
@@ -145,12 +145,11 @@ const styles = stylex.create({
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		borderRadius: base.controlCornerRadius,
+		borderRadius: cornerRadii.control,
 		position: 'relative',
 		textDecoration: 'none',
 		color: colors.textPrimary,
-		transition:
-			'var(--control-fast-duration) var(--control-fast-out-slow-in-easing)',
+		transition: `${durations.fast} var(--control-fast-out-slow-in-easing)`,
 		padding: '5px 11px',
 		columnGap: '4px',
 		':hover': {

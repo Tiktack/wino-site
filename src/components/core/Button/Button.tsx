@@ -3,7 +3,12 @@ import type { PolymorphicProps } from '@kobalte/core/polymorphic';
 import * as stylex from '@stylexjs/stylex';
 import type { JSX, ValidComponent } from 'solid-js';
 import { splitProps } from 'solid-js';
-import { base, colors } from '~/shared/theme/tokens.stylex';
+import {
+	colors,
+	cornerRadii,
+	durations,
+	fontSizes,
+} from '~/shared/theme/tokens.stylex';
 import type { WithStyleX } from '~/shared/theme/type';
 
 type ButtonProps<T extends ValidComponent = 'button'> =
@@ -41,11 +46,11 @@ const styles = stylex.create({
 		outline: 'none',
 		cursor: 'default',
 		width: 'fit-content',
-		fontSize: base.bodyFontSize,
-		borderRadius: base.controlCornerRadius,
-		transition: 'var(--control-faster-duration) ease background',
+		fontSize: fontSizes.body,
+		borderRadius: cornerRadii.control,
+		transition: `${durations.faster} ease background`,
 		':focus-visible': {
-			boxShadow: 'var(--focus-stroke)',
+			boxShadow: colors.focusStroke,
 		},
 		':disabled': {
 			pointerEvents: 'none',
@@ -54,40 +59,40 @@ const styles = stylex.create({
 	standard: {
 		border: '1px solid',
 		borderColor: 'var(--control-border-default)',
-		backgroundColor: 'var(--control-fill-default)',
+		backgroundColor: colors.controlFillDefault,
 		color: colors.textPrimary,
 		backgroundClip: 'padding-box',
 		':hover': {
-			backgroundColor: 'var(--control-fill-secondary)',
+			backgroundColor: colors.controlFillSecondary,
 		},
 		':active': {
-			borderColor: 'var(--control-stroke-default)',
-			backgroundColor: 'var(--control-fill-tertiary)',
+			borderColor: colors.controlStrokeDefault,
+			backgroundColor: colors.controlFillTertiary,
 			color: colors.textSecondary,
 		},
 		':disabled': {
-			borderColor: 'var(--control-stroke-default)',
-			backgroundColor: 'var(--control-fill-disabled)',
+			borderColor: colors.controlStrokeDefault,
+			backgroundColor: colors.controlFillDisabled,
 			color: colors.textDisabled,
 		},
 	},
 	accent: {
-		border: '1px solid var(--control-stroke-on-accent-default)',
-		borderBottomColor: 'var(--control-stroke-on-accent-secondary)',
+		border: `1px solid ${colors.controlStrokeOnAccentDefault}`,
+		borderBottomColor: colors.controlStrokeOnAccentSecondary,
 		backgroundColor: colors.accentDefault,
 		color: colors.textOnAccentPrimary,
-		transition: 'var(--control-faster-duration) ease border-color',
+		transition: `${durations.faster} ease border-color`,
 		':hover': {
 			backgroundColor: colors.accentSecondary,
 		},
 		':active': {
-			borderColor: 'var(--control-stroke-on-accent-tertiary)',
+			borderColor: colors.controlStrokeOnAccentTertiary,
 			backgroundColor: colors.accentTertiary,
 			color: colors.textOnAccentSecondary,
 		},
 		':disabled': {
-			borderColor: 'var(--control-stroke-on-accent-default)',
-			backgroundColor: 'var(--control-fill-disabled)',
+			borderColor: colors.controlStrokeOnAccentDefault,
+			backgroundColor: colors.controlFillDisabled,
 			color: colors.textOnAccentDisabled,
 		},
 	},

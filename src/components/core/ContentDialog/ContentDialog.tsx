@@ -1,7 +1,7 @@
 import { Dialog as KDialog } from '@kobalte/core';
 import * as stylex from '@stylexjs/stylex';
 import { type Component, type JSX, Show } from 'solid-js';
-import { base, colors } from '~/shared/theme/tokens.stylex';
+import { colors, cornerRadii, shadows } from '~/shared/theme/tokens.stylex';
 import { TextBlock } from '../TextBlock/TextBlock';
 
 interface DialogProps {
@@ -75,10 +75,10 @@ const styles = stylex.create({
 	content: {
 		position: 'fixed',
 		maxWidth: 'calc(100% - 24px)',
-		borderRadius: base.overlayCornerRadius,
+		borderRadius: cornerRadii.overlay,
 		backgroundColor: colors.solidBackgroundBase,
 		backgroundClip: 'padding-box',
-		boxShadow: base.dialogShadow,
+		boxShadow: shadows.dialog,
 		border: '1px solid var(--surface-stroke-default)',
 		overflow: 'hidden',
 	},
@@ -98,7 +98,8 @@ const styles = stylex.create({
 		gridAutoRows: '1fr',
 		gridAutoFlow: 'column',
 		gap: '8px',
-		borderTop: '1px solid var(--card-stroke-default)',
+		borderTop: '1px solid',
+		borderColor: colors.cardStrokeDefault,
 		whiteSpace: 'nowrap',
 	},
 });

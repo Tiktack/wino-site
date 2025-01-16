@@ -1,7 +1,7 @@
 import * as stylex from '@stylexjs/stylex';
 import { format } from 'date-fns';
 import { DateFormatToken } from '~/shared/lib/date';
-import { base, colors } from '~/shared/theme/tokens.stylex';
+import { colors, shadows } from '~/shared/theme/tokens.stylex';
 import { TextBlock } from './core/TextBlock/TextBlock';
 
 interface BlogCardProps {
@@ -44,13 +44,13 @@ const styles = stylex.create({
 		justifyContent: 'start',
 		borderRadius: '0.5rem',
 		background: colors.cardBackgroundDefault,
-		boxShadow: base.cardShadow,
+		boxShadow: shadows.card,
 		transition: 'transform 200ms',
 		height: '100%',
 		overflow: 'hidden',
 		':hover': {
 			transform: 'translateY(-5px)',
-			boxShadow: base.cardShadow,
+			boxShadow: shadows.card,
 		},
 	},
 	image: (slug: string) => ({
