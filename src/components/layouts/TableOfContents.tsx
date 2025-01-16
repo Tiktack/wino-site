@@ -3,6 +3,7 @@ import {
 	type ChildrenReturn,
 	type Component,
 	For,
+	createEffect,
 	createMemo,
 	createSignal,
 	onCleanup,
@@ -65,11 +66,15 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 			);
 	}
 
+	createEffect(() => {
+		// Trigger heading selection whenever headings change
+		if (headings().length > 0) {
+			handleScroll();
+		}
+	});
+
 	onMount(() => {
 		window.addEventListener('scroll', handleScroll);
-
-		// Highlight the first heading when the page loads
-		handleScroll();
 
 		onCleanup(() => {
 			window.removeEventListener('scroll', handleScroll);
