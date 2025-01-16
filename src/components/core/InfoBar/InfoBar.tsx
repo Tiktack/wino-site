@@ -7,7 +7,13 @@ import {
 	createEffect,
 	createSignal,
 } from 'solid-js';
-import { base, colors } from '~/shared/theme/tokens.stylex';
+import {
+	colors,
+	cornerRadii,
+	durations,
+	fontFamilies,
+	fontSizes,
+} from '~/shared/theme/tokens.stylex';
 import { InfoBadge } from '../InfoBadge/InfoBadge';
 
 type Severity =
@@ -97,9 +103,9 @@ const styles = stylex.create({
 		boxSizing: 'border-box',
 		userSelect: 'none',
 		backgroundClip: 'padding-box',
-		fontFamily: base.fontFamilyText,
-		border: '1px solid var(--card-stroke-default)',
-		borderRadius: base.controlCornerRadius,
+		fontFamily: fontFamilies.text,
+		border: `1px solid ${colors.cardStrokeDefault}`,
+		borderRadius: cornerRadii.control,
 	},
 	icon: {
 		alignSelf: 'flex-start',
@@ -122,7 +128,7 @@ const styles = stylex.create({
 		color: colors.textPrimary,
 		margin: 0,
 		lineHeight: '20px',
-		fontSize: base.bodyFontSize,
+		fontSize: fontSizes.body,
 		fontWeight: 600,
 		marginInlineEnd: '12px',
 	},
@@ -130,7 +136,7 @@ const styles = stylex.create({
 		color: colors.textPrimary,
 		margin: 0,
 		lineHeight: '20px',
-		fontSize: base.bodyFontSize,
+		fontSize: fontSizes.body,
 		fontWeight: 400,
 		flex: '1 1 auto',
 		marginInlineEnd: '15px',
@@ -148,12 +154,11 @@ const styles = stylex.create({
 		blockSize: '38px',
 		margin: '4px',
 		color: colors.textPrimary,
-		borderRadius: base.controlCornerRadius,
+		borderRadius: cornerRadii.control,
 		backgroundColor: colors.subtleFillTransparent,
-		transition:
-			'var(--control-fast-duration) var(--control-fast-out-slow-in-easing)',
+		transition: `${durations.fast} var(--control-fast-out-slow-in-easing)`,
 		':focus-visible': {
-			boxShadow: 'var(--focus-stroke)',
+			boxShadow: colors.focusStroke,
 		},
 		':hover': {
 			backgroundColor: colors.subtleFillSecondary,
