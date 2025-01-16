@@ -5,8 +5,9 @@ import type {
 	CollapsibleTriggerRenderProps,
 } from '@kobalte/core/collapsible';
 import { A, useLocation } from '@solidjs/router';
+import { clientOnly } from '@solidjs/start';
 import * as stylex from '@stylexjs/stylex';
-import type { ComponentProps, JSX } from 'solid-js';
+import { type ComponentProps, type JSX, children } from 'solid-js';
 import { FluentIcon } from '~/components/FluentIcon';
 import {
 	Collapsible,
@@ -27,8 +28,15 @@ interface SidebarLayoutProps {
 	routes: Route[];
 }
 
+const TableOfContents = clientOnly(() =>
+	import('~/components/layouts/TableOfContents').then((mod) => ({
+		default: mod.TableOfContents,
+	})),
+);
+
 export const SidebarLayout = (props: SidebarLayoutProps) => {
 	const location = useLocation();
+	const resolved = children(() => props.children);
 
 	const traverseRoutes = (routes: Route[], level: number) => {
 		return routes.reduce(
@@ -92,7 +100,10 @@ export const SidebarLayout = (props: SidebarLayoutProps) => {
 				{traverseRoutes(props.routes, 0)}
 			</div>
 
-			<div {...stylex.attrs(styles.content)}>{props.children}</div>
+			<div {...stylex.attrs(styles.content)}>{resolved()}</div>
+			<div {...stylex.attrs(styles.tableOfContents)}>
+				<TableOfContents childrenReturn={resolved} />
+			</div>
 		</main>
 	);
 };
@@ -103,6 +114,8 @@ const styles = stylex.create({
 		width: '100%',
 		height: '100%',
 		minHeight: '100vh',
+		maxWidth: '1600px', // Added to contain the total width
+		margin: '0 auto', // Center the layout
 	},
 	sidebar: {
 		display: 'flex',
@@ -111,6 +124,7 @@ const styles = stylex.create({
 		flexDirection: 'column',
 		gap: '0.4rem',
 		width: '300px',
+		flexShrink: 0, // Prevent sidebar from shrinking
 		padding: '1rem',
 		'@media (max-width: 768px)': {
 			display: 'none',
@@ -120,9 +134,22 @@ const styles = stylex.create({
 		flex: '1 1 auto',
 		padding: '0 2rem',
 		minWidth: 0,
-		maxWidth: 'calc(100% - 300px)', // Ensure it doesn't overflow when table of contents is hidden
+		maxWidth: '1000px', // Set max width for content
+		margin: '0 auto', // Center the content
 		'@media (max-width: 768px)': {
 			maxWidth: '100%',
+			padding: '0 1rem',
+		},
+	},
+	tableOfContents: {
+		width: '300px',
+		padding: '2rem',
+		flexShrink: 0, // Prevent shrinking
+		position: 'sticky',
+		top: '5rem',
+		height: 'fit-content',
+		'@media (max-width: 1024px)': {
+			display: 'none',
 		},
 	},
 	triggerContent: {

@@ -109,7 +109,7 @@ const styles = stylex.create({
 	},
 	content: {
 		display: 'flex',
-		alignItems: 'center',
+		alignItems: 'flex-start', // Changed from 'center' to 'flex-start'
 		flexWrap: 'wrap',
 		position: 'relative',
 		boxSizing: 'border-box',
