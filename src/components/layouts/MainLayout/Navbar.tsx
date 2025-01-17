@@ -10,7 +10,12 @@ import { FluentIcon } from '~/components/FluentIcon';
 import { IconButton } from '~/components/core/IconButton/IconButton';
 import { TextBlock } from '~/components/core/TextBlock/TextBlock';
 import { ThemeContext } from '~/shared/theme/context';
-import { colors, cornerRadii, durations } from '~/shared/theme/tokens.stylex';
+import {
+	colors,
+	cornerRadii,
+	durations,
+	easings,
+} from '~/shared/theme/tokens.stylex';
 import discordLogo from '../../../../public/discord-logo.svg?raw';
 import githubLogo from '../../../../public/github-logo.svg?raw';
 import logo from '../../../../public/logo.png';
@@ -121,7 +126,7 @@ const styles = stylex.create({
 		inlineSize: '100%',
 		minBlockSize: '56px',
 		boxSizing: 'border-box',
-		borderBottom: '1px solid var(--surface-stroke-flyout)',
+		borderBottom: `1px solid ${colors.surfaceStrokeFlyout}`,
 		backgroundColor: colors.layerBackgroundDefault,
 		backgroundClip: 'padding-box',
 		backdropFilter: 'blur(60px)',
@@ -149,7 +154,7 @@ const styles = stylex.create({
 		position: 'relative',
 		textDecoration: 'none',
 		color: colors.textPrimary,
-		transition: `${durations.fast} var(--control-fast-out-slow-in-easing)`,
+		transition: `${durations.fast} ${easings.controlFastOutSlowIn}`,
 		padding: '5px 11px',
 		columnGap: '4px',
 		':hover': {

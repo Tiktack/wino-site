@@ -45,7 +45,7 @@
 	height: 3px;
 	max-width: 50%;
 	/* transition: var(--control-fast-duration) linear fill; */
-	fill: var(--accent-default);
+	/* fill: var(--accent-default); */
 }
 
 .progressBarRail {

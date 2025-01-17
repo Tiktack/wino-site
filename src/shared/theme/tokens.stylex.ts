@@ -48,6 +48,10 @@ export const durations = stylex.defineVars({
 	faster: '83ms',
 });
 
+export const easings = stylex.defineVars({
+	controlFastOutSlowIn: 'cubic-bezier(0, 0, 0, 1)',
+});
+
 const colorTokens = {
 	/* Text */
 	textPrimary: 'hsla(0, 0%, 0%, 89.56%)',
@@ -93,7 +97,7 @@ const colorTokens = {
 	cardStrokeDefault: 'hsla(0, 0%, 0%, 5.78%)',
 	// cardStrokeDefaultSolid: 'hsl(0, 0%, 92%)',
 
-	// Control Fill
+	/* Control Fill */
 	// controlFillTransparent: 'transparent',
 	controlFillDefault: 'hsla(0, 0%, 100%, 70%)',
 	controlFillSecondary: 'hsla(0, 0%, 98%, 50%)',
@@ -101,44 +105,44 @@ const colorTokens = {
 	controlFillDisabled: 'hsla(0, 0%, 98%, 30%)', // Same as tertiary
 	// controlFillInputActive: 'hsl(0, 0%, 100%)',
 
-	// Control Strong Fill
+	/* Control Strong Fill */
 	// controlStrongFillDefault: 'hsla(0, 0%, 0%, 44.58%)',
 	// controlStrongFillDisabled: 'hsla(0, 0%, 0%, 31.73%)',
 
-	// Control Solid Fill
+	/* Control Solid Fill */
 	// controlSolidFillDefault: 'hsl(0, 0%, 100%)',
 
-	// Control Alt Fill
+	/* Control Alt Fill */
 	// controlAltFillTransparent: 'transparent',
 	// controlAltFillSecondary: 'hsla(0, 0%, 0%, 2.41%)',
 	// controlAltFillTertiary: 'hsla(0, 0%, 0%, 5.78%)',
 	// controlAltFillQuarternary: 'hsla(0, 0%, 0%, 9.24%)',
 	// controlAltFillDisabled: 'transparent',
 
-	// Control on Image Fill
+	/* Control on Image Fill */
 	// controlOnImageFillDefault: 'hsla(0, 0%, 100%, 79%)',
 	// controlOnImageFillSecondary: 'hsl(0, 0%, 95%)',
 	// controlOnImageFillTertiary: 'hsl(0, 0%, 92%)',
 	// controlOnImageFillDisabled: 'transparent',
 
-	// Control Stroke
+	/* Control Stroke */
 	controlStrokeDefault: 'hsla(0, 0%, 0%, 5.78%)',
 	// controlStrokeSecondary: 'hsla(0, 0%, 0%, 16.22%)',
 
-	// Control Strong Stroke
+	/* Control Strong Stroke */
 	controlStrongStrokeDefault: 'hsla(0, 0%, 0%, 44.58%)',
 	// controlStrongStrokeDisabled: 'hsla(0, 0%, 0%, 21.69%)',
 
-	// Control Stroke on Accent
+	/* Control Stroke on Accent */
 	controlStrokeOnAccentDefault: 'hsla(0, 0%, 100%, 8%)',
 	controlStrokeOnAccentSecondary: 'hsla(0, 0%, 0%, 40%)',
 	controlStrokeOnAccentTertiary: 'hsla(0, 0%, 0%, 21.69%)',
 	// controlStrokeOnAccentDisabled: 'hsla(0, 0%, 100%, 8%)',
 
-	// Control Strong Stroke on Image
+	/* Control Strong Stroke on Image */
 	// controlStrongStrokeOnImageDefault: 'hsla(0, 0%, 100%, 35%)',
 
-	// Surface Stroke
+	/* Surface Stroke */
 	surfaceStrokeDefault: 'hsla(0, 0%, 46%, 40%)',
 	surfaceStrokeFlyout: 'hsla(0, 0%, 0%, 5.78%)',
 
@@ -172,9 +176,12 @@ const colorTokens = {
 	/* Divider Stroke */
 	dividerStrokeDefault: 'hsla(0, 0%, 0%, 8.03%)',
 
-	// Focus Stroke
-	// TODO: move to `shadows`
+	/* Focus Stroke */
+	// TODO: move to `shadows`?
 	focusStroke: '0 0 0 1px hsl(0, 0%, 100%), 0 0 0 3px hsla(0, 0%, 0%, 89.56%)',
+
+	/* Control Borders */
+	controlBorderDefault: 'hsla(0, 0%, 0%, 5.78%)',
 };
 
 export const colors = stylex.defineVars(colorTokens);
@@ -281,4 +288,6 @@ export const darkTheme = stylex.createTheme(colors, {
 	dividerStrokeDefault: 'hsla(0, 0%, 100%, 8.37%)',
 
 	focusStroke: '0 0 0 1px hsla(0, 0%, 0%, 70%), 0 0 0 3px hsl(0, 0%, 100%)',
+
+	controlBorderDefault: 'hsla(0, 0%, 100%, 6.98%)',
 } satisfies typeof colorTokens);

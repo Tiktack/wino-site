@@ -1,5 +1,4 @@
 import './app.css';
-import './components/theme.css';
 
 import { MetaProvider, Title } from '@solidjs/meta';
 import { Router } from '@solidjs/router';

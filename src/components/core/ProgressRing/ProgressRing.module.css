@@ -25,7 +25,7 @@
 	transform-origin: 50% 50%;
 	/* transition: all var(--control-normal-duration) linear; */
 	fill: none;
-	stroke: var(--accent-default);
+	/* stroke: var(--accent-default); */
 	stroke-width: 1.5;
 	stroke-linecap: round;
 	stroke-dasharray: 43.97;

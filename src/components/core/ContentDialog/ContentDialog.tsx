@@ -79,7 +79,7 @@ const styles = stylex.create({
 		backgroundColor: colors.solidBackgroundBase,
 		backgroundClip: 'padding-box',
 		boxShadow: shadows.dialog,
-		border: '1px solid var(--surface-stroke-default)',
+		border: `1px solid ${colors.surfaceStrokeDefault}`,
 		overflow: 'hidden',
 	},
 	content2: {

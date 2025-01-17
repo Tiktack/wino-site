@@ -12,6 +12,7 @@ import {
 	colors,
 	cornerRadii,
 	durations,
+	easings,
 	fontSizes,
 } from '~/shared/theme/tokens.stylex';
 import type { WithStyleX } from '~/shared/theme/type';
@@ -105,7 +106,7 @@ const styles = stylex.create({
 			position: 'absolute',
 			borderRadius: '3px',
 			backgroundColor: colors.accentDefault,
-			transition: `transform ${durations.fast} var(--control-fast-out-slow-in-easing)`,
+			transition: `transform ${durations.fast} ${easings.controlFastOutSlowIn}`,
 			opacity: '0',
 			insetInlineStart: '0',
 			inlineSize: '3px',

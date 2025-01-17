@@ -36,12 +36,12 @@
 }
 
 .switch[data-checked] .control {
-	background-color: var(--accent-default);
+	/* background-color: var(--accent-default); */
 	border-color: transparent;
 }
 
 .switch[data-checked]:hover .control {
-	background-color: var(--accent-secondary);
+	/* background-color: var(--accent-secondary); */
 }
 
 .thumb {
@@ -55,7 +55,7 @@
 }
 
 .switch[data-checked] .thumb {
-	background-color: var(--text-on-accent-primary);
+	/* background-color: var(--text-on-accent-primary); */
 	transform: translateX(20px);
 }
 

@@ -73,7 +73,7 @@
 .control[data-checked],
 .control[data-indeterminate] {
 	border: none;
-	background-color: var(--accent-default);
+	/* background-color: var(--accent-default); */
 	/* color: var(--accent-default); */
 }
 
@@ -109,7 +109,7 @@
 .checkboxGlyph {
 	block-size: 12px;
 	color: inherit;
-	color: var(--text-on-accent-primary);
+	/* color: var(--text-on-accent-primary); */
 	inline-size: 12px;
 	position: absolute;
 }

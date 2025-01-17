@@ -11,6 +11,7 @@ import {
 	colors,
 	cornerRadii,
 	durations,
+	easings,
 	fontFamilies,
 	fontSizes,
 } from '~/shared/theme/tokens.stylex';
@@ -156,7 +157,7 @@ const styles = stylex.create({
 		color: colors.textPrimary,
 		borderRadius: cornerRadii.control,
 		backgroundColor: colors.subtleFillTransparent,
-		transition: `${durations.fast} var(--control-fast-out-slow-in-easing)`,
+		transition: `${durations.fast} ${easings.controlFastOutSlowIn}`,
 		':focus-visible': {
 			boxShadow: colors.focusStroke,
 		},
