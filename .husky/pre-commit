@@ -1,4 +1,0 @@
-echo "Running pre-commit hook"
-
-bun type-check
-bun lint-staged

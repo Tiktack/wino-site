@@ -2,18 +2,18 @@ import { clientOnly } from '@solidjs/start';
 import * as stylex from '@stylexjs/stylex';
 import { type Component, type JSX, Match, Switch, children } from 'solid-js';
 
+const TableOfContents = clientOnly(() =>
+	import('./TableOfContents').then((mod) => ({
+		default: mod.TableOfContents,
+	})),
+);
+
 type MdxLayoutProps = {
 	layout?: Component<{
 		children: JSX.Element;
 	}>;
 	children: JSX.Element;
 };
-
-const TableOfContents = clientOnly(() =>
-	import('~/components/layouts/TableOfContents').then((mod) => ({
-		default: mod.TableOfContents,
-	})),
-);
 
 export default function MdxLayout(props: MdxLayoutProps) {
 	const resolved = children(() => props.children);
@@ -24,9 +24,9 @@ export default function MdxLayout(props: MdxLayoutProps) {
 			<div {...stylex.attrs(styles.content)}>
 				<Switch>
 					<Match when={props.layout}>
-						{props.layout && <props.layout>{resolved()} </props.layout>}
+						{props.layout && <props.layout>{resolved()}</props.layout>}
 					</Match>
-					<Match when={props.layout === undefined}>{resolved()}</Match>
+					<Match when={!props.layout}>{resolved()}</Match>
 				</Switch>
 			</div>
 			<div {...stylex.attrs(styles.tableOfContents)}>

@@ -91,7 +91,7 @@ export const TableOfContents: Component<TableOfContentsProps> = (props) => {
 						{(heading) => (
 							<ListItem
 								onClick={() => handleClick(heading.id)}
-								style={[styles.item]}
+								style={styles.item}
 								hierarchyLevel={heading.level - highestLevel()}
 								selected={heading.id === activeId()}
 							>

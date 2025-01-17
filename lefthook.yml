@@ -1,0 +1,18 @@
+pre-commit:
+  parallel: true
+  commands:
+    type-check:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: "bun run type-check"
+    lint:
+      glob: "*.{js,ts,jsx,tsx}"
+      # TODO: for some reason, this solution for escaping file names doesn't work
+      # https://github.com/evilmartians/lefthook/issues/786#issuecomment-2258036866
+      # So, custom script for escaping file names is used
+      run: >
+        for file in {staged_files}; do
+          escaped_file=$(printf '%q ' "$file");
+          files_to_check="$files_to_check $escaped_file";
+        done;
+        bun run lint $files_to_check;
+      stage_fixed: true
